@@ -1,14 +1,14 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "ARTA E-CMS",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
+    "primary": "#1437a2",
+    "light": "#1437a2",
     "dark": "#0D001D",
     "background": {
       "dark": "#090014"
@@ -21,7 +21,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:codeitlikemiley@gmail.com"
     }
   ],
   "topbarCtaButton": {
