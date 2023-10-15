@@ -14,8 +14,8 @@
       "dark": "#090014"
     },
     "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+      "from": "#be2a2c",
+      "to": "#1334a3"
     }
   },
   "topbarLinks": [
@@ -36,19 +36,9 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "Doc Repository",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://github.com/codeitlikemiley/arta-ecms-docs"
     }
   ],
   "navigation": [
@@ -75,8 +65,7 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "github": "https://github.com/codeitlikemiley",
+    "linkedin": "https://www.linkedin.com/in/uriahg"
   }
 }
