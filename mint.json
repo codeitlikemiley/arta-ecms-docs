@@ -19,8 +19,18 @@
     }
   },
   "topAnchor": {
+    "name": "System Design and Architecture",
+    "icon": "chart-tree-map"
+  },
+  "primaryTab": {
     "name": "System Design and Architecture"
   },
+  "tabs": [
+    {
+      "name": "Figma Design System",
+      "url": "https://www.figma.com/file/JhYM9HkSFKFpie0m0o6Xzy/ARTA-DESIGN-SYSTEM?type=design&node-id=916-5781&mode=design&t=rrfB1hh3sYAj5ugG-0"
+    }
+  ],
   "anchors": [
     {
       "name": "Services",
@@ -41,16 +51,6 @@
       "name": "Infrastructure",
       "icon": "cloudflare",
       "url": "infrastructure"
-    },
-    {
-      "name": "Github",
-      "icon": "code-branch",
-      "url": "https://github.com/codeitlikemiley/arta-ecms-docs"
-    },
-    {
-      "name": "Figma Design System",
-      "icon": "figma",
-      "url": "https://www.figma.com/file/JhYM9HkSFKFpie0m0o6Xzy/ARTA-DESIGN-SYSTEM?type=design&node-id=916-5781&mode=design&t=rrfB1hh3sYAj5ugG-0"
     }
   ],
   "navigation": [
