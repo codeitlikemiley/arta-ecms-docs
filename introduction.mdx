@@ -1,71 +1,62 @@
 ---
 title: Introduction
-description: "Welcome to the home of your new documentation"
+description: "System Design and Architecture for ARTA Electronic Complaint Management System"
 ---
 
 <img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
+  src="/images/blueprint.webp"
   alt="Hero Light"
 />
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
 
-## Setting up
+The Electronic Complaint Management System (E-CMS) is designed to be a robust, scalable, and secure platform for handling customer complaints efficiently.
 
-The first step to world-class documentation is setting up your editing environnments.
+The architecture is optimized for performance and ensures that the system is not locked into any specific vendor.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+This document outlines the system's design and architecture, divided into four main sections: Services, Processes, Application, and Infrastructure.
 
-## Make it yours
+<AccordionGroup>
+  <Accordion icon="github" title="Run This Documentation Locally">
+
+    Requirements:
+
+    - [NodeJS](https://nodejs.org/en)
+    - [Git](https://git-scm.com)
+
+    Clone the repository
+
+    ```sh
+    git clone https://github.com/codeitlikemiley/arta-ecms-docs
+    ```
+
+    Install Mintlify
+    ```sh
+    npm i -g mintlify
+    ```
+
+    Run Locally
+    ```sh
+    cd arta-ecms-docs
+    mintlify dev
+    ```
+
+  </Accordion>
+</AccordionGroup>
+
+## Sections
 
 Update your docs to your brand and add valuable content for the best user conversion.
 
 <CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
+  <Card title="Services" icon="square-1" href="/services">
+    List of GRPC Service Definitions That would to exchange data and trigger actions seamlessly.
   </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
+  <Card title="Processes" icon="square-2" href="/processes">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit
   </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
+  <Card title="Application" icon="square-3" href="/application">
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco
   </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/showcase"
-  >
-    Check out our showcase of our favorite documentation
+  <Card title="Infrastructure" icon="square-4" href="/infrastructure">
+    Excepteur sint occaecat cupidatat non proident
   </Card>
 </CardGroup>

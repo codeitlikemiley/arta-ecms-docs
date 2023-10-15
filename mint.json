@@ -18,54 +18,78 @@
       "to": "#1334a3"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:codeitlikemiley@gmail.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+
   "anchors": [
     {
-      "name": "Doc Repository",
-      "icon": "book-open-cover",
+      "name": "Services",
+      "icon": "cubes",
+      "url": "services"
+    },
+    {
+      "name": "Processes",
+      "icon": "brain-circuit",
+      "url": "processes"
+    },
+    {
+      "name": "Application",
+      "icon": "rocket-launch",
+      "url": "application"
+    },
+    {
+      "name": "Infrastructure",
+      "icon": "cloudflare",
+      "url": "infrastructure"
+    },
+    {
+      "name": "Github",
+      "icon": "code-branch",
       "url": "https://github.com/codeitlikemiley/arta-ecms-docs"
+    },
+    {
+      "name": "Figma Design System",
+      "icon": "figma",
+      "url": "https://www.figma.com/file/JhYM9HkSFKFpie0m0o6Xzy/ARTA-DESIGN-SYSTEM?type=design&node-id=916-5781&mode=design&t=rrfB1hh3sYAj5ugG-0"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "System Design and Architecture",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "introduction",
+        "sections"
+      ]
+    },
+    {
+      "group": "Services",
+      "pages": [
+        "services/index",
+        "services/auth-service",
+        "services/roles-and-permissions-service",
+        "services/user-service"
+      ]
+    },
+    {
+      "group": "Processes",
+      "pages": [
+        "processes/index",
+        "processes/data-gathering"
+      ]
+    },
+    {
+      "group": "Application",
+      "pages": [
+        "application/index"
+      ]
+    },
+    {
+      "group": "Infrastructure",
+      "pages": [
+        "infrastructure/index"
       ]
     }
   ],
   "footerSocials": {
-    "github": "https://github.com/codeitlikemiley",
-    "linkedin": "https://www.linkedin.com/in/uriahg"
+    "github": "https://github.com/codeitlikemiley/arta-ecms-docs",
+    "linkedin": "https://www.linkedin.com/company/artagovph"
   }
 }
