@@ -1,3 +1,173 @@
 ---
-title: Auth Service
+title: Auth
 ---
+
+### Auth Service
+
+#### Summary
+
+The AuthService microservice handles all user authentication and security-related operations for the application. It offers functionalities such as login, refresh token, logout, signup, email verification, password recovery, and two-factor authentication.
+
+#### Endpoints
+
+1. **Login**
+    - **Purpose**: Authenticate a user.
+    - **Request Parameters**:
+        - `username` (string): Username for login.
+        - `password` (string): Password for login.
+    - **Response**: Access and refresh tokens.
+
+2. **RefreshToken**
+    - **Purpose**: Refresh the JWT access token.
+    - **Request Parameters**:
+        - `refresh_token` (string): The refresh token.
+    - **Response**: New access token.
+
+3. **Logout**
+    - **Purpose**: Log the user out and invalidate the token.
+    - **Request Parameters**:
+        - `access_token` (string): The token to be invalidated.
+    - **Response**: Success status.
+
+4. **Signup**
+    - **Purpose**: Register a new user.
+    - **Request Parameters**:
+        - `username` (string): Desired username.
+        - `email` (string): Email address.
+        - `password` (string): Password.
+    - **Response**: User ID and email verification token.
+
+5. **VerifyEmail**
+    - **Purpose**: Confirm a user's email address.
+    - **Request Parameters**:
+        - `verification_token` (string): The email verification token.
+    - **Response**: Success status.
+
+6. **ForgotPassword**
+    - **Purpose**: Initiate a password reset for a user.
+    - **Request Parameters**:
+        - `email` (string): The email address associated with the account.
+    - **Response**: Success status and reset token.
+
+7. **ResetPassword**
+    - **Purpose**: Reset a user's password.
+    - **Request Parameters**:
+        - `reset_token` (string): The password reset token.
+        - `new_password` (string): The new password.
+    - **Response**: Success status.
+
+8. **InitiateTwoFactorAuthentication**
+    - **Purpose**: Start the two-factor authentication process.
+    - **Request Parameters**:
+        - `user_id` (string): The user ID.
+    - **Response**: Two-factor token.
+
+9. **VerifyTwoFactorAuthentication**
+    - **Purpose**: Verify the two-factor authentication code.
+    - **Request Parameters**:
+        - `two_factor_token` (string): The two-factor token.
+        - `verification_code` (string): The verification code.
+    - **Response**: Success status.
+
+#### Protobuf
+
+<CodeGroup >
+
+```protobuf auth.proto
+syntax = "proto3";
+
+package auth;
+
+// Auth service definition.
+service Auth {
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+
+  rpc Signup(SignupRequest) returns (SignupResponse) {}
+  rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse) {}
+
+  rpc ForgotPassword(ForgotPasswordRequest) returns (ForgotPasswordResponse) {}
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse) {}
+
+  rpc InitiateTwoFactorAuthentication(InitiateTwoFactorRequest) returns (InitiateTwoFactorResponse) {}
+  rpc VerifyTwoFactorAuthentication(VerifyTwoFactorRequest) returns (VerifyTwoFactorResponse) {}
+}
+
+// Messages for Login and Token operations
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+message LoginResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
+}
+message RefreshTokenResponse {
+  string new_access_token = 1;
+}
+
+message LogoutRequest {
+  string access_token = 1;
+}
+message LogoutResponse {
+  bool success = 1;
+}
+
+// Messages for Signup and Email Verification
+message SignupRequest {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+}
+message SignupResponse {
+  string user_id = 1;
+  string email_verification_token = 2;
+}
+
+message VerifyEmailRequest {
+  string verification_token = 1;
+}
+message VerifyEmailResponse {
+  bool success = 1;
+}
+
+// Messages for Password Operations
+message ForgotPasswordRequest {
+  string email = 1;
+}
+message ForgotPasswordResponse {
+  bool success = 1;
+  string reset_token = 2;
+}
+
+message ResetPasswordRequest {
+  string reset_token = 1;
+  string new_password = 2;
+}
+message ResetPasswordResponse {
+  bool success = 1;
+}
+
+// Messages for Two-Factor Authentication
+message InitiateTwoFactorRequest {
+  string user_id = 1;
+}
+message InitiateTwoFactorResponse {
+  string two_factor_token = 1;
+}
+
+message VerifyTwoFactorRequest {
+  string two_factor_token = 1;
+  string verification_code = 2;
+}
+message VerifyTwoFactorResponse {
+  bool success = 1;
+}
+```
+
+</CodeGroup>

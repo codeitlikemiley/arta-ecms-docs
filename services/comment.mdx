@@ -1,0 +1,176 @@
+---
+title: Comment
+---
+### Comment Service
+
+#### Summary
+
+The Comment Service serves as the backbone for all interactions concerning comments within issues. It allows for adding, editing, and deleting comments as well as attaching files to comments. A special feature is real-time comment updates, which can provide dynamic interactions.
+
+#### Endpoints
+
+##### Comment Operations
+
+1. **AddComment**
+    - **Purpose**: Adds a new comment to an issue.
+    - **Request Parameters**:
+        - `issue_id` (string): ID of the related issue.
+        - `user_id` (string): ID of the user adding the comment.
+        - `content` (string): Comment content.
+    - **Response**: A unique ID for the added comment.
+
+2. **EditComment**
+    - **Purpose**: Edits an existing comment.
+    - **Request Parameters**:
+        - `comment_id` (string): ID of the comment to edit.
+        - `new_content` (string): Updated comment content.
+    - **Response**: A success flag.
+
+3. **DeleteComment**
+    - **Purpose**: Deletes a comment.
+    - **Request Parameters**:
+        - `comment_id` (string): ID of the comment to delete.
+    - **Response**: A success flag.
+
+4. **ListComments**
+    - **Purpose**: Lists all comments for an issue with pagination.
+    - **Request Parameters**:
+        - `issue_id` (string): ID of the issue.
+        - `page` (uint32): Pagination page.
+        - `limit` (uint32): Number of comments per page.
+    - **Response**: A list of `Comment` objects and the total count.
+
+5. **RealTimeCommentUpdates**
+    - **Purpose**: Streams real-time comment updates for an issue.
+    - **Request Parameters**:
+        - `issue_id` (string): ID of the issue.
+    - **Response**: Stream of `Comment` objects and their state ('added', 'edited', 'deleted').
+
+##### Comment Attachment Operations
+
+6. **AddCommentAttachment**
+    - **Purpose**: Adds a file attachment to a comment.
+    - **Request Parameters**:
+        - `comment_id` (string): ID of the comment.
+        - `file_content` (bytes): The actual file content.
+        - `file_name` (string): Name of the file.
+        - `file_type` (string): File type (e.g., "pdf", "jpg").
+    - **Response**: A unique file ID.
+
+7. **GetCommentAttachments**
+    - **Purpose**: Lists all files attached to a comment.
+    - **Request Parameters**:
+        - `comment_id` (string): ID of the comment.
+    - **Response**: A list of `File` objects.
+
+#### Protobuf
+
+
+<CodeGroup>
+```protobuf comment.proto
+syntax = "proto3";
+
+package comment_service;
+
+service CommentService {
+  rpc AddComment(AddCommentRequest) returns (AddCommentResponse) {}
+  rpc EditComment(EditCommentRequest) returns (EditCommentResponse) {}
+  rpc DeleteComment(DeleteCommentRequest) returns (DeleteCommentResponse) {}
+  rpc ListComments(ListCommentsRequest) returns (ListCommentsResponse) {}
+  rpc AddCommentAttachment(AddCommentAttachmentRequest) returns (AddCommentAttachmentResponse) {}
+  rpc GetCommentAttachments(GetCommentAttachmentsRequest) returns (GetCommentAttachmentsResponse) {}
+  rpc RealTimeCommentUpdates(RealTimeCommentUpdatesRequest) returns (stream RealTimeCommentUpdatesResponse) {}
+}
+
+// RPC to add a new comment
+message AddCommentRequest {
+    string issue_id = 1;
+    string user_id = 2;
+    string content = 3;
+  }
+
+  message AddCommentResponse {
+    string comment_id = 1;
+  }
+
+  // RPC to edit an existing comment
+  message EditCommentRequest {
+    string comment_id = 1;
+    string new_content = 2;
+  }
+
+  message EditCommentResponse {
+    bool success = 1;
+  }
+
+  // RPC to delete a comment
+  message DeleteCommentRequest {
+    string comment_id = 1;
+  }
+
+  message DeleteCommentResponse {
+    bool success = 1;
+  }
+
+  // RPC to list all comments for a specific issue
+  message ListCommentsRequest {
+    string issue_id = 1;
+    uint32 page = 2; // for pagination
+    uint32 limit = 3; // number of comments per page
+  }
+
+  message ListCommentsResponse {
+    repeated Comment comments = 1;
+    uint32 total_comments = 2;
+  }
+
+  // Real-time updates for comments on a specific issue
+  message RealTimeCommentUpdatesRequest {
+    string issue_id = 1;
+  }
+
+  message RealTimeCommentUpdatesResponse {
+    Comment comment = 1;
+    string action = 2; // Could be 'added', 'edited', 'deleted'
+  }
+
+
+// RPC to add an attachment to a comment
+message AddCommentAttachmentRequest {
+  string comment_id = 1;
+  bytes file_content = 2; // The actual file content
+  string file_name = 3;
+  string file_type = 4; // e.g., "pdf", "jpg"
+}
+
+message AddCommentAttachmentResponse {
+  string file_id = 1;
+}
+
+// RPC to get attachments for a comment
+message GetCommentAttachmentsRequest {
+  string comment_id = 1;
+}
+
+message GetCommentAttachmentsResponse {
+  repeated File files = 1;
+}
+
+// File metadata
+message File {
+  string file_id = 1;
+  string file_name = 2;
+  string file_type = 3;
+  string file_url = 4; // URL to access the file, if stored in cloud storage
+}
+
+// Comment object (Modified to include file IDs)
+message Comment {
+  string comment_id = 1;
+  string user_id = 2;
+  string content = 3;
+  string timestamp = 4; // ISO format
+  repeated string file_ids = 5; // List of file IDs attached to the comment
+}
+```
+</CodeGroup>

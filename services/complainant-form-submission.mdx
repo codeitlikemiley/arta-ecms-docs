@@ -1,0 +1,137 @@
+---
+title: Forms
+---
+### Complainant Form Submission Service
+
+#### Summary
+
+The Complainant Form Submission service focuses on the essential features needed for complaint form submission and tracking. It offers a GRPC-based API to validate complaint details, fetch predefined agencies and violation types, create complaints, attach emails to complaints, and notify the submitter.
+
+#### Endpoints
+
+##### Complaint Operations
+
+1. **ValidateComplaint**
+    - **Purpose**: Validate the details of a submitted complaint.
+    - **Request Parameters**:
+        - `name` (string): Name of the complainant.
+        - `contact_info` (string): Contact information, can be either email or mobile.
+        - `complained_agency` (string): Agency being complained about.
+        - `violation` (string): Type of violation.
+        - `nature_of_complaint` (string): Description of the complaint.
+    - **Response**: Validation success and validation message.
+
+2. **FetchComplaintAgency**
+    - **Purpose**: Fetch the list of agencies that can be complained about.
+    - **Request Parameters**: None.
+    - **Response**: List of agencies.
+
+3. **FetchViolationTypes**
+    - **Purpose**: Fetch the list of violation types that can be chosen for a complaint.
+    - **Request Parameters**: None.
+    - **Response**: List of violation types.
+
+4. **CreateComplaint**
+    - **Purpose**: Create a new complaint entry.
+    - **Request Parameters**:
+        - `name` (string): Name of the complainant.
+        - `contact_info` (string): Contact information, can be either email or mobile.
+        - `complained_agency` (string): Agency being complained about.
+        - `violation` (string): Type of violation.
+        - `nature_of_complaint` (string): Description of the complaint.
+    - **Response**: Complaint ID.
+
+5. **AttachEmailToComplaint**
+    - **Purpose**: Attach email content to an existing complaint.
+    - **Request Parameters**:
+        - `complaint_id` (string): Identifier for the complaint.
+        - `email_content` (string): Content of the email.
+    - **Response**: Success status (Boolean).
+
+6. **NotifySubmitter**
+    - **Purpose**: Notify the complaint submitter, either through email or an in-app notification.
+    - **Request Parameters**:
+        - `complaint_id` (string): Identifier for the complaint.
+    - **Response**: Success status (Boolean).
+
+#### Protobuf
+
+<CodeGroup>
+
+```protobuf complainant_form_submission.proto
+syntax = "proto3";
+
+package complainant_form_submission;
+
+service ComplainantFormSubmission {
+  rpc ValidateComplaint(ValidateComplaintRequest) returns (ValidateComplaintResponse) {}
+  rpc FetchComplaintAgency(FetchComplaintAgencyRequest) returns (FetchComplaintAgencyResponse) {}
+  rpc FetchViolationTypes(FetchViolationTypesRequest) returns (FetchViolationTypesResponse) {}
+  rpc CreateComplaint(CreateComplaintRequest) returns (CreateComplaintResponse) {}
+  rpc AttachEmailToComplaint(AttachEmailToComplaintRequest) returns (AttachEmailToComplaintResponse) {}
+  rpc NotifySubmitter(NotifySubmitterRequest) returns (NotifySubmitterResponse) {}
+}
+
+// Message Definitions for Complaint Validation
+message ValidateComplaintRequest {
+  string name = 1;
+  string contact_info = 2;  // Either email or mobile
+  string complained_agency = 3;
+  string violation = 4;
+  string nature_of_complaint = 5;
+}
+
+message ValidateComplaintResponse {
+  bool is_valid = 1;
+  string validation_message = 2;
+}
+
+// Fetch complaint agency
+message FetchComplaintAgencyRequest {}
+
+message FetchComplaintAgencyResponse {
+  repeated string agencies = 1;
+}
+
+// Fetch Violation Types
+message FetchViolationTypesRequest {}
+
+message FetchViolationTypesResponse {
+  repeated string violation_types = 1;
+}
+
+// Create Complaint
+message CreateComplaintRequest {
+  string name = 1;
+  string contact_info = 2;
+  string complained_agency = 3;
+  string violation = 4;
+  string nature_of_complaint = 5;
+}
+
+message CreateComplaintResponse {
+  string complaint_id = 1;
+}
+
+// Attach Email to Complaint
+message AttachEmailToComplaintRequest {
+  string complaint_id = 1;
+  string email_content = 2;
+}
+
+message AttachEmailToComplaintResponse {
+  bool success = 1;
+}
+
+// Notify Submitter via email or app notification
+message NotifySubmitterRequest {
+  string complaint_id = 1;
+}
+
+message NotifySubmitterResponse {
+  bool success = 1;
+}
+
+```
+
+</CodeGroup>

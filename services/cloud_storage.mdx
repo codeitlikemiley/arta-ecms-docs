@@ -1,0 +1,135 @@
+---
+title: Uploads
+---
+
+### Cloud Storage Service
+
+#### Summary
+
+The Cloud Storage service is a crucial component in the system architecture, providing APIs to manage document uploads, downloads, listings, and deletions in the cloud. It also allows the linking of these documents to specific issues in the Issue Management service.
+
+#### Endpoints
+
+##### Document Operations
+
+1. **UploadDocument**
+    - **Purpose**: Upload a new document to a specified folder path in the cloud storage.
+    - **Request Parameters**:
+        - `folder_path` (string): Path where the file will be stored.
+        - `file_data` (bytes): The binary data of the file.
+        - `file_name` (string): The name of the file.
+        - `categories` (repeated string): Categories that the file belongs to.
+    - **Response**: Success status, Cloud Storage URL, and Document ID.
+
+2. **DownloadDocument**
+    - **Purpose**: Download an existing document from the cloud storage.
+    - **Request Parameters**:
+        - `cloud_storage_url` (string): URL where the file is stored.
+    - **Response**: File data as bytes.
+
+3. **ListDocuments**
+    - **Purpose**: List all documents in a specified folder path in the cloud storage.
+    - **Request Parameters**:
+        - `folder_path` (string): Path where the files are stored.
+    - **Response**: List of file names.
+
+4. **DeleteDocument**
+    - **Purpose**: Delete an existing document from the cloud storage.
+    - **Request Parameters**:
+        - `cloud_storage_url` (string): URL where the file is stored.
+    - **Response**: Success status.
+
+##### Issue Attachments Operations
+
+5. **AttachDocumentToIssue**
+    - **Purpose**: Attach a document from the cloud storage to a specific issue.
+    - **Request Parameters**:
+        - `issue_id` (string): ID of the issue.
+        - `document_id` (string): ID of the document.
+    - **Response**: Success status.
+
+6. **ListIssueAttachments**
+    - **Purpose**: List all document attachments for a specific issue.
+    - **Request Parameters**:
+        - `issue_id` (string): ID of the issue.
+    - **Response**: List of document IDs.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf cloud_storage.proto
+syntax = "proto3";
+
+package cloud_storage;
+
+service CloudStorage {
+  rpc UploadDocument(UploadDocumentRequest) returns (UploadDocumentResponse) {}
+  rpc DownloadDocument(DownloadDocumentRequest) returns (DownloadDocumentResponse) {}
+  rpc ListDocuments(ListDocumentsRequest) returns (ListDocumentsResponse) {}
+  rpc DeleteDocument(DeleteDocumentRequest) returns (DeleteDocumentResponse) {}
+  rpc AttachDocumentToIssue(AttachDocumentToIssueRequest) returns (AttachDocumentToIssueResponse) {}
+  rpc ListIssueAttachments(ListIssueAttachmentsRequest) returns (ListIssueAttachmentsResponse) {}
+}
+
+// Upload a document to cloud storage
+message UploadDocumentRequest {
+  string folder_path = 1;
+  bytes file_data = 2;
+  string file_name = 3;
+  repeated string categories = 4;  // Categories that the file belongs to
+}
+
+message UploadDocumentResponse {
+  bool success = 1;
+  string cloud_storage_url = 2;
+  string document_id = 3;  // A unique identifier for the uploaded document
+}
+
+// Download a document from cloud storage
+message DownloadDocumentRequest {
+  string cloud_storage_url = 1;
+}
+
+message DownloadDocumentResponse {
+  bytes file_data = 1;
+}
+
+// List documents from a specific folder in cloud storage
+message ListDocumentsRequest {
+  string folder_path = 1;
+}
+
+message ListDocumentsResponse {
+  repeated string file_names = 1;
+}
+
+// Delete a document from cloud storage
+message DeleteDocumentRequest {
+  string cloud_storage_url = 1;
+}
+
+message DeleteDocumentResponse {
+  bool success = 1;
+}
+
+// Attach a document to an issue
+message AttachDocumentToIssueRequest {
+  string issue_id = 1;
+  string document_id = 2;
+}
+
+message AttachDocumentToIssueResponse {
+  bool success = 1;
+}
+
+// List all attachments for a specific issue
+message ListIssueAttachmentsRequest {
+  string issue_id = 1;
+}
+
+message ListIssueAttachmentsResponse {
+  repeated string document_ids = 1;
+}
+
+```
+</CodeGroup>

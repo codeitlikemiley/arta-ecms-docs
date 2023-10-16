@@ -1,0 +1,97 @@
+---
+title: Metrics
+---
+
+### Metrics Builder Service
+
+#### Summary
+
+The Metrics Builder service provides a set of APIs to interact with and generate analytics from various data sources. This service plays a pivotal role in making data-driven decisions based on the metrics it can pull, analyze, and visualize.
+
+#### Endpoints
+
+##### Data Sources
+
+1. **ListAvailableDataSources**
+    - **Purpose**: Lists all available data sources.
+    - **Request Parameters**: None
+    - **Response**: List of data source names.
+
+##### Data Retrieval
+
+2. **FetchDataForView**
+    - **Purpose**: Fetches data corresponding to a particular view type (e.g., heatmap, bar_chart) for a specified data source.
+    - **Request Parameters**:
+        - `data_source` (string): Source of data like "issues", "user_performance".
+        - `view_type` (string): Type of view to represent the data.
+    - **Response**: Serialized data to be parsed according to the view type and metadata.
+
+##### Custom Queries
+
+3. **ExecuteCustomQuery**
+    - **Purpose**: Executes a custom query against a data source.
+    - **Request Parameters**:
+        - `query` (string): The custom query to be executed.
+    - **Response**: Result of the query as serialized data and metadata.
+
+##### AI-Generated Queries
+
+4. **GenerateQueryWithAI**
+    - **Purpose**: Generates a query based on the user's intent and any additional parameters.
+    - **Request Parameters**:
+        - `intent` (string): User's intent behind the query.
+        - `parameters` (map): Additional parameters to help the AI generate the query.
+    - **Response**: Generated query, confidence score, and alternative queries.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf metrics_builder.proto
+syntax = "proto3";
+
+package metrics_builder;
+
+service MetricsBuilder {
+  rpc ListAvailableDataSources(ListAvailableDataSourcesRequest) returns (ListAvailableDataSourcesResponse) {}
+  rpc FetchDataForView(FetchDataForViewRequest) returns (FetchDataForViewResponse) {}
+  rpc ExecuteCustomQuery(ExecuteCustomQueryRequest) returns (ExecuteCustomQueryResponse) {}
+  rpc GenerateQueryWithAI(GenerateQueryWithAIRequest) returns (GenerateQueryWithAIResponse) {}
+}
+
+// RPC to list all available data sources
+message ListAvailableDataSourcesRequest {}
+message ListAvailableDataSourcesResponse {
+  repeated string data_sources = 1; // List of data source names
+}
+
+// RPC to fetch data for a particular view type
+message FetchDataForViewRequest {
+  string data_source = 1; // e.g., "issues", "user_performance"
+  string view_type = 2; // e.g., "heatmap", "bar_chart"
+}
+message FetchDataForViewResponse {
+  bytes data = 1; // Serialized data to be parsed according to the view type
+  string metadata = 2; // Metadata about the fetched data
+}
+
+// RPC to execute a custom query
+message ExecuteCustomQueryRequest {
+  string query = 1;
+}
+message ExecuteCustomQueryResponse {
+  bytes query_result = 1;
+  string metadata = 2; // Metadata about the query result
+}
+
+// RPC to generate a query using AI
+message GenerateQueryWithAIRequest {
+  string intent = 1; // The user's intent behind the query
+  map<string, string> parameters = 2; // Any additional parameters to help the AI generate the query
+}
+message GenerateQueryWithAIResponse {
+  string generated_query = 1;
+  float confidence_score = 2; // Confidence score of the generated query
+  repeated string alternative_queries = 3; // Alternative queries
+}
+```
+</CodeGroup>

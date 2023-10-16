@@ -1,0 +1,103 @@
+---
+title: Settings
+---
+
+### User Settings Service
+
+#### Summary
+
+The User Settings service is designed to manage customizable user settings such as notifications, language preferences, and UI themes. It exposes four primary GRPC methods to create, read, update, and delete user settings.
+
+#### Endpoints
+
+##### User Settings Operations
+
+1. **CreateSettings**
+    - **Purpose**: Initialize settings for a new user.
+    - **Request Parameters**:
+        - `user_id` (string): User ID.
+        - `enable_notifications` (bool): Enable or disable notifications.
+        - `language` (string): Preferred language.
+        - `theme` (string): UI theme (e.g., "dark", "light").
+    - **Response**: Settings ID.
+
+2. **GetSettings**
+    - **Purpose**: Retrieve the settings for an existing user.
+    - **Request Parameters**:
+        - `user_id` (string): User ID.
+    - **Response**: Notifications enabled, language preference, and theme.
+
+3. **UpdateSettings**
+    - **Purpose**: Update settings for an existing user.
+    - **Request Parameters**:
+        - `user_id` (string): User ID.
+        - `new_enable_notifications` (bool): Updated notification setting.
+        - `new_language` (string): Updated language.
+        - `new_theme` (string): Updated UI theme.
+    - **Response**: Success status (Boolean).
+
+4. **DeleteSettings**
+    - **Purpose**: Delete settings for an existing user.
+    - **Request Parameters**:
+        - `user_id` (string): User ID.
+    - **Response**: Success status (Boolean).
+
+#### Protobuf
+
+<CodeGroup>
+
+```protobuf user_settings.proto
+syntax = "proto3";
+
+package user_settings;
+
+service UserSettings {
+  rpc CreateSettings(CreateSettingsRequest) returns (CreateSettingsResponse) {}
+  rpc GetSettings(GetSettingsRequest) returns (GetSettingsResponse) {}
+  rpc UpdateSettings(UpdateSettingsRequest) returns (UpdateSettingsResponse) {}
+  rpc DeleteSettings(DeleteSettingsRequest) returns (DeleteSettingsResponse) {}
+}
+
+// Message Definitions for User Settings Operations
+
+// Create Settings
+message CreateSettingsRequest {
+  string user_id = 1;
+  bool enable_notifications = 2;
+  string language = 3;
+  string theme = 4; // e.g., "dark", "light"
+}
+message CreateSettingsResponse {
+  string settings_id = 1;
+}
+
+// Get Settings
+message GetSettingsRequest {
+  string user_id = 1;
+}
+message GetSettingsResponse {
+  bool enable_notifications = 1;
+  string language = 2;
+  string theme = 3;
+}
+
+// Update Settings
+message UpdateSettingsRequest {
+  string user_id = 1;
+  bool new_enable_notifications = 2;
+  string new_language = 3;
+  string new_theme = 4;
+}
+message UpdateSettingsResponse {
+  bool success = 1;
+}
+
+// Delete Settings
+message DeleteSettingsRequest {
+  string user_id = 1;
+}
+message DeleteSettingsResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

@@ -1,0 +1,114 @@
+---
+title: Search
+---
+### Search Service
+
+#### Summary
+
+The Search Service is an essential component of your E-CMS, designed to provide various types of search functionalities. It offers basic search, advanced search, full-text search integrated with OpenAI, and real-time search updates. Given that you're interested in using OpenAI API and its Embeddings API with Qdrant Database, this service can serve as a critical junction for these technologies.
+
+#### Endpoints
+
+##### Basic Search
+
+1. **BasicSearch**
+    - **Purpose**: Performs a basic keyword-based search.
+    - **Request Parameters**:
+        - `keyword` (string): The search keyword.
+        - `page` (uint32): For pagination.
+        - `limit` (uint32): Number of results per page.
+    - **Response**: A list of search results and the total number of results.
+
+##### Advanced Search
+
+2. **AdvancedSearch**
+    - **Purpose**: Allows users to perform a more detailed query-based search.
+    - **Request Parameters**:
+        - `query` (string): Detailed search query.
+        - `page` (uint32): For pagination.
+        - `limit` (uint32): Number of results per page.
+    - **Response**: A list of search results and the total number of results.
+
+##### Full-Text Search with AI
+
+3. **FullTextSearchWithAI**
+    - **Purpose**: Enables full-text search integrated with OpenAI's Embeddings API and Qdrant Database.
+    - **Request Parameters**:
+        - `query` (string): Full-text search query.
+        - `page` (uint32): For pagination.
+        - `limit` (uint32): Number of results per page.
+    - **Response**: A list of search results and the total number of results. Here, Qdrant Database and OpenAI API can be employed to deliver more contextual and relevant results.
+
+##### Real-Time Search Updates
+
+4. **RealTimeSearchUpdates**
+    - **Purpose**: Streams real-time updates for a given search keyword.
+    - **Request Parameters**:
+        - `keyword` (string): The keyword to track.
+    - **Response**: Stream of newly indexed or updated results matching the keyword.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf  search.proto
+syntax = "proto3";
+
+package search;
+
+service Search {
+  rpc BasicSearch(BasicSearchRequest) returns (BasicSearchResponse) {}
+  rpc AdvancedSearch(AdvancedSearchRequest) returns (AdvancedSearchResponse) {}
+  rpc FullTextSearchWithAI(FullTextSearchWithAIRequest) returns (FullTextSearchWithAIResponse) {}
+  rpc RealTimeSearchUpdates(RealTimeSearchUpdatesRequest) returns (stream RealTimeSearchUpdatesResponse) {}
+}
+
+message BasicSearchRequest {
+  string keyword = 1;
+  uint32 page = 2; // for pagination
+  uint32 limit = 3; // number of results per page
+}
+
+message BasicSearchResponse {
+  repeated SearchResult results = 1;
+  uint32 total_results = 2;
+}
+
+message AdvancedSearchRequest {
+  string query = 1;
+  uint32 page = 2;
+  uint32 limit = 3;
+}
+
+message AdvancedSearchResponse {
+  repeated SearchResult results = 1;
+  uint32 total_results = 2;
+}
+
+// Full-text search integrated with OpenAI and Qdrant
+message FullTextSearchWithAIRequest {
+  string query = 1;
+  uint32 page = 2;
+  uint32 limit = 3;
+}
+
+message FullTextSearchWithAIResponse {
+  repeated SearchResult results = 1;
+  uint32 total_results = 2;
+}
+
+message RealTimeSearchUpdatesRequest {
+  string keyword = 1;
+}
+
+message RealTimeSearchUpdatesResponse {
+  SearchResult result = 1;
+}
+
+message SearchResult {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  float relevance_score = 4; // Score indicating how relevant this result is to the query
+}
+```
+</CodeGroup>

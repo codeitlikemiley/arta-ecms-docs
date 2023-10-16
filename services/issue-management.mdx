@@ -1,0 +1,272 @@
+---
+title: Issue
+---
+
+### Issue Management Service
+
+#### Summary
+
+The Issue Management service provides a comprehensive set of GRPC-based APIs to manage, track, and update issues. It allows for not just CRUD operations on issues but also provides additional functionalities to add cycles, labels, assignees, departments, attachments, activities, subscribers, and comments to an issue.
+
+#### Endpoints
+
+##### Basic CRUD Operations
+
+1. **CreateIssue**
+    - **Purpose**: Create a new issue.
+    - **Request Parameters**:
+        - `title` (string): Title of the issue.
+        - `description` (string): Description of the issue.
+        - `due_date` (string): Due date for the issue. Default can be null.
+    - **Response**: Issue ID.
+
+2. **UpdateIssueTitle**
+    - **Purpose**: Update the title of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_title` (string): New title for the issue.
+    - **Response**: Success status.
+
+3. **UpdateIssueDescription**
+    - **Purpose**: Update the description of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_description` (string): New description for the issue.
+    - **Response**: Success status.
+
+4. **UpdateIssueDueDate**
+    - **Purpose**: Update the due date of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_due_date` (string): New due date for the issue.
+    - **Response**: Success status.
+
+5. **DeleteIssue**
+    - **Purpose**: Delete an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+    - **Response**: Success status.
+
+6. **GetIssue**
+    - **Purpose**: Retrieve details of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+    - **Response**: Issue details.
+
+##### Additional Operations
+
+7. **UpdateIssueStatus**
+    - **Purpose**: Update the status of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_status_id` (string): New status ID for the issue.
+    - **Response**: Success status.
+
+8. **UpdateIssuePriority**
+    - **Purpose**: Update the priority of an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_priority_id` (string): New priority ID for the issue.
+    - **Response**: Success status.
+
+9. **UpdateIssueEstimate**
+    - **Purpose**: Update the estimate for an existing issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - `new_estimate_id` (string): New estimate ID for the issue.
+    - **Response**: Success status.
+
+##### Additions (Cycle, Label, Assignee, etc.)
+
+10. **AddCycleToIssue, AddLabelToIssue, AddAssigneeToIssue, AddDepartmentToIssue, AddAttachmentToIssue**
+    - **Purpose**: Add additional entities like cycles, labels, assignees, departments, and attachments to an issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - Various other IDs specific to the type of entity being added (e.g., `label_id`, `assignee_id`).
+    - **Response**: Success status.
+
+##### Activity Tracking
+
+11. **AddActivityToIssue, AddSubscriberToIssue, AddCommentToIssue**
+    - **Purpose**: Add activities, subscribers, and comments to an existing issue for comprehensive tracking and notification.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier for the issue.
+        - Various other parameters specific to the type of entity being added (e.g., `activity_type`, `user_id`).
+    - **Response**: Success status.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf issue_management.proto
+syntax = "proto3";
+
+package issue_management;
+
+service IssueManagement {
+  rpc CreateIssue(CreateIssueRequest) returns (CreateIssueResponse) {}
+  rpc UpdateIssueTitle(UpdateIssueTitleRequest) returns (UpdateIssueTitleResponse) {}
+  rpc UpdateIssueDescription(UpdateIssueDescriptionRequest) returns (UpdateIssueDescriptionResponse) {}
+  rpc UpdateIssueDueDate(UpdateIssueDueDateRequest) returns (UpdateIssueDueDateResponse) {}
+  rpc DeleteIssue(DeleteIssueRequest) returns (DeleteIssueResponse) {}
+  rpc GetIssue(GetIssueRequest) returns (GetIssueResponse) {}
+
+  rpc UpdateIssueStatus(UpdateIssueStatusRequest) returns (UpdateIssueStatusResponse) {}
+  rpc UpdateIssuePriority(UpdateIssuePriorityRequest) returns (UpdateIssuePriorityResponse) {}
+  rpc UpdateIssueEstimate(UpdateIssueEstimateRequest) returns (UpdateIssueEstimateResponse) {}
+
+  rpc AddCycleToIssue(AddCycleToIssueRequest) returns (AddCycleToIssueResponse) {}
+  rpc AddLabelToIssue(AddLabelToIssueRequest) returns (AddLabelToIssueResponse) {}
+  rpc AddAssigneeToIssue(AddAssigneeToIssueRequest) returns (AddAssigneeToIssueResponse) {}
+  rpc AddDepartmentToIssue(AddDepartmentToIssueRequest) returns (AddDepartmentToIssueResponse) {}
+  rpc AddAttachmentToIssue(AddAttachmentToIssueRequest) returns (AddAttachmentToIssueResponse) {}
+
+  rpc AddActivityToIssue(AddActivityToIssueRequest) returns (AddActivityToIssueResponse) {}
+  rpc AddSubscriberToIssue(AddSubscriberToIssueRequest) returns (AddSubscriberToIssueResponse) {}
+  rpc AddCommentToIssue(AddCommentToIssueRequest) returns (AddCommentToIssueResponse) {}
+}
+
+// Message Definitions for Issue CRUD and fields update
+message CreateIssueRequest {
+  string title = 1;
+  string description = 2;
+  string due_date = 3;  // Default could be null
+}
+message CreateIssueResponse {
+  string issue_id = 1;
+}
+
+message UpdateIssueTitleRequest {
+  string issue_id = 1;
+  string new_title = 2;
+}
+message UpdateIssueTitleResponse {
+  bool success = 1;
+}
+
+message UpdateIssueDescriptionRequest {
+  string issue_id = 1;
+  string new_description = 2;
+}
+message UpdateIssueDescriptionResponse {
+  bool success = 1;
+}
+
+message UpdateIssueDueDateRequest {
+  string issue_id = 1;
+  string new_due_date = 2;
+}
+message UpdateIssueDueDateResponse {
+  bool success = 1;
+}
+
+message DeleteIssueRequest {
+  string issue_id = 1;
+}
+message DeleteIssueResponse {
+  bool success = 1;
+}
+
+message GetIssueRequest {
+  string issue_id = 1;
+}
+message GetIssueResponse {
+  string issue_id = 1;
+  string title = 2;
+  string description = 3;
+  string due_date = 4;
+  // ... related entities can be added here
+}
+
+// Message Definitions for updating Status, Priority, and Estimates
+message UpdateIssueStatusRequest {
+  string issue_id = 1;
+  string new_status_id = 2;
+}
+message UpdateIssueStatusResponse {
+  bool success = 1;
+}
+
+message UpdateIssuePriorityRequest {
+  string issue_id = 1;
+  string new_priority_id = 2;
+}
+message UpdateIssuePriorityResponse {
+  bool success = 1;
+}
+
+message UpdateIssueEstimateRequest {
+  string issue_id = 1;
+  string new_estimate_id = 2;
+}
+message UpdateIssueEstimateResponse {
+  bool success = 1;
+}
+
+// Message Definitions for Additions (Cycle, Label, Assignee, etc.)
+message AddCycleToIssueRequest {
+  string issue_id = 1;
+  string cycle_id = 2;
+}
+message AddCycleToIssueResponse {
+  bool success = 1;
+}
+
+message AddLabelToIssueRequest {
+  string issue_id = 1;
+  string label_id = 2;
+}
+message AddLabelToIssueResponse {
+  bool success = 1;
+}
+
+message AddAssigneeToIssueRequest {
+  string issue_id = 1;
+  string assignee_id = 2;
+}
+message AddAssigneeToIssueResponse {
+  bool success = 1;
+}
+
+message AddDepartmentToIssueRequest {
+  string issue_id = 1;
+  string department_id = 2;
+}
+message AddDepartmentToIssueResponse {
+  bool success = 1;
+}
+
+message AddAttachmentToIssueRequest {
+  string issue_id = 1;
+  string file_path = 2;
+  string file_type = 3;
+}
+message AddAttachmentToIssueResponse {
+  bool success = 1;
+}
+
+// Message Definitions for Activities, Subscribers, and Comments
+message AddActivityToIssueRequest {
+  string issue_id = 1;
+  string activity_type = 2;
+}
+message AddActivityToIssueResponse {
+  bool success = 1;
+}
+
+message AddSubscriberToIssueRequest {
+  string issue_id = 1;
+  string user_id = 2;
+}
+message AddSubscriberToIssueResponse {
+  bool success = 1;
+}
+
+message AddCommentToIssueRequest {
+  string issue_id = 1;
+  string comment_text = 2;
+}
+message AddCommentToIssueResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

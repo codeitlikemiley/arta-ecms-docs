@@ -1,3 +1,248 @@
 ---
-title: Roles and Permission Service
+title: ACL
 ---
+
+### Roles and Permission Service
+
+#### Summary
+
+The ACL microservice is responsible for managing roles and permissions within the application. This ensures that users have the correct level of access to various parts of the system. The service provides functionalities for creating, modifying, and deleting roles and permissions, as well as assigning roles to users.
+
+#### Endpoints
+
+##### Role Operations
+
+1. **CreateRole**
+    - **Purpose**: Create a new role.
+    - **Request Parameters**:
+        - `role_name` (string): The name of the role.
+        - `description` (string): A brief description of the role.
+    - **Response**: Role ID.
+
+2. **DeleteRole**
+    - **Purpose**: Delete an existing role.
+    - **Request Parameters**:
+        - `role_id` (string): The ID of the role to be deleted.
+    - **Response**: Success status.
+
+3. **ModifyRole**
+    - **Purpose**: Modify an existing role.
+    - **Request Parameters**:
+        - `role_id` (string): The ID of the role to be modified.
+        - `new_role_name` (string): New name for the role.
+        - `new_description` (string): New description for the role.
+    - **Response**: Success status.
+
+4. **ListRoles**
+    - **Purpose**: List all roles.
+    - **Request Parameters**: None.
+    - **Response**: List of role IDs.
+
+5. **AssignRoleToUser**
+    - **Purpose**: Assign a role to a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `role_id` (string): The ID of the role to be assigned.
+    - **Response**: Success status.
+
+6. **RemoveRoleFromUser**
+    - **Purpose**: Remove a role from a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `role_id` (string): The ID of the role to be removed.
+    - **Response**: Success status.
+
+7. **GetUserRoles**
+    - **Purpose**: Get roles assigned to a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+    - **Response**: List of role IDs.
+
+##### Permission Operations
+
+1. **CreatePermission**
+    - **Purpose**: Create a new permission.
+    - **Request Parameters**:
+        - `permission_name` (string): The name of the permission.
+        - `description` (string): A brief description of the permission.
+    - **Response**: Permission ID.
+
+2. **DeletePermission**
+    - **Purpose**: Delete an existing permission.
+    - **Request Parameters**:
+        - `permission_id` (string): The ID of the permission to be deleted.
+    - **Response**: Success status.
+
+3. **ModifyPermission**
+    - **Purpose**: Modify an existing permission.
+    - **Request Parameters**:
+        - `permission_id` (string): The ID of the permission to be modified.
+        - `new_permission_name` (string): New name for the permission.
+        - `new_description` (string): New description for the permission.
+    - **Response**: Success status.
+
+4. **ListPermissions**
+    - **Purpose**: List all permissions.
+    - **Request Parameters**: None.
+    - **Response**: List of permission IDs.
+
+5. **GrantPermissionToRole**
+    - **Purpose**: Grant a permission to a role.
+    - **Request Parameters**:
+        - `role_id` (string): The ID of the role.
+        - `permission_id` (string): The ID of the permission to be granted.
+    - **Response**: Success status.
+
+6. **RevokePermissionFromRole**
+    - **Purpose**: Revoke a permission from a role.
+    - **Request Parameters**:
+        - `role_id` (string): The ID of the role.
+        - `permission_id` (string): The ID of the permission to be revoked.
+    - **Response**: Success status.
+
+7. **GetRolePermissions**
+    - **Purpose**: Get permissions associated with a role.
+    - **Request Parameters**:
+        - `role_id` (string): The ID of the role.
+    - **Response**: List of permission IDs.
+
+#### Protobuf
+
+<CodeGroup>
+
+```protobuf acl.proto
+syntax = "proto3";
+
+package acl;
+
+// Roles and Permission Service
+service ACL {
+  // Role Operations
+  rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse) {}
+  rpc DeleteRole(DeleteRoleRequest) returns (DeleteRoleResponse) {}
+  rpc ModifyRole(ModifyRoleRequest) returns (ModifyRoleResponse) {}
+  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse) {}
+  rpc AssignRoleToUser(AssignRoleToUserRequest) returns (AssignRoleToUserResponse) {}
+  rpc RemoveRoleFromUser(RemoveRoleFromUserRequest) returns (RemoveRoleFromUserResponse) {}
+  rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse) {}
+
+  // Permission Operations
+  rpc CreatePermission(CreatePermissionRequest) returns (CreatePermissionResponse) {}
+  rpc DeletePermission(DeletePermissionRequest) returns (DeletePermissionResponse) {}
+  rpc ModifyPermission(ModifyPermissionRequest) returns (ModifyPermissionResponse) {}
+  rpc ListPermissions(ListPermissionsRequest) returns (ListPermissionsResponse) {}
+  rpc GrantPermissionToRole(GrantPermissionToRoleRequest) returns (GrantPermissionToRoleResponse) {}
+  rpc RevokePermissionFromRole(RevokePermissionFromRoleRequest) returns (RevokePermissionFromRoleResponse) {}
+  rpc GetRolePermissions(GetRolePermissionsRequest) returns (GetRolePermissionsResponse) {}
+}
+
+// Message Definitions for Role Operations
+message CreateRoleRequest {
+  string role_name = 1;
+  string description = 2;
+}
+message CreateRoleResponse {
+  string role_id = 1;
+}
+
+// Message Definitions for Permission Operations
+message CreatePermissionRequest {
+  string permission_name = 1;
+  string description = 2;
+}
+message CreatePermissionResponse {
+  string permission_id = 1;
+}
+
+message DeleteRoleRequest {
+  string role_id = 1;
+}
+message DeleteRoleResponse {
+  bool success = 1;
+}
+
+message ModifyRoleRequest {
+  string role_id = 1;
+  string new_role_name = 2;
+  string new_description = 3;
+}
+message ModifyRoleResponse {
+  bool success = 1;
+}
+
+message ListRolesRequest {}
+message ListRolesResponse {
+  repeated string role_ids = 1;
+}
+
+message AssignRoleToUserRequest {
+  string user_id = 1;
+  string role_id = 2;
+}
+message AssignRoleToUserResponse {
+  bool success = 1;
+}
+
+message RemoveRoleFromUserRequest {
+  string user_id = 1;
+  string role_id = 2;
+}
+message RemoveRoleFromUserResponse {
+  bool success = 1;
+}
+
+message GetUserRolesRequest {
+  string user_id = 1;
+}
+message GetUserRolesResponse {
+  repeated string role_ids = 1;
+}
+
+
+message DeletePermissionRequest {
+  string permission_id = 1;
+}
+message DeletePermissionResponse {
+  bool success = 1;
+}
+
+message ModifyPermissionRequest {
+  string permission_id = 1;
+  string new_permission_name = 2;
+  string new_description = 3;
+}
+message ModifyPermissionResponse {
+  bool success = 1;
+}
+
+message ListPermissionsRequest {}
+message ListPermissionsResponse {
+  repeated string permission_ids = 1;
+}
+
+message GrantPermissionToRoleRequest {
+  string role_id = 1;
+  string permission_id = 2;
+}
+message GrantPermissionToRoleResponse {
+  bool success = 1;
+}
+
+message RevokePermissionFromRoleRequest {
+  string role_id = 1;
+  string permission_id = 2;
+}
+message RevokePermissionFromRoleResponse {
+  bool success = 1;
+}
+
+message GetRolePermissionsRequest {
+  string role_id = 1;
+}
+message GetRolePermissionsResponse {
+  repeated string permission_ids = 1;
+}
+
+```
+
+</CodeGroup>

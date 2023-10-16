@@ -1,0 +1,125 @@
+---
+title: Profile
+---
+### Profile Service
+
+#### Summary
+
+The Profile service is aimed at managing user profiles within your application. It offers GRPC-based APIs for creating, reading, updating, deleting, and listing profiles. Each profile contains essential information like the user's name, email, phone number, and a short bio.
+
+#### Endpoints
+
+##### Profile Operations
+
+1. **CreateProfile**
+    - **Purpose**: Create a new user profile.
+    - **Request Parameters**:
+        - `user_id` (string): Identifier for the user.
+        - `first_name` (string): User's first name.
+        - `last_name` (string): User's last name.
+        - `email` (string): User's email.
+        - `phone_number` (string): User's phone number.
+        - `bio` (string): User's bio.
+    - **Response**: Profile ID.
+
+2. **GetProfile**
+    - **Purpose**: Retrieve the profile of a user.
+    - **Request Parameters**:
+        - `profile_id` (string): Identifier for the profile.
+    - **Response**: User ID, first name, last name, email, phone number, and bio.
+
+3. **UpdateProfile**
+    - **Purpose**: Update an existing user profile.
+    - **Request Parameters**:
+        - `profile_id` (string): Identifier for the profile.
+        - `new_first_name` (string): Updated first name.
+        - `new_last_name` (string): Updated last name.
+        - `new_email` (string): Updated email.
+        - `new_phone_number` (string): Updated phone number.
+        - `new_bio` (string): Updated bio.
+    - **Response**: Success status (Boolean).
+
+4. **DeleteProfile**
+    - **Purpose**: Delete a user profile.
+    - **Request Parameters**:
+        - `profile_id` (string): Identifier for the profile.
+    - **Response**: Success status (Boolean).
+
+5. **ListProfiles**
+    - **Purpose**: List all available profiles.
+    - **Request Parameters**: None.
+    - **Response**: Array of profile IDs.
+
+#### Protobuf
+
+<CodeGroup>
+
+```protobuf profile.proto
+syntax = "proto3";
+
+package profile;
+
+service Profile {
+  rpc CreateProfile(CreateProfileRequest) returns (CreateProfileResponse) {}
+  rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {}
+  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+  rpc DeleteProfile(DeleteProfileRequest) returns (DeleteProfileResponse) {}
+  rpc ListProfiles(ListProfilesRequest) returns (ListProfilesResponse) {}
+}
+
+// Message Definitions for Profile Operations
+
+// Create a new profile
+message CreateProfileRequest {
+  string user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string phone_number = 5;
+  string bio = 6;
+}
+message CreateProfileResponse {
+  string profile_id = 1;
+}
+
+// Fetch a profile by ID
+message GetProfileRequest {
+  string profile_id = 1;
+}
+message GetProfileResponse {
+  string user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string phone_number = 5;
+  string bio = 6;
+}
+
+// Update an existing profile
+message UpdateProfileRequest {
+  string profile_id = 1;
+  string new_first_name = 2;
+  string new_last_name = 3;
+  string new_email = 4;
+  string new_phone_number = 5;
+  string new_bio = 6;
+}
+message UpdateProfileResponse {
+  bool success = 1;
+}
+
+// Delete a profile
+message DeleteProfileRequest {
+  string profile_id = 1;
+}
+message DeleteProfileResponse {
+  bool success = 1;
+}
+
+// List all profiles
+message ListProfilesRequest {}
+message ListProfilesResponse {
+  repeated string profile_ids = 1;
+}
+```
+</CodeGroup>

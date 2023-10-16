@@ -1,0 +1,128 @@
+---
+title: Import/Export
+---
+
+### Backup and Recovery Service
+
+#### Summary
+
+The Backup and Recovery service focuses on the import/export of issues, data backup, and mirroring between SharePoint and cloud storage. This service is critical for data durability, sharing, and migration.
+
+#### Endpoints
+
+##### Issue Management
+
+1. **ImportIssuesFromCSV**
+    - **Purpose**: Imports issues from a CSV or Excel file.
+    - **Request Parameters**:
+        - `csv_data` (bytes): The content of the CSV or Excel file.
+    - **Response**: Success status and a message indicating the outcome.
+
+2. **ExportIssuesToCSV**
+    - **Purpose**: Exports issues to a CSV or Excel file.
+    - **Request Parameters**:
+        - `query` (string): Query used to filter which issues to export.
+    - **Response**: The content of the CSV or Excel file.
+
+##### SharePoint Integration
+
+3. **MirrorSharePointToCloudStorage**
+    - **Purpose**: Mirrors the structure of a SharePoint site to cloud storage.
+    - **Request Parameters**:
+        - `sharepoint_url` (string): The URL of the SharePoint site.
+        - `folder_path` (string): The path in the cloud storage where the SharePoint structure will be mirrored.
+    - **Response**: Success status and a message indicating the outcome.
+
+##### Backup Management
+
+4. **BackupDataToCloudStorage**
+    - **Purpose**: Backs up specific data to cloud storage.
+    - **Request Parameters**:
+        - `data_identifier` (string): Identifier for the data to be backed up.
+    - **Response**: Success status and the URL where the data has been stored.
+
+##### Cloud Storage Integration
+
+5. **ExportCloudStorageToSharePoint**
+    - **Purpose**: Exports the data from cloud storage to a SharePoint site.
+    - **Request Parameters**:
+        - `bucket_name` (string): The name of the cloud storage bucket.
+    - **Response**: Success status and a message indicating the outcome.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf backup_recovery.proto
+syntax = "proto3";
+
+package backup_recovery;
+
+service BackupRecovery {
+  // Import Issues from CSV or Excel
+  rpc ImportIssuesFromCSV(ImportIssuesFromCSVRequest) returns (ImportIssuesFromCSVResponse) {}
+
+  // Export Issues to CSV or Excel
+  rpc ExportIssuesToCSV(ExportIssuesToCSVRequest) returns (ExportIssuesToCSVResponse) {}
+
+  // Mirror SharePoint Structure to Cloud Storage
+  rpc MirrorSharePointToCloudStorage(MirrorSharePointToCloudStorageRequest) returns (MirrorSharePointToCloudStorageResponse) {}
+
+  // Backup Data to Cloud Storage
+  rpc BackupDataToCloudStorage(BackupDataToCloudStorageRequest) returns (BackupDataToCloudStorageResponse) {}
+
+  // Export Cloud Storage to SharePoint
+  rpc ExportCloudStorageToSharePoint(ExportCloudStorageToSharePointRequest) returns (ExportCloudStorageToSharePointResponse) {}
+}
+
+// Import Issues from CSV or Excel
+message ImportIssuesFromCSVRequest {
+  bytes csv_data = 1;
+}
+
+message ImportIssuesFromCSVResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Export Issues to CSV or Excel
+message ExportIssuesToCSVRequest {
+  string query = 1; // The query used to filter which issues to export
+}
+
+message ExportIssuesToCSVResponse {
+  bytes csv_data = 1;
+}
+
+// Mirror SharePoint Structure to Cloud Storage
+message MirrorSharePointToCloudStorageRequest {
+  string sharepoint_url = 1;
+  string folder_path = 2;
+}
+
+message MirrorSharePointToCloudStorageResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Backup Data to Cloud Storage
+message BackupDataToCloudStorageRequest {
+  string data_identifier = 1;
+}
+
+message BackupDataToCloudStorageResponse {
+  bool success = 1;
+  string cloud_storage_url = 2;
+}
+
+// Export Cloud Storage to SharePoint
+message ExportCloudStorageToSharePointRequest {
+  string bucket_name = 1;
+}
+
+message ExportCloudStorageToSharePointResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+```
+</CodeGroup>

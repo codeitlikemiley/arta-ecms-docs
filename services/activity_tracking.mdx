@@ -1,0 +1,84 @@
+---
+title: Activity
+---
+### Activity Tracking Service
+
+#### Summary
+
+The Activity Tracking service is primarily responsible for logging various activities related to issues and retrieving these activity logs. This provides a transparent history of issue changes, assignments, and other significant events.
+
+#### Endpoints
+
+##### Activity Logging
+
+1. **LogActivity**
+    - **Purpose**: Logs an activity related to an issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier of the related issue.
+        - `entity_id` (string): Identifier of the entity initiating the action (user, document, etc.).
+        - `entity_type` (string): Type of the entity (e.g., "USER", "DOCUMENT").
+        - `action` (string): Nature of the activity (e.g., "ASSIGNED", "TITLE_CHANGED").
+        - `description` (string): Additional information about the activity.
+        - `timestamp` (string): Time of the activity in ISO 8601 format.
+    - **Response**: An identifier (`activity_id`) for the logged activity.
+
+##### Activity Retrieval
+
+2. **GetActivitiesByIssue**
+    - **Purpose**: Retrieves activity logs for a specific issue.
+    - **Request Parameters**:
+        - `issue_id` (string): Identifier of the issue.
+        - `limit` (int32): Number of records to retrieve.
+        - `after_activity_id` (string): Identifier for pagination.
+    - **Response**: A list of `Activity` records.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf activity_tracking.proto
+syntax = "proto3";
+
+package activity_tracking;
+
+service ActivityTracking {
+  rpc LogActivity(LogActivityRequest) returns (LogActivityResponse) {}
+  rpc GetActivitiesByIssue(GetActivitiesByIssueRequest) returns (GetActivitiesByIssueResponse) {}
+}
+
+// Message Definitions for Activity Tracking Operations
+
+// Log an Activity
+message LogActivityRequest {
+  string issue_id = 1;
+  string entity_id = 2; // Could be user_id, document_id, etc.
+  string entity_type = 3; // e.g., "USER", "DOCUMENT"
+  string action = 4; // e.g., "ASSIGNED", "TITLE_CHANGED", "UPLOADED", etc.
+  string description = 5; // Optional, additional info
+  string timestamp = 6; // ISO 8601 format
+}
+message LogActivityResponse {
+  string activity_id = 1;
+}
+
+// Get Activities for a specific issue
+message GetActivitiesByIssueRequest {
+  string issue_id = 1;
+  int32 limit = 2; // Number of records to retrieve
+  string after_activity_id = 3; // For pagination
+}
+message GetActivitiesByIssueResponse {
+  repeated Activity activities = 1;
+}
+
+// Activity data type
+message Activity {
+  string activity_id = 1;
+  string issue_id = 2;
+  string entity_id = 3;
+  string entity_type = 4;
+  string action = 5;
+  string description = 6;
+  string timestamp = 7; // ISO 8601 format
+}
+```
+</CodeGroup>

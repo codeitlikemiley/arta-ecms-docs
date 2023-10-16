@@ -1,3 +1,143 @@
 ---
-title: User Service
+title: User
 ---
+### User Management Service
+
+#### Summary
+
+The User Management service is responsible for handling all operations related to users, such as registration, activation/deactivation, and updating user details. It provides endpoints to perform these tasks and ensures that the user data is correctly managed and accessed.
+
+#### Endpoints
+
+##### User Operations
+
+1. **RegisterUser**
+    - **Purpose**: Register a new user.
+    - **Request Parameters**:
+        - `username` (string): Desired username.
+        - `email` (string): Email address.
+        - `password` (string): Password.
+    - **Response**: User ID.
+
+2. **ActivateUser**
+    - **Purpose**: Activate a registered user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user to activate.
+    - **Response**: Success status (Boolean).
+
+3. **DeactivateUser**
+    - **Purpose**: Deactivate an active user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user to deactivate.
+    - **Response**: Success status (Boolean).
+
+4. **GetUserDetails**
+    - **Purpose**: Retrieve details of a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+    - **Response**: Username, email, and activation status.
+
+5. **ListUsers**
+    - **Purpose**: List all registered users.
+    - **Request Parameters**: None.
+    - **Response**: List of user IDs.
+
+6. **UpdateUserDetails**
+    - **Purpose**: Update details of a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `new_username` (string): New username.
+        - `new_email` (string): New email.
+        - `new_password` (string, Optional): New password.
+    - **Response**: Success status (Boolean).
+
+7. **DeleteUser**
+    - **Purpose**: Delete a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user to delete.
+    - **Response**: Success status (Boolean).
+
+#### Protobuf
+
+<CodeGroup>
+
+```protobuf user_management.proto
+syntax = "proto3";
+
+package user_management;
+
+service UserManagement {
+  rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse) {}
+  rpc ActivateUser(ActivateUserRequest) returns (ActivateUserResponse) {}
+  rpc DeactivateUser(DeactivateUserRequest) returns (DeactivateUserResponse) {}
+  rpc GetUserDetails(GetUserDetailsRequest) returns (GetUserDetailsResponse) {}
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {}
+  rpc UpdateUserDetails(UpdateUserDetailsRequest) returns (UpdateUserDetailsResponse) {}
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+// Message Definitions for User Management Operations
+
+// Register a New User
+message RegisterUserRequest {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+}
+message RegisterUserResponse {
+  string user_id = 1;
+}
+
+// Activate a User
+message ActivateUserRequest {
+  string user_id = 1;
+}
+message ActivateUserResponse {
+  bool success = 1;
+}
+
+// Deactivate a User
+message DeactivateUserRequest {
+  string user_id = 1;
+}
+message DeactivateUserResponse {
+  bool success = 1;
+}
+
+// Fetch User Details
+message GetUserDetailsRequest {
+  string user_id = 1;
+}
+message GetUserDetailsResponse {
+  string username = 1;
+  string email = 2;
+  bool is_active = 3;
+}
+
+// List Users
+message ListUsersRequest {}
+message ListUsersResponse {
+  repeated string user_ids = 1;
+}
+
+// Update User Details
+message UpdateUserDetailsRequest {
+  string user_id = 1;
+  string new_username = 2;
+  string new_email = 3;
+  string new_password = 4; // Optional, only set if password is to be changed
+}
+message UpdateUserDetailsResponse {
+  bool success = 1;
+}
+
+// Delete a User
+message DeleteUserRequest {
+  string user_id = 1;
+}
+message DeleteUserResponse {
+  bool success = 1;
+}
+```
+
+</CodeGroup>

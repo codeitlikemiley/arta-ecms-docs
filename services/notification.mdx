@@ -1,0 +1,133 @@
+---
+title: Notification
+---
+### Notification Service
+
+#### Summary
+
+The Notification Service aims to manage all kinds of notifications within your E-CMS, from mentions and scheduled alerts to real-time and admin notifications. It also provides an interface for updating user preferences and viewing analytics related to notifications.
+
+#### Endpoints
+
+##### User Notifications
+
+1. **SendMentionNotification**
+    - **Purpose**: Sends a notification when a user is mentioned in a comment.
+    - **Request Parameters**:
+        - `user_id` (string): ID of the user being mentioned.
+        - `comment_id` (string): ID of the comment where the mention occurred.
+        - `document_id` (string): ID of the document being commented on.
+    - **Response**: A success flag.
+
+##### Scheduled Alerts
+
+2. **ScheduleAlerts**
+    - **Purpose**: Schedules alerts for pending tasks for a user.
+    - **Request Parameters**:
+        - `user_id` (string): ID of the user.
+        - `pending_task_ids` (repeated string): List of pending task IDs.
+    - **Response**: A success flag.
+
+##### Admin Notifications
+
+3. **SendAdminNotification**
+    - **Purpose**: Sends notifications to admin users.
+    - **Request Parameters**:
+        - `message` (string): The message to be sent.
+        - `priority` (string): Priority level ("High", "Medium", "Low").
+    - **Response**: A success flag.
+
+##### User Preferences
+
+4. **UpdatePreferences**
+    - **Purpose**: Allows users to update their notification preferences.
+    - **Request Parameters**:
+        - `user_id` (string): ID of the user.
+        - `preferences` (map): A map of notification types to a boolean value indicating whether the notification is enabled or disabled.
+    - **Response**: A success flag.
+
+##### Analytics
+
+5. **GetNotificationAnalytics**
+    - **Purpose**: Retrieves analytics data related to notifications.
+    - **Request Parameters**: None.
+    - **Response**: A map containing engagement metrics such as "opened" and "clicked" counts.
+
+##### Real-Time Notifications
+
+6. **RealTimeNotifications**
+    - **Purpose**: Streams real-time notifications to a user.
+    - **Request Parameters**:
+        - `user_id` (string): ID of the user.
+    - **Response**: Stream of notifications.
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf  notification.proto
+syntax = "proto3";
+
+package notification;
+
+service Notification {
+  rpc SendMentionNotification(SendMentionNotificationRequest) returns (SendMentionNotificationResponse) {}
+  rpc ScheduleAlerts(ScheduleAlertsRequest) returns (ScheduleAlertsResponse) {}
+  rpc SendAdminNotification(SendAdminNotificationRequest) returns (SendAdminNotificationResponse) {}
+  rpc UpdatePreferences(UpdatePreferencesRequest) returns (UpdatePreferencesResponse) {}
+  rpc GetNotificationAnalytics(GetNotificationAnalyticsRequest) returns (GetNotificationAnalyticsResponse) {}
+  rpc RealTimeNotifications(RealTimeNotificationsRequest) returns (stream RealTimeNotificationsResponse) {}
+}
+
+// RPC for User Mention Notifications
+message SendMentionNotificationRequest {
+  string user_id = 1;  // ID of the user being mentioned
+  string comment_id = 2;  // ID of the comment where the mention occurred
+  string document_id = 3;  // ID of the document being commented on
+}
+message SendMentionNotificationResponse {
+  bool success = 1;
+}
+
+// RPC for Scheduled Alerts
+message ScheduleAlertsRequest {
+  string user_id = 1;
+  repeated string pending_task_ids = 2;
+}
+message ScheduleAlertsResponse {
+  bool success = 1;
+}
+
+// RPC for Admin Notifications
+message SendAdminNotificationRequest {
+  string message = 1;
+  string priority = 2;  // "High", "Medium", "Low"
+}
+message SendAdminNotificationResponse {
+  bool success = 1;
+}
+
+// RPC for Notification Preferences
+message UpdatePreferencesRequest {
+  string user_id = 1;
+  map<string, bool> preferences = 2;  // Map of notification types to Boolean (enabled/disabled)
+}
+message UpdatePreferencesResponse {
+  bool success = 1;
+}
+
+// RPC for Notification Analytics
+message GetNotificationAnalyticsRequest {}
+message GetNotificationAnalyticsResponse {
+  map<string, int> engagement_metrics = 1;  // E.g., "opened": 50, "clicked": 30
+}
+
+// RPC for Real-Time Notifications
+message RealTimeNotificationsRequest {
+  string user_id = 1;
+}
+message RealTimeNotificationsResponse {
+  string notification = 1;  // Description or ID of the notification
+}
+
+```
+</CodeGroup>

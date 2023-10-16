@@ -1,0 +1,117 @@
+---
+title: AI Assist
+---
+### AI Assist Service
+
+#### Summary
+
+The AI Assist Service serves as the intelligence layer of your E-CMS. With endpoints like query generation based on intent, sentiment analysis, text classification, entity recognition, and predictive analysis, it's designed to enhance the user experience and provide valuable insights. Given that you're using OpenAI API, these RPC methods can be implemented with advanced natural language processing techniques.
+
+#### Endpoints
+
+##### Generate Query
+
+1. **GenerateQuery**
+    - **Purpose**: Generates a query string based on the user's intent and provided parameters.
+    - **Request Parameters**:
+        - `intent` (string): The intent of the query (e.g., "search", "filter").
+        - `parameters` (map): Additional parameters to refine the query.
+    - **Response**:
+        - `generated_query` (string): The generated query string.
+
+##### Analyze Sentiment
+
+2. **AnalyzeSentiment**
+    - **Purpose**: Performs sentiment analysis on a given text.
+    - **Request Parameters**:
+        - `text` (string): The text for analysis.
+    - **Response**:
+        - `sentiment` (string): The sentiment category ("Positive", "Negative", "Neutral").
+
+##### Text Classification
+
+3. **TextClassification**
+    - **Purpose**: Classifies the text into categories like "Technical", "Customer Service", etc.
+    - **Request Parameters**:
+        - `text` (string): The text for classification.
+    - **Response**:
+        - `category` (string): The category the text belongs to.
+
+##### Entity Recognition
+
+4. **EntityRecognition**
+    - **Purpose**: Identifies entities in a given text.
+    - **Request Parameters**:
+        - `text` (string): The text containing entities.
+    - **Response**:
+        - `entities` (string array): List of identified entities.
+
+##### Predictive Analysis
+
+5. **PredictiveAnalysis**
+    - **Purpose**: Provides predictive analytics based on provided parameters.
+    - **Request Parameters**:
+        - `parameters` (map): Features for predictive analysis (e.g., "issue_type", "user_activity").
+    - **Response**:
+        - `predictions` (map): Probability estimates for certain outcomes (e.g., "success_probability").
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf  ai_assist.proto
+syntax = "proto3";
+
+package ai_assist;
+
+service AIAssist {
+  rpc GenerateQuery(GenerateQueryRequest) returns (GenerateQueryResponse) {}
+  rpc AnalyzeSentiment(AnalyzeSentimentRequest) returns (AnalyzeSentimentResponse) {}
+  rpc TextClassification(TextClassificationRequest) returns (TextClassificationResponse) {}
+  rpc EntityRecognition(EntityRecognitionRequest) returns (EntityRecognitionResponse) {}
+  rpc PredictiveAnalysis(PredictiveAnalysisRequest) returns (PredictiveAnalysisResponse) {}
+}
+
+// RPC to generate a query based on user's intent and parameters
+message GenerateQueryRequest {
+  string intent = 1;
+  map<string, string> parameters = 2;
+}
+message GenerateQueryResponse {
+  string generated_query = 1;
+}
+
+// RPC to analyze the sentiment of a piece of text
+message AnalyzeSentimentRequest {
+  string text = 1;
+}
+message AnalyzeSentimentResponse {
+  string sentiment = 1; // E.g., "Positive", "Negative", "Neutral"
+}
+
+// RPC for Text Classification
+message TextClassificationRequest {
+  string text = 1;
+}
+message TextClassificationResponse {
+  string category = 1; // E.g., "Technical", "Customer Service"
+}
+
+// RPC for Entity Recognition in text
+message EntityRecognitionRequest {
+  string text = 1;
+}
+message EntityRecognitionResponse {
+  repeated string entities = 1; // E.g., ["John Doe", "San Francisco", "Apple Inc."]
+}
+
+// RPC for Predictive Analysis
+message PredictiveAnalysisRequest {
+  map<string, string> parameters = 1; // E.g., {"issue_type": "bug", "user_activity": "high"}
+}
+message PredictiveAnalysisResponse {
+  map<string, float> predictions = 1; // E.g., {"success_probability": 0.8}
+}
+
+
+```
+</CodeGroup>
