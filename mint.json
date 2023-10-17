@@ -82,7 +82,11 @@
           "group": "Processes",
           "pages": [
             "processes/index",
-            "processes/data-gathering"
+            "processes/form-submission",
+            "processes/complaint-resolution",
+            "processes/auth-process",
+            "processes/metrics-process",
+            "processes/search-process"
           ]
         },
         {
