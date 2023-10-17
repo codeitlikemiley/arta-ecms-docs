@@ -1,6 +1,8 @@
 # ARTA ECMS Docs
 
-> Currently Deployed at https://goldcoderscorp.mintlify.app/introduction
+> Currently Deployed at https://arta.goldcoders.dev
+
+<img width="1624" alt="Screenshot 2023-10-17 at 5 41 58 PM" src="https://github.com/codeitlikemiley/arta-ecms-docs/assets/28816690/5a08660a-da84-49ac-bcb3-a61906cd1dbd">
 
 ### Development
 
