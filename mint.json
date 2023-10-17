@@ -55,7 +55,6 @@
       "group": "System Design and Architecture",
       "pages": [
         "introduction",
-        "sections",
         {
           "group": "Services",
           "pages": [
@@ -101,12 +100,7 @@
             "application/security"
           ]
         },
-        {
-          "group": "Infrastructure",
-          "pages": [
-            "infrastructure/index"
-          ]
-        }
+        "infrastructure/index"
       ]
     },
     {
