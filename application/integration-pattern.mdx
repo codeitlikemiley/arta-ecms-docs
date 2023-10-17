@@ -1,0 +1,52 @@
+---
+title: Integration Patterns
+---
+
+---
+
+### 1. API Gateway:
+
+The API Gateway serves as the initial point of contact for all client requests. It is responsible for routing incoming HTTP requests to the appropriate backend services, such as Lambda functions or other cloud-based services. In an AWS context, AWS API Gateway can perform this role.
+
+**Benefit**: Centralizing routing logic here simplifies client-side code and allows for more effective load distribution and scaling. It also provides a single point for applying security protocols, logging, and other cross-cutting concerns.
+
+---
+
+### 2. Event-Driven Architecture:
+
+In this architecture, certain actions or state changes trigger events that are then handled asynchronously. In an AWS-based architecture, Amazon SNS (Simple Notification Service) or Amazon SQS (Simple Queue Service) can be used for this purpose.
+
+**Benefit**: This design pattern allows for better scalability and separation of concerns. For example, you could queue up requests for AI embeddings and have them processed asynchronously, freeing up resources for other operations.
+
+---
+
+### 3. Database Replication and Sharding:
+
+Database replication and sharding are techniques used to distribute data across multiple servers. In your original stack, PlanetScale DB was chosen for this purpose. PlanetScale is built on top of Vitess and handles sharding and replication automatically.
+
+**Benefit**: These approaches improve database read/write performance, fault tolerance, and data availability. They also allow the system to scale horizontally, adding more machines to handle increased load.
+
+---
+
+### 4. Caching:
+
+Caching involves storing copies of frequently accessed data points to reduce the time needed to fetch them in the future. PlanetScale DB provides automatic query caching.
+
+**Benefit**: By reducing the need to perform full database queries for frequently requested data, caching can greatly improve application performance and reduce database load.
+
+---
+
+### 5. Micro-batching:
+
+Micro-batching is the practice of grouping smaller tasks together into a 'batch' to improve processing efficiency. In a cloud context, AWS Lambda or AWS Step Functions could handle such operations.
+
+**Benefit**: Micro-batching can improve resource utilization and reduce costs, especially for operations that are not time-sensitive but still need to be processed quickly, like sending notifications.
+
+---
+
+These integration patterns collectively provide a robust, scalable, and efficient architecture. Each has its own role to play in ensuring that the system can handle varied workloads, remain responsive, and be easy to manage.
+
+<br />
+<br />
+<br />
+<br />

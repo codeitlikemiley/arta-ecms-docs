@@ -92,7 +92,13 @@
         {
           "group": "Application",
           "pages": [
-            "application/index"
+            "application/index",
+            "application/architectural-pattern",
+            "application/grpc",
+            "application/data-flow",
+            "application/integration-pattern",
+            "application/state-management",
+            "application/security"
           ]
         },
         {

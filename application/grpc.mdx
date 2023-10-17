@@ -1,0 +1,75 @@
+---
+title: Why GRPC?
+---
+
+<Card title="Communication Protocol" icon="chart-network">
+gRPC is a high-performance, open-source, and universal remote procedure call (RPC) framework initially developed by Google. It leverages HTTP/2 for transport, Protocol Buffers as the interface description language, and provides features such as authentication, load balancing, and more.
+</Card>
+
+## Key Components
+Service Definition: You define services and their methods using Protocol Buffers, specifying input and output message types.
+Server and Client Stubs: Based on the service definition, server and client code is auto-generated. The server implements the service interface, and the client has a stub that provides the same methods as the service.
+HTTP/2: Utilizes the features of HTTP/2 like multiplexing, flow control, header compression, and lightweight connections for transport.
+Streaming: Supports four kinds of service methods, including unary, client streaming, server streaming, and bidirectional streaming.
+Pluggable: It supports pluggable authentication, load balancing, retries, etc.
+
+## Main Features
+Performance: High-speed data exchange due to HTTP/2 and Protocol Buffers.
+Language-Agnostic: Supports a variety of languages out-of-the-box including Java, Go, C++, Python, and your chosen language, Rust.
+Strongly Typed: Service definitions ensure that the data types are honored by both the client and the server, minimizing data errors.
+Streaming Support: Native support for both client and server streaming.
+Deadlines/Timeouts: Provides native support for specifying how long a client is willing to wait for a service to complete.
+
+## Use Cases
+Microservices: Well-suited for low-latency, high-efficiency microservice architectures.
+Polyglot Systems: Supports multiple languages, making it suitable for diverse ecosystems.
+Real-time Communication: Effective for real-time applications due to low-latency features.
+Streaming Data: Can handle real-time data streams efficiently.
+
+## Suitability for E-CMS
+
+Given that E-CMS could potentially deal with real-time complaint tracking, high-concurrency, and low-latency requirements, gRPC is an excellent choice for both internal and external communication. The strong typing is particularly useful for maintaining consistency in a modular monolithic architecture.
+
+## Rust with GRPC on Production
+
+
+<AccordionGroup>
+  <Accordion icon="github" title="Production Grade Rust GRPC Server">
+
+    Requirements:
+
+    - [Rust](https://www.rust-lang.org/tools/install)
+    - [Git](https://git-scm.com)
+    - [Docker](https://www.docker.com/products/docker-desktop/)
+    - [Evans Cli](https://github.com/ktr0731/evans#usage-cli)
+    - [GitPod Cli](https://github.com/codeitlikemiley/rust-grpc-server/blob/main/docs/gitpod-cli.md)
+    - [PostMan](https://www.postman.com/downloads/)
+    - [TerraForm CLI](https://developer.hashicorp.com/terraform/cli/commands)
+
+
+    Clone the repository
+
+    ```sh
+    git clone https://github.com/codeitlikemiley/rust-grpc-server
+    ```
+
+    Cargo Run Build
+    ```sh
+    cargo build
+    ```
+
+    Cargo Run Watch
+    ```sh
+    cargo watch -x run
+    ```
+
+    [For More Info Read Documentations](https://github.com/codeitlikemiley/rust-grpc-server/tree/main/docs)
+
+  </Accordion>
+</AccordionGroup>
+
+<br />
+<br />
+<br />
+
+

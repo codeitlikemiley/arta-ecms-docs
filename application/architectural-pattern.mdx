@@ -1,0 +1,63 @@
+---
+title: Why Modular Monolithic?
+---
+
+<Card title="What is Modular Monolithic Architecture?" icon="link">
+A Modular Monolithic architecture is a design paradigm where the application is built as a single codebase but is organized in a way that allows it to be highly modular. Instead of distributing modules as separate services (as in microservices), they all exist within the same application. These modules interact through well-defined interfaces, and they can often be developed, tested, and deployed independently, up to the limit imposed by the monolithic deployment model.
+</Card>
+
+
+## Advantages
+
+Simplicity: Easier to develop, test, and deploy compared to a distributed system.
+High Cohesion: Because modules are part of the same codebase, it's easier to maintain high cohesion between related functionalities.
+Low Latency: Inter-module communication is faster because everything runs in the same process, reducing network latency.
+
+## Drawbacks
+Scalability: Vertical scaling is often easier than horizontal scaling due to the single codebase nature.
+Deployment: The entire application often needs to be deployed together, even if changes are limited to a single module.
+Technology Lock-in: You're generally restricted to a single technology stack for the entire application.
+
+## How Does Rust Fit into This?
+Performance: Rust provides near C-level performance, which is advantageous for building high-performance modules.
+Concurrency: Rust's concurrency model can be beneficial in a monolithic architecture where managing multiple tasks efficiently is crucial.
+Memory Safety: One of the key features of Rust is its focus on memory safety without sacrificing performance, which makes it a strong fit for complex back-end logic.
+Strong Typing: Rust’s strong type system is well-suited for a modular approach, ensuring interface contracts between modules are strictly enforced at compile-time.
+Package Management: Rust’s package manager, Cargo, simplifies dependency management, making it easier to build and maintain modular applications.
+Community and Ecosystem: Rust has a growing ecosystem of libraries and tools, many of which are well-suited for building modular back-end systems, including frameworks and libraries for web services, data manipulation, and more.
+Interoperability: Rust can easily interoperate with C and other languages, making it possible to wrap or replace individual modules written in other languages without having to replace the entire system.
+
+## Rust Folder Structure with Cargo Workspace
+
+```rust
+my_ecms_app_workspace/       // Workspace root directory
+├── Cargo.toml               // Workspace configuration
+├── user_management/         // User Management crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── complaint_management/    // Complaint Management crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── reporting/               // Reporting crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── search/                  // Search crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+└── my_ecms_app/              // Main application crate
+    ├── Cargo.toml
+    └── src/
+        └── main.rs
+```
