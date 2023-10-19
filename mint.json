@@ -74,18 +74,18 @@
             "services/ai_assist",
             "services/activity_tracking",
             "services/roles-and-permissions-service"
-
           ]
         },
         {
           "group": "Processes",
           "pages": [
             "processes/index",
-            "processes/form-submission",
+            "processes/issue-creation",
             "processes/complaint-resolution",
             "processes/auth-process",
             "processes/metrics-process",
-            "processes/search-process"
+            "processes/search-process",
+            "processes/ai-assist"
           ]
         },
         {
@@ -93,21 +93,32 @@
           "pages": [
             "application/index",
             "application/architectural-pattern",
-            "application/grpc",
-            "application/data-flow",
-            "application/integration-pattern",
-            "application/state-management",
-            "application/security"
+            "application/ui-ux",
+            "application/business-logic",
+            "application/performance-optimization",
+            "application/security-measures",
+            "application/scalability",
+            "application/accessibility",
+            "application/analytics",
+            "application/troubleshooting"
           ]
         },
-        "infrastructure/index"
+        {
+          "group": "Infrastructure",
+          "pages": [
+            "infrastructure/index",
+            "infrastructure/architecture",
+            "infrastructure/integration-pattern",
+            "infrastructure/planet-scale"
+          ]
+        }
       ]
     },
     {
-       "group": "UI Design System",
-       "pages": [
-         "figma"
-       ]
+      "group": "UI Design System",
+      "pages": [
+        "figma"
+      ]
     }
   ],
   "footerSocials": {

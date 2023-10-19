@@ -1,0 +1,35 @@
+---
+title: Integration Points
+---
+
+In today’s interconnected digital landscape, no application exists in isolation. The E-CMS is designed to be a highly extensible and interoperable system, seamlessly connecting with various external services and systems to provide a comprehensive complaint management solution.
+
+### Gmail Add-Ons
+
+Our application integrates tightly with Gmail Add-Ons to enable automated complaint creation and tracking from emails. This feature alleviates the need for manual data entry, thus enhancing productivity and reducing error rates.
+
+### Google Drive and Google Spreadsheet API
+
+To manage attachments and log data, we utilize Google Drive and Google Spreadsheet API integrations. These enable secure and efficient file management and data storage, effectively replacing manual spreadsheet handling.
+
+### Web Service API
+
+The E-CMS is equipped with its own set of RESTful web services, allowing for easy integration with other platforms or third-party services. These APIs are designed for scalability and are compliant with standard security protocols.
+
+### Planetscale and Qdrant Database
+
+Given our focus on high availability and scalability, we’ve chosen to integrate with Planetscale for relational data and Qdrant for vector search capabilities. These databases offer performance benefits and are designed for high-concurrency environments.
+
+### OpenAI
+
+We utilize OpenAI's capabilities to add an extra layer of intelligent automation. For example, we use natural language processing to classify complaints and determine urgency automatically, streamlining the complaint routing process.
+
+### GRPC for Inter-Service Communication
+
+Given its advantages in terms of performance and scalability, we employ GRPC for inter-service communications within our architecture. This enables faster data exchanges compared to traditional HTTP-based methods.
+
+### Kubernetes
+
+While Kubernetes is generally an infrastructure concern, it plays an integral role in how our services interact, thus making it a relevant point of integration. It orchestrates our containerized services, ensuring that they are both scalable and highly available.
+
+By integrating these various services and technologies, the E-CMS stands as a comprehensive, interoperable, and extensible platform. The design prioritizes ease of data flow between systems, simplifying both user interactions and backend processes.

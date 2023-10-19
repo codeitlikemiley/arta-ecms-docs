@@ -2,9 +2,40 @@
 title: Services
 icon: cubes
 ---
-<Card title="Click Here" icon="link" href="https://www.postman.com/goldcoders/workspace/team-workspace/collection/652da81d529f07d5d9fc4412?action=share&creator=2433574">
-To view API definitions and API collections of ARTA E-CMS on Postman<br />
-Each Endpoint (RPC) has an example response , you can play around
+
+The services within our system architecture are modular and reusable components that manage specific functionalities. They are organized into three categories:
+
+- **External Services**: Third-party platforms integrated for added functionalities.
+- **External APIs**: APIs from other platforms that our system consumes.
+- **App API & GRPC Services**: Custom-built APIs and services that power our app's core functionalities.
+
+---
+
+## External Services
+
+These are third-party platforms that offer services integrated into our architecture to augment system capabilities.
+
+- **Planetscale Database**: Scalable SQL database.
+- **OpenAI / Hugging Face**: AI-based natural language processing.
+- **Cloudflare R2 Storage**: S3-compatible object storage that Manages document storage and retrieval.
+
+---
+
+## External APIs
+
+APIs from third-party services that provide specific functionalities required by our application.
+
+- **Gmail API**: For email management.
+- **Google Drive API**: For file storage.
+- **Google Spreadsheet API / MS Excel API**: For data storage and manipulation.
+- **MS SharePoint API**: For document management and collaboration.
+
+---
+
+## App API
+
+<Card title="API Playground" icon="link" href="https://www.postman.com/goldcoders/workspace/team-workspace/collection/652da81d529f07d5d9fc4412?action=share&creator=2433574">
+For an interactive experience, visit our [Postman API Collection](https://www.postman.com/goldcoders/workspace/team-workspace/collection/652da81d529f07d5d9fc4412?action=share&creator=2433574). Each endpoint has example responses you can experiment with.
 </Card>
 
 <Frame>
@@ -14,8 +45,7 @@ Each Endpoint (RPC) has an example response , you can play around
 />
 </Frame>
 
-
-#### GRPC Services
+## GRPC Services
 
 > You can quickly navigate to each service by clicking on the specific service. <br/>
 > Each service is composed of a summary and a list of endpoints (RPC), <br/>

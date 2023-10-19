@@ -1,0 +1,31 @@
+---
+title: Scalability and High Availability
+sidebarTitle: "Scalability"
+---
+
+As a government-backed electronic complaint management system, the E-CMS is architected to adapt to ever-increasing user demands and to guarantee continuous uptime. A combination of state-of-the-art technologies and best practices ensures that the system can scale both vertically and horizontally while maintaining high availability.
+
+### Horizontal and Vertical Scaling
+
+The application's architecture is designed to allow for both horizontal and vertical scaling. This gives us the flexibility to add more resources to a single server (vertical) or to add more servers (horizontal) as needed.
+
+### Kubernetes Orchestration
+
+Utilizing Kubernetes, the E-CMS employs container orchestration to automate the deployment, scaling, and management of application containers. Kubernetes ensures that resources are efficiently utilized and that the system can easily adapt to changes in load.
+
+### Load Balancing and Auto-Scaling
+
+Load balancers distribute incoming application traffic across multiple targets, such as EKS instances, in multiple available zones. Auto-scaling adjusts the computational resources to meet demand, ensuring that the application scales up or down as needed.
+
+### Data Sharding and Partitioning
+
+To support scalability at the database level, sharding and partitioning strategies are employed. These techniques help in distributing the data across multiple servers, enhancing read and write performance.
+
+### High Availability Zones and Replication
+
+By utilizing multiple availability zones and database replication strategies, the E-CMS ensures that even if one part of the system fails, another can seamlessly take over, ensuring uninterrupted service.
+
+### Caching Mechanisms
+
+Scalability is also augmented through various caching mechanisms. Frequently accessed data is cached to minimize database hits, improving performance and reducing load.
+

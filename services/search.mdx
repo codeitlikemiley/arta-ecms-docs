@@ -40,13 +40,6 @@ The Search Service is an essential component of your E-CMS, designed to provide 
         - `limit` (uint32): Number of results per page.
     - **Response**: A list of search results and the total number of results. Here, Qdrant Database and OpenAI API can be employed to deliver more contextual and relevant results.
 
-##### Real-Time Search Updates
-
-4. **RealTimeSearchUpdates**
-    - **Purpose**: Streams real-time updates for a given search keyword.
-    - **Request Parameters**:
-        - `keyword` (string): The keyword to track.
-    - **Response**: Stream of newly indexed or updated results matching the keyword.
 
 #### Protobuf
 
@@ -60,7 +53,6 @@ service Search {
   rpc BasicSearch(BasicSearchRequest) returns (BasicSearchResponse) {}
   rpc AdvancedSearch(AdvancedSearchRequest) returns (AdvancedSearchResponse) {}
   rpc FullTextSearchWithAI(FullTextSearchWithAIRequest) returns (FullTextSearchWithAIResponse) {}
-  rpc RealTimeSearchUpdates(RealTimeSearchUpdatesRequest) returns (stream RealTimeSearchUpdatesResponse) {}
 }
 
 message BasicSearchRequest {
@@ -95,14 +87,6 @@ message FullTextSearchWithAIRequest {
 message FullTextSearchWithAIResponse {
   repeated SearchResult results = 1;
   uint32 total_results = 2;
-}
-
-message RealTimeSearchUpdatesRequest {
-  string keyword = 1;
-}
-
-message RealTimeSearchUpdatesResponse {
-  SearchResult result = 1;
 }
 
 message SearchResult {

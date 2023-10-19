@@ -1,0 +1,104 @@
+---
+title: Architecture
+---
+
+
+
+### Comparison Across Different Architecture
+
+<Tabs>
+  <Tab title="Monolith">
+
+  - **Deployment Artifacts**: Single Artifact
+  - **Communication**: Method Calls
+  - **Scalability**: Vertical
+  - **Databases**: Single Database
+  - **Data Consistency**: ACID Transactions
+  - **Team Scalability**: Difficult with Large Teams
+
+  </Tab>
+  <Tab title="Microservices">
+
+  - **Deployment Artifacts**: Multiple Artifacts
+  - **Communication**: Network Calls
+  - **Scalability**: Both Vertical and Horizontal
+  - **Databases**: Multiple Databases
+  - **Data Consistency**: Eventual Consistency
+  - **Team Scalability**: Scales Well with Large Teams
+
+  </Tab>
+  <Tab title="Modular Monolith">
+
+  - **Deployment Artifacts**: Single Artifact
+  - **Communication**: Method Calls within Modules
+  - **Scalability**: Vertical within a Single Unit
+  - **Databases**: Generally Single Database
+  - **Data Consistency**: ACID Transactions within Modules
+  - **Team Scalability**: Intermediate, Depends on Modularity
+
+  </Tab>
+</Tabs>
+
+### Why Modular Monolith?
+
+1. **Simplified Deployment**: Like a traditional monolith, a modular monolith can be deployed as a single unit, making the deployment process straightforward and easy to manage, especially given that you're using Google Cloud services for deployment.
+
+2. **Communication Efficiency**: Modules within a modular monolith communicate via method calls, which are more efficient than the network calls needed in a microservices architecture. This can result in lower latency and faster response times.
+
+3. **Data Consistency**: If your system has strong consistency requirements, a modular monolith enables you to maintain ACID transactions across multiple modules easily.
+
+4. **Team Scalability**: Unlike traditional monoliths, modular monoliths can scale reasonably well with larger development teams if the modules are well-isolated, which your tech stack of Rust, gRPC, and Planetscale can enforce effectively.
+
+5. **Simpler for Smaller Teams**: Managing a microservices architecture can require a larger ops team and more complex infrastructure, which might not align with your project’s current scope or staffing.
+
+6. **Evolutionary Path**: If ever you decide that some components are better off as separate services, a well-designed modular monolith can be broken down into microservices at a later stage with relatively less pain.
+
+7. **Easier Troubleshooting**: Having a single codebase can make it easier to troubleshoot and debug the system, as you don't have to trace issues through a network of microservices.
+
+8. **Reduced Operational Complexity**: Since everything is running as a single service, you don't need to coordinate multiple services, which often requires additional tools and adds complexity to the system.
+
+
+
+## How Does Rust Fit into This?
+Performance: Rust provides near C-level performance, which is advantageous for building high-performance modules.
+Concurrency: Rust's concurrency model can be beneficial in a monolithic architecture where managing multiple tasks efficiently is crucial.
+Memory Safety: One of the key features of Rust is its focus on memory safety without sacrificing performance, which makes it a strong fit for complex back-end logic.
+Strong Typing: Rust’s strong type system is well-suited for a modular approach, ensuring interface contracts between modules are strictly enforced at compile-time.
+Package Management: Rust’s package manager, Cargo, simplifies dependency management, making it easier to build and maintain modular applications.
+Community and Ecosystem: Rust has a growing ecosystem of libraries and tools, many of which are well-suited for building modular back-end systems, including frameworks and libraries for web services, data manipulation, and more.
+Interoperability: Rust can easily interoperate with C and other languages, making it possible to wrap or replace individual modules written in other languages without having to replace the entire system.
+
+## Rust on Modular  Monolith Architecture
+
+```rust
+my_ecms_app_workspace/       // Workspace root directory
+├── Cargo.toml               // Workspace configuration
+├── user_management/         // User Management crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── complaint_management/    // Complaint Management crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── reporting/               // Reporting crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+├── search/                  // Search crate
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── models.rs
+│       └── handlers.rs
+└── my_ecms_app/              // Main application crate
+    ├── Cargo.toml
+    └── src/
+        └── main.rs
+```
