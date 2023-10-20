@@ -42,12 +42,6 @@
       "name": "Infrastructure",
       "icon": "cloudflare",
       "url": "infrastructure"
-    },
-    {
-      "name": "Figma Design System",
-      "icon": "figma",
-      "url": "figma",
-      "isDefaultHidden": true
     }
   ],
   "navigation": [
@@ -94,6 +88,7 @@
             "application/index",
             "application/architectural-pattern",
             "application/ui-ux",
+            "application/figma",
             "application/business-logic",
             "application/performance-optimization",
             "application/security-measures",
@@ -112,12 +107,6 @@
             "infrastructure/planet-scale"
           ]
         }
-      ]
-    },
-    {
-      "group": "UI Design System",
-      "pages": [
-        "figma"
       ]
     }
   ],
