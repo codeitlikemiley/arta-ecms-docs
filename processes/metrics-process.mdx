@@ -1,5 +1,5 @@
 ---
-title: Dashboard Metrics
+title: Dashboard Metrics Management Process
 ---
 
 > Dashboard Metrics , are user defined. By Default there is no Widget shown.
@@ -8,25 +8,97 @@ title: Dashboard Metrics
 > Widgets Can be Counter, Bar, HeatMap, etc.
 
 ## Listing Available Data Sources
-<a href="https://mermaid.live/edit#pako:eNp1kt1LwzAUxf-VcGFMYQ6ta7fmYSBMnxTB4Yv05ZreuWCb1CQdztL_3fRjHzrtU8_lHH4nya1A6JSAw2BQSSUdZ9XQrSmnIWfDFM37sK4Hg0RZ-ihJCVpIfDOYJ4r5r0DjpJAFKseeLZnT6QLt-lWjSRna1nI0uTNaOVLpaeqBnJHCLjeiifWKLclspKC_IA6XThtq3I1grUpUZ22wF_P5HszZY0HqUKRz7aW3Hvic3UvrbjYoM3zNqCXp0giyZ-dd7uBtGX0Tzu7IiTXbJ_teXXZH7M0Xv5BP5Eqj_kgcsX4e6L-ST2QL7d_u9IjNpXC2kLbIcHtUs0fACHIyOcrUr0bVxBNo1yIB7n9TWmGZuQQSVXsrlk4vt0oAd6akEZRFim63KsBXmFk_9W_1onW-M3kJvIJP4EE8DqdxPA0nQRiHUTiCLfCrq2gcxNNgMgunwewyiCf1CL7a_OV41kwn0fXsOoqiOA52yNtU-gvdE6mVD92Ct3tefwPB3Py6" target="_blank">Edit Diagram</a>
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1kstOwzAQRX_FmhVIaZUHwYkXSEiFFRUSERuUjXEGaimxg-1UlKr_jvPoAwpZZcb3-lzbswWhKwQGFj86VAIXkr8b3pSK-K_lxkkhW64cebZozrsLblevmpuKcDtITjr3RiuHqjp3LdEZKWyxFr1tqkiBZi0F_gVxvHDaYK_uCzJUpRqlPXZ2c3MAM_LYojoGGVWH0kuPfEYepHW3ay5r_lrjQNKdEWgvLkffUTswpiSM3KMTK3JwTrlG7544iWe_kE_oOqP-cJywfh7ov5BPaFutLJ4fsb8URhbStjXfnMScEKWCABo0DZeVf_1tv0EJboUNlsD8b4VvvKtdCaXaeSnvnC42SgBzpsMAurbibj8swN54bX3Xv9aL1s1e5EtgW_gEFoXJPA6zKKdhRuM8ia4D2Pj2dTin2RUN4yxNrihN6C6Ar2GHcJ7HcUbzPE_yKE1TmgeAlfTXuRwHdpjbfZC7YWXKsfsGth7zzg?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1Uk1P4zAU_CvWk6ouUqjShOLEh0pIXU6LkKi4oFyM87q1SOys7VSUKP8d56MfUDanzPOMZ2xPA0LnCAwmk0Yq6Rhppm6LJU4ZmebcvE3bdjLJlMV_NSqBK8n_Gl5miviv4sZJISuuHHm2aC6nK263r5qbnHDbU84m90Yrhyq_VD2gM1LY9U50shGRNZqdFPiTieNrpw127A6QHmVqoHa218vl0ZiRxwrVKcjAOkJPPfkz8kdad7fjsuCvBfZOujYC7a-rQXfi9h5jEkbu0YktOSrHXIP24DiSr79ZPqGrjfpBceb19UD_C_mEttL-7S6P2F0KIytpq4Lvz2KOFpmCAEo0JZe5L0fTbZBBX4wMmP_NccPrwmWQqdZTee30eq8EMGdqDKCucu4OZQG24YX1U_9aL1qXB5KHwBp4BzYP41kUJvOUhgmN0nh-G8Dej2_DGU1uaBgli_iG0pi2AXz0O4SzNIoSmqZpnM4XiwVNA8Bc-ut8GPrc1_oQ5He_MuZoPwG32P3V?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      %%{init: {'theme': 'dark'}}%%
+      sequenceDiagram
+          participant User
+          participant Dashboard as User Dashboard Frontend
+          participant MetricsSvc as Metrics Service
+          participant DataStore as Data Store
 
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1kstuwjAQRX_FmlUrAQohL7xAqkRZFVUi6qbKxjhDsZTYqe2gUsS_13nwaKFZWLmje33G9hyAqxyBgsHPGiXHuWAfmpWZJO6rmLaCi4pJS94M6tvqnJntWjGdE2Zay1VloZW0KPPb1BKtFtykO97EekVS1DvB8R7EstQqjY27EaRVmeysDXY4m53BlLxWKC-NdK6zdNYLn5IXYezTjomCrQtsSarWHM3DY5e7eFtG3wklC7R8S87Jvq8ueyL25uEf5AptreWdxBXr94H-a3KFplLS4O0Rm0uhZC5MVbD9VZs9IpMwgBJ1yUTuXv_QbJCB3WKJGVD3m-OG1YXNIJNHZ2W1VelecqBW1ziAusqZPQ0L0A0rjKu613pXqjyZnAR6gC-gfjwaJ-MkSqIwCCJvEvoD2AMNpqM48GIvccvYDzz_OIDvdgNvFHteEITJ1Av8KJqE8Yn5nAt3p2cktnLZDXE7y8cf0cHzdg?type=png)](https://mermaid.live/edit#pako:eNp1kstuwjAQRX_FmlUrAQohL7xAqkRZFVUi6qbKxjhDsZTYqe2gUsS_13nwaKFZWLmje33G9hyAqxyBgsHPGiXHuWAfmpWZJO6rmLaCi4pJS94M6tvqnJntWjGdE2Zay1VloZW0KPPb1BKtFtykO97EekVS1DvB8R7EstQqjY27EaRVmeysDXY4m53BlLxWKC-NdK6zdNYLn5IXYezTjomCrQtsSarWHM3DY5e7eFtG3wklC7R8S87Jvq8ueyL25uEf5AptreWdxBXr94H-a3KFplLS4O0Rm0uhZC5MVbD9VZs9IpMwgBJ1yUTuXv_QbJCB3WKJGVD3m-OG1YXNIJNHZ2W1VelecqBW1ziAusqZPQ0L0A0rjKu613pXqjyZnAR6gC-gfjwaJ-MkSqIwCCJvEvoD2AMNpqM48GIvccvYDzz_OIDvdgNvFHteEITJ1Av8KJqE8Yn5nAt3p2cktnLZDXE7y8cf0cHzdg" />
+          User->>Dashboard: Open Dashboard
+          Dashboard->>MetricsSvc: ListAvailableDataSources()
+          MetricsSvc->>DataStore: Fetch Available Data Sources
+          DataStore-->>MetricsSvc: Return Data Sources
+          MetricsSvc-->>Dashboard: ListAvailableDataSourcesResponse
+          Dashboard->>User: Display Available Metrics
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1kltP4zAQhf-KNVJVkEqVhjQJfkBC6vK0aCWqfUF5GZyBWiR2sJ2KbpT_vs6lFyjkwcoZneNvbE8DQucEHCaTRirpOGumbkMlTTmb5mjepm07mWTK0ntNStBK4qvBMlPMfxUaJ4WsUDn215I5r67Qbp41mpyh7S0nlXujlSOVn6ceyBkp7Horutio2JrMVgr6DuJw7bShzt0J1qtMDdYOe3V7ewBz9qcidWxkcB2ktx75nP2W1t1tURb4XFBP0rURZC8uh9zR2zPGTji7Jyc27JAc-xqye-JovvqCfCRXG_VN4oT1-UA_NflIttL-7c6P2F0KZytpqwJ3J22OiEzBDEoyJcrcD0fTbZBBPxgZcP-b0wvWhcsgU623Yu30eqcEcGdqmkFd5ej2wwL8BQvrq_61nrQu9yYvgTfwATxM5ot0kcZpvIyiOLhehjPYAY9u5kkUJEHql0UYBWE7g3_9BsE8CYIoWqY3QRTG8fUy2TN_5dLf6QFJvXwYZrwf9fY_yXT9fQ?type=png)](https://mermaid.live/edit#pako:eNp1kltP4zAQhf-KNVJVkEqVhjQJfkBC6vK0aCWqfUF5GZyBWiR2sJ2KbpT_vs6lFyjkwcoZneNvbE8DQucEHCaTRirpOGumbkMlTTmb5mjepm07mWTK0ntNStBK4qvBMlPMfxUaJ4WsUDn215I5r67Qbp41mpyh7S0nlXujlSOVn6ceyBkp7Horutio2JrMVgr6DuJw7bShzt0J1qtMDdYOe3V7ewBz9qcidWxkcB2ktx75nP2W1t1tURb4XFBP0rURZC8uh9zR2zPGTji7Jyc27JAc-xqye-JovvqCfCRXG_VN4oT1-UA_NflIttL-7c6P2F0KZytpqwJ3J22OiEzBDEoyJcrcD0fTbZBBPxgZcP-b0wvWhcsgU623Yu30eqcEcGdqmkFd5ej2wwL8BQvrq_61nrQu9yYvgTfwATxM5ot0kcZpvIyiOLhehjPYAY9u5kkUJEHql0UYBWE7g3_9BsE8CYIoWqY3QRTG8fUy2TN_5dLf6QFJvXwYZrwf9fY_yXT9fQ" />
 
 ## Fetching Data for a Selected View
-<a href="https://mermaid.live/edit#pako:eNptk01PwzAMhv9KZGkaSKUaZe3WHHYau3FhggPqJaQei1iTkqTAqPrfSfoxBqWn2HpfP3bi1sBVjkBhMqmFFJaSemr3WOCUkmnO9Ou0aSaTTBp8q1ByXAv2olmRSeK-kmkruCiZtOTBoB5n18zsnxXTOWGmlZxlNlpJizIfu-7QasHN9p17Wx-RLep3wfE_iGVbqzR6tQ9IG2Wyk3rs1Wp1AlNX6YB8wJALDF_CgGQgjKnQZHDZ-U4GZ_7piJINWr73mI3SjwI_Lv4m7v1dGduX-bG2TfSt9mW6dndKn-EHeq-8-oO_R1tpeaZvpSPW74nHLZpSuUcdT-pvi5K1MOWBHc8pXW0IoEBdMJG7nam9PYN2XzKg7pjjjlUH64donJRVVm2PkgO1usIAqjJndtghoDt2MC7rHvFJqWIQuRBoDZ9AozSMF2m6iOdRnMZJHMAR6PV1EkbpIpov40W0nEXpvAngq_XPwqXPzpOb5U2SJGkaDcjbXLi7PBGxDe-6zW9_gOYbXHIDJw" target="_blank">Edit Diagram</a>
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNptUktTgzAQ_iuZPekMMhSsgRx6qr31YkcPDpcYtjYzJcEkqLXT_27Cw1aRE7t8r132CEJXCAwsvrWoBC4lfzW8LhXxT8ONk0I2XDnyaNFMu0tudy-am4pw20EuOiujlUNVTVlrdEYKu3kXgTZUZIPmXQr8z8TxjdMGAzoUpKtK1UOD7c1i8WPMvNIexWhDrjB-jSNSgrS2RVvCdc_7IXjyOREjK3RiF2xW2jxJ_Lj623gIu7JukDlTuxBD1EGmj7vV5sJ-dB-QN3_sH9C1Rl3gO-jE6_fE04i20cridNKwLUaW0jZ7frh06bVLBRHUaGouK38WxyBQgtthjSUw_1rhlrd7F8Y4eShvnd4clADmTIsRtE3F3XhFwLZ8b33X_8ZnresR5EtgR_gENkuyOE3yWUGTnKZFNruL4ODbd0lM81uapPk8u6U0o6cIvjqFJC7SNKdFUWTFbD6f0yICrKTf5Lq_5O6gxyD33Zchx-kbb276LA?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNptUk1PwzAM_SuRpWkglWqUtVtz2GnsxoUJDqiXkHosYk1KkgKj6n8n6ccYlJxi5z2_Z8c1cJUjUJhMaiGFpaSe2j0WOKVkmjP9Om2aySSTBt8qlBzXgr1oVmSSuFMybQUXJZOWPBjU4-yamf2zYjonzLSQs8xGK2lR5mPWHVotuNm-c0_rI7JF_S44_idi2dYqjR7tA9JGmeygXvZqtToJU1fpgHyQIRcYvoQByUAYU6HJ4LLjnQiO_OOIkg1avvcyG6UfBX5c_E3c-1kZ25f5obYmeqt9mc7uTukz-UG9R179kb9HW2l5hm-hI63fHY8tmlK5Tx136qdFyVqY8sCO5ypd7UxCAAXqgoncbU3tC2TQbkwG1F1z3LHqYH0bjYOyyqrtUXKgVlcYQFXmzA5bBHTHDsZl3Tc-KVUMIBcCreETaJSG8SJNF_E8itM4iQM4Ar2-TsIoXUTzZbyIlrMonTcBfLX8Wbj02Xlys7xJkiRNowAwF26Od92at9s-2LhtX3oXzTd9PQPx?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      %%{init: {'theme': 'dark'}}%%
+      sequenceDiagram
+          participant User
+          participant Dashboard as User Dashboard Frontend
+          participant MetricsSvc as Metrics Service
+          participant DataStore as Data Store
 
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNptkk1vgzAMhv9K5NMmUUQpBZZDT11vu7TaDhOXLLhrpJKwJGzrqv73JXy0XRkHhK3X72MbH4GrEoGCwY8GJcelYO-aVYUk7qmZtoKLmklLng3qcXbJzO5NMV0SZlrJVWallbQoy3HVE1otuNl8cl_WR2SD-lNw_A9i2cYqjV7tA9JGheykHjtZLM5g6pz2yAcMucPwPQxIAcKYBk0B913ducAVXzqiZIWW7zxmpfSLwK-728Ta78rY3uZS2jbRt9rbdO1ulb7CD_ReObnBr9E2Wl7pW-mI9XficYumVtLgeFK_LUqWwtR7drimdN6FhAAq1BUTpTuLozcowO6wwgKo-yxxy5q99WOcnJQ1Vm0OkgO1usEAmrpkdrgioFu2Ny7rfuOrUtUgciHQI3wDjbNwmk_zNE_nSZJGs3kcwAFo8hBmSZRFuXtN4ySKTwH8tAZRmEVRkszzhyiJ03Q2zwbmYyncOs9IbMOn7rrbIz_9AoSz-dQ?type=png)](https://mermaid.live/edit#pako:eNptkk1vgzAMhv9K5NMmUUQpBZZDT11vu7TaDhOXLLhrpJKwJGzrqv73JXy0XRkHhK3X72MbH4GrEoGCwY8GJcelYO-aVYUk7qmZtoKLmklLng3qcXbJzO5NMV0SZlrJVWallbQoy3HVE1otuNl8cl_WR2SD-lNw_A9i2cYqjV7tA9JGheykHjtZLM5g6pz2yAcMucPwPQxIAcKYBk0B913ducAVXzqiZIWW7zxmpfSLwK-728Ta78rY3uZS2jbRt9rbdO1ulb7CD_ReObnBr9E2Wl7pW-mI9XficYumVtLgeFK_LUqWwtR7drimdN6FhAAq1BUTpTuLozcowO6wwgKo-yxxy5q99WOcnJQ1Vm0OkgO1usEAmrpkdrgioFu2Ny7rfuOrUtUgciHQI3wDjbNwmk_zNE_nSZJGs3kcwAFo8hBmSZRFuXtN4ySKTwH8tAZRmEVRkszzhyiJ03Q2zwbmYyncOs9IbMOn7rrbIz_9AoSz-dQ" />
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNptk01vozAQhv-KNVKUrkQRoQSoDz2lufXSaHuouHjNpLEabGqb7mYR_31tPpJsKQfEjN55nxl7aIGrEoHCYtEKKSwl7dIesMIlJcuS6fdl1y0WhTT40aDkuBHsTbOqkMQ9NdNWcFEzaclPg3qe3TBz-KWYLgkzveQqs9VKWpTlvOoJrRbc7D65LxsjskP9KTh-B7FsZ5VGr_YB6aNCDlKPvX14OIOpczoinzDkBsO3MCAFCGMaNAX8GOrOBa740hElW7T84DFbpV8E_r75mnj2Z2XsaHMp7ZsYWx1thnb3Sl_hJ_qovP2Cf0bbaHml76Uz1v8Tz1s0tXKXOp_UnxYlG2HqIztdUwbvQkIAFeqKidJtTesNCug3pgDqPkvcs-Zo_Ridk7LGqt1JcqBWNxhAU5fMTlsEdM-OxmXdNb4qVU0iFwJt4Q_QOAtX-SpP83SdJGl0t44DOAFN7sMsibIod69VnERxF8Df3iAKsyhKknV-HyVxmt6ts4n5WAp3nGck9uHTsPz9P9D9A3ckA-o?type=png)](https://mermaid.live/edit#pako:eNptk01vozAQhv-KNVKUrkQRoQSoDz2lufXSaHuouHjNpLEabGqb7mYR_31tPpJsKQfEjN55nxl7aIGrEoHCYtEKKSwl7dIesMIlJcuS6fdl1y0WhTT40aDkuBHsTbOqkMQ9NdNWcFEzaclPg3qe3TBz-KWYLgkzveQqs9VKWpTlvOoJrRbc7D65LxsjskP9KTh-B7FsZ5VGr_YB6aNCDlKPvX14OIOpczoinzDkBsO3MCAFCGMaNAX8GOrOBa740hElW7T84DFbpV8E_r75mnj2Z2XsaHMp7ZsYWx1thnb3Sl_hJ_qovP2Cf0bbaHml76Uz1v8Tz1s0tXKXOp_UnxYlG2HqIztdUwbvQkIAFeqKidJtTesNCug3pgDqPkvcs-Zo_Ridk7LGqt1JcqBWNxhAU5fMTlsEdM-OxmXdNb4qVU0iFwJt4Q_QOAtX-SpP83SdJGl0t44DOAFN7sMsibIod69VnERxF8Df3iAKsyhKknV-HyVxmt6ts4n5WAp3nGck9uHTsPz9P9D9A3ckA-o" />
+          User->>Dashboard: Select Metric (e.g., "issues")
+          Dashboard->>MetricsSvc: FetchDataForView(FetchDataForViewRequest)
+          MetricsSvc->>DataStore: Fetch Data for "issues"
+          DataStore-->>MetricsSvc: Return "issues" Data
+          MetricsSvc-->>Dashboard: FetchDataForViewResponse
+          Dashboard->>User: Display "issues" Metric
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 
 ## Executing Custom Query or Generating Query with AI
 
-<a href="https://mermaid.live/edit#pako:eNqNVF1v0zAU_SuWpdIhddWWNWnjh0kVHagPE2IVQkJ5MckdtUjsYN-Ulaj_Hdv56LoGhp9yr8-5537kuqapyoAyOhrVQgpkpB7jFgoYMzLOuP4xPhxGo0Qa-FmBTGEl-HfNi0QSe0quUaSi5BLJZwP63LviZvtNcZ0Rbjzkmee9VhJBZuese0AtUrPZpY7WWmQDeidSGBJBvkGlwaGdQbyVyAbKcyQfSxRK8pyRd5VBVZBPFeh9c--OS-3y9rZPjpE7m5v-C7qHWcoxV8t5grRCaEiec3HuenCdNPj2GO4YwqfQFtOHO1dvEZcv5D2OPICpchyM_qLCgdRMqeyohyt1PWJkJUyZ8_1JZ040-4kOdf8DSNC8q4n8Ergly_Xrc2jga_e_4Otz6FQ864vVWK4vBnz_nMRpFoPs_29WR8_aQt6QZW7LkhzFrumFAPOsfXRCC9AFF5ndzNpdJNRvZUKZ_czgkbt-00QeLJRXqDZ7mVKGuoIJrcrMarWbStkjz4312lX5qlTRgaxJWU2fKAviaTiP43k4C8I4jMIJ3VN2fR1Ng3gezBbhPFhcBfHsMKG_Pf9qunDeWXSzuImiKI6DTvIuE_a_7BXBm_fN--KfmcMf52l59w" target="_blank">Edit Diagram</a>
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVMtu2zAQ_BViD0UKKEaiWLLFQwCjTgIfgqIxggKFLqy0qQlIpEqu3LiG_72kHn7EalOexOXM7uysyC1kOkfgYPFnjSrDuRQ_jChTxdyqhCGZyUooYs8WzXl0LuzquxYmZ8I2kKPIvdGKUOXnrEckIzO7XGee1u3YEs1aZjhUhMSStEGP9hvW7FLVQkVB7HNFUitRcPaptqRL9qVGs2nP_fLSLm9v9-I4u3PazF_Qe5ijHLQ6zitmNWFLajgX56En76Slj4d0hxSNhK6Zfbrz6h3i8k35Bsee0NYFDWZ_0-GANFtpZXG4U-8RZ3Npq0JsTpw5qbmf6JD7D6jQiL4n9kvSis0W78-hhS_8_0Lvz6Gv0rC-uhqzxcVA7J-TOFUxyP5_s3p63jXygc0K15YSJNetFxLtkX0QQImmFDJ3V2_rD1KgFZaYAnefOb4I7zekauegoia93KgMOJkaA6ir3NXqbirwF1FYF3VX5ZvWZQ9yW-BbeAUeJqNokiSTaBxGSRRHAWyAX1_HozCZhONpNAmnV2Ey3gXwu-FfjaY-Oo5vpjdxHCdJGADm0v2Rj-1b0TwZvYy75qRTsfsD_j5v8A?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVFFv0zAQ_iuWpdIhZdWWNWnjh0kVHagPE2IVQkJ5McmNWiR2sC9lJep_x3aSdl0Dw0-58_fdfXeXc0MzlQNldDRqhBTISDPGDZQwZmScc_1jvN-PRqk08LMGmcFS8O-al6kk9lRco8hExSWSzwb0uXfJzeab4jon3HjIM897rSSCzM9Z94BaZGa9zRyts8ga9FZkMJQE-RqVBod2BvFWKlsoL5B8rFAoyQtG3tUGVUk-1aB37b07Ttrl7e1BHCN3Vpv-C_oAs5SjVst5gqxGaEmec3HuenCdNPj2GO4YwkvoijmEO8_eIS5fpPc48gCmLnAw-osKB6SZStlRD1fqesTIUpiq4LuTzpzkPEx0qPsfQILmfU3kl8ANWaxen0MLX7n_BV-fQ5_Fs77YHIvVxYDvn5M4VTHI_v9m9fS8K-QNWRS2LMlRbNteCDDP2kcDWoIuucjtZjbuIqV-K1PK7GcOj9z1m6Zyb6G8RrXeyYwy1DUEtK5ym6vbVMoeeWGs167KV6XKHmRNyhr6RFmYTKJZksyiaRglURwFdEfZ9XU8CZNZOJ1Hs3B-FSbTfUB_e_7VZO680_hmfhPHcZKEAYVc2D_yvn1K_IvSy7jzN52K_R_ZNnn3?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      %%{init: {'theme': 'dark'}}%%
+      sequenceDiagram
+          participant User
+          participant Dashboard as User Dashboard Frontend
+          participant MetricsSvc as Metrics Service
+          participant DataStore as Data Store
 
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVF1r2zAU_StCD6ODNDiuY7t6KISlG3koYw1lMPyi2beLwJY86TprFvLfJ8kfaRqvrR6M79U599wPSXuaqwIoowZ-NyBzWAr-S_Mqk8SummsUuai5RPJgQJ97l9xsfiquC8KNhzzzfNZKIsjinHUHqEVu1tvc0TqLrEFvRQ5jIsjXqDQ4tDOItzLZQnmJ5GuNQkleMvKpMagq8q0BvWv33XKpXd7cDMkxcmtz0_9BDzBLOeZqOU-QNwgtyXMuzl33rpMGPx7DHUP4FLpihnDn6h3i8oW8x5F7ME2Jo9FfVDiSmqmVNDBeqesRI0th6pLvTjpzojlMdKz7X0CC5n1N5I_ADVms3p5DC1-584Jvz6FX8azvVmOxuhjxvTqJ0yxG2e9vVk8vukI-kEVpy5IcxbbthQDzrH10QivQFReFvXp7t5FR3EAFGWX2t4BH7vpNM3mwUN6gWu9kThnqBia0qQur1d1Uyh55aazXXpUfSlU9yJqU7ekTZWEynaWzNE7jeRTFwdU8nNAdZdH1NImCJEjtZxZGQXiY0L8-QDBNgiCK5ul1EIVxfDVPes3bQtiDOUiCN-_aF8Q_JId_ZDNv6Q?type=png)](https://mermaid.live/edit#pako:eNqNVF1r2zAU_StCD6ODNDiuY7t6KISlG3koYw1lMPyi2beLwJY86TprFvLfJ8kfaRqvrR6M79U599wPSXuaqwIoowZ-NyBzWAr-S_Mqk8SummsUuai5RPJgQJ97l9xsfiquC8KNhzzzfNZKIsjinHUHqEVu1tvc0TqLrEFvRQ5jIsjXqDQ4tDOItzLZQnmJ5GuNQkleMvKpMagq8q0BvWv33XKpXd7cDMkxcmtz0_9BDzBLOeZqOU-QNwgtyXMuzl33rpMGPx7DHUP4FLpihnDn6h3i8oW8x5F7ME2Jo9FfVDiSmqmVNDBeqesRI0th6pLvTjpzojlMdKz7X0CC5n1N5I_ADVms3p5DC1-584Jvz6FX8azvVmOxuhjxvTqJ0yxG2e9vVk8vukI-kEVpy5IcxbbthQDzrH10QivQFReFvXp7t5FR3EAFGWX2t4BH7vpNM3mwUN6gWu9kThnqBia0qQur1d1Uyh55aazXXpUfSlU9yJqU7ekTZWEynaWzNE7jeRTFwdU8nNAdZdH1NImCJEjtZxZGQXiY0L8-QDBNgiCK5ul1EIVxfDVPes3bQtiDOUiCN-_aF8Q_JId_ZDNv6Q" />
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVF1r2zAU_StCkKaDNDiuY7t6KISlG3koYw1jUPyi2beLmC15kpw1M_7vk-SPNI23Tg_G9-qce-6HpBqnIgNM8GRSM840QfVU76CAKUHTjMof06aZTBKu4GcFPIU1o98lLRKOzCqp1CxlJeUafVEgz71rqnbfBJUZospBXng-SME18OycdQ9aslRt96mldRbagtyzFMZENN1qIcGirYGclfAWSnONPpWaCU5zgt5XSosCfa5AHtp9u2xqV7e3Q3IE3Znc5F_QA8xQjrkazjOklYaW5DiX564H20ml3x3DHUO4FLpihnDn6h3i6pW8w6EHUFWuR6O_qnAkNVUKM-rxSm2PCFozVeb0cNKZE81homPd_wgcJO1rQr-Y3qHV5u05tPCNPS_67Tn0Ko711WisNpcjvn9O4jSLUfb_N6unZ10hF2iVm7I41Wzf9oKBetE-PMMFyIKyzNzM2m4k2N3KBBPzm8ETtf3GCW8MlFZabA88xUTLCma4KjOj1d1UTJ5orozXXJVHIYoeZExMavyMiR_NF_EiDuNwGQShd730Z_iASXAzjwIv8mLzWfiB5zcz_NsF8OaR5wXBMr7xAj8Mr5dRr3mXMXMwB0lw5n37wLh3pvkDSTJ58A?type=png)](https://mermaid.live/edit#pako:eNqNVF1r2zAU_StCkKaDNDiuY7t6KISlG3koYw1jUPyi2beLmC15kpw1M_7vk-SPNI23Tg_G9-qce-6HpBqnIgNM8GRSM840QfVU76CAKUHTjMof06aZTBKu4GcFPIU1o98lLRKOzCqp1CxlJeUafVEgz71rqnbfBJUZospBXng-SME18OycdQ9aslRt96mldRbagtyzFMZENN1qIcGirYGclfAWSnONPpWaCU5zgt5XSosCfa5AHtp9u2xqV7e3Q3IE3Znc5F_QA8xQjrkazjOklYaW5DiX564H20ml3x3DHUO4FLpihnDn6h3i6pW8w6EHUFWuR6O_qnAkNVUKM-rxSm2PCFozVeb0cNKZE81homPd_wgcJO1rQr-Y3qHV5u05tPCNPS_67Tn0Ko711WisNpcjvn9O4jSLUfb_N6unZ10hF2iVm7I41Wzf9oKBetE-PMMFyIKyzNzM2m4k2N3KBBPzm8ETtf3GCW8MlFZabA88xUTLCma4KjOj1d1UTJ5orozXXJVHIYoeZExMavyMiR_NF_EiDuNwGQShd730Z_iASXAzjwIv8mLzWfiB5zcz_NsF8OaR5wXBMr7xAj8Mr5dRr3mXMXMwB0lw5n37wLh3pvkDSTJ58A" />
+          alt Optional: Custom Query
+              User->>Dashboard: Enter Custom Query
+              Dashboard->>MetricsSvc: ExecuteCustomQuery(ExecuteCustomQueryRequest)
+              MetricsSvc->>DataStore: Execute Query
+              DataStore-->>MetricsSvc: Query Result
+              MetricsSvc-->>Dashboard: ExecuteCustomQueryResponse
+              Dashboard->>User: Display Custom Query Result
+          end
+
+          alt Optional: Generate Query with AI
+              User->>Dashboard: Enter Query Intent
+              Dashboard->>MetricsSvc: GenerateQueryWithAI(GenerateQueryWithAIRequest)
+              MetricsSvc-->>Dashboard: GenerateQueryWithAIResponse
+              Dashboard->>User: Display Generated Query & Alternative Queries
+          end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 <br />
 

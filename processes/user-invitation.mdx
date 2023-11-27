@@ -1,0 +1,36 @@
+---
+title: User Invitation Process
+---
+## Invitation Process for New Users:
+
+Description:
+1. An existing user or admin invites a new user via email.
+1. The system generates an invite token and records it in the 'Invite Tokens' table.
+1. The invite is sent via email with the token link.
+1. The invited user clicks the link, registers, and is associated with the inviting user.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqFU8FO40AM_RXLJ1ZKShuapswBCakIcdg9bOGCcplNTLFIJt3MpKVb9d9xJgkq20rk5Njv2e95ZvaYVTmhQkt_GzIZLVival2mBuRb69pxxmttHNA7W8dmFTaW6lDnJRvQFu76NDxJ-vK2TZ9y7c46Klv40keniFw7_UdbCtls2FHoqjcytmUs-gpcPPgSPPrSjzMKS81FKDI2nJHX1iZg2SVO8Ya23kwL_UVb7yDt1Z9xG97cdD4UTBQ8GHasHVnwirXjqqd2IEGf96QgUnBPhmrP1iYH66p6aETgYf-1-mJNwZUSVya3nWXYsnsd2AWbt97CMUd6DHYVTBUsqOAN1Z9DPbjjDbgjv7GC37SSjbSMDeujKd-6nSm4tbbKumVJc_A7P9IsS8cAS6pFQy5Xcd92TtG9UkkpKglzetFN4VJMzUGgunHVcmcyVK5uKMBmLcOHm4vqRRdWsnLGz1VVDiD5RbXHd1RhFI_m8SSaR1GSxNcSTgPcoYriZJSM59PrcTKJktlVMjsE-M-3GI_iAClnOaif3Xvxz2YYfecr_eTDB3cbJOI?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqFVE1v2zAM_SuEhsAbYGeOE8eJDgWKpR162A5L18Pgi2qzqRBbyiQ5Hw3y3yfLdus2AaYTRb5H8lEfR5LJHAklGv9WKDJccLZSrEwF2DUYHBujXlxwQ6HnqJdnnrFEj4KXM7X2_EvRB6Y4eyxQe2d0B9ooXjJ1-CYLqepMn-bjRXh7-zFZH3uPe_OGD8PQe489vW1b8zQYNMaGKcMzvmHCAO65NlysgkqjClhecgFMw03rht_W_fW6dp9z9UEbLGv40lnniJwZ9sg0BlxsucHAyDUKXTMWbQQ-37kQ3LvQlwsdlowXgW1jyzN0vdUOWDaOc7zAnRNTQ3_izilI2-4vqA2urhodFEYU7uwJc2ZQg-uYGS5bagOy6MuaKEQUvqNA5dhM5KCNVF0iBAf7kOqdNApjalWJXDeSYcfNc8cuuFi3Evocm6OTS2FCYYEF36J6LerADa_D9fTGFH7hyk6kZmw561X5r9ophWutZdYMyyYHN_Nez3boxCclKttDbp-Xu_cpce8hJdSaOT6xqjApScXJQlll5PIgMkKNqtAn1cYW714joU-s0NZrz_iPlGUHsltCj2RPaBDFw1k8imZRlCTx3JoTnxwIjeJkmISzyTxMRlEyHSfTk09eXIpwGPsEc24P6kfzB7ivoCt94yJt5dM_Yj5YNg?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant existing-user-admin as Existing User/Admin
+          participant system as System
+          participant database-invite-tokens as Database (Invite Tokens)
+          participant email-service as Email Service
+          participant new-user as New User
+
+          existing-user-admin->>system: 1: Initiates invitation
+          system->>database-invite-tokens: 2: Generates and stores invite token
+          system->>email-service: 3: Sends email with invite link
+          email-service->>new-user: 4: Delivers invite email
+          new-user->>system: 5: Registers via link
+          system->>database-invite-tokens: 6: Associates new user with inviter
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

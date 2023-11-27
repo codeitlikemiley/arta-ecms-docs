@@ -1,0 +1,48 @@
+---
+title: Subscriber Management Process
+---
+
+This sequence diagram represents the following steps:
+
+1. The user requests access to manage their subscriptions.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has necessary permissions, they can interact with the Subscriber Management Service to perform actions like subscribing, unsubscribing, or viewing their subscriptions.
+1. Depending on the user's action, the Subscriber Management Service communicates with the database to execute the request and provides feedback to the user.
+1. If the user does not have the required permissions, access to subscriber management is denied.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVMtu2zAQ_BWCZ9uVbVlKdAgQ1EHRQ4AgRnoodFlRK4eISKl8uHUN_3uXkl8KnKA6kbs7szNakjsumhJ5xi3-8qgFLiWsDahct2CcFLIF7ZhnYNmLRTMMWxXiK19YYWSBZvwIGtaoULvxCs1GChwCyiIAluCgAPsuB12Te-9eCS4FONnoM0uu_fjuDnzGnoNQ6ywDIdBa5hpmTwqYOinINQRIWWTsBxpZbZknA6xFo6S1RG5zXRbjA-vTOcwMWl8HfO3Y96rzzV5J29MllNFHDQhO6PteyjdDRrDsk6G5VSe9A51fvD6vNxJ_H1Otu2Dv2x8LpV5fwGjXV4XPqoPRl7YEhwMyZh04b8_Fveeg7GujK2nUtXLmO6ZBi97q6sNiJnq-bnI9EmuLwUOwSIqvuRzof0ZnJG7eOSjRgayvWlh9WncSvZS2rWH7CS1qGttRbjfxGsTbf8x8iVqGkXcEfMQVAUCWdKN2AZBzOs8Kc57RssQKwsniud5TKXjXrLZa8MwZjyPe_8bDBeRZBSRnxOly_GwadSyiLc92_A_PptHNZD5fRNNpHM3ieJGkI74N4WQyi9ObeRTPF-kiidP9iP_tGKJJmt7eRnGSzBfJLE1jQmApXWMe-0egewuOQh66zEHH_h9fNmx7?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVE1vm0AQ_SurrSxfsIsNNjGHSFHcVD1EiuImh4rLAGNnFVjofrhxLf_3zILxR-RGvcAy-97MezvMbnlW5chjrvG3RZnhXMBKQZnIXm-bSMaEFCZmzZKxvnnBEvsx6-egXvveafQZlIC0QN0_wGmrVqIEtbmtiko53pdZMPfv7jrqEfET38wR5ft-v0Xs3Iseu14vkTUoIzJRgzTMMtDsSaM6D-vSxRc21ZkSKarBPUhYkT5pBgtUa5HhOSFPHWEOBlLQH_agKXJjyaCkIBhRyWOWRNrB9TXYmD26w9NGM8gy1JqZiumDAlYeFCQSHCVPY_aMSiw3zJIBVqMqhdaUXCcyTwf7rA_HMFOobeH4hWE_lo1v9kLaHk6p7ryoANGJfdNK-a7ICObtpiuuy4PeM51frTyu1wL_dFu1Ocnelu-AQq5OaPTVdZVRH_ZGn-ocDJ4lY9qAsfoIbj07ZbeVXApVXoIz22Q6K9FaXfwTzLI2X9O5lomFRufBWSTFl1ye6X9EowSuPzjI0YAoLlpYfIo7iJ4LXRew-SQtSmpbJ7fpeAHZ63_0fI5SuJY3CbjHSyKAyGnKm8FMeDOwCY9pmeMS3J_FacQICtZUi43MeGyURY-3x7i_FHi8BJLjcRqOX1VVdiD65PGWv_F45F8Ng2Dij0ahPw7DyTTy-MaFp8NxGF0FfhhMosk0jHYe_9tk8IdRNJv54XQaTKbjKAqJgbkwlbpvL6bmfuqEfGt29jp273r0l88?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant SM as Subscriber Management Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests access to subscriber management
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>SM: Request to subscribe/unsubscribe/view subscriptions
+            alt If subscribing/unsubscribing
+                SM->>DB: Update subscription status
+                DB-->>SM: Confirm subscription status update
+                SM-->>U: Subscription status update confirmation
+            else If viewing subscriptions
+                SM->>DB: Retrieve subscription details
+                DB-->>SM: Subscription details
+                SM-->>U: Display subscription details
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

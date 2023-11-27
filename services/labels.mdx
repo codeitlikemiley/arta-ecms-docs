@@ -1,0 +1,97 @@
+---
+title: Labels
+icon: tags
+---
+
+### Labels Management Service
+
+#### Summary
+
+The Labels Management Service provides functionalities for creating, retrieving, updating, and deleting labels. These labels can be associated with various entities in the system, such as issues or tasks, to facilitate organization and categorization.
+
+#### Endpoints
+
+1. **CreateLabel**
+    - **Purpose**: Create a new label for categorization.
+    - **Request Parameters**:
+        - `name` (string): The name of the label.
+        - `description` (string, optional): A brief description of the label.
+    - **Response**:
+        - `label_id` (string): The unique identifier of the created label.
+
+2. **GetLabel**
+    - **Purpose**: Retrieve details of a specific label.
+    - **Request Parameters**:
+        - `label_id` (string): The ID of the label to retrieve.
+    - **Response**:
+        - `name` (string): The name of the label.
+        - `description` (string): The description of the label.
+
+3. **UpdateLabel**
+    - **Purpose**: Update the details of an existing label.
+    - **Request Parameters**:
+        - `label_id` (string): The ID of the label to update.
+        - `new_name` (string): The new name of the label.
+        - `new_description` (string, optional): The new description of the label.
+    - **Response**:
+        - `success` (Boolean): Indicates if the operation was successful.
+
+4. **DeleteLabel**
+    - **Purpose**: Delete a specific label from the system.
+    - **Request Parameters**:
+        - `label_id` (string): The ID of the label to be deleted.
+    - **Response**:
+        - `success` (Boolean): Indicates if the operation was successful.
+<CodeGroup>
+```protobuf labels.proto
+syntax = "proto3";
+
+package labels_management;
+
+// The Labels Management service handles labels for issues and tasks.
+service LabelsManagement {
+  rpc CreateLabel(CreateLabelRequest) returns (CreateLabelResponse) {}
+  rpc GetLabel(GetLabelRequest) returns (GetLabelResponse) {}
+  rpc UpdateLabel(UpdateLabelRequest) returns (UpdateLabelResponse) {}
+  rpc DeleteLabel(DeleteLabelRequest) returns (DeleteLabelResponse) {}
+}
+
+// Message Definitions for Label Operations
+
+// Create Label
+message CreateLabelRequest {
+  string name = 1;
+  string description = 2;
+}
+message CreateLabelResponse {
+  string label_id = 1;
+}
+
+// Get Label
+message GetLabelRequest {
+  string label_id = 1;
+}
+message GetLabelResponse {
+  string name = 1;
+  string description = 2;
+}
+
+// Update Label
+message UpdateLabelRequest {
+  string label_id = 1;
+  string new_name = 2;
+  string new_description = 3;
+}
+message UpdateLabelResponse {
+  bool success = 1;
+}
+
+// Delete Label
+message DeleteLabelRequest {
+  string label_id = 1;
+}
+message DeleteLabelResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

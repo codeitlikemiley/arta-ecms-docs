@@ -1,0 +1,105 @@
+---
+title: Domain
+icon: globe
+---
+
+### Domain Management Service
+
+#### Summary
+
+The Domain Management Service is responsible for managing the domain configurations in the 'Domains' table, particularly focusing on domains related to different workspaces. It provides functionalities for adding, retrieving, updating, and removing domain information, facilitating efficient domain management within the application.
+
+#### Endpoints
+
+1. **GetDomainsList**
+    - Purpose: Retrieves a list of all domains.
+    - Request: `GetDomainsListRequest`
+    - Response: `GetDomainsListResponse`
+
+2. **GetDomain**
+    - Purpose: Retrieves details of a specific domain.
+    - Request: `GetDomainRequest`
+    - Response: `GetDomainResponse`
+
+3. **CreateDomain**
+    - Purpose: Creates a new domain.
+    - Request: `CreateDomainRequest`
+    - Response: `CreateDomainResponse`
+
+4. **UpdateDomain**
+    - Purpose: Updates an existing domain.
+    - Request: `UpdateDomainRequest`
+    - Response: `UpdateDomainResponse`
+
+5. **DeleteDomain**
+    - Purpose: Deletes a domain.
+    - Request: `DeleteDomainRequest`
+    - Response: `DeleteDomainResponse`
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf domain.proto
+syntax = "proto3";
+
+package domain_management;
+
+service DomainManagement {
+  rpc GetDomainsList(GetDomainsListRequest) returns (GetDomainsListResponse) {}
+  rpc GetDomain(GetDomainRequest) returns (GetDomainResponse) {}
+  rpc CreateDomain(CreateDomainRequest) returns (CreateDomainResponse) {}
+  rpc UpdateDomain(UpdateDomainRequest) returns (UpdateDomainResponse) {}
+  rpc DeleteDomain(DeleteDomainRequest) returns (DeleteDomainResponse) {}
+}
+
+// Message Definitions for Domain Management Operations
+
+// Get Domains List
+message GetDomainsListRequest {}
+message GetDomainsListResponse {
+  repeated Domain domains = 1;
+}
+
+// Get Domain
+message GetDomainRequest {
+  int64 domain_id = 1;
+}
+message GetDomainResponse {
+  Domain domain = 1;
+}
+
+// Create Domain
+message CreateDomainRequest {
+  string name = 1;
+  int64 workspace_id = 2;
+}
+message CreateDomainResponse {
+  bool success = 1;
+}
+
+// Update Domain
+message UpdateDomainRequest {
+  int64 domain_id = 1;
+  string name = 2;
+  int64 workspace_id = 3;
+}
+message UpdateDomainResponse {
+  bool success = 1;
+}
+
+// Delete Domain
+message DeleteDomainRequest {
+  int64 domain_id = 1;
+}
+message DeleteDomainResponse {
+  bool success = 1;
+}
+
+// Supporting message types
+message Domain {
+  int64 domain_id = 1;
+  string name = 2;
+  int64 workspace_id = 3;
+}
+```
+</CodeGroup>

@@ -1,0 +1,78 @@
+---
+title: Issue Timeframe Resolution Process
+---
+
+## Overview
+
+The "Issue Timeframe Resolution" system, in combination with the "Unified Filter" and "Workday Configuration", ensures efficient and timely management of issue resolution processes within the E-CMS. Teams or individuals, including department heads like the Division Chief, IELO Director, ODDGL, and the Director General (DG), can automatically set team specific resolution timeframe based on one or more rules, contributing to the overall 65-working-day limit.
+
+
+1. Team-Specific Timeframes: Each team defines their specific timeframe for issue resolution, contributing to the aggregate 65-day resolution period.
+2. Workdays Configuration and Adjustments: The system adjusts the resolution timeframe for non-working days (e.g., due to a typhoon) by adding extra time, preventing the issue status from incorrectly turning into ‘Breached’.
+3. Re-Assignment Capability: Issues can be re-assigned within a team or move to another team closing the issue within their team and opening it on another team.
+4. High-Risk Notification Alerts: When an issue enters the ‘High’ risk category (within 24 hours of the due date), notification alerts are sent to the concerned team or assignee.
+
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNrdV01P4zAQ_SuWTyC1iJQ2DTkgIcoCUoEVRVpp1YsVT4K3id21nUK34r-vE7ttErK0QuyFnJL5eHmeN3YmKxwJCjjECn7nwCMYMZJIkk05MtecSM0iNidcI8oWTDHBu9ETgxgRhaZ45GzoorBN8dssBqnoUiYh0kLapJvL8T0aOVNbjqA0SW3s_Wh0NW6LWUN2E-AgSbrm4150Za2tjJTKoatZBrFZJ3QlKJHmuliZWioNmWNZhKHHdRh62IShSRnWhv0s5IySZTcSPGZJLkkZX-L9sC50UXW1YZAUpK5ROS8slbfanDuhAYkFyIYynWZpQnRLXpA_QAUFxhM0IkuFvksRgVIWq47QPTvbWaQQTbQhjR6JmqGDCehtqQ4tJok0WxDDsQ5eIS9Z8mTUjhsRITqPZlw8p0CTDExFDF90w6M0p0Bt-k56ZglN0LFIEOEUndNfuTKgQGjKOKj9EVvVDU3vQzRDsem6OxNdLbKFbk3br8aO67YLWYzuADZ1aOhWgFb3W2jluTbLLhrF5cC7ymycNSRXpKppvxWYdteMFzvpn41S74XGAj6lFRqYX7ET6tIYzPIQ3dUALRpvfCWAtZW3_0lvx_NTdHZYX1FfK0F5rDVP9_clrshY2fd1jPVhUrfuR_wb4-br-wALBs_76P2W_yed9k3Yr9gFqRBz9_4HZlQfwwKcevsuqjpemMlAcFbMS3baacMkqa7Y0bXRceu0AVvAls_uBIwGJYAdYw4KhMN3IRrH9QcQ3EHwgcy3fbQLxLjtQ3mDOzgDmRFGzUy9KhxTrJ8ggykOzS2FmOSpLqa4VxNKci0mSx7hMCapgg7O59RsUDeDb6xmLvwphHnWMrePOFzhFxwGw6Nh0AsGPe9k0O_7vV4HL3Ho-cFRcBx4w9PAOzn1_F7_tYP_lADHR8PBoO8d-4Hn-Z5_2vc7GGjRArf2N6D8G1jzuCw9jsbrX7AYRao?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNrdV11v2jAU_SuWJ0QrQUUohJCHSlXpl9SPqVSbNPHixTepRxIz26FlFf99ThwgCVlBVffSPDnX954c33PtXL9ij1PALpbwO4HYgxEjgSDRJEb6aTRezSB9WMyUiwqG9GmqJ4ig6aImJWLabNXNfiOCkZ8hyOZWeOY0EywiYnHGQy5SpC_D41Hn4qIKVvR9hBe18e90Os2y73Lzmg-XjYYZzIhQzGMzEitE2ZxJxuO298TAR0SiCR7lNnSW2iZ4O4pByNuUCfAUFybo-vzmHo1yU10MpzQIje_9aHR5U-ezgmwHEIMg4YpP_qFLY61lJGUCbcUi8LV20BYgeZiodGVyIRVEOcvUDT2u3NDD2g2NM7c67GcuppQs2h6PfRYkgmT-Gd53M4XOilN1GCQEoUpUTlNL4asm5o4rQHwOoqJMq5oaF92SF2T3UUqBxQEakYVEXwX3QEqDVUZon5zsTJKLxkqTRo9ETtHBGNQmVYcGk3iKzYnmWAYvkBcseNJq-xUPF51605g_h0CDCHRGNF90HXthQoGa8J309BKqoDc8QCSm6JT-SqQGBUJDFoPcH7FWXVfXPnhT5Ouqu9PexSQb6Nqw_XKcc91UIfPRHcA6DxXdUtDifnONPFd62Wmh5DHwpjLryRJSnqSiab8V6HJXLE530j8LpVwLlQV8SClUMD9jJZSl0ZjZIbqrAGo0Xs9lAMaWDf-T3jnPD9E5x_qM-hoJsmOterq_LXFBxsK-L2OsDpOydT_iFyzWf98HmDN43kfvbf4fdNpXYT9jFYScz_LvPzCt-g3MISx0nXssqthe6M6A60ZVr8R0O3WYJFQFO7rSOpbbxyJgzW93DFqDDMC0MQcpwuGbEJXj-h0I-UHwjsjtOtoFoqfNSzbALRyBiAij-p6QNfATnDX2E-zqIQWfJKFKu7ildiWJ4uNF7GHXJ6GEFk5mVG_Q_F6xtuq-8Afn-l2JxLxi9xW_YNcZHA2crtPvWsf9Xs_udlt4gV3Ldo6cjmMNho51PLTsbm_Zwn8ygM7RoN_vWR3bsSzbsoc9u4WBpiVwa6422Q1nxeM8m8lpLP8CcWF4_g?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant division-chief as "Division Chief"
+          participant ielo-director as "IELO Director"
+          participant oddgl as "ODDGL"
+          participant director-general as "Director General"
+          participant issue-timeframe-resolution-system as "Issue Timeframe Resolution System"
+          participant workday-configuration as "Workday Configuration"
+          participant alert-system as "Alert System"
+
+          Note over division-chief,director-general: Max 65 Working Days Process
+          division-chief->>issue-timeframe-resolution-system: Start Task (Set Timeframe)
+          activate division-chief
+          Note right of division-chief: Acknowledgment Day Included
+          issue-timeframe-resolution-system->>division-chief: Log and Adjust Deadlines
+          issue-timeframe-resolution-system->>workday-configuration: Check for Non-Working Days
+          workday-configuration->>issue-timeframe-resolution-system: Adjust Timeframe if Needed
+          division-chief-->>ielo-director: Task Handover
+          deactivate division-chief
+          activate ielo-director
+          ielo-director->>issue-timeframe-resolution-system: Continue Task (Set Timeframe)
+          Note right of ielo-director: Acknowledgment Day Included
+          issue-timeframe-resolution-system->>ielo-director: Log and Adjust Deadlines
+          issue-timeframe-resolution-system->>workday-configuration: Check for Non-Working Days
+          workday-configuration->>issue-timeframe-resolution-system: Adjust Timeframe if Needed
+          ielo-director-->>oddgl: Task Handover
+          deactivate ielo-director
+          activate oddgl
+          oddgl->>issue-timeframe-resolution-system: Continue Task (Set Timeframe)
+          Note right of oddgl: Acknowledgment Day Included
+          issue-timeframe-resolution-system->>oddgl: Log and Adjust Deadlines
+          issue-timeframe-resolution-system->>workday-configuration: Check for Non-Working Days
+          workday-configuration->>issue-timeframe-resolution-system: Adjust Timeframe if Needed
+          oddgl-->>director-general: Task Handover
+          deactivate oddgl
+          activate director-general
+          director-general->>issue-timeframe-resolution-system: Final Review (Set Timeframe)
+          Note right of director-general: Acknowledgment Day Included
+          issue-timeframe-resolution-system->>director-general: Log and Adjust Deadlines
+          issue-timeframe-resolution-system->>workday-configuration: Check for Non-Working Days
+          workday-configuration->>issue-timeframe-resolution-system: Adjust Timeframe if Needed
+          loop Check Risk Level
+              issue-timeframe-resolution-system->>alert-system: Monitor Issue Risk Level
+              alt Risk Level High
+                  alert-system->>division-chief: Send Risk Alert (High)
+                  alert-system->>ielo-director: Send Risk Alert (High)
+                  alert-system->>oddgl: Send Risk Alert (High)
+                  alert-system->>director-general: Send Risk Alert (High)
+              end
+          end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+

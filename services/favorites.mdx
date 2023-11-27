@@ -1,0 +1,85 @@
+---
+title: Favorites
+icon: star
+---
+
+### Favorites Service
+
+#### Summary
+
+The Favorites Service enables users to mark and manage their favorite items, such as issues, comments, or documents, within the system. It provides a simple and efficient way for users to quickly access the items they care about the most.
+
+#### Endpoints
+
+##### Add Favorite
+
+1. **AddFavorite**
+    - **Purpose**: Allows a user to mark an item as a favorite for quick access.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `item_id` (string): The ID of the item to be marked as a favorite.
+    - **Response**:
+        - `success` (Boolean): Indicates if the operation was successful.
+
+##### Get Favorites
+
+2. **GetFavorites**
+    - **Purpose**: Retrieves a list of a user's favorite items.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+    - **Response**:
+        - `item_ids` (string array): List of IDs of the user's favorite items.
+
+##### Remove Favorite
+
+3. **RemoveFavorite**
+    - **Purpose**: Allows a user to remove an item from their favorites.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `item_id` (string): The ID of the item to be removed from favorites.
+    - **Response**:
+        - `success` (Boolean): Indicates if the operation was successful.
+
+<CodeGroup>
+```protobuf favorites.proto
+syntax = "proto3";
+
+package favorites;
+
+// The Favorites service manages user favorites within the system.
+service Favorites {
+  rpc AddFavorite(AddFavoriteRequest) returns (AddFavoriteResponse) {}
+  rpc GetFavorites(GetFavoritesRequest) returns (GetFavoritesResponse) {}
+  rpc RemoveFavorite(RemoveFavoriteRequest) returns (RemoveFavoriteResponse) {}
+}
+
+// Message Definitions for Favorites Operations
+
+// Add Favorite
+message AddFavoriteRequest {
+  string user_id = 1;
+  string item_id = 2;
+}
+message AddFavoriteResponse {
+  bool success = 1;
+}
+
+// Get Favorites
+message GetFavoritesRequest {
+  string user_id = 1;
+}
+message GetFavoritesResponse {
+  repeated string item_ids = 1;
+}
+
+// Remove Favorite
+message RemoveFavoriteRequest {
+  string user_id = 1;
+  string item_id = 2;
+}
+message RemoveFavoriteResponse {
+  bool success = 1;
+}
+
+```
+</CodeGroup>

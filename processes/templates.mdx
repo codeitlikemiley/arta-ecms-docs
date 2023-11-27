@@ -1,0 +1,52 @@
+---
+title: Template Management Process
+---
+
+This sequence diagram represents the following steps:
+
+1. The user requests access to the Template Management Service.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has the necessary permissions, they can interact with the Template Management Service to perform actions such as creating, updating, viewing, or deleting templates.
+1. Depending on the user's request, the Template Management Service communicates with the database to perform the respective operation and provides feedback to the user.
+1. If the user does not have the required permissions, access to template management is denied.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNlE1v4jAQhv-K5TPQACFpc6hUldVqD5WqfuxhlcvgDNTa2GFth10W9b_v2E6gICo2F8L4nXeeGdvZcdFUyAtu8VeLWuBcwsqAKvUajJNCrkE71jKw7NWiOQ475eMvqNY1OBw-gIYVKtRu-IxmIwUey6uFl8_BwQLsyRqEEnete6N0KcDJRh9cSt0Ob2-hLdiTx7TOMhACrWWuYa6rz9S-fqnBJ1SLgn1HI5db1hI8W6NR0lqytqWuFsPO8_EQZgZtW_v82rFvy9AzeyOyx4-pjB4qQOmUfRdBvhpqA6u46Is7taf1lBuJv6-EQQK9ateV_6mwRsLu-TvfWDgopV5FLb2cyPzjVNfjfbR9DbaHedAgzPYgjw17rPtGL6VRXZFGd0BHzrG5fm9PpUxEixCLeVhb9OS-0Qu8T-iMxM0H1AodyNqeg335VLOnnEtLku0ndj1YGPcFsvnxllweYTTtZ3B-dr3m3NA0nZgeMBy2GsTP_zhuc9TSn7ZgwAdcUQLIii7yzieUnC6SwpIX9FrhEvyh5qV-Jym0rnneasELZ1oc8Lij3b3nxRIIZ8DpVv5oGtWL6C8vdvwPL8bJ9Wg6nSXjcZpM0nSW5QO-9eFsNEnz62mSTmf5LEvz9wH_GxySUZ7f3CRplk1n2STPU8rASrrGPMRvT_gE9SBfwkrH8f4P4f-NQw?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVE1v4jAQ_SuWV4gL0LQE0uZQqWq2qz1Uqvp1WOUyJENrNXGytsM2i_jvO7YTKBUVy4E44_fevBk7s-ZZlSOPucbfDcoMEwEvCspUDgbrVDImpDAxc0vGhuYVSxzGbJiDehuOPkafQQlYFKiHWzht1UqUoNrrqqiU5X27mCbBzU1P3SEe8d3sUEEQDD1iYx_0txkMUlmDMiITNUjDGgaaPWlU-2FT2vgjlnUBBse3IOGF3EkzfkC1Ehnuw_OFhSdgYAH60x64FFcNlScpCEZUcqeSymZ8eQlNzO5t67TRDLIMtWamYqbLz8pt_lSCJeSLmD2jEsuWNWSe1ahKoTVJ61Tmi3GnebcLM4W6KSy_MOzn0tXMXsnZ3Ueq7RUlIDqxr7yRH4rKwNxv2uSm3Lq1LlcC_5xkCsnoSVPn9pFjgWS799_p-sQOKeSLx9LiE8z-TNnVeO1ln5zsrh_UCNXu4L5ga-u6kkuhyi5JJTtDe8q-uP5sP0NZ5iVczPOw0Gid20KP-L1HowSuPljN0YAo9CGzj19iti4ToQnSfiHXG3PtPuIs2T-S4y30on0PDveuxxxqmqQb0xt0l62A7O0_rluCUtjb5gT4iJdEAJHTcHHzIOVuTqQ8pmWOS7CXmtOXTVBoTPXQyozHRjU44v5Eu1nE4yWQnRGnr_JXVZU9iF55vObvPD4NzifT6Sw4PQ2DszCczaMRb214PjkLo_NpEE5n0WweRpsR_-sUgkkUXVwE4Xw-nc3PoigkBubCVOrWz0M3Fnsj391O52PzDyMEuJc?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant TM as Template Management Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests access to template management
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>TM: Request to view/create/update/delete template
+            alt If creating/updating template
+                TM->>DB: Create/Update template entry
+                DB-->>TM: Confirm creation/update
+                TM-->>U: Template creation/update confirmation
+            else If viewing template
+                TM->>DB: Retrieve template details
+                DB-->>TM: Template details
+                TM-->>U: Display template details
+            else If deleting template
+                TM->>DB: Delete template entry
+                DB-->>TM: Confirm deletion
+                TM-->>U: Template deletion confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

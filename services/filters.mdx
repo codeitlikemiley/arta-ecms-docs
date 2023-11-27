@@ -1,0 +1,111 @@
+---
+title: Unified Filters
+icon: filter
+---
+
+### Unified Filters Service
+
+#### Summary
+
+The Unified Filters Service deals with the advanced filtering system outlined in the 'UnifiedFilters' table. It enables the creation, retrieval, modification, and deletion of complex filters, enhancing data view customization and user query experiences.
+
+#### Endpoints
+
+1. **GetFiltersList**
+    - Purpose: Retrieves a list of all filters.
+    - Request: `GetFiltersListRequest`
+    - Response: `GetFiltersListResponse`
+
+2. **GetFilter**
+    - Purpose: Retrieves details of a specific filter.
+    - Request: `GetFilterRequest`
+    - Response: `GetFilterResponse`
+
+3. **CreateFilter**
+    - Purpose: Creates a new filter.
+    - Request: `CreateFilterRequest`
+    - Response: `CreateFilterResponse`
+
+4. **UpdateFilter**
+    - Purpose: Updates an existing filter.
+    - Request: `UpdateFilterRequest`
+    - Response: `UpdateFilterResponse`
+
+5. **DeleteFilter**
+    - Purpose: Deletes a filter.
+    - Request: `DeleteFilterRequest`
+    - Response: `DeleteFilterResponse`
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf filters.proto
+syntax = "proto3";
+
+package unified_filters;
+
+service UnifiedFilters {
+  rpc GetFiltersList(GetFiltersListRequest) returns (GetFiltersListResponse) {}
+  rpc GetFilter(GetFilterRequest) returns (GetFilterResponse) {}
+  rpc CreateFilter(CreateFilterRequest) returns (CreateFilterResponse) {}
+  rpc UpdateFilter(UpdateFilterRequest) returns (UpdateFilterResponse) {}
+  rpc DeleteFilter(DeleteFilterRequest) returns (DeleteFilterResponse) {}
+}
+
+// Message Definitions for Unified Filters Operations
+
+// Get Filters List
+message GetFiltersListRequest {}
+message GetFiltersListResponse {
+  repeated UnifiedFilter filters = 1;
+}
+
+// Get Filter
+message GetFilterRequest {
+  int64 filter_id = 1;
+}
+message GetFilterResponse {
+  UnifiedFilter filter = 1;
+}
+
+// Create Filter
+message CreateFilterRequest {
+  int64 filterable_id = 1;
+  string filterable_type = 2;
+  string key = 3;
+  string value = 4;
+}
+message CreateFilterResponse {
+  bool success = 1;
+}
+
+// Update Filter
+message UpdateFilterRequest {
+  int64 filter_id = 1;
+  int64 filterable_id = 2;
+  string filterable_type = 3;
+  string key = 4;
+  string value = 5;
+}
+message UpdateFilterResponse {
+  bool success = 1;
+}
+
+// Delete Filter
+message DeleteFilterRequest {
+  int64 filter_id = 1;
+}
+message DeleteFilterResponse {
+  bool success = 1;
+}
+
+// Supporting message types
+message UnifiedFilter {
+  int64 filter_id = 1;
+  int64 filterable_id = 2;
+  string filterable_type = 3;
+  string key = 4;
+  string value = 5;
+}
+```
+</CodeGroup>

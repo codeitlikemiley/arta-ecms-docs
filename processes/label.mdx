@@ -1,0 +1,50 @@
+---
+title: Label Management Process
+---
+This sequence diagram details the following steps:
+
+1. The user requests access to manage labels.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has necessary permissions, they interact with the Label Management Service to perform various operations on labels.
+1. Depending on the action (create, update, view, delete), the Label Management Service communicates with the database to process the request and provides feedback to the user.
+1. If the user does not have the required permissions, access to label management is denied.
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNlMtu2zAQRX-F4Np2ZFuWEi0CBHFRFEiAIEG6CLQZk2OHKEm5JOXWNfzv5UPyIzDSaiNpeOfOmRGpHWUNR1pRiz9b1AznAlYGVK3XYJxgYg3akZaAJa8WzXlYqhB_gAXK4SNoWKFC7YYvaDaC4bmWL4J2Dg4WYD-sQfS_a927TxcMnGj00aXW7fD2FtqKPAdG6ywBxtBa4hoiQ3GiDsVrDUHNFxX5jkYst6T12GSNRglrva-tNV8MO8OnY5gYtK0M-dKRb8vYLXn3WE-nqcRfvoBP99l3ieKr8T0gT4uhuFQH1IC4EfjrihkEh1ftmocbR4kOE3xnmqpGmdCrJPQPp5pwSdV1d58MX6NhNwbfv9ketanPQHPf6KUwqrNvdMdxZpt6ih_zo46wlB9jKQmlxQAcmvsM8xmdEbjpCTk6ENJeYny4LDiQzYVdS9heMuph4lg_o5mfzP3f00p2fccXxtQLLs1H-w3Rc8W9JIH9-I_dNEctwmaKBnRAlU8Awf0J3YWEmvpDorCmlX_kuISwZ2mt914KrWtetprRypkWBzR9vO5A02oJHmdA_Yl7axrVi_wrrXb0N63G2fVoOp1l43GeTfJ8VpQDug3hYjTJy-tplk9n5azIy_2A_okO2agsb26yvCims2JSlrnPQC5cYx7TTyX-W3qQL3Gl49j_BSSWez8?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVE1v4jAQ_SuWVygXoAFCUnKoVJHtaqVWqtptD6tchmSgVh2HtZ1uWcR_X38kfFSouxyIM37v-c1kPFta1CXSlCr81aAoMGOwklDlotfb5oIQJphOiVsSEugXrDBISVCCfA36x9FnkAwWHFWwh5uttWQVyM285rW0vC-zSRbe3HTUA-IHvusDKgzDwCN29mH-dr1eLtYgNSvYGoQmDQFFnhTK0zCvbPwWFsgHdyBgZawJPXhE-cYKPMWWC4vNQMMC1Ic9cPrXjclNmCBoVouDSi6awdUVNCl5sHVTWhEoClSK6Jpwezip9ofnAiy6XKTkGSVbbkhjbJM1yoopZXRVLsrFoBW8P4SJRNVwy-eafF-6bMmLsXV_TLVVMgcYumFfexffpMkBS79pD-fV3qq1-Mbw90UhETReNOvSPkrkqNGbb0X9qQ7GxMoDzeIYY3-8arObe8EnJ9iWweQvNwesz9O6mddiyWTVytei9XEi63NyH_MjjhSe72KehFyhNWyT-8zmA2rJ8K1zWKIGxtU5j7fnAXtnGVNrDptzQp0ZV9bP3GRHdf93tbxcl_GZMnWAc_URpiE6X66XOBSv_9FNGQpmm8kJ0D6tDAFYaaaGu-g5dQMgp6lZlrgE27PUXFkDhUbXjxtR0FTLBvvUf7x2yNB0CcZOn5ob97Ouqw5kXmm6pe80HYWXw8lkGo5GUTiOommc9OnGhuPhOEouJ2E0mSbTOEp2ffrHKYTDJJnNwiiOJ9N4nCSRYWDJdC3v_KBz864z8tXttD52fwHLV6aT?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant LM as Label Management Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests access to label management
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>LM: Request to view/create/update/delete label
+            alt If creating/updating label
+                LM->>DB: Create/Update label entry
+                DB-->>LM: Confirm creation/update
+                LM-->>U: Label creation/update confirmation
+            else If viewing label
+                LM->>DB: Retrieve label details
+                DB-->>LM: Label details
+                LM-->>U: Display label details
+            else If deleting label
+                LM->>DB: Delete label entry
+                DB-->>LM: Confirm deletion
+                LM-->>U: Label deletion confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

@@ -1,0 +1,52 @@
+---
+title: Favorite Items Management Process
+---
+
+This sequence diagram illustrates the following steps:
+
+1. The user requests access to manage their favorite items.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has necessary permissions, they interact with the Favorites Management Service to perform actions such as adding, updating, viewing, or removing items from their favorites.
+1. Depending on the user's request, the Favorites Management Service communicates with the database to execute the respective operation and provides feedback to the user.
+1. If the user does not have the required permissions, access to favorites management is denied.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNlMtu2zAQRX-F4NoP2ZalRIsAQdwUXQQIHKSLQJuxNHKIipRLUm5dw__eISnFDxhNBRiQyXsvzwxJ7XnRlMgzbvBni6rAhYC1BpmrDWgrCrEBZVnLwLBXg_p8uJJu_BG2jRYWzfAJFKxRorLDF9RbUeC5vlw5_QIsrMBczIFf476172QXBVjRqGNKrtrh3R20GVs6TmMNg6JAY5htmPTLsqrnyBU4dbnK2HfUotqxltDZBrUUxlAuKcrVsAt8Pg4zjaatLflry75VvmL2TljPp1ZGDy1AdnLfB4qvmmrAMky6xSv5geoQoSzHW4G_xu2mBItjjbLZHpEZ_WSXHJYmg1DrIKeXD2UQuaeSXY0PGl3kq08-RlIb9e4oDwU7rIdGVUJLVjgfldQxnSWH4vqd9TQnUlaECG8PPqwNOm5X5CmvuQK8RKsFXpZvrrE-nilYiRZEba6gLoTZ1LC7Gtmz-aZ_0szlxcZ82kUfCvW_utdJrnVN0ZHp8fxpq6H48R_nbYFKuOPmA_iASzKAKOke750h53SNJOY8o9cSK3CnmufqQFJobfOyUwXPrG5xwMOWdteeZxUQzoDTnXxrGtmL6C_P9vw3zybRzWg2m0eTSRxN43iepAO-c8PJaBqnN7Mons3TeRKnhwH_4xOiUZre3kZxkszmyTRNY3IgnadGP4VPj_8C9SBf_EzHcfgLmuiMZg?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVMFO20AQ_ZXRVlEuSTDEicEHJESaqgckBIVD5cvEHsMKe53urlNSlH_v7NrGCYpKD443s--9fTM7njeRVhmJWBj6VZNKaSHxSWOZqMHgLVEAUkkbg18CDO0zlTSMYZihfhmO9qOPqCWuCjLDdzhvrbUsUW-vq6LSjvflYroIlsuO2iN-0KvtUUEQDBvEzr34ZzcYJGqN2spUrlFZqAENPBjSh-G8dPElbiotLZnxDSp8YnvKju9Jb2RKh_hs5fALtLhC82EP_RlXNeenOIhWVqpXSVQ9vrzEOoY7VztjDWCakjFgKyj9sZB3PhKFDp2tYngkLfMt1Gwd1qRLaQzrMiJbjVvB2z4MmkxdWOYXFr7nPmN4Zlu3-1RXKT6A6cy-alx805wDZc2mOzwv3606i5hlJxtJv0_qdYaWTjSV1aa3DPyUrXJzNBOkemrgvHhHdlcJXPw2x2tNTvLBK_eSXEa97eFNws7WdaVyqUtIHY9Taj0dKDfJdTfr3exBIW0kPL3hUWHI-XZJ7vs1RwzfkdWSPqZvjnldHiAgI4uyMEesLqRZF7g9Ktl580X_pJh3Hy7m0yp6USz-Vb0Wcqxqilums-e7rcD05T_6bUFKunbzAmIkSiagzHi2-HGQCD8mEhHzMqMcXVcL_rAZirWt7rcqFbHVNY1Ec6XtKBJxjmxnJPib_FlVZQfivyJ-E68iPg3OJ9PpLDg9DYOzMJzNo5HYuvB8chZG59MgnM6i2TyMdiPxxysEkyi6uAjC-Xw6m59FUcgM4n6q9E0zDv1U7Ix89Tutj91fsIq3ug?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant FM as Favorites Management Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests access to manage favorites
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>FM: Request to add/view/update/remove favorite item
+            alt If adding/updating favorite
+                FM->>DB: Create/Update favorite entry
+                DB-->>FM: Confirm creation/update
+                FM-->>U: Favorite addition/update confirmation
+            else If viewing favorites
+                FM->>DB: Retrieve favorite items
+                DB-->>FM: Favorite items details
+                FM-->>U: Display favorite items
+            else If removing favorite
+                FM->>DB: Remove favorite entry
+                DB-->>FM: Confirm removal
+                FM-->>U: Favorite removal confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

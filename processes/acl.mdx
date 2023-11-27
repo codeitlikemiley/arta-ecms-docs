@@ -1,0 +1,45 @@
+---
+title: Role and Permission Assignment Process
+---
+
+This sequence diagram represents the following steps:
+
+1. An admin requests to assign or update roles and permissions for a user.
+1. The Role and Permission Service verifies the admin's permissions by querying the database.
+1. If the admin has the necessary permissions, they proceed to select roles and permissions for a user.
+1. The Role and Permission Service updates the user's roles and permissions in the database and confirms the update to the admin.
+1. The Role and Permission Service notifies the user about the changes to their roles and permissions.
+1. If the admin does not have the required permissions, access to role and permission assignment is denied.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNU8tu2zAQ_JUFL73YjmzLUqJDgKDpoYcWgYP0UOiyJlc2UYlUScqoa_jfu5T8LFKgOggSd3ZmOFzuhbSKRCE8_ezISHrWuHbYlKZFF7TULZoACOjhSTXa3K67NhaWtqYxGjV-Iddo77U141dyWy3pFq5WEf6MAVfo_6p1sfTmyZWsgePHR9cWsIymfIBguer12tx1rcJA4FjSA2tCe9b0pXEtN6pVAd_I6WoHGC3fQtRqfCS_uPWwxVozMX-DI9_VgT3UAT5Xw65hw-ZermmAn7PakoLTtCXALeoaV_U_Dca2i4PleyBgHzggTzG8Uk0yDJx319DKOj6brk_txtHbEFOsfPD_Z-ajNZV2DQwJn_m4imc-OWD6oK4UuwK-2hADj4Jgq17xyinIDZo1sSbVni6x1ih_vB_sIPskJXmeGDKaFDcbfomRaLgBteKp3ceGUoQNNVSKgj8VVRjPT5TmwFDsgn3dGSmK4DoaiWF3xyEXRYXsZyR4Ar9b25xA_CuKvfglimlyP5nPF8l0miazNF1k-Ujs4nI2maX5_TxJ54t8kaX5YSR-9wzJJM8fHpI0y-aLbJbnKXeQ0sG6L8NF6-_bycinvnL0cfgDnHc3qw?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVE1v2zAM_SuEhsCXpHUTx258KFA0K7DDhiJZexh8YWw6FWpLniQHzYr891J28zV0wC6yLD7yPT-RfhO5LkikwtLvllROc4lrg3WmBoO3TAFIJV0K3RYgcM9UU5BCUKB5CYanp09oJK4qssEBzqHGyBrN9k5X2vi8L7PJPLy_36ceET_p1R1RYRgGPWLnH7zsBoNMNWiczGWDygECWrgtaqnOz03jAwtd0QhVMXogU0trpVajJZmNzOkcXqw8fI4OV2j_irU-9GjJZMyBo5sb06Sw8EZZB05z1Mq1umybAh2BYUoLzAnNgdNmyjScWKxSeCIjyy2gl3wOKVajj-JHtRY2WEkuzHswZNvKsYbKwbey_2p4ZnEPp2W8XQe2BTkjaUOAG5SVv5h_CfRpRwWLz0DAOrBH7m1YUkW562tenkJLbfhu2s61M0WPvU0-Etj_E3OnVSlNDb3Dh3ocxUO9vMd0Rp0wtin80M4b7glBlx3jiVLIn1GtiTmpsnS0tcL85XNje9rbPCfLHUNKUsHJihcxFDUnoCx4krrmz0Q3FJlIeVtQif7-BLcxQ7F1erlVuUidaWko-q_7GDyRlsh6hoI78JfW9R7EryJ9E68ivQqvLyaTaXh1FYXjKJrGyVBs_XF8MY6S60kYTabJNI6S3VD86SqEF0kym4VRHE-m8ThJIs6gQjptvvfD3_0D9kK-dpEPHbt3T39i_w?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant A as Admin
+        participant RP as Role and Permission Service
+        participant DB as Database
+        participant U as User
+
+        A->>RP: Request to assign/update roles and permissions
+        RP->>DB: Verify admin permissions
+        DB-->>RP: Permissions validation result
+        alt If Admin has Permissions
+            RP->>DB: Retrieve available roles and permissions
+            DB-->>RP: Roles and permissions data
+            A->>RP: Select roles/permissions for a user
+            RP->>DB: Update user's roles and permissions
+            DB-->>RP: Confirm update
+            RP-->>A: Update confirmation
+            RP->>U: Notify user of role/permission changes
+        else If Admin lacks Permissions
+            RP-->>A: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

@@ -1,0 +1,180 @@
+---
+title: Workspaces and Teams
+icon: users
+---
+
+### Workspaces and Teams Service
+
+#### Summary
+
+The Workspaces and Teams Service manages the organizational aspects of workspaces and teams within the system. It provides functionalities for creating, managing, and organizing workspaces and teams, facilitating collaboration and access control based on the structure of the organization.
+
+#### Endpoints
+
+1. **CreateWorkspace**
+    - **Purpose**: Establish a new workspace within the system.
+    - **Request Parameters**:
+        - `name` (string): Name of the workspace.
+        - `description` (string): Description of the workspace.
+    - **Response**:
+        - `workspace_id` (string): ID of the created workspace.
+
+2. **GetWorkspace**
+    - **Purpose**: Retrieve detailed information about a specific workspace.
+    - **Request Parameters**:
+        - `workspace_id` (string): ID of the workspace.
+    - **Response**:
+        - `name` (string): Name of the workspace.
+        - `description` (string): Description of the workspace.
+
+3. **UpdateWorkspace**
+    - **Purpose**: Modify the details of an existing workspace.
+    - **Request Parameters**:
+        - `workspace_id` (string): ID of the workspace.
+        - `new_name` (string): Updated name of the workspace.
+        - `new_description` (string): Updated description.
+    - **Response**:
+        - `success` (Boolean): Indicates if the update was successful.
+
+4. **DeleteWorkspace**
+    - **Purpose**: Remove an existing workspace from the system.
+    - **Request Parameters**:
+        - `workspace_id` (string): ID of the workspace to be deleted.
+    - **Response**:
+        - `success` (Boolean): Indicates if the deletion was successful.
+
+##### Team Operations
+
+5. **CreateTeam**
+    - **Purpose**: Create a new team within a workspace.
+    - **Request Parameters**:
+        - `workspace_id` (string): ID of the workspace where the team will be created.
+        - `name` (string): Name of the team.
+        - `description` (string): Description of the team.
+    - **Response**:
+        - `team_id` (string): ID of the created team.
+
+6. **GetTeam**
+    - **Purpose**: Retrieve detailed information about a specific team.
+    - **Request Parameters**:
+        - `team_id` (string): ID of the team.
+    - **Response**:
+        - `name` (string): Name of the team.
+        - `description` (string): Description of the team.
+
+7. **UpdateTeam**
+    - **Purpose**: Modify the details of an existing team.
+    - **Request Parameters**:
+        - `team_id` (string): ID of the team.
+        - `new_name` (string): Updated name of the team.
+        - `new_description` (string): Updated description of the team.
+    - **Response**:
+        - `success` (Boolean): Indicates if the update was successful.
+
+8. **DeleteTeam**
+    - **Purpose**: Remove an existing team from the system.
+    - **Request Parameters**:
+        - `team_id` (string): ID of the team to be deleted.
+    - **Response**:
+        - `success` (Boolean): Indicates if the deletion was successful.
+
+<CodeGroup>
+```protobuf workspace_teams.proto
+syntax = "proto3";
+
+package workspaces_teams;
+
+// The Workspaces and Teams service manages workspaces and teams within the system.
+service WorkspacesTeams {
+  // Workspace Operations
+  rpc CreateWorkspace(CreateWorkspaceRequest) returns (CreateWorkspaceResponse) {}
+  rpc GetWorkspace(GetWorkspaceRequest) returns (GetWorkspaceResponse) {}
+  rpc UpdateWorkspace(UpdateWorkspaceRequest) returns (UpdateWorkspaceResponse) {}
+  rpc DeleteWorkspace(DeleteWorkspaceRequest) returns (DeleteWorkspaceResponse) {}
+
+  // Team Operations
+  rpc CreateTeam(CreateTeamRequest) returns (CreateTeamResponse) {}
+  rpc GetTeam(GetTeamRequest) returns (GetTeamResponse) {}
+  rpc UpdateTeam(UpdateTeamRequest) returns (UpdateTeamResponse) {}
+  rpc DeleteTeam(DeleteTeamRequest) returns (DeleteTeamResponse) {}
+}
+
+// Message Definitions for Workspace Operations
+
+// Create Workspace
+message CreateWorkspaceRequest {
+  string name = 1;
+  string description = 2;
+}
+message CreateWorkspaceResponse {
+  string workspace_id = 1;
+}
+
+// Get Workspace
+message GetWorkspaceRequest {
+  string workspace_id = 1;
+}
+message GetWorkspaceResponse {
+  string name = 1;
+  string description = 2;
+}
+
+// Update Workspace
+message UpdateWorkspaceRequest {
+  string workspace_id = 1;
+  string new_name = 2;
+  string new_description = 3;
+}
+message UpdateWorkspaceResponse {
+  bool success = 1;
+}
+
+// Delete Workspace
+message DeleteWorkspaceRequest {
+  string workspace_id = 1;
+}
+message DeleteWorkspaceResponse {
+  bool success = 1;
+}
+
+// Message Definitions for Team Operations
+
+// Create Team
+message CreateTeamRequest {
+  string workspace_id = 1;
+  string name = 2;
+  string description = 3;
+}
+message CreateTeamResponse {
+  string team_id = 1;
+}
+
+// Get Team
+message GetTeamRequest {
+  string team_id = 1;
+}
+message GetTeamResponse {
+  string name = 1;
+  string description = 2;
+}
+
+// Update Team
+message UpdateTeamRequest {
+  string team_id = 1;
+  string new_name = 2;
+  string new_description = 3;
+}
+message UpdateTeamResponse {
+  bool success = 1;
+}
+
+// Delete Team
+message DeleteTeamRequest {
+  string team_id = 1;
+}
+message DeleteTeamResponse {
+  bool success = 1;
+}
+
+```
+</CodeGroup>

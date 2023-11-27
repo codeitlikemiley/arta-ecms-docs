@@ -1,0 +1,53 @@
+---
+title: Workday Management Process
+---
+
+This sequence diagram illustrates the following steps:
+
+1. The user requests access to the Workday Configuration Service.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has the necessary permissions, access is granted.
+1. The user interacts with the Workday Configuration Service to perform actions like viewing, creating, updating, or deleting workday configurations.
+1. Depending on the action, the Workday Configuration Service communicates with the database to execute the request and provides feedback to the user.
+1. If the user does not have the required permissions, access to workday configuration is denied.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVE1v4jAQ_SuWz0ADhKTNoVJVVqs9rFS16iJVuRh7oFYTh_UHLIv47zu2E0oqtru5JBm_9-bNeOwD5Y0AWlADPx0oDnPJ1prVpdowbSWXG6YscYQZ8mxA98M77uOLRr8Jth_eN2ol104zKxs1fAK9lRz6BLH0hDmzbMnMhzUWktw5-woKgx9USuWGt7fMFeTRGzXWkF3MS_h5XsI4B2NKxTxeLAvyA7Rc7YlD92QDupbGIA4RYjlsJR_ew0SDcZVFfmXJt1UomryisYdzKsEHEyAd2XchI_mqsQoQcdEn3_GTWWIbspWwu-IamIUrtxH-JaACC10hrWzMG4BSrSMUP_oo_-x4W-F9FH0Ooqe2YBf1GTpW6z2FfdJ1m6JRrZuecKxs0XW4j4wd13WIRRpUBrxtX-TnZh_Bagnbd58CLJOVueR08TfIyeFcmk2FiItinanQ5s9dzXs78e_eRcmu-otN6yCXuqVwTDp3YcIqxt_-Y8bmoKQfsSBAB7RGApMCj-_BE0qKh6eGkhb4KWDF_CTTUh0RypxtnvaK08JqBwMat7I97bRYMbQzoHgSX5qm7kD4S4sD_UWLcXI9mk5nyXicJpM0nWX5gO59OBtN0vx6mqTTWT7L0vw4oL-DQjLK85ubJM2y6Syb5HmKDBDSNvp7vHHCxdMZ-RJWWh_HP3cKigo?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVN9P2zAQ_lcsT1VfWgg0bSAPSIiOaQ-T0BggTXm52lewSJzOdigd6v--s530B-rY-tA45-_77ruzc29c1BJ5zi3-alALnCp4NFAVutd7KzRjSiuXs7BkrO-esMJ-zvoSzHN_sBu9B6NgVqLtb-C0tTCqArO6qsvaeN6n89E0ub7uqFvED3x1W1SSJP2IWPsH_a17vUIvwDgl1AK0Yw0Dy-4smv3wUvj4Q22eJayGV7Weq8fGgFO1Ht6ieVEC9wly5glTcDAD-24PQpLLhgrUFHynUuhmeHEBTc6---ZZZ9ky5mViNy8DIdDaQoPHy1nO7tGo-Yo15J4t0FTKWsIRQs6GreTNNswM2qZ0xC8d-zoPRbMnMnazS_XNogREJ_ZlyMi-GKoCZdz0yZdiY5a5mr0oXB4Lg-DwuFlI_5BYosOukFY25g1ApR8jlBb7KP9birbCqyh6F0Q3baEumh10rNZ7CudkqjZFrVs3e8Kxsoeuw_vI2HFThVikYWnR2_ZFfmz2Ozqj8GXrU6IDVdpDTh_-Btk4nCq7KAlxUKwzFdr8savp3kn8u3dRsqv-YNM6yKFuabomnbtww0oQz_9xx6aolb9iQYAPeEUEUJJGSpgCBQ_ToeA5LSXOwd9kTt8zQaFx9e1KC5470-CAx6NsJxDP50B2Bpy-xJ91XXUgeuX5G3_l-UlydjQajZOTkzQ5TdPxJBvwlQ9Pjk7T7GyUpKNxNp6k2XrAfweF5CjLzs-TdDIZjSenWZYSA6VytfkWp2AYhp2Rz2Gn9bH-AwaptV4?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant WC as Workday Configuration Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests workday configuration access
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>WC: Request to view/create/update/delete workday
+            alt If creating/updating workday
+                WC->>DB: Create/Update workday entry
+                DB-->>WC: Confirm creation/update
+                WC-->>U: Workday creation/update confirmation
+            else If viewing workday
+                WC->>DB: Retrieve workday details
+                DB-->>WC: Workday details
+                WC-->>U: Display workday details
+            else If deleting workday
+                WC->>DB: Delete workday entry
+                DB-->>WC: Confirm deletion
+                WC-->>U: Workday deletion confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

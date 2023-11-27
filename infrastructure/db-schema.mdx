@@ -26,7 +26,6 @@ With these principles, the E-CMS database schema is not just a data repository b
 
 The following sections provide an exhaustive overview of the various tables and their structures within the E-CMS database. Each table is accompanied by a description of its fields, data types, and the role it plays in the overall system.
 
-# Database Schema E-CMS App
 
 ### Users:
 - id (Big Integer, Primary Key): Auto-incrementing ID.
@@ -41,9 +40,19 @@ The following sections provide an exhaustive overview of the various tables and 
 - updated_at (Timestamp): Timestamp of when the record was last updated.
 
 
-```mermaid
+
+
+<Tabs>
+  <Tab title="image">
+<img className="block  dark:hidden" src="https://mermaid.ink/img/pako:eNp1Um1rwjAQ_ivlPheptvWl3-ommzB1qPhhFErWnC7MJCUvbk763xdbRUbnQSD3PM-95HInKCRFSADVIyM7RXgmPGdWo9LeqXHOxqg3nj5N5-sbhJywvbdJlw_P6fIGn0MF4dhm_kdLovWXVLTN1AXyAyq2ZUhzYrz1dDZZrdPZ602kDTFWt4MVcuTvqHIjP1G0eabzEgVlYpczcWAGvfFi8TJJ538k2uqzCmmbLRQSc7ctW9I7bJUJ8IGjcq-jbvL1kDMwH67hDBJ3pbgldm8yyETlpMQauTqKAhKjLPrQpL58FyRbstcOLYl4k5JfRc6F5ATfkHSDuNONhoPuKAjdicOeD0cH9_udQTCMRuFo2I97YVT58FMnCDqxD0iZkWrWLEe9I9fCk5q51K1-ATm-q4s?type=png" />
+<img className="hidden  dark:block" src="https://mermaid.ink/img/pako:eNp1kl1PwjAUhv9KcwzZzUIGY3zsDgWVRMAA8cIsWQo9aOPWLm2nIOG_WzZxmsnFuvZ9n9PTnp4DbCRDCAHViNMXRdNINBqHSBDCBTchKaaEOOYVU3RC4jCq3hz3t_pEFafrBLXzg1srUzylan8jE6lOcVcDf-Td3p5DK2KFO1NRnuc5JXE8_exwbDRKIdeodJXBnpCR68ndZLaqJEwpT8jTcHFzP1xU8ilU0BTrzv9qRrX-kIrVnSJB_I6KbzmymBqymkzHy9Vw-lhB2lCT63qwstVK16hiI99Q1H2u4wwF4-Il5uKdGyTX8_nDeDj7g-hcnyhkdXejkJqLx8ozdsG1ZQYXUlT2dsx2Q1HkCIrnjSC0U4ZbmicmAvsgFqW5kcu92EBoVI4ulFt_txCEW5poq2ZUPEuZniG7hPAAOwhbXtBsdfq91sDz7Rf4bRf2Vu52mz2v3xn4g343aPudowufxQZeM3ABGTdSTcuGLfr2nHhcON95j19JT9bf?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+```mermaid users.mmd
 erDiagram
-    Users {
+    users {
         id BIGINT
         email VARCHAR
         username VARCHAR
@@ -58,6 +67,11 @@ erDiagram
         updated_at TIMESTAMP
     }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
+
 
 ### Configuration
 
@@ -69,7 +83,17 @@ erDiagram
 - created_at: The timestamp when the configuration entry was created.
 - updated_at: The timestamp when the configuration entry was last updated.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+
+<img className="block  dark:hidden" src="https://mermaid.ink/img/pako:eNp9kl1rwjAUhv9KOKP0pki0XzZ3zo_NC8fQ4sUoSNZGF2yTEtNhJ_3vq62dTsauzsfznsPLSU4Qy4QBAcNAhnGKRB0R4oJrgroKIVN_sIyZBJkJVXvTugNrqjh9T9nBvB2qaa54RlU5lqlU5-mHwJ7g2exmwVUUsqO-CjHG5o-oumRtrAwjEpFgasLpTtEsEjUaS7Hlu0JRzaU4nF2cB3mCHudP85ewLeNOVHvd_Md0mTO0Hi3Hz6Nli_es_N34pGlxp4kVo5olG6pROF9MV-Fo8dqSIk_-IBVYkDGVUZ7UD9BYjqA5aASkThO2pUWqI2iltNByVYoYiFYFs6BdejkCkC1ND3U3p-JNyqwT1SWQExyBBEHPdlzs2f3AGziu7VpQAvFxb-D6Q9u1hw72XM-rLPhq5nHPx57j9_HADRzbd72-BSzhWqpF-2Oaj9PZmDbk4qL6Bg_sswQ?type=png" />
+<img className="hidden  dark:block" src="https://mermaid.ink/img/pako:eNp9kl1rwjAUhv9KOKP0pki0XzZ3zo_NC8fQ4sUoSNZEF2wTiemwk_731dbObYzdJOec9znJy-GcIVWMAwHLOicSISGFIagJEbLNG8-5TZDNqN7bzvfqmmpBXzN-tL_wWjpokVNdjlWm9KXvLnIneDbrWm9EzE_mRmGM7ZaoLld9VJaVyERyPRF0p2neqGMlt2JXaGqEksfuW8HQ_fxh_hS3adpBtbnNf5opDxytR8vx42jZynte_iy806z4xaSaU8PZhhoUzxfTVTxaPLdKcWB_KBU4kHOdU8HqKTeWE2gmmACpQ8a3tMhMAi1KC6NWpUyBGF1wB9pHr0MAsqXZsa4eqHxRKu-gOgVyhhOQKOq5no8Dtx8FA893fQdKICHuDfxw6Pru0MOBHwSVAx9NP-6FOPDCPh74keeGftB3gDNhlF60a9FsR2dj2ihXF9UnOYivSg?type=png" />
+
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+```mermaid configurations.mmd
 erDiagram
 Configurations {
     id BIGINT
@@ -81,6 +105,11 @@ Configurations {
     updated_at TIMESTAMP
 }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
+
 
 ### Permissions:
 - id (Primary Key, Integer): Unique identifier for each permission.
@@ -89,7 +118,16 @@ Configurations {
 - created_at (Timestamp): Timestamp of when the permission was created.
 - updated_at (Timestamp): Timestamp of when the permission was last updated.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1klFrwjAQx79KuFH6UiTaprV5E62bDw5R8WEUJDPRhbWJpCnopN99tdZVxvZ0l_v97_jnuAvsNBdAwXGQ41xSVUeEpJKWovsLIdd-iFy4FLmcmU_X-wU2zEj2nonCfWyq6dHInJnzWGfaXLufYn-Cp9OHAZ1oLU62E2KM3R9R1Wa3WDlOqlIlzESyg2F5qmq0ECaXRSG1Kq4W2tlIcjR7XSfPybKrKZYLtBktxy-jh-qhZIZv_2Y7I5gVfMssWs_myWo9mi86Wh75P7QCD_LaGJO83nBjK4VmYynQOuViz8rMppCqq5SVVq_OagfUmlJ4cBvc_hLonmVFXT0y9aZ1fhfVT6AXOAGN454fEBz6_TgcBMQnHpyBRrg3INHQJ_4wwCEJw8qDr6Yf9yIcBlEfD0gc-BEJ-x4ILq0289tJNJdxt5E0pHVRfQMQOKOt?type=png" />
+<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1UcFuwjAM_ZXIU9VLhQJtWpobgrJxYEKAOEyVUEYCi9YmKE0lGOq_L5SxctguifPes_NsX2CnuQAKnnfJFUJSSUtRGyLk2w9RCp8inzPz6QeP6IYZyd4LUfm_ckcdjSyZOY91oc017ykNJ3g6vad2irU42U6FMfZviuZ6uaPxvFzlSpiJZAfDypZdCFPKqpJaVd2fzjNHs9d19pwtO0yxUqDNaDl-GT2gh5oZvv2b2xnBrOBbZtF6Ns9W69F80bH1kf_DNhBA6Ywxyd0YW1s5tCPKgbqQiz2rC5uDa8pJWW316qx2QK2pRQC3wj9dAt2zonLokak3rcu7yD2BXuAENE17YURwHPbTeBCRkARwBprg3oAkw5CEwwjHJI6bAL7afNxLcBwlfTwgaRQmJO4HILi02sxve2_Xf7eRtcyPi-YbrVqf8w?type=png" />
+
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+```mermaid permissions.mmd
 erDiagram
     Permissions {
         id INTEGER
@@ -99,6 +137,10 @@ erDiagram
         updated_at TIMESTAMP
     }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Roles:
 - id (Primary Key, Integer): Unique identifier for each role.
@@ -107,7 +149,16 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the role was created.
 - updated_at (Timestamp): Timestamp of when the role was last updated.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1kt9rwjAQx_-VcKP0pUi0TWvzJlo3HxzDiQ-jIJmJLqxNJKagk_7vi7WuMranu9znez9y3Bk2mgug4HnI8865chYhqaSl6PZCyLcfohQ-RT5n5tMPfoEVM5K9F-Lg3yc5ujeyZOY01oU2l-yHNJzg6fSuQCdaiqPthBhj_0dUt97V1p6Xq1wJM5FsZ1iZK4cW2rW_NG-rIsnR7HmZPWaLLqZYKdBqtBg_je6iu4oZvv6bbYxgVvA1s2g5m2evy9H8paPVnv9DawigFKZkkrvdNmPl0OwqB-pcLrasKmwOubpIWWX160ltgFpTiQCuhdv_Ad2y4uCie6betC5vIvcEeoYj0DTthRHBcdhP40FEQhLACWiCewOSDEMSDiMckziuA_hq8nEvwXGU9PGApFGYkLgfgODSajO_HkNzE7cxsoa0U9TfFU6hFg?type=png" />
+<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1UcFuwjAM_ZXIU9VLhQJtWpobgrJxYJqg4jBVQh4JrFrboJBKMNR_XyiwctguifPec_xsn2GjhAQOjnPOKkLyKjectCEhrvmUpXQ5cQXqL9d7RFeoc_wo5MH9lVtqr_MS9WmsCqUveU-xP6HT6T21U6TyaDoVpdS9KprLZY_GcbIqq6Se5LjTWLbsQtl6XTXrVpDZa5o8J4sOq7CUZDVajF9GD-iuRi3Wf3MbLdFIsUZD0tk8Waaj-VvH1nvxD9uAB6XUJebCDrC1lUE7nAy4DYXcYl2YDGw7Voq1UctTtQFudC09uH586w_4FouDRfdYvStV3kX2CfwMR-Bx3PMDRkO_H4eDgPnMgxPwiPYGLBr6zB8GNGRh2Hjw3ebTXkTDIOrTAYsDP2Jh3wMpcqP0_LrxdvF3G0nL3Fw0P8jMnVw?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+
+```mermaid roles.mmd
 erDiagram
     Roles {
         id INTEGER
@@ -117,13 +168,24 @@ erDiagram
         updated_at TIMESTAMP
     }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Model Has Permissions:
 - permission_id (Integer, Foreign Key): Reference to the permission.
 - model_type (VARCHAR): Type of the model (e.g., 'User').
 - model_id (Big Integer): ID of the model.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNpdUVtvgjAY_SvNtxBeiKlCQfrmvM2H7WEzPixNTCd1NoOWlJLoDP99FXEYn77LOee7nmGnMwEUPA953pkpZxGSSlqKbhFCvj2IQvgU-Rk3P37wAGy4kfwrF5V_L3JoaWTBzWmqc20u6qc0nOHF4q5AT1qLo-2JGGP_n9R03tU2nscUU8LMJP82vGDKQYXbIt8eeLUthSlkVUmtqsswXRfUp7cyQ6u39Xw5f-_hq94hz6ulAx8BeyoF2kzepy-TTtRAAIWryWXmrtc2YtBegwF1bib2vM4tA6YuVF5b_XFSO6DW1CKAusy4Fd0GQPc8r1y25OpT6-JGciHQMxyBpukgjAiOw2EajyISkgBOQBM8GJFkHJJwHOGYxHETwG-rx4MEx1EyxCOSRmFC4mEAIpNWm9fru9uv38aYt0g3RfMHHTKcjg?type=png" />
+<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNpdUctuwjAQ_BVrqyiXCBkSJ8Q3yqsc2gNFHFAk5BJTrMZ25DgSKcq_1wRoql7s9c7M7qz3Agedc6DgeZdMISSUsBR1IUK-PXHJfYr8nJkvP_ib3TIj2EfBK_-X7qDSCMlMM9WFNlfdUxrO8GLxkPaMDT_bnoUx9m-M9nq5o_W8TGWKm5lgn4bJDpXOarE_sWpfciNFVQmtqr47Qn16L3K0etvMl_N1D9_0DnleLR34H7BNydF2sp6-TO6iFgKQriYTufuirlEG3fgZUBfm_MjqwmbgDDsqq61-b9QBqDU1D6Auc2b5fQKgR1ZULlsytdNaPkjuCfQCZ6BpOggjguNwmMajiIQkgAZoggcjkoxDEo4jHJM4bgP47vR4kOA4SoZ4RNIoTEg8DIDnwmrzettpt9qHjXmH3F20P0CLmNQ?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+```mermaid model-has-permissions.mmd
 erDiagram
     Model-Has-Permissions {
         permission_id INTEGER
@@ -131,32 +193,75 @@ erDiagram
         model_type VARCHAR
     }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
 ### Model Has Roles:
 - role_id (Integer, Foreign Key): Reference to the role.
 - model_type (VARCHAR): Type of the model (e.g., 'User').
 - model_id (Big Integer): ID of the model.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img
+ className="block dark:hidden"
+  src="https://mermaid.ink/img/pako:eNpdUctuwjAQ_BVrqyiXgAyJE-Ib5VUO7YEiDpWlyiWmWE3syDgSFOXf64RQEKd9zMx6vHuGrc4EUPA85HlnplxESCppKbpWCPl2LwrhU-Rn3Pz4wQOw4Ubyr1wc_HuRQ0sjC25OE51r06if0nCK5_O7ATfSWhztjYgx9v9JdZddYu15TDElzFTyb8MLphxUuF_kvT0_9Ix2Rhob3XzUND5lhpZv69litroBraZBnpcLBz4C9lQKtBmvJi_jTlRDAIUwBZeZ21j7BIN2AwyoSzOx41VuGTDVUHll9ftJbYFaU4kAqjLjVnSuge54fnDdkqsPrYsryZVAz3AEmqb9MCI4DgdpPIxISAI4AU1wf0iSUUjCUYRjEsd1AL-tHvcTHEfJAA9JGoUJiQcBiExabV4vJ24vfbUxa5HORf0HihOW_A?type=png"
+/>
+<img
+ className="hidden dark:block"
+  src="https://mermaid.ink/img/pako:eNpdkV9vwiAUxb8KuUvTl2pQSmt5c_6bD9uDMz4sTRZmcZK1pUGa2Jl-91HUddkLXO7vnNwDXGCvMgEMPO-SlgjJUhqGXImQb46iED5Dfsb1lx_87e64lvwjFyf_V25RpWXBdTNTudKd7yEhc7xc3q29YivOpldhjP2rou02u7Sel5ZpKfRc8k_NC0cLGzUfHPlpoJWd3M9FqGu8ywytX7aL1WLTA-fpyON6ZeF_YJpKoN10M3ua3kwtBFAIXXCZ2WdxI1JwV06B2TITB17nJgUb0kp5bdRrU-6BGV2LAOoq40bcUgM78PxkuxUv35Qq7iJ7BHaBM7AkGZKQ4oiMkmgcUkIDaIDFeDim8YRQMglxRKOoDeDb-fEwxlEYj_CYJiGJaTQKQGTSKP18_Uf3nfcYC0duKdof2iSTQg?type=png"
+/>
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+
+```mermaid model-has-roles.mmd
 erDiagram
-    Model-Has-Roles {
+    model-has-roles {
         role_id INTEGER
         model_id BIGINT
         model_type VARCHAR
     }
 
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Role Has Permissions:
 - permission_id (Integer, Foreign Key): Reference to the permission.
 - role_id (Integer, Foreign Key): Reference to the role.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img
+ className="hidden dark:block"
+
+  src="https://mermaid.ink/img/pako:eNplUc9PwyAU_lfIM00vdWGj0JWr24wHPejiwZAYHMwRW2goTTaX_u-ybrMmXuDx_eB98I6wcUoDhyQ5CouQsSZwNJQIpWGna51ylCrpv9LsL_oqvZEflW7TX3mkGm9q6Q93rnL-5LspyQKvVlfrqFjrfRhVGOP0rOhPW1z6JBFWWO0XRn56WQvrXWx2u5PtbaN9bdrWONuOrREa4Xej0MPTenm_fB7pk_8f0UMGdfRJo-IfDJcJGN4ngMdS6a3sqiAgJopS2QX3crAb4MF3OoOuUTLoS0TgW1m1EW2kfXOuvoriEfgR9sDLckJyihmZlmyWU0IzOAAv8GRGizmhZJ5jRhnrM_ge_HhSYJYXUzyjZU4KyqYZaGWC84_noQ2zu8ZYDswlRf8Dy7CP8w?type=png"
+/>
+<img
+ className="block dark:hidden"
+
+  src="https://mermaid.ink/img/pako:eNplUctuwjAQ_BVrqyiXgAyJHeJrgaqH9tCiHpClyiWmWE3syHEkKMq_1wmhQe1pHzOzO_aeYWdyCQyCAAXBmWsfEVJaOYauFUKhO8hShgyFubBfYfQHeBNWiY9C1uGtyKOVVaWwp3tTGNup77J4idfrmwEjaSOPbiRijMNfUjtkl9gGAddcS7tU4tOKkmtr_O7JQdSTStpS1bUyuu6cDCvQ2H5XOXp83qweVi8j3On_AS1EUHqdULn_nn4Yh_65HJhPc7kXTeE4cN1RRePM60nvgDnbyAiaKhdODhaB7UVR-24l9NaY8kryJbAzHIFl2TROCKbxLKPzhMQkghOwFE_nJF3EJF4kmBJK2wi-ez2eppgm6QzPSZbEKaGzCGSunLFPl3v2Z73aWPXI4KL9ATTRk60?type=png"
+/>
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+
+```mermaid roles-has-permissions.mmd
 erDiagram
-    Role-Has-Permissions {
+    roles-has-permissions {
         permission_id INTEGER
         role_id INTEGER
     }
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
 
 
 ### Invite Tokens:
@@ -166,9 +271,23 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the invite token was created.
 - updated_at (Timestamp): Timestamp of when the invite token was last updated.
 
-```mermaid
+<Tabs>
+  <Tab title="image">
+<img
+ className="block dark:hidden"
+  src="https://mermaid.ink/img/pako:eNp1kM1ugzAQhF8F7Zki82MTfKMtSjlQVQnqIUKKLLxpUYOJjKmaIt69FiRKLt2Td77Z1XhHqDuJwAH1cyM-tGgr5dhq1Hdj8MF0X6h6Z1zEGUgnfy2zdba5aUOPem_BY7627KbP0857unl6Se_stUZhUO6Fccq8yLZlWrzdLTvJf-hUKXChRd2KRtrIc6oKzCe2WAG3T4kHMRxNBZWarFUMptueVQ3c6AFdWFZf_gn8II69VU9C7bquvZpsC3yEH-BJ4oURJSz0ExZENKQunIHHxAtovAppuIoIo4xNLvzO88SLCYtinwQ0icKYMt8FlI3pdLHceD71NUY2k0uK6Q9an3SB?type=png"
+/>
+<img
+ className="hidden dark:block"
+  src="https://mermaid.ink/img/pako:eNp1Uc9vgjAU_leatxAuzFShIL05RefBZVHiYSExna1bI1BTyjJn_N9XQYeXXdrX78fr19cTbBUXQEHoiWQfmhUIOc4pKxGSpTQUNSVCrvkUhXApcjnTe9e7R9dMS_aei8r9k1vqoGXB9HGscqUvvofYn-Dp9GbtFKn4Np0KY-y2ivNls8vZcVpAll_SiEej9qKsupsswdH8JU1mybLD6krojSWe5jPLdXjjRuvRcvw8upNvtWBG8A0zKJ0vklU6WrzeNTvwf1ibDzwohC6Y5HaMTaoMmrlkQG3JxY7VucnAvsRKWW3U6lhugRpdCw_a1tfZA92xvLLogZVvShU3kT0CPcE30Dju-QHBod-Pw0FAfOLBEWiEewMSDX3iDwMckjA8e_DT-HEvwmEQ9fGAxIEfkbDvgeDSKL1o_735_luMpGGuKc6__3efSw?type=png"
+/>
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+```mermaid invite-tokens.mmd
 erDiagram
-    Invite-Tokens {
+    invite-tokens {
         id INTEGER
         user_id BIGINT
         token VARCHAR
@@ -177,21 +296,40 @@ erDiagram
     }
 
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
+
+
 
 ### Password Resets:
 - email (VARCHAR): Email address of the user requesting the password reset. This field is indexed for efficient querying.
 - token (VARCHAR): A unique token generated for the password reset process.
 - created_at (Timestamp, Nullable): Timestamp of when the password reset request was created.
 
-```mermaid
-erDiagram
-    Password-Resets {
-        email VARCHAR
-        token VARCHAR
-        created_at TIMESTAMP
-    }
+<Tabs>
+  <Tab title="image">
+<img
+ className="block dark:hidden"
+  src="https://mermaid.ink/img/pako:eNplUMFqhDAQ_RWZs5WsMXHNTdqF9iCU3aWHEijBzLZSTSRG2q34701dlx52TjNv3rx5vAlqqxEEoHto1LtTnTS9GoYv6_SdwwH9EE3SRGthp5o2ein394_l_h_29hPNLVw7VB71m_LR8anaHY5l9XzZzhBDhy6o6fB7eSDBf2CHEkRoNZ7U2HoJ0vxR1ejt4WxqEN6NGMPY6yC8GgZxUu0Q0F6ZV2u7KymMICb4BlEUCc0Y4XRT8DRjlMVwBpGTJGX5ljK6zQhnnM8x_Cz3JMkJz_INSVmR0ZzxTQyoG29ddQlryexqY7dsVhfzL2FRZgY?type=png"
+/>
+<img
+ className="hidden dark:block"
+  src="https://mermaid.ink/img/pako:eNplUctqwzAQ_BWxxfjiBiWy7Fi3kAftIVCSkEMxFDXatCa2ZWSZJg3-96rOw4VepNXszO5o9ww7rRAEoJll8sPIghDPO6clIVmZWUG6kBDffmKBviC-kubgB3_RrTSZfM-x9u90l6pMVkhzmupcm1_dQ8JmdLG4SXvGBo-2Z1FK_Quj_b3c0XreBahkXX9pox4N1mjrvhchWMgsJ9vJavo0WfWw1Qcs_8M7g9KiepOWbJ6X8_Vmsny594QACjSunnJT6Vqk0H0zBeFChXvZ5DYFZ8xRZWP1-lTuQFjTYABNpVzp6yhB7GVeO7SS5avWxY3kniDOcASRJAMWchqxYRKNQs54ACcQMR2MeDxmnI1DGvEoagP47vR0ENMojId0xJOQxTwaBoAqs9osL2vstnmzMe8yVxftD4ctkho?type=png"
+/>
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+
+```mermaid schema.mdd
+
 
 ```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Social Accounts:
 
@@ -202,17 +340,35 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the social account link was created.
 - updated_at (Timestamp): Timestamp of when the social account link was last updated.
 
-```mermaid
-erDiagram
-    Social-Accounts {
-        id BIGINT
-        user_id BIGINT
-        provider VARCHAR
-        provider_id VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1Ud9PgzAQ_lfIPSNhlJbRN9RFecCYjfhgmiwN7bQJtKQU4yT87zLYosn0nu6-7358dzdAZYQECtLeK_5mecM0095knakUr294VZleu84bFvhkSni3-UP-VP5AfSft_g-8teZDCWm9l2x795htr5lT1RVZWcmdFHvuvDIvNrsyK55_DWvFP-zINPjQSNtwJaatZtEM3LtsJAM6uUIeeF87BkyPUyrvndkddQXU2V76sLQ-nwLogdfdhLZcvxrTXJKmEOgAn0DTNEAxDglapSSKMcI-HIEmYRDhZI0wWschwYSMPnzN9WGQhCROVmGE0xglmKx8kEI5Y4vlDfM3LjI2M3NWMX4Dy-V_hA?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UltPwjAU_ivNMcteJinsxvqGXJQHjIGFB7OE1LVo47YuXWdAwn-3bOBI0Jf29Lv0XNoDpJJxIMDVRNB3RfOksKxDUiAkCqEJakKEbP3Bc24TZDOqPm3nGl1TJehbxiv7V26oUomcqv1YZlKdfHeRO8Gz2cXaKWK-050KY2y3iuNpM8vRslqgkqmg2T1NU1kXuupymVoZepg_zp_jDqorrjZ_4KWSX4Jxhdaj5fhptLxlTq4bMlWcas42VKN4vpiu4tHi5SpZyf5hTQPgQM5VTgUzc26KTqAZXALEhIxvaZ3pBEyrRkprLVf7IgWiVc0daK8-Pw6QLc0qg5a0eJUyv4jMEcgBdkCiqOd6Pg7cfhQMPN_1HdgDCXFv4IdD13eHHg78IDg68N34cS_EgRf28cCPPDf0g74DnAkt1aL9GM3_uJQxbZhzFccf0S-qDg?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid social-accounts.mmd
+      erDiagram
+        social-accounts {
+            id BIGINT
+            user_id BIGINT
+            provider VARCHAR
+            provider_id VARCHAR
+            created_at TIMESTAMP
+            updated_at TIMESTAMP
+        }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+
 
 ### Sessions:
 
@@ -225,19 +381,36 @@ erDiagram
 - expires_at (Timestamp): Timestamp indicating when the token expires.
 - created_at (Timestamp): Timestamp of when the session record was created.
 
-```mermaid
-erDiagram
-    Sessions {
-        id BIGINT
-        user_id BIGINT
-        token VARCHAR
-        ip_address VARCHAR
-        user_agent VARCHAR
-        refresh_token VARCHAR
-        expires_at TIMESTAMP
-        created_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kVFrwjAQx79Kueci1TSpzVu3ydYHx9Cyh1EooTm1zCYlTUFX-t2XVUVBd0-5_-_uz-Wuh1JLBA5oXiqxNaLOleeixbattGq9_pT_RSW9p_Q1fc-uUteiKR7oVn-j8j6T1fNbsrpxaAohpXHe92y0EltU9p4Z3LimXfGPLR6ayvFCWC9Ll4t1liw_rrQ0KCzKB3TIFfhQo6lFJd0Oxr_mYHdYYw7cPSVuRLe3OeRqcKWis3p9VCVwazr0oWuksz4vDvhG7FunNkJ9aV1filwKvIcD8DiekJAGjExjNgspoT4cgUfBZEajOaFkHgaMMjb48DP2B5MoYGE0DWY0DklE2dQHlJXVZnk62ni7yxiLkZynGH4BvzaL_Q?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UsluwjAU_BXrVSiXCBmyEd8oS8uBqgLEoYqEXPwACxJHjiNBEf9eE6BBgl68zMwbv8VHWCqBwAB1X_K15mmSNRrHJCNEZtIwUh0JccwGU3QYcQTXW8e9R-dcS_69w8L5k1sq1zLl-tBTO6XPcS-x16fD4S20Vsxwb2oVpdS5KE7nzS6nRuMCFFgUUmVF_YhNUpDX0dvoY1ZDZYF68QQ3aosZmXcnvffu5M4hX3AhtPV-5CorvsbMPHIaVzZos_jHFve5tPyCGzIbjQfTWXf8WbNLjdygeMLagsGFFHXKpbBzqWpNoGp0AsweBa54uTMJ2NZYKS-Nmh6yJTCjS3ShzIW1vg4T2IrvCovmPPtSKr2J7BXYEfbA4rjp-QENvVYctv3AC1w4AItosx1EHS_wOj4NgzA8ufBTxdNmREM_atF2EPteFIQtF1BIo_T48pGq_3RLY1Ax1yxOvzOot1E?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          sessions {
+              id BIGINT
+              user_id BIGINT
+              token VARCHAR
+              ip_address VARCHAR
+              user_agent VARCHAR
+              refresh_token VARCHAR
+              expires_at TIMESTAMP
+              created_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Issues:
 
@@ -245,7 +418,7 @@ erDiagram
 - title (VARCHAR): Title of the issue, representing the allegation or violation.
 - description (TEXT): Detailed description of the issue.
 - priority_id (INTEGER, Foreign Key, Nullable): Reference to the priority of the issue (if applicable).
-- issue_timeframe_resolution_id (INTEGER, Foreign Key, Nullable): Reference to the Issue Timeframe Resolution for the team handling this issue (if applicable).
+- ir_id (INTEGER, Foreign Key, Nullable): Reference to the Issue Timeframe Resolution for the team handling this issue (if applicable).
 - assignee_id (Big Integer, Foreign Key, Nullable): Reference to the current user who is assigned to the issue (from the Users table).
 - complainee_id (Big Integer, Foreign Key, Nullable): Reference to the complained agency (from the Complainees table).
 - complainant_id (Big Integer, Foreign Key): Reference to the complainant (from the Complainants table).
@@ -254,11 +427,22 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the issue record was created.
 - updated_at (Timestamp): Timestamp of when the issue record was last updated.
 
-
-
-```mermaid
-erDiagram
-  Issues {
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNptktFvgjAQxv8Vcs_EoFAQ3txmNh9cFiXLspCYCz1dE2hJW8yc4X9fB_og8633-75evl7vDKXiBBmQfhJ40FgX0vOEMS0Z7_x3dhX3HlbPq9d8KK2wFXnvi83jy2IzIE6m1KKxQkkvX35cjI0WSgt7uvUai7Y1u1FToccEjREHSTTmlrAes1LVTYXijvuqoLRjibe042jJy1fr5TZfrN8GrqkkcSS-Owq8jV5qQqv-Je2x86Mdt2obflfpCgk-1KRrFNwNvx90AfaLaiogc0dOe2wrW0AhO2fF1qrtSZaQWd2SD0Pjy49BtsfKONqg_FSqvppcCdkZviFL00kYsSAOp2k8i1jIfDhBlgSTGUvmIQvnURCzOO58-OnvB5MkiKNkGsxYGoUJi6c-EBfu7ethW_qlucZY9solRfcLRQG4vg?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNptkttO4zAQhl_FmlWVm6hymxPJXRfKbi-KVhChFYpUzcYDWCRxZDuIUvXd1yTNsgRufPjnm_Fvew5QKkGQAekLiQ8a66KZzQ5Fw5hspM1Yv2TMs49Uk5cxT6B-8vz_1VvUEv9UZLx_uAu1Wtao9-eqUvot71saXPDLyzH1ncjpxb5TnHNvII5vkxuOs1lvx5iOzHiAFOz75sfmKh-2VtqK2O3q-vzn6nqQBJlSy9ZK1bB8_fsEujOVlnb_kTUWbWd2k6JSTxU0Rj40RFPdEtZTrVR1W6H8gh4j2NhpSHS0E2iJ5Zvt-iZfbX8NuqaS5DOJ3bPEj9ZLTWjVJ6e97Hi001JdK76MuJcGH2rSNUrhGqJ_6AL6Hy4gc0tB99hVtgD3Jw7FzqqbfVNCZnVHPgyFT10E2T1WxqktNndK1SPktpAd4AWyNJ0HYcTjYJHGyzAKIh_2kCV8voySsyAKzkIeR3F89OG1z-fzhMdhsuDLKA2DJIoXPpCQ7u7boYP7Rh5trPvIycXxLzVT5BI?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+        issues {
           id BIGINT
           title VARCHAR
           description TEXT
@@ -274,8 +458,14 @@ erDiagram
           creator_id BIGINT
           created_at TIMESTAMP
           updated_at TIMESTAMP
-      }
-```
+        }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+
+
 
 
 ### Agencies:
@@ -286,17 +476,35 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the agency was created.
 - updated_at (Timestamp): Timestamp of when the agency was last updated.
 
-```mermaid
-erDiagram
-    Agencies {
-        id BIGINT
-        name VARCHAR
-        description TEXT
-        abbreviation VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UF1rg0AQ_CvHPoto_Ij6ZltpfbCUREopQtl4m_QgnnKepan433s1CRZKFw52Z2Z3b2eEuuUECZC6E3hQ2FSSmcADyVpQz8Zz_ROCs5v8Pn8sF0hiQ-w53dw-pJsF5dTXSnRatJKV2csvPe52ij4EztSfvloRauJvqFmZF9m2TIunhR06_g87VRIsaEg1KLi5Zf5zBfqdGqogMSmnPQ5HXUElJyPFQbfbk6wh0WogC86jLwZAssdjb9AO5WvbNleRKSEZ4RMS1wls14_Wbux45gXeyoKTgcPQXjuRH3txFAYrz58s-JoHOHZgAXGhW1Wc7Z5dvy7OZuayd_oGMCJ44A?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1rwjAU_SvhjtKXItVatX1zfmw-OMYsMkZhXJurC2vTkqZDJ_73xVZXYewhyc05537k5h4hyTlBCKSmAncKs1ha1jGWjAkpdMhqkzFbf1BGdshsjurTdm7RNSqBm5RK-1duqEKJDNVhkqe5OvvdBd7Unc-vrq0ior1uVa7r2o3idD7MdrKsBsAdyURQ2SYxRXJ2v3hYPEUtJDEjth6_TB7HLy3KqUyUKLTIJYtmrzd63GwUfQmsqT9-iSLUxN9Rs2ixnK2i8fK5ZauC_8OawsGBjFSGgpv-1jXHUDcshtCYnLZYpToG80QjxUrnq4NMINSqIgea0JdPgXCLaWnQAuVbnmdXkblCeIQ9hF3X73T7o2E3cD2zfK_nwMHAg0Fn6I76gReMBn7P658c-K4DuB3fAeJC52rZjEA9CdfEs5q55D39AMrZpDQ?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          agencies {
+              id BIGINT
+              name VARCHAR
+              description TEXT
+              abbreviation VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+
 
 ### Violations:
 - id (Primary Key, Integer or Big Integer): Auto-incrementing ID, uniquely identifying each violation.
@@ -306,18 +514,34 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the violation was created.
 - updated_at (Timestamp): Timestamp of when the violation was last updated.
 
-```mermaid
-erDiagram
-    Violations {
-        id BIGINT
-        name VARCHAR
-        description TEXT
-        code VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UF1rhDAQ_CuyzyJ6fpzmzbbS-mApd1JKCZRgcm3AJBJj6VX87416h4XShYXNzDCT3REaRRkgYPqOk3dNBJaOrU-uWmK4kr0zrshcnDo35X35WG-QJII5z_nh9iE_bChlfaN5Nxs4dfHySz_H_dU3mhHD6BsxTl1WxbHOq6eNHTr6DzthCS4IpgXh1G6x_BWD-WCCYUB2pOxEhtZgwHKyUjIYdTzLBpDRA3Nhtb6sDuhE2t6iHZGvSomryD4BjfAFKPBjL4jSfZD5oe043LlwtnCSeHs_jbIwS5N4F0aTC9-Lge_FLjDKjdLVeujl3tfgYmEuudMPAHZ2jg?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1rwjAU_SvhjtKXItFatXlzfmw-OMYsMkZh3DVxC2ubkqZDJ_73pa2uwthDkptzzv3IvTlCorgABkLPJb5rzOLccY5xTojMpWGkMQlxzYfIhMuIy1F_ut41ukUt8S0Vpfsrt1ShZYb6MFOp0rXfTejP6XJ5ce0UkdibTkUpdVvFqT7sdnKcFviSKkUjVV52aWyZnNyu7lYPUQflmAmynT7N7qdPHcpFmWhZ1AFItHi-0tct-KtPtEAj-CsaEq3Wi000XT92bFXwf1hbMniQCZ2h5LazTa0xNK2KgVmTix1WqYnBPs5KsTJqc8gTYEZXwoM29HkcwHaYlhYtMH9RKruI7BXYEfbA-jTo9YeTcT-kvl2BP_DgYOHRqDemk2Hoh5NRMPCHJw--mwC0F3gguDRKr9vhN3_gknjRMOe8px-XJqHi?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          violations {
+              id BIGINT
+              name VARCHAR
+              description TEXT
+              code VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
-```
 
 ### Issue Violations (Pivot)
 - id (Foreign Key, Integer or Big Integer): ID linking to the specific violation.
@@ -325,15 +549,33 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the user-team relationship was created.
 - updated_at (Timestamp): Timestamp of when the user-team relationship was last updated.
 
-```mermaid
-erDiagram
-     Issue-Violation {
-        id BIGINT
-        issue_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kM1qwzAQhF_F7Nk1dvwTW7eGhuKDSyE-FUEQ1qYRWFKQpdLU-N2r2knbQyIQaOcbZlc7Qqc5AgE0T4K9GyapCvwRw-Dw4UPonlmhVTAu8ox4sKmf65f2n_Tj3t8AvwG3YGeQWeR7ZoO2bra79rF5_aPuxO_QiSoIQaKRTHA_-jwbBXtEiRSIf3I8MNdbClRN3sqc1buz6oBY4zCEJfryXyAH1g9ePTH1prW8mnwJZIRPIEmcR0lWrpMqTv3N01UIZy8XRbSOy6xKq7LIV2k2hfA1B8RRHgJyYbVplu3OS7423s7k0nf6Bkf3dSQ?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ud9vgjAQ_leaWwgvzFQRlb5tUxcfWJZI9rCQmJutWzOgppRFZvjfV0DFB_fQ9u77vvvRuyNsFRfAQOi5xE-NWZI7zjHJCZG5NIy0JiGu-RKZcBlxOepv17tG31BL_EhF4V7kltprmaGunlSqdBN3F_pzulyeQ3tFLA6mV1FK3U5RN4-9asfpAFkUpbj_kSpFI1Xe17IUJ4-r59VLfAU16s0N4pLgFrnVAo3gGzQkXkWLdfwQvfZsuef_sLZP8CATOkPJ7Tjb3hJo55MAsyYXOyxTk4D9kZViadS6yrfAjC6FB13q0w6A7TAtLLrH_F2p7CyyLrAjHIANaTAYjmfTYUh9ewJ_5EFl4clkMKWzceiHs0kw8se1B79tAjoIPBBcGqWjbuPt4s-FFy1zqlv_AQH8oHg?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          issue-violation {
+              id BIGINT
+              issue_id BIGINT
+              violation_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 ### Complainants:
@@ -348,22 +590,38 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the complainant was created.
 - updated_at (Timestamp): Timestamp of when the complainant was last updated.
 
-```mermaid
-erDiagram
-    Complainants {
-        id BIGINT
-        name VARCHAR
-        address TEXT
-        email VARCHAR
-        contact_number VARCHAR
-        gender VARCHAR
-        referral VARCHAR
-        is_anonymous BOOLEAN
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UV1rwkAQ_CvHPgeJxviRt9iGVqhaNJRSArLNrTaQ25PLBWol_73XqChoFw7uZoYZbvYAuZYEEZB5LHBrUGUs3ORa7UosGNlW4nDE_qaQYjJ9ms7TC8SoSLzFy4fneHlBUUpDVSXS5P1KSwqL8laca7aY2zXX6pPMLb8llvdwQxsyBu84FtUaWfNe6boSk8XiJYnnV3mG0JJcoxXpdJas0nj2emHrnfyHbTIGDxQZ9w3pSmuLycB-kaIMIneVtMG6tBlk3Dgp1lav9pxDZE1NHhytT01DtMGycugO-UNrdRa5J0QH-Iao64edbn807I79wJ0w6Hmwd_Bg0Bn6o_44GI8GYS_oNx78tAZ-J_SAZGG1mR332q73HJy0zCm3-QVIk5Z7?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UlFrwjAQ_ivhhvSlSF3Vad_c1E2YOrYyxijIrTldWJNImoJO-t8X61wF3UOSy_d9d5fc3Q5SzQkiIDMUuDIoE9Vo7BLFmFDCRqwyGfPsJ0nyIuZxNF-ef4q-ohH4kVHu_ckdtTZCotne6Uybvd9VPxwG4_HRtVbEtLG1KggC76Ao94fbykbjAKRarjMUCpXN60TuoZzdTu4ns7iGFEpir4Pnu4fBc40i54bynMWjtxMtSRTZuTjVymJqF6qQH2TO-RUpfgk3tCRj8EJEkS9QabWVusjZ7Xz-OBrMTvIZQkt8gZbFk-noJR5Mn2q2WPN_WFch8EGScd_grpFVYRKoOpNA5ExOSywym4CrpZNiYfXLVqUQWVOQD4fQv92HaIlZ7tA1qnet5VHkrhDtYANRK-g0W-3eTasfhG51wmsftg7udps3Qa_dD_u9buc6bJc-fFcBgmbHB-LCajM9zFo1csfEo4r5zVv-AKnMwc8?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          complainants {
+              id BIGINT
+              name VARCHAR
+              address TEXT
+              email VARCHAR
+              contact_number VARCHAR
+              gender VARCHAR
+              referral VARCHAR
+              is_anonymous BOOLEAN
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
-```
 
 ### Complainees:
 - id (Primary Key, Integer or Big Integer): Auto-incrementing ID.
@@ -373,17 +631,34 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the complainees was created.
 - updated_at (Timestamp): Timestamp of when the complainees was last updated.
 
-```mermaid
-erDiagram
-Complainees {
-        id BIGINT
-        agency_id BIGINT
-        name VARCHAR
-        branch VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kE1rg0AQhv-KzFnExI-oN9uG1oOlJNJDWQhTd5II7iqbFWrF_96tJnhIOzAw87zDfA1QNpwgAVJPFZ4UCiYtY2Uj2horSXSxhhn9WsWth-w5ey0WhCeSZX_4Q5EoyHpPd48v6W6hnwpleb7npSLUxA-orSLLt_sizd8WtWv5P-rIJNggSAmsuDlk2paBPpMgBokJOR2xqzUDJkdTip1u9r0sIdGqIxvm1tfrITlifTG0RfnRNOJWZFJIBviCZOUGzsqPNqvY9YwH3tqG3uAwdDZu5MdeHIXB2vNHG76nBq4T2EC80o3K519PL78N3k7Kde74Awr4dyA?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1vgjAU_SvNXQgvxKCIk745PzYfXBYlPiwk5gpXJaOF1JLoDP99FXQs2fbQ9vaccz96by8Q5wkBB1KTFPcKRSQt6xJJxlKZas5qkzFbH0iQzZmdoPqwnZ_oGlWK24yO9rfcUIVKBarzOM9ydfV7CLyJO5vdXVtFSCfdqlzXtRtFdT3MVllWA8S5KDJMJdGxzWPqTNjT_Hn-GrYQ7knG580fjERBbD1ajl9GyxbdKpTx4TceK0JNyQY1C-eL6SocLd5atiySf1hTNTggSAlME9PcutoI6m5FwI2Z0A7LTEdg3mekWOp8dZYxcK1KcqAJfZsI8B1mR4MWKN_zXNxF5gr8AifgXdfvdPvDx27gemb5Xs-Bs4EHg86jO-wHXjAc-D2vXznwWQdwO74DlKQ6V4tm_vU3uCee1swtb_UFI7OidA?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          complainees {
+              id BIGINT
+              agency_id BIGINT
+              name VARCHAR
+              branch VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Links:
 - id (Primary Key, Integer or Big Integer): Unique identifier for each link.
@@ -395,19 +670,36 @@ Complainees {
 - updated_at (Timestamp): Timestamp when the link was last updated.
 - deleted_at (Timestamp, Nullable): Indicates when the link was marked as 'deleted' for soft deletion.
 
-```mermaid
-erDiagram
-Links {
-        id BIGINT
-        issue_id BIGINT
-        user_id BIGINT
-        url VARCHAR
-        description TEXT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-        deleted_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp9UU1rg0AQ_SsyZxGNH1FvtpXWg6UkUkpZCIs7aZfqrqwrNBX_e7cmIR6kAwMz7z3mMTMj1JIhpIDqgdMPRVsiLBMNF1-9NZ6bv-DMuisei-dqAfX9gIcVYuhRreKqsV6z3f1TtruBDPta8U5zKawqf1vIa4VUIztQbVVFme-rrHxZDOvYPyzDBtfZiQiwoUXVUs7M4vOOBPQntkggNSXDIx0aTYCIyUjpoOX-JGpItRrQhrPx5VqQHmnTG7Sj4l3K9ioyLaQjfEPquaHjBfHWS1zfZOhvbDgZOIqcrRsHiZ_EUbjxg8mGn3mA64Q2IONaqvL8m_lFV-N8Zi6-0y9NgYTE?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp9Ut9vgjAQ_leaWwgvxKCIk745f2w-uCxKzLKQmI6eWyNQUkqiM_zvq6CDB7OHttfv--6ud70zxJIjUEA1E-xLsTTKLOscZYSITGhKapMQW39jijYlNmfqYDtddMuUYJ8JFvaf3FC5EilTp6lMpLr4PQTezF0sbq6tIsSjblWu69qNorocZqssqwESkR2KNoN5ISdPy-fla9iBiqLE3R2iLFDdxVVCtpP19GWybkGORaxEroXMSDh_78hjhUwj3zFNwuVqvgknq7dOsJz_w3JM8D5rqgQHUlQpE9x8Rl1jBHV3I6DG5LhnZaIjMP0wUlZquTllMVCtSnSgSXz9QaB7lhQGzVn2IWV6E5kr0DMcgfZdv9cfjh_7geuZ5XsDB04GHo16j-54GHjBeOQPvGHlwE8dwO35DiAXWqpVMy_12NwSz2vmmrf6BYZ0sBg?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          links {
+              id BIGINT
+              issue_id BIGINT
+              user_id BIGINT
+              url VARCHAR
+              description TEXT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+              deleted_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Workflows:
 - id (INTEGER, Primary Key): Unique identifier for each workflow.
@@ -416,16 +708,33 @@ Links {
 - created_at (Timestamp): Timestamp when the workflow was created.
 - updated_at (Timestamp): Timestamp when the workflow was last updated.
 
-```mermaid
-erDiagram
-Workflows {
-        id INTEGER
-        name VARCHAR
-        team_id INTEGER
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kE1rwzAMhv-K0TmEpPlo4lvYwtZDxmjDDsNQTKxsYbFdXIeuC_nv85KW7rAJBPLzvkiyRmi0QKCA5r7jb4ZLpoiLkzYfba9PRzIu4Cc6QTZPdflQbm9McYnkpdjePRa_qEUu93_ZG4PcothzS-pNVe7qonq-qcNB_KNOTIEHEo3knXDrzlsxsO8okQF1pcCWD71lwNTkrHywendWDVBrBvRgaX35I9CW90dHD1y9ai2vJvcEOsIn0DBI_DDO1mEeRC6TaOXB2eE09ddBFudRnqXJKoonD77mBoGfeICis9pUy0Xnw14Hl7NymTt9A_yHb_E?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UU1vwjAM_SuRp6qXCgVKgeaGoGwcmCaoOEyVkEfCVtE0KKQChvrfF1q6ctgOSez3nj9iX2GruAAGQk9T_NQok9xxrklOSJqnhpHKJMQ1X0IKlxGXo9673iO6Rp3iRyaO7q_cUgedStSXicqUvsU9hf6UzmZNaKuIxdm0KkqpWyvK22Ov0nFq4KT0fpep07GtYrvkZP4aR8_RssVylIKsx8vJy_gBNQLl5i_5Vgs0gm_QkHi-iFbxePHWssWB_8Pa3sADKbTElNsRVl0lUM0kAWZNLnZYZCYB-wsrxcKo1SXfAjO6EB7Uqe9zB7bD7GjRA-bvSslGZF1gVzgD69Kg0-2Pht2Q-vYEfs-Di4UHg86QjvqhH44GQc_vlx58VwloJ_BA8NQovai3XC27KRxVzL1u-QOufptF?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          workflows {
+              id INTEGER
+              name VARCHAR
+              team_id INTEGER
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Status Categories:
 
@@ -437,18 +746,35 @@ Workflows {
 - created_at (Timestamp): Timestamp when the category was created.
 - updated_at (Timestamp): Timestamp when the category was last updated.
 
-```mermaid
-erDiagram
-Status-Categories {
-        id INTEGER
-        name VARCHAR
-        icon VARCHAR
-        description TEXT
-        order INTEGER
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kW9rgzAQxr-K3Gsntv6p5p1ssvWFY7QyxhBGSK5doEkkRlgnfvdl2uKg7CCQe37Hc7ncAExzBAJoHgQ9Giob5bnoLLV9d8eoxaM2AjtvmMFvCO5tn-vysdwtmqISvddid_9U_FEF0-pW5dgxI1orHKzLt3oh2nA0t-bMoHsI_6DWq7dVua-L6mWhfcv_oWOjwAeJRlLB3ZDTDA3YT5TYAHFXjgfan2wDjRpdKe2t3p8VA2JNjz7M1pefAXKgp86pLVXvWstrkUuBDPAFZBUmwSrONqs8jNxJorUPZyenabAJsziP8ixN1lE8-vA9GYRB4gNyYbWp5j1M67g2Lidy6Tv-ANgTf7A?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1rwjAU_SvhjtKXTqK1avsmWjcfHEOLjFEYWXN1YW1T0hR00v--2OoqyB6S3Jxz7ldyT5BIjhAAqrlge8WyOLesU5wTInKhA9KYhNj6CzO0A2Jzpr5t5xbdMiXYZ4ql_Sc3VKFExtRxJlOpzn4Pvjuni8XVtVNEeNCdilJqt4r6fJittqwWKDXTVfmYMI17qQSWXTZTLSfLlyh8CtcdlrMMyXa6nj1Pb1CRyPwe5VgmShRaGDIK36KOkYqjug-eKDSF8A-mSbRchZtounrt2Krg_7CmI3AgQ5Uxwc3DNz3E0LxkDIExOe5YleoYTO9GyiotN8c8gUCrCh1oQ19-C4IdS0uDFix_lzK7iswVghMcIOhTr9cfTsZ9n7pmee7AgaOBR6PemE6GvutPRt7AHdYO_DQBaM9zALnQUq3a2WhG5Jo4bJhL3voXrkmrBA?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          status-categories {
+              id INTEGER
+              name VARCHAR
+              icon VARCHAR
+              description TEXT
+              order INTEGER
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Statuses:
 - status_id (INTEGER, Primary Key): Unique identifier for each status.
@@ -460,43 +786,93 @@ Status-Categories {
 - is_default (BOOLEAN): Indicates whether the status is the default within its category.
 - category_id (INTEGER, Foreign Key): Reference to the status category.
 
-```mermaid
-erDiagram
-Statuses {
-        id INTEGER
-        name VARCHAR
-        description TEXT
-        icon VARCHAR
-        color VARCHAR
-        order INTEGER
-        is_default BOOLEAN
-        category_id INTEGER
-        workflow_id INTEGER
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNptkW9rgzAQxr-K3GsRrX-qvnObbIOthU7GGEIJ5uzCNJEY6Zz43ZdZywR3EMj97nie5G6AQlCEGFDeMXKSpM65oaNVRHUttsZwyX-DUeNxl6X36eGPcVKj8Zocbh-SBaXYFpI1igluZOlbttAoNFr1F6ISco2FpCjXnqw9UixJVynjZr9_SpPdQokoPAnZH_977FnIz7IS51VxzDmYUKOsCaN6GNOnc1AfWGMOsb7OhjnkfNStpFPipecFxEp2aELXUG08TxDiklStpg3h70LU1yadQjzAF8SO7VuOF26dyHb18d2NCb3GQWBt7dCL3CgM_I3rjSZ8TwK25ZuAlCkhny_7mtZ2NU6nyuw7_gAXdooN?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNptUlFvgjAQ_ivNLYQXYlBEpW9OcVuyaeKIWRYS09HqGoGSUqLM8N9XUQcJe2h7_e67--7aO0MkKAMMTM452UuShKlhnMMUIZ5yhVFtImSqb5YwEyOTEnkwrTa6IZKTr5jl5h9duzLJEyLLmYiFvMQ9eM7cXizuoQ0jYCfVsGzbNq-M6nLorTKMK5Arooqc5Y2ILpKil2XgP_nrBktJwtBmup49T1soZXkkeaa4SFHgfwStHJGGOvzoUlIXFpIy2dXk-ZayHSlihR5Xq1d_umxlIorthSy3_xV7FPKwi8Wx49SdgwUJkwnhVH9Q3XQI9YuHgLV5EwxBv5GmkkKJ9zKNACtZMAuKjGrh268C3pE412hG0k8hkjtJXwGf4QS4b7u9_nAy7nu2o5frDCwoNTwa9cb2ZOg53mTkDpxhZcFPncDuuRYwypWQb9cZqkfpLuzXnptu9QuzJrVh?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          statuses {
+              id INTEGER
+              name VARCHAR
+              description TEXT
+              icon VARCHAR
+              color VARCHAR
+              order INTEGER
+              is_default BOOLEAN
+              category_id INTEGER
+              workflow_id INTEGER
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 ### WorkflowSteps(Pivot)
 - workflow_id (INTEGER, Foreign Key): Reference to the workflow.
 - category_id (INTEGER, Foreign Key): Reference to the status category.
 
-```mermaid
-erDiagram
-    WorkflowSteps {
-        workflow_id INTEGER
-        category_id INTEGER
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNplUE1rwzAM_StBZzckzUcTnxvKDuuh22kYhomVNjS2g-PQZSH_fSJt2WACgfTe4z2hGWqrEDig27fy7KQWJqC6WXdtOnvbDB77IZjv6F_ms1XBy_G9OlSnX7KWHs_WTf_IRRhgoNFp2SqKWw0F-AtqFMBpVNjIsfMChFlIKkdv3yZTA_duRAZjr8j7cSPwRnYDob00H9bqp4hW4DN8AY-jLIzTYheXUUKdJVsGE8F5Hu6iIi2TssizbZIuDL5XgyjMGKBqvXWv94-sj3kGVyvzyF1-AFZYYHY?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNplUUFugzAQ_Iq1FeJCkQmQgK8NqXpoD23UQ4RUudikVgAjY5RQxN_rQCiVerC9npmdtXd7yCTjQICrraBHRcu0sqw-rRASldAEjSFCtv7iJbcJshlVJ9v5i75TJehnwRv7V26oWomSqu5BFlJd8-5if4t3uzl1Uez5RS8qjLE9KYbrYbbBsibgLNUpL-T5vtG8bpZSC_MhGHp62SePyetCZlTzo1TdP9J4gwMlVyUVzLRgNExh_FMKxISM57QtdArmFUZKWy3fuioDolXLHWhrZrxvfQOS06IxaE2rg5TlLDJXID1cgHg4dL0g2ngx9s0K_ZUDnYHXa3eDoyD242gdrvxgcOB7NMBu6ABnQkv1PE1pHNZcOBmZW93hBzKqi8o?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          workflow-steps {
+              workflow_id INTEGER
+              category_id INTEGER
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Issue Statuses(Pivot)
 - issue_id (INTEGER, Foreign Key): Reference to the issue
 - status_id (INTEGER, Foreign Key): Reference to the status
 
-```mermaid
-erDiagram
-IssueStatuses {
-        issue_id INTEGER
-        status_id INTEGER
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNplUMtqwzAQ_BWzZ9XY8SO2zjElh-TQ9lQEZYk2iSCSgh6Q1PjfK-ykPXRhYXdmmFl2hIOVBBzIbRSeHGphslTK-0gvPmCInnw2Lugv86Vktt1_DK_D2x-zqP9RkzDAQJPTqGRKmr0EhDNpEsDTKOmI8RIECDMlKcZg3-_mADy4SAziVWKgx3nAj3jxCb2i-bRWP0VpBT7CDXhZNHlZd-uyL6rUTbVicE9w2-broqv7qu_aZlXVE4Pv2aDIGwYkVbButzxj_skzeJiZR-70A_UBXmU?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNplUcFOwzAM_ZXIqOqlVNm6bmuurEMc4AATh6kSMosHEW1TJam0MfXfydqNInFI4rz3_BzHJ9hpSSCAzErhh8GqqIPgVNSMqVo5wfqQsdB9UkWhYKFE8xVGf9FXNArfS7Lhr9xTjVEVmuOdLrU5591kyYqv19fUUbGhgxtVnPNwUHTnw29dEAyAsralW-vQtZbsWOrCvCnJHp42-X3-PDKD-h_lbSGCikyFSvrue68C-nYKED6UtMe2dAX4B3gptk6_HOsdCGdaiqBtJDq6fBmIPZbWow3WW62rq8hfQZzgAGLC03gyWy4mGU_8SpNpBEcPz-fxgi9nWZIt5-k0mXURfPcGPE4jIKmcNo_DgPo5XQvnPXOp2_0A-KCJuQ?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          issue-statuses {
+              issue_id INTEGER
+              status_id INTEGER
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 
 ### Workspaces
@@ -508,18 +884,35 @@ IssueStatuses {
 - created_at (Timestamp): Timestamp of when the workspace record was created.
 - updated_at (Timestamp): Timestamp of when the workspace record was last updated.
 
-```mermaid
-erDiagram
-    Workspaces {
-        id BIGINT
-        name VARCHAR
-        logo VARCHAR
-        url VARCHAR
-        irt_on BOOLEAN
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kW9rgzAQxr9KuNciWv9U885usgmzHW3pixEowaSdTBOJka0Tv_sybXFQdhDI_e54nsulh0IyDhi4eizpWdGaCGTiU6qPtqEFb1E_kd8oGVplT9l6PyNBa44OyfbhOdnOtJJneU87Vd3DUumjFGi12bykyXrmheJUc3akGu2zPN3tk_z1j1TD_qkORIAFNVc1LZl52Dg-Af3Oa04AmyvjJ9pVmgARg2mlnZa7iygAa9VxCybp6zYAn2jVGtpQ8SZlfWsyKeAevgC7TmC7frR0Y8czJ_AWFlwMDkN76UR-7MVRGCw8f7DgexRw7MACzkotVT7tfvyCm3E6Vq6-ww_RpnqE?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1kltrwjAUx79KOEP6UiRaqzZv9bYJU4cWH0ZBsia6YNuUNGU66XdfbHUdyB5y-51_ziU5F4gk40CAq4mgB0WTMG21LmGKkEiFJqjaImTpT55wiyCLUXW07L90S5WgHzHPrV-5MWVKJFSdxzKW6nrvyXMmeDa7X20UAT_pRoUxtmpFeV3MVLZaNfiS6phnNOJ5E8akydBo_jxfBg1KacLR1l-PX_x1Q2N5kI-0UPEjFErvZIpGq9Xr1F82PFKcas52VKNgvphuAn_x9sdVxv6xmirAhoSrhApmHrtKP4Tq9UIgZsv4nhaxDsHUa6S00HJzTiMgWhXchtr17YeA7GmcG5rR9F3K5C4yRyAXOAHpYLfd6Q0HHQ87ZrhO14azwf1-e4CHPc_xhn236_RKG74rB7jt2sCZ0FIt6n6o2uIeeFpZbnHLH5_Opdg?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          workspaces {
+              id BIGINT
+              name VARCHAR
+              logo VARCHAR
+              url VARCHAR
+              irt_on BOOLEAN
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### UserWorkspaces (Pivot)
 - user_id (Foreign Key, Integer or Big Integer): ID linking to the user.
@@ -527,15 +920,33 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the user-team relationship was created.
 - updated_at (Timestamp): Timestamp of when the user-team relationship was last updated.
 
-```mermaid
-erDiagram
-UserWorkspaces {
-        user_id BIGINT
-        workspace_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UE1rg0AQ_Ssy561o_IjuraGheLAU4qkshMGdNNKsK-tKm4r_vYvGtod2YGDmvcebjxFqLQk4kHlo8NWgEq3nYujJ3L1r89Z3WFPvjQu8UsdGervisXiqfvBv9V9kbQgtySNaryrK_aG6L59_WXbyH3YSLTBQZBQ20q057yHAnkmRAO5KSSccLlaAaCcnxcHqw7WtgVszEIPF-nYb8BNeeod22L5orVaRa4GP8AE8DBI_jLNtmAeRyyTaMLg6OE39bZDFeZRnabKJ4onB52wQ-AkDko3Vplw-OT90Hbyfmdvc6QvM33BD?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UcFuwjAM_ZXIU9VLVwVKgea2DZg4ME2i2mGqhLwmbBFtU6WpBkP994UWKIftkMR579l-so-QKi6AgdAziZ8a86RwnGNSECILaRhpQ0Jc8yVy4TLictQ717tF31BL_MhE5V7lliq1zFEfnlSm9CnvLgpmdLG4pPaKWOxNr6KUup2iOT32ahynA-pK6PtvpXdViamo-l4dtZGcPC6fly9xj1_Vf5GpFmgE36Ah8XI1X8cPq9ebkiX_h7WewINc6Bwlt6NrfSTQziIBZkMutlhnJgHr3kqxNmp9KFJgRtfCg670ed7AtphVFi2xeFcqv4jsF9gR9sAGNPQHo-lkENHAnjAYenCw8HjsT-h0FAXRdBwOg1HjwU9bgPqhB4JLo_Sq22675Evjecuc-za_JCeblw?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          user-workspaces {
+              user_id BIGINT
+              workspace_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+
 
 ### Teams:
 - id (Big Integer, Primary Key): Auto-incrementing ID for each team.
@@ -550,19 +961,36 @@ UserWorkspaces {
 - created_at (Timestamp): Timestamp of when the team record was created.
 - updated_at (Timestamp): Timestamp of when the team record was last updated.
 
-```mermaid
-erDiagram
-Teams {
-        id BIGINT
-        workspace_id BIGINT
-        identifier VARCHAR
-        name VARCHAR
-        icon VARCHAR
-        icon_color VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kVFrgzAQx7-K3LMUrbVV39xWNh8co5U9DEFCcm5hTSIxsnXid1-mLT7UHQRy_9_xP-6uB6oYQgKoHzh510SU0rFhkIjW6afkLzhz7rLH7LmYpS-lP9uGUKwWIGcoDa85auc1Pdw_pYeZSSLwVuVUyWW1ouqkFnyoRmKQVcQ4RZbvj0Wav8y0a9g_dCgluCBQC8KZnX0cswTzgQJLSOyXYU26kymhlIMtJZ1Rx7OkkBjdoQuT9WVhkNTk1Fq1IfJNKXEtsikkPXxD4nvhyt9EOz_2AvvCYO3C2crb7WrnRZs4iKNtuA42gws_o4G3Cl1Axo3S-XSe8UrXxvuRXPoOv8Z3hWk?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1vgjAU_SvNXQgvxKCICm_Oj80Hl0WJDwuJ6eh1a4SWlJLpDP99FXQs0T20vT3n9H72BIlkCCGgmnL6oWgWC8s6xYIQLrgOSW0SYutPzNAOic2o2tvOX3RDFafvKRb2r9xQueIZVceJTKU6v3sIvKk7n1-ftooID7pVua5rN4rqfJitsqwG0Eizoo1gMmTkcfG0eIla6EuqfZHTBLd3SM5QaL7jqMhmvJo8j1ctJ2iGtyhPpLiPbpNzyrdcopBqZFuqSbRYztbRePnasmXO_mFNoeBAhiqjnJl51GXGUDc4htCYDHe0THUMpiVGSkst10eRQKhViQ40ri9DhHBH08KgORVvUmZXkblCeIIDhF3X73T7o2E3cD2zfK_nwNHAg0Fn6I76gReMBn7P61cOfNcO3I7vADKupVo2X6b-OdfAs5q5xK1-AIF1sL0?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          teams {
+              id BIGINT
+              workspace_id BIGINT
+              identifier VARCHAR
+              name VARCHAR
+              icon VARCHAR
+              icon_color VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### UserTeams (Pivot)
 - user_id (Foreign Key, Integer or Big Integer): ID linking to the user.
@@ -570,16 +998,31 @@ Teams {
 - created_at (Timestamp): Timestamp of when the user-team relationship was created.
 - updated_at (Timestamp): Timestamp of when the user-team relationship was last updated.
 
-```mermaid
-erDiagram
-UserTeams {
-        user_id BIGINT
-        team_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
-
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kMtqwzAQRX_FzFo1dvyIrV1LQ_DCpRCviiAM1qQ1RFKQZUhq_O9V7Zh20QoGNGcudx4jtEYScCD73OG7RSV04N_Qk31whKoPxoWs9NjJ4KnaVy_ND_8W_sVbS-hIHtEFTVXvDs1j_frL7SL_qU5CAwNFVmEn_XDzCALcBykSwP1X0gmHsxMg9OSlODhzuOkWuLMDMVis7xsBP-G59_SC-s0YtYp8CnyEK_A4ysI4LbZxGSU-smTD4OZxnofbqEjLpCzybJOkE4PP2SAKMwYkO2dsvdxvPuPaeDdX7n2nL_Raa_M?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1kU1vwjAMhv9K5KnqpUOBUqC5bQMmDkyTqDhMlZBHzBatbVCaSjDU_77QwsphOyRxXj_-kH2CrZYEAshMFX4YzNPC805pwZgqlBWsMRnz7Sfl5AvmSzRffnCrrtEofM-o9H9x59oblaM5PulMm3PcXRxO-Xx-De2IhA62ozjnfkvU58ddtee1QlWSubeEedmVadWNkuxx8bx4STr9DP6lbw2hJblBy5LFcrZKHpavN9n28h-v6wQCyMnkqKQbWNNCCs0EUhDOlLTDKrMpuJ4dipXVq2OxBWFNRQG0qS9TBrHDrHTqHos3rfMr5L4gTnAA0edRrz-cjPsxD92JwkEARyePRr0xnwzjMJ6MokE4rAP4bhLwXhQASWW1WbY7bVZ7LTxrPJe69Q-aPJdH?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          user-teams {
+              user_id BIGINT
+              team_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 ### Domains:
 - id (Primary Key, Integer or Big Integer): Unique identifier for each domain.
@@ -588,16 +1031,32 @@ UserTeams {
 - created_at (Timestamp): Timestamp when the domain record was created.
 - updated_at (Timestamp): Timestamp when the domain record was last updated.
 
-```mermaid
-erDiagram
-    Domains {
-        id BIGINT
-        name VARCHAR
-        workspace_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UE1rg0AQ_SsyZxGNH9G92Sa0HiwlkR7KQljcSSPN7sq60qbif-9WE7ykAwMz783HmxmgVhyBAOpNwz40E1Q61rgSrJGdM8zpnzXceSieipdqgSQT6Lzlu8fnfLegX0p_di2r8XCnpdbIDPIDM05VlNt9lZevC9u3_B92pBJcEKitLm71TsIomBMKpEBsyPHI-rOhQOVoS1lv1P4iayBG9-jCPPp6JJAjO3cWbZl8V0rcimwKZIBvIIEfe0GUroPMD63H4cqFi4WTxFv7aZSFWZrEqzAaXfiZBvhe7ALyxihdzi-dPntbvJ2Y697xF4btcHQ?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UctuwjAQ_BVrqyiXCBlCKPGN8mg5UFUQcagioW1s2ojEjhxHhaL8e00CTQ_twfZ6ZnZ3vD5DorgABkLPUnzXmMfScc6xJCSVqWGkCQlxzYfIhcuIy1EfXO83ukWd4lsmSvdHbqlCpznq01RlSl_y7kJ_RheLW2qniMTRdCpKqdsq6stht9pxWoCrHFNZdj2sR04elo_L56iDJOaCbCfr6dNk3aGfSh_KAhOx-yMl0QKN4Ds0JFqu5ptosnrp2Krg_7DWHHiQC219cTvDxlgMzVBiYDbkYo9VZmKwz7BSrIzanGQCzOhKeNCWvg4e2B6z0qIFylel8pvIXoGd4QisT4Nefzi-74fUtyvwBx6cLDwa9e7peBj64XgUDPxh7cFXU4D2Ag8ET43Sq_abm9--NZ43zLVv_Q1kOJvI?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          domains {
+              id BIGINT
+              name VARCHAR
+              workspace_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 
 ### Labels
@@ -610,18 +1069,35 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the label was created.
 - updated_at (Timestamp): Timestamp of when the label was last updated.
 
-```mermaid
-erDiagram
-    Labels {
-        id BIGINT
-        name VARCHAR
-        entity_id BIGINT
-        entity_type VARCHAR
-        is_group BOOLEAN
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kW9rgzAQxr-K3GsRrX-qvrObbMJsR1v6YgiSmWsnmCgxwpz43ZepxTfdQSD3_J7ccbkBipoihIDiuSQ3QVjGNRUV-cSq1YY5-4uSarvkJdmfV4kThtolOj69RsdVRS5L2ecP_AuRffPgWdnmN1F3jbY7HN7iaL-SQiCRSHMitXOSxqdzlL6vtGvoP3TMOOjAUDBSUjXiNEwG8gsZZhCqK8Ur6SqZQcZHZSWdrE89LyCUokMd5tLLv0B4JVWr1Ibwj7pmd5NKIRzgG0LLdA3L8bdWYNrquPZGh17JnmdsTd8J7MD33I3tjDr8TAVMw9UBaSlrkc5bmJZxbxxPZOk7_gL9O37L?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ut9vgjAQ_leaWwgvxFQRlb7hr81kukWJDwuJqba6ZkBJKYnM8L-vgo49uIe21-_77q53vQscJONAgKupoCdFkyi1rEuUIiRSoQmqTYRs_ckTbhNkM6q-bOcvuqVK0H3Mc_tXbqhMiYSqciJjqa5-T747xfP53bVVhPysWxXG2G4U1fUwW2VZDRDTPY_zNoV5IkPjxfNiFbZQShOOtsF68hKsW5SnWuhy90B_Y3SZPXAT-e6kZJGh8dvb6yxYtcxBcao521GNwsVytgmD5XvLFhn7hzX1gAMJVwkVzLS9LiaCuo8REGMyfqRFrCMwlRspLbTclOkBiFYFd6AJffsrIEca5wbNaPohZXIXmSuQC5yBdLHX6fZHw66PXbM8t-dAaeDBoDPEo77v-qOB13P7lQPfdQDc8RzgTGipls1k1ANyTzyrmVve6gd8yaof?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          labels {
+              id BIGINT
+              name VARCHAR
+              entity_id BIGINT
+              entity_type VARCHAR
+              is_group BOOLEAN
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Issue Labels (Pivot)
 - issue_id (Foreign Key, Integer or Big Integer): ID linking to the issue.
@@ -629,15 +1105,31 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the user-team relationship was created.
 - updated_at (Timestamp): Timestamp of when the user-team relationship was last updated.
 
-```mermaid
-erDiagram
-IssueLabels {
-        issue_id BIGINT
-        label_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kMtqwzAQRX_FzFo1dvyIrV1LQ_HCpRCviiAo1qQ1WFKQJWhq_O8VctJsWsGA5p7LvGbotUCggOZ54B-GS6Yi_4Zpcvgw8iOOUzSv2q9-GET01Lw0r90dBOtfoDfILYoDt1HXtLt999i-3ak7i3_owhQQkGgkH4QfMAzBwH6iRAbUfwWeuBstA6YWb-XO6v1F9UCtcUhgLX3dCuiJj5NXz1y9ay1vJp8CneELaJoUcZpX27ROMh9FtiFw8XJZxtukyuusrspik-ULge9QIIkLAigGq0273jCc8tZ4F8i17_IDCw5teQ?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UU1vwjAM_SuRp6qXDgVKgea2DZg4ME2i4jBVQoaYLVo_UJpKMNT_vpDCusN2SOK892w_2WfYlZJAAOmpwneNeVp43jktGFOFMoK5kDHffFBOvmC-RP3pB7_RNWqF24wq_0duqYNWOerTU5mV-pJ3F4dTPp_fUjtFQkfTqTjnfqtoLo-9Gs9rAVVVNd1nuKWs6hpd8Y2S7HHxvHhJOsJJ_yJ2mtCQ3KBhyWI5WyUPy9eOrQ_yH9a6gQBy0jkqaYfmTKTgppCCsKGkPdaZScH6tlKsTbk6FTsQRtcUQFv6OmkQe8wqix6weCvL_CayXxBnOILo86jXH07G_ZiH9kThIICThUej3phPhnEYT0bRIBw2AXy5ArwXBUBSmVIv27269d4azxxz7dt8A15AmM0?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          issue-labels {
+              issue_id BIGINT
+              label_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 ### Templates:
 - template_id (Primary Key, Integer or Big Integer): Unique identifier for each template.
@@ -649,18 +1141,35 @@ IssueLabels {
 - created_at (Timestamp): Timestamp of when the template was created.
 - updated_at (Timestamp): Timestamp of when the template was last updated.
 
-```mermaid
-erDiagram
-    Templates {
-        template_id BIGINT
-        title VARCHAR
-        content TEXT
-        workspace_id BIGINT
-        team_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kd1qhDAQhV9F5lpE15_V3NlWWi8sZVdKKcISzGwrNYnESLsV372p7mIvtgOBzHeGM5nMCLVkCARQ3TX0TVFeCcuERt61VGNvjQv4jYZZN_l9_liuSDe6Res53d0-pLsV11JoFNoqs5c_xZ9SffQdrfFwzQkpv8ZrheYd7ECNW15k-zItnlZ16Ng_6lQJsIGj4rRhZsB5jgr0O3KsgJgrwyMdWl1BJSZTSgct9ydRA9FqQBsW6_OvADnStje0o-JVSn4pMimQEb6AeG7oeEG89RLXNyf0NzacDI4iZ-vGQeIncRRu_GCy4Xs2cJ3QBmSNlqpYdjCv4tI4m5Vz3-kHmyx-fQ?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1vgjAU_SvNXQgvxFQRlb45PzYfXBYlZllITEevGxEoKSXTGf77KujwwT20vT3n3K_2niCSAoEBqmnMPxVPw8yyTmFGSJzFmpHaJMTWX5iizYgtuNrbzi264SrmHwkW9p_cULmKU66OE5lIdfZ78N0pnc-vrq0iwINuVZRSu1FU58NslWU1gMY0T7jGos1iqhTkcfG0eAlaSMc6QbIZrybP41ULRzLTmGkSzN5uxN9S7YucR7i9Fwl5eg-PFJo6xJabaIvlbB2Ml68tW-biH9Z0Aw6kqFIeC_PodR8h1K8YAjOmwB0vEx2C6dtIeanl-phFwLQq0YEm9OWngO14Uhg059m7lOlVZK7ATnAA1qVep9sfDbs-dc3y3J4DRwMPBp0hHfV91x8NvJ7brxz4qQPQjucAilhLtWzmoh6Pa-JZzVzyVr_EA6nR?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          templates {
+              id BIGINT
+              title VARCHAR
+              content TEXT
+              workspace_id BIGINT
+              team_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 ### Workdays:
@@ -671,17 +1180,34 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the workday event was created.
 - updated_at (Timestamp): Timestamp of when the workday event was last updated.
 
-```mermaid
-erDiagram
-    Workdays {
-        id BIGINT
-        event_name VARCHAR
-        dates TEXT
-        is_workday BOOLEAN
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UF1rg0AQ_CvHPoto_Ij6ZlpphZqUREopB3J4m1Yaz3CebW3wv_eqBvvShYXdmbnZ271A2XCECFDeVuxVspoKouOzke-c9S25TP1vVJxs0rt0my8QfqBQhWA1kqd4f3Mf7xeOM4UtyZPnP_qqLWZnstntHpJ4u3ClRP2CF0yRPM2SQx5njwvbnfk_7EAFGFCjrFnF9SbjjymoN6yRQqRLjkfWnRQFKgYtZZ1qDr0oIVKyQwMm63l9iI7s1Gr0zMRL09RXkW4husAXRLblmbYbrO3QcnR6zsqAXsO-b66twA2dMPC9leMOBnyPBpbpGYC8Uo3MpmOPN78OTkZmnjv8AGRLeEI?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1vgjAU_SvNXQgvxFQRlb6h4mYydVFiloXEdLZujUBNKZvO8N9XQYcve2h7e865H729Z9hKxoEAV2NBPxRN48yyznGGkMiEJqgyEbL1J0-5TZDNqNrbzj26pkrQ94Tn9p_cUAclUqpOI5lIdfF78N0xnkxuro0i4kfdqDDGdq0oL4fZSsuqgW-p9oye8iaJKZKh4fRxOo8aiH_xTG8ymnK0Dpajp2DZcIxqnqMofL3Ti3xzjYyGi8VzGMwbbqu48WAbqlE0nYWrKJi9NGxxYP-wpmxwIOUqpYKZ7lYVx1C1KwZiTMZ3tEh0DOaBRkoLLVenbAtEq4I7UIe-fgmQHU1ygx5o9iZlehOZK5AzHIG0sddqdwf9to9dszy348DJwL1eq48HXd_1Bz2v43ZLB36qALjlOcCZ0FLN6gGo5uCWOKyYa97yF6hao5Y?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          workdays {
+              id BIGINT
+              event_name VARCHAR
+              dates TEXT
+              is_workday BOOLEAN
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Activities
 - id (Primary Key, Big Integer): A unique identifier for each activity entry.
@@ -698,23 +1224,40 @@ erDiagram
 - updated_at (Timestamp): Timestamp when the activity log entry was last updated.
 
 
-```mermaid
-erDiagram
-    Activities {
-        id BIGINT
-        log_name VARCHAR
-        description TEXT
-        subject_id BIGINT
-        subject_type VARCHAR
-        causer_id BIGINT
-        causer_type VARCHAR
-        properties JSON
-        batch_uuid UUID
-        event VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1km9rwjAQxr9KuddFqrX-6Ts3ZetAN7SOMQolNqdm2KSkF5mTfvfFqnQvuoNA8vzuniPJnSFTHCEE1FPBdprliXRssIzEUZDA0jlflUsI7jxET9EibqSD2qWS5ei8T5aPz5NlQziWmRYFCSWdePbxp6Y0my_MKG2xuyM6FS2WGTMl6ra6G2kvK7QqUNeXeVm9LhqwYZTtU2Os4XodTRuAR5TU0l8jI-QpIyeO5rNVPJm_NdQU_B9aJRJcyFHnTHD72PWTJkB7zDGB0G45bpk5UAKJrGwqM6RWJ5lBSNqgC1fr2w9BuGWH0qoFk59K5fcke4TwDN8Qdr2g0-2Pht2x59sV-D0XTlYeDDpDb9Qf--PRIOj5_cqFn9rA6wQuIBek9Pw6D_VY3BvPanLrW_0CoBin_Q?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UltPwjAU_ivNMWQvCxkMEPaGgIoJamQQY5aQw3qA6rYuXUdAwn-3DnA8zIeu3Xc7vZwDhJITeEBqKHCtMA6SWu0QJIyJRGiPFUvGLL2hmCyPWRzVl2Vfo3NUApcRZdaf3FCpEjGq_UBGUv36bnru0Lm_v1hLhU87Xaocx7FOiuPvZD7HWu0EYKjFVmhBWVnGbJOzu_HD-NkvoUiuFwnGxOb9t8Fj_61kOGWhEqkWMmH-6P3Kk-XLTwr1oiLuQul9WhEZYp6RqvKdmWpbqmRKqjjM0_TluSSWqMPNIs9N4Gw2HpYEbSnRFfUVoSa-QM388WQ09fuT15LNU_4Pa24WbIhJxSi4aYDiSgMoXjQAzyw5rTCPdADmDYwUcy2n-yQET6ucbDhFn7sGvBVGmUFTTD6kjC8i8wveAXbgNZx2vdHq3jZ6jmtG223asDdwp1O_dbqtntvrdtpNt3W04bsIcOptG4gLLdXk1KNFq14KjwrmXPf4A3xH01E?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          activities {
+              id BIGINT
+              log_name VARCHAR
+              description TEXT
+              subject_id BIGINT
+              subject_type VARCHAR
+              causer_id BIGINT
+              causer_type VARCHAR
+              properties JSON
+              batch_uuid UUID
+              event VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 
@@ -728,19 +1271,36 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the comment was created.
 - updated_at (Timestamp): Timestamp of when the comment was last updated.
 
-```mermaid
-erDiagram
-Comments {
-        id INTEGER
-        commentable_id BIGINT
-        commentable_type VARCHAR
-        comment TEXT
-        is_approved BOOLEAN
-        user_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1Ue9rgzAQ_VfkPoto_VGbb26TTpjtaKWMIUhmrptgjMQ45or_-zLb0sK6g0Du3rv3uLsDlIIhEED5UNF3SXneGDpKwTk2qjMOx_w3KmYkqyxexptL7cSjbzUWGr9LlppyG1ZDi8Yu2tw_Rn8FjCx-ueqruoK2rRSfqDXX66c4Wl3AvkN500wiVcgKqtWSNN5mUfp81dWyf9Axb8AEjpLTiulVTCPnoD6QYw5EfxnuaV-rHPJm1FTaK7EdmhKIkj2acJQ-7Q_Intadrra0eRWCn0k6BXKALyCO7VuOF86dhe3q57szEwZdDgJrbofewl2EgT9zvdGE70nAtnwTkFVKyPR4reloZ-N4Qk6-4w8UA4w5?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1Ul1vgjAU_SvNXQgvxFQRJ31jis5k6qLELAuJ6WzdyICSUhaZ4b-vgg6TuYd-nXPuufe2PcJOMA4EuBxH9F3SJEwN4ximCEVppAiqtwiZ6oMn3CTIZFR-mtY1uqEyom8xz81fuaYyGSVUliMRC3mKu3PtMZ5MLqGtIuAH1aowxmajqE6LnirDaICdSBKeqrxNootkaLYI_Km_arGz7lTSVvMPs6mW3KZVmXG08VajR--vAQr8l6u4KN_SLJPii2vP5fLJ9xYtWeRc3kwmOVWcbal2m839deDNn6-iMvYPq_sGCxIuExox_Tx1yyHU9x0C0VvG97SIVQj6hrSUFkqsy3QHRMmCW9BYn98UyJ7GuUYzmr4KkVxE-gjkCAcgXex0uv3hfdfFth6O3bOg1PBg0LnHw75ru8OB07P7lQXftQHuOBZwFikh580Pqj_SJbFfM-e81Q9ZC7eN?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          comments {
+              id INTEGER
+              commentable_id BIGINT
+              commentable_type VARCHAR
+              comment TEXT
+              is_approved BOOLEAN
+              user_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 ### Notifications:
@@ -754,20 +1314,37 @@ Comments {
 - updated_at (TIMESTAMP): Timestamp of when the comment was last update.
 - silent (Boolean, Default false): Indicates if the notification is silent.
 
-```mermaid
-erDiagram
-Notifications {
-        id UUID
-        type CHARACTER-VARYING
-        notifiable_type CHARACTER-VARYING
-        notifiable_id BIGINT
-        data TEXT
-        read_at TIMESTAMP
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-        silent BOOLEAN
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNqVkd1qwkAQhV9lmetUojH-5C5qsIFGi8bSloBMs2O7kOxKsoFaybt3TZT0poUOLOyc7zAHZs6QKk7gARULge8F5olkpqTS4iBS1ELJkp1b8VKCs90uXHSCPh2Jze_9jT-Pg83dk795CVfLjreT8C2j_T-sJmYWLsNV3FGOGlkcPP-QCkK-R83iMAq2sR89dig1TNNvtDryP2gpMpKazdbrh8BftXqdSLAgpyJHwc2-mpUkoD8opwQ88-V0wCrTCSSyNlastNqeZAqeLiqyoI28Lhm8A2alUY8oX5XKbybTgneGT_D6ttvrDyfj_tR2zHOdgQUnI49GvbE9GU6d6WTkDpxhbcFXM8DuuRYQF1oVUXvS5rK34KAh19z6G8XHlXE?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNqVUl1vgjAU_SvNXQgvzKCICm-o6EimLopmW0hMR-vWDCgpNZkz_PdVUPFlS_bQr3PO7bm59x4h5oSCC1SMGX4XOI0yTTtGGUIsY9JF1RUhXX7QlOou0gkWn7pxi26wYPgtoYV-lSsqFyzF4jDiCRenuDvHGpuTySW0UYT0SzYq0zT1WlGeDrWVmlYDGZdsx2IsGc-KxkllStB6HYwbQB5yikYP3tIbhf7yfuMtX4L5tOHrn045b_8hVTbDYBrMw4YlWGIU-s83kKCYbLFEYTDzV6E3e2qoWHGS_sbuc_IHW7CEZhINF4tH35tfKwQGpFSkmBHVw6okEVRNicBVV0J3eJ_ICFQZlRTvJV8dshhcKfbUgNry3HhwdzgpFJrj7JXz9CJST3CP8AVu27Rb7e6g33ZMSy3b6hhwUHCv1-qbg65jOYOe3bG6pQHf1QdmyzaAEia5mNVjVk3bxdivmLNv-QNOXMDF?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          notifications {
+              id UUID
+              type CHARACTER-VARYING
+              notifiable_type CHARACTER-VARYING
+              notifiable_id BIGINT
+              data TEXT
+              read_at TIMESTAMP
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+              silent BOOLEAN
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Issue TimeFrame Resolution:
 - id (INTEGER, Primary Key): Unique identifier for each Issue Time Frame Resolution.
@@ -780,19 +1357,36 @@ Notifications {
 - updated_at (TIMESTAMP): Timestamp for the last update.
 
 
-```mermaid
-erDiagram
-    Issue-TimeFrame-Resolution {
-        id INTEGER
-        issue_id BIGINT
-        workspace_id BIGINT
-        timeframe_unit VARCHAR
-        timeframe_value INTEGER
-        enabled BOOLEAN
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kVFPgzAUhf8Kuc9sgTE24A2VzCVuMxvxwZCQSi_aCO1SWnUS_rsVNmfibNKkPd_pPem9LRSCIkSA8oaRZ0nqjFtmsabROFKsxtJoOJLYiEorJrjVDo7eRa3lOk0WyfaX9v0yN-RquTDwDN6FfG32pLgIf5JyzZmyHuLt9W28vcTfSKXxbyxy8lShKbzZ3CXx-gwKiUQhzYmy0uUq2aXx6v5M9Z7-Q7uMgw01ypowahrUfzsD9YI1ZhCZI8WS6EplkPHOWIlWYnfgBURKarRhKH3sKkQlqRqj7gl_FKI-mcwVohY-IHIdf-xOg7kbOp7Zvjex4WDk2Ww8d4Jp6IXBzJ94086Gz76AM_ZtQMqUkKthhv0oT8FJT4653RdBXJSC?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1kttugkAQhl9lM43hBg2KJ7ijitak1kaNFw2J2cLYbgTWLEurNb57RzxgUnvBsvt__8zAzO4hlBGCC6j6gn8ongRppbIPUsZEKrTLii1jhv7EBA2XGRFXa8O8VRdcCf4eY2Zc7YQ2SiRc7XoyluoY9-DYfWswuISWjjludemyLMs4OQ7HFy2HSuUkiCzLsapFgiv6TqwqzGScayHTsiy5IjZ6mftDf3qjHSOXRB5HQ4Il-JZqnW14eBdeKy1zagVbeNPekze9x794nOPfspge20KJJ5Nn33spQaiQa4yWXLP5aOzP5t74taT5JvqHUjfAhARVwkVEQyt-O4BiCgG4tI1wxfNYB0B9IyvPtZzt0hBcrXI04ZT6PGlwVzzOSN3w9E3K5GKiI7h72IJbt1q1erPbqTuWTU_LbpiwI7ndrnWsbtOxnW671bCbBxN-igRWrWUCRkJLNT7dq-J6XQr7BTnXPfwCP9i_1g?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          issue-timeframe-resolution {
+              id INTEGER
+              issue_id BIGINT
+              workspace_id BIGINT
+              timeframe_unit VARCHAR
+              timeframe_value INTEGER
+              enabled BOOLEAN
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Issue Assignee History:
 - id (Big Integer, Primary Key): Auto-incrementing ID for each history record.
@@ -801,17 +1395,33 @@ erDiagram
 - assigned_at (Timestamp): Timestamp indicating when the assignee was assigned to the issue.
 - updated_at (Timestamp): Timestamp of when the record was last updated (if reassignment occurs).
 
-```mermaid
-erDiagram
-    Issue-Assignee-History {
-        id BIGINT
-        issue_id BIGINT
-        assignee_id BIGINT
-        assigned_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp9kF9rwyAUxb9KuM9pSJo_TXzbaCl5yBg0T0MoUm9boWqJCstCvvtc0rA9lAmCnt_1XO8Z4KQ5AgHstoJdOiapCvwSxjhcMWPERSGursJY3fXBMNOpggev9b5-a_9IP4-OT8Di8w_jR2aDtm52h_alef_F7s6ZfUpHqiAEiZ1kgvsJpr9RsFeUSIH4I8czczdLgarRlzJn9aFXJyC2cxjCbP0YG8iZ3YxX70x9aC2XIn8FMsAnkCTOoyQrN0kVp37n6TqE3stFEW3iMqvSqizydZqNIXxNBnGUh4Bc-OSaOeQp66XxbiKPvuM3S0Z3zQ?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp9UU1vwjAM_SuRp6qXggKlQHPbBkwcmCZRcZgqIY8EiNY2KE0lOtT_vtDSlQPaIYn93vNH7AvsFBfAQOiZxIPGNM4c5xJnhMhMGkZqkxDXHEUqXEZcjvrb9e7RDWqJX4nI3T-5pU5apqjLV5UofY17Cv0ZXSza0E4RibPpVJRSt1FU18deleM0gMzzQvQwz-UhE6J3lLlRuuxKWgUnL8u35Xt0B12Dtg-INs8_HN-iIdFyNV9Hz6uPji5OHM1D1rYLHqRCpyi5nWrdWwz1mGJg1uRij0ViYrAfs1IsjFqX2Q6Y0YXwoEl9WwWwPSa5RU-YfSqVtiLrArvAGdiABv3BaDoZhNS3J_CHHpQWHo_7EzodhX44HQdDf1R58FMnoP3AA8GlndyqWXy9_7bwvGZudatfNKajIQ?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          issue-assignee-history {
+              id BIGINT
+              issue_id BIGINT
+              assignee_id BIGINT
+              assigned_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
-```
 
 
 ### Subscribers:
@@ -823,17 +1433,34 @@ erDiagram
 - updated_at (Timestamp): Timestamp of when the subscription record was last updated.
 
 
-```mermaid
-erDiagram
-        Subscribers {
-        id BIGINT
-        subscribable_id BIGINT
-        subscribable_type VARCHAR
-        issue_id BIGINT
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNqFUdtqg0AQ_RWZZxGNl-i-2Ta0PlhKIn0oC2F1J63gjb1Arfjv3WpC8tDSgYXZc86cYWYmqHqOQADFQ83eBWtpZ5mQupSVqEsU0ppW6Cdqbt1lj9lzcYUuSlY2ePyPV-OA1mu6v39K9zeuUupfayuBTCE_MmUVWb47FGn-cmX1wP9gZ9qBDS2KltXcDLdMQEF9YIsUiEk5nphuFAXazUbKtOoPY1cBUUKjDav1eSNATqyRBh1Y99b37UVkvkAm-ATiuaHjBfHWS1zfvNDf2DAaOIqcrRsHiZ_EUbjxg9mGr8XAdUIbkNeqF_m6_-UMl8a7hTn3nb8B45R_vw?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNqFUl1vgjAU_SvNXQgvxFQRhb45PzYfXBYlPiwkptK6NQNKSklkhv--CjJ82LKHtrfnnPvV3gvEknEgwNVC0HdF0yizrEuUISQyoQlqTIRs_cFTbhNkM6o-bece3VMl6DHhhf0jN1SuREpVNZeJVFe_h8Bd4NWqc-0VIT_rXoUxtltFfT3MVltWCxTlsYiVOHJV9HlMnQw9rp_WL2EPdcprVYf_eF3lHO1n2_nzbHsXtSjKX31jxanm7EA1Cteb5S6cbV57tszZH6zpBBxIuUqpYObBmw4iaF4wAmJMxk-0THQEpmcjpaWWuyqLgWhVcgfa0LdfAnKiSWHQnGZvUqadyFyBXOAMZIi9wXDsT4cBds3y3JEDlYEnk8EU--PADfyJN3LHtQNfTQA88BzgTGipNu1MNKPRJV42zC1v_Q1fG6sT?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          subscribers {
+              id BIGINT
+              subscribable_id BIGINT
+              subscribable_type VARCHAR
+              issue_id BIGINT
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Favorites:
 - id (Big Integer, Primary Key): Auto-incrementing ID for each favorites.
@@ -843,17 +1470,34 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the favorite was created.
 - updated_at (Timestamp): Timestamp of when the favorite was last updated.
 
-```mermaid
-erDiagram
-        Favorites {
-        id BIGINT
-        user_id BIGINT
-        favoritable_id BIGINT
-        favoritable_type VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNqFUU1rhDAQ_SsyZxFdP1Zzs7tL68FSdqWHElhSM7aCGomx1Ir_vam67B5aOjCQvPdmXmYyQi44AgGU-5K9SVbTxtBRsA8hS4WdMS7AT5TcuEvuk8fsCvUdyvMv-FrPXiv8j1ZDi8ZzfNw9xMerIpfIFPIzU0aWpIdTFqdPN7Yt_4OdaAMm1ChrVnI91_x8Cuoda6RA9JFjwfpKUaDNpKWsV-I0NDkQJXs0YWm9LgNIwapOoy1rXoSoLyJ9BTLCJxDH9i3HC7dOZLs6fXdjwqDhILC2duhFbhQG_sb1JhO-5ga25ZuAvFRCpsvq5x-4GB9mZvWdvgGII329?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNqFUk1vwjAM_SuRJ9RLhQKlQHNjfGwcmCaoOEyVUEbMFq1tqjSd6FD_-0ILK4dNOyRxnp_97MQn2CuBwAD1TPI3zZMo7XROUUqITKVhpDYJccw7Jugw4giuPxz3Ft1yLflrjLnzQ7euTMuE63KqYqXPcXeBN6OLxTW0ZYR4NC2LUuo0jOp82K3qdBrgwD-VlgbzVsVWKcj98mH5FLZQkaPe_YJf4s-l_uc2ZYZkO1lPHyfrlrHXyA2KHTckXK7mm3Cyer6RzcQfXtsEuJCgTrgU9q3r8iOoHy8CZk2BB17EJgLbrqXywqhNme6BGV2gC03qywcBO_A4t2jG0xelkivJXoGd4AisR_1ubzAe9QLq2eV7fRdKCw-H3REdDwIvGA_9vjeoXPiqE9Cu7wIKaZReNeNQT8VVeF57LrrVNyr3qRE?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          favorites {
+              id BIGINT
+              user_id BIGINT
+              favoritable_id BIGINT
+              favoritable_type VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Views:
 - id (Integer, Primary Key): Auto-incrementing ID for each view.
@@ -862,16 +1506,34 @@ erDiagram
 - created_at (Timestamp): Timestamp of when the view was created.
 - updated_at (Timestamp): Timestamp of when the view was last updated.
 
-```mermaid
-erDiagram
-Views {
-    id INTEGER
-    name VARCHAR
-    view_type VARCHAR
-    created_at TIMESTAMP
-    updated_at TIMESTAMP
-}
-```
+<img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1UE1rg0AQ_SvLnEU0fkT3Jq20OVhKIj2UhbC4k1bI7spmbWvF_96NJqSHdmBg3nvzPUKjBQIFNPctfzNcMkWcfbT4eSLjAs7WCrJ5qsuHcnvjFJdIXort3WPxiz2X7u3Q_SE1BrlFseeW1Juq3NVF9XxT-078o05MgQcSjeStcMvOezGw7yiRAXWhwAPvj5YBU5NL5b3Vu0E1QK3p0YOl9eVCoAd-PDm24-pVa3lNchDoCF9AwyDxwzhbh3kQOU-ilQeDo9PUXwdZnEd5liarKJ48-J4bBH7iAYrWalMt_5zfeh1czspl7vQDy49vMw?type=png"
+    />
+<img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UU1vwjAM_SuRp6qXCgVKgeaGoGwcmCaoOEyVkEfCFq1tqpBudKj_faGFdYftkMR-7_kj9hn2igtgIPRc4qvGLMkd55zkhMhcGkYakxDXvIlMuIy4HPW76_1Gt6glvqTi6P7ILVVomaGuZipV-hJ3F_pzuljcQjtFLE6mU1FK3VZRXx571Y7TAh9SfB67CrZDTpaPcXQfrTssx0yQ7XQ9e5j-Qi-hO1MVf1B7LdAIvkND4uUq2sTT1VPHlgX_h7WdgQeZ0BlKbgfY9JVAM5EEmDW5OGCZmgTsH6wUS6M2Vb4HZnQpPGhTX6cO7IDp0aIF5s9KZTeRdYGd4QSsT4NefzgZ90Pq2xP4Aw8qC49GvTGdDEM_nIyCgT-sPfhqEtBe4IHg0ii9anfcrPpWOGqYa936Gybemoc?type=png"
+    />
+<Tabs>
+  <Tab title="image">
+
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          views {
+              id INTEGER
+              name VARCHAR
+              view_type VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### Metrics:
 - id (Integer, Primary Key): Auto-incrementing ID for each custom metric.
@@ -882,18 +1544,35 @@ Views {
 - created_at (Timestamp): Timestamp of when the custom metric was created.
 - updated_at (Timestamp): Timestamp of when the custom metric was last updated.
 
-```mermaid
-erDiagram
-    Metrics {
-        id INTEGER
-        name VARCHAR
-        measure VARCHAR
-        slice VARCHAR
-        segment VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNp1kU1rwzAMhv9K0DmEpPlo4lvYwtZDxmjDDsNQTKx2htgpjg3rQv77vKSlg3UCgfS8QkLSCG3PEQigfhTsqJmkynMm0WjRDt64pD8muLd5aaqnantjikn03srtw3P5i0pkg9V3hKET7T2MR4nK_BVajcwg3zPjNZu62jVl_XpT7Yn_o05UgQ8StWSCu-XmLSiYD5RIgbiQ44HZzlCganKlzJp-d1YtEKMt-rC0vlwEyIF1g6Mnpt77Xl6LXApkhE8gUZgGUZKvoyKMnafxyoezw1kWrMM8KeIiz9JVnEw-fM0NwiD1Abkwva6X-89vuA6uZuUyd_oG6Q579w?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNp1UlFrwjAQ_ivhRulLkWit2ryJ1s0Hx3DFh1EYWXO6sKaVNAWd9L8vtroKcw9JLt_33V3ucidIC4HAAPVc8p3mKskd55TkhMhcGkYakxDXfKJClxFXcP3lerfohmvJPzIs3V-5pfZaKq6PsyIr9NnvIfTndLG4unaKGA-mU1FK3VZRnw-71Y7TAgqNlmnZ5bBvFGT5HEeP0brDcq6QbKbr2dP0BlXIy0rfIcpMpvdg3CnMzV8i1cgNinduSLxcRa_xdPXSsdVe_MPaSsADhVpxKWzDmyoSaDqYALOmwC2vMpOArdlKeWWK12OeAjO6Qg_a0JdfArblWWnRPc_fikJdRfYK7AQHYH0a9PrDybgfUt-uwB94cLTwaNQb08kw9MPJKBj4w9qD7yYA7QUeoJCm0Kt2JprRuCaOGuaSt_4BZJWnSw?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          metrics {
+              id INTEGER
+              name VARCHAR
+              measure VARCHAR
+              slice VARCHAR
+              segment VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 ### UnifiedFilters:
 - id (Integer, Primary Key): Auto-incrementing ID for each filter.
@@ -905,18 +1584,35 @@ erDiagram
 - updated_at (Timestamp): Timestamp of when the filter was last updated.
 
 
-```mermaid
-erDiagram
-UnifiedFilters {
-        id INTEGER
-        filterable_id INTEGER
-        filterable_type VARCHAR
-        key VARCHAR
-        value VARCHAR
-        created_at TIMESTAMP
-        updated_at TIMESTAMP
-    }
-```
+<Tabs>
+  <Tab title="image">
+    <img
+      className="block dark:hidden"
+      src="https://mermaid.ink/img/pako:eNqFkdtKxDAQhl-lzHUt7fawbe6KFt2LiuwWLySwxGaqwZ7IJmItfXdju8suqDgwMPn_jxkmM0LZcQQCKG8Ee5Gsoa1lQreiEsivKlErlAdrXOTvENza3BfZbbY9awvGnmvc_2OroUfrMd1e36UXwBsOP8V3Vutf2FIiU8j3TFnFJs92RZo_nF3d8z_cibZgQ4OyYYKbjeeVKKhXbJACMSXHiulaUaDtZFCmVbcb2hKIkhptWFofvwlIxeqDUXvWPnVdc4LME8gIH0A8N3S8IF57ieubDP2VDYORo8hZu3GQ-EkchSs_mGz4nBu4TmgDcqE6mS9HmW9zGpzNznHu9AWiWoRi?type=png"
+    />
+    <img
+      className="hidden dark:block"
+      src="https://mermaid.ink/img/pako:eNqFkl1rwjAUhv9KOKP0ppNorR-5E62bF46hxYtRkMycbsF-EdNhJ_3vi62uwjZ2ka_3fZJzTpIT7DKBwADVTPI3xZMwtaxTmBIiU6kZqaeE2PodE7QZsQVXe9u5VTdcSf4a48H-xo2VK5lwVU6zOFPnfXdjd0bn8-vWlgjwqFuKUmo3RHUeTFdZViMUqYwkivtIxhrVoY1lchVk8RT4D_6q1RrsnNj2H1uXOZLNZDV9nNwAeyx_ih88Ln5hdwq5RrHlmgSLpb8OJsvn1i1y8YdrygMHElQJl8K8Ql1SCPW1hsDMVGDEi1iHYC7CoLzQ2bpMd8C0KtCB5ujL0wGLeHwwas7TlyxLrpBZAjvBEViXep1ufzTsjqlrmuf2HCiNPBh0hnTUH7vj0cDruf3Kgc_6ANrxHEAhdaaWzUep_8s1sF87l7jVF6vyr7Y?type=png"
+    />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      erDiagram
+          unified-filters {
+              id INTEGER
+              filterable_id INTEGER
+              filterable_type VARCHAR
+              key VARCHAR
+              value VARCHAR
+              created_at TIMESTAMP
+              updated_at TIMESTAMP
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 

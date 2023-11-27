@@ -55,8 +55,14 @@
             "services/index",
             "services/user-settings",
             "services/user-service",
+            "services/violations",
             "services/search",
             "services/profile-service",
+            "services/workspace_teams",
+            "services/favorites",
+            "services/templates",
+            "services/labels",
+            "services/subscribers",
             "services/notification",
             "services/metrics-builder",
             "services/issue-management",
@@ -67,15 +73,29 @@
             "services/auth-service",
             "services/ai_assist",
             "services/activity_tracking",
-            "services/roles-and-permissions-service"
+            "services/roles-and-permissions-service",
+            "services/itr",
+            "services/workday",
+            "services/domain",
+            "services/filters"
           ]
         },
         {
           "group": "Processes",
           "pages": [
             "processes/index",
+            "processes/domain",
+            "processes/workday",
+            "processes/filters",
+            "processes/templates",
+            "processes/acl",
+            "processes/subscribers",
+            "processes/backup",
+            "processes/label",
+            "processes/favorites",
+            "processes/user-invitation",
             "processes/issue-creation",
-            "processes/complaint-resolution",
+            "processes/issue-timeframe-resolution",
             "processes/auth-process",
             "processes/metrics-process",
             "processes/search-process",
@@ -89,14 +109,16 @@
             "application/architectural-pattern",
             "application/ui-ux",
             "application/figma",
+            "application/database-architecture",
             "application/business-logic",
+            "application/integration-points",
             "application/performance-optimization",
             "application/security-measures",
             "application/scalability",
             "application/accessibility",
             "application/analytics",
             "application/troubleshooting"
-          ]
+        ]
         },
         {
           "group": "Infrastructure",
@@ -104,6 +126,7 @@
             "infrastructure/index",
             "infrastructure/architecture",
             "infrastructure/integration-pattern",
+            "infrastructure/db-schema",
             "infrastructure/planet-scale"
           ]
         }

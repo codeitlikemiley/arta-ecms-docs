@@ -1,0 +1,53 @@
+---
+title: Unified Filters Usage Process
+---
+
+
+This sequence diagram details the following steps:
+
+1. The user requests access to manage unified filters.
+1. The Authentication Service verifies the user's permissions through the database.
+1. If the user has necessary permissions, they can interact with the Unified Filter Service to perform various operations on filters.
+1. Depending on the user's action (create, update, view, delete), the Unified Filter Service communicates with the database to process the request and returns the outcome to the user.
+1. If the user does not have the required permissions, they are denied access to filter management.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNlFFv2jAQx7-K5WegAULS5qFSVdZpD5OqVt1DlZcjvlBricNshy1DfPed7QQKYt14ITn_73-_O9vZ8aIRyDNu8EeLqsClhLWGOlcb0FYWcgPKspaBYS8G9Vm49HElS4li_CAri3r8jHorCzxVipVTLsHCCszZGnj3u9a-oaIgWNmoo0uu2vHtLbQZe3KExhoGRYHGMNuw0pdkNShYY03puQInF6uMfUMty461RM02qGtpDBmbXInVuHd8PIaZRtNWLr-y7Evpm2VvxPX4PpXRjwpQOmXfBYzPmppAERZd8bY8sDrGrcSfV4VGsHjVboT7E1ihxZ6-dw1lvU6qdVDSw4nIVyj7_u6D5Yu3HCZBI9DdURxadUD3jSqlrvsCjepRTnxDW2Ebz4WsCAY-FrKwMuiYXYMfkj6h1RK3B0iBFmRlLmE-_EVxoFtKs6mgu2g1APnxfki0fL8B_x5aMBz6vjStQXFpTIrOxoDmj1UFxff_OFhLVNKdK2_AR7ymBJCC7urOJeScLkyNOc_oUWAJ7vjyXO1JCq1tnjtV8MzqFkc87GF_tXlWAuGMON2-16apBxG98mzHf_FsGl1P5vNFNJ3G0SyOF0k64p0LJ5NZnF7Po3i-SBdJnO5H_Ld3iCZpenMTxUkyXySzNI0pA4W0jf4aPi_-KzOAfPIrPcf-D7t9gOo?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVE1v2zAM_SuChiCXJHUSx258KFAky7DDgKJdexh8YSw6FWrLmSRnzYL89-nDzheybhdLph4fHymKO5pVDGlCFf6sUWQ457CSUKai09mlghAuuE6I2xLS1a9YYjchXQbyrds7tb6A5LAsUHUPcHO0lrwEuZ1VRSWt36fpeB4sFq3rEfEd3_URFQRB1yP2djGffaeTijVIzTO-BqFJTUCRZ4Xywpw7u-A5R9Zf8EKj7D-h3PAMz5FsaZFz0LAEdXEGjv2-NpkJYwTNK3FkSUXdv7uDOiGPtmpKKwJZhkoRXZHchSQlCFiZsgidCrBwtkzIC0qeb0ltVJM1ypIrZYhVKtiy3zA-HM1EoqoL619o8jV3yZJXo-vh1NUWyQQw7sb73sv4Ik0SyPyhDV7nB61W44bjr5tMImi8qdfMLgwL1Niob1h9WIfjYuWRZnMGchHyJr-Zp3x2lG0lTAnk9gj2qVpBs0rkXJZNgEo0Us54fVr-Gi-BJPMEzua9sFBoNdsEP1T6iFpy3BxEMtTAC3VN5uIviIO6OVfrArZXqVpBrrwfKpqfXsC_i-YJ27yvVatFXCuTML3RSnNtVUD29h-NNUfBbV85AtqjpXEAzsz8cE8-pW4UpDQxW4Y52Pal5vEaKNS6etqKjCZa1tij_g6bcUOTHIycHjWv70dVlS3I_NJkR99pMgxuB-PxJBgOw2AUhpMo7tGtNUeDURjfjoNwPIknURjve_S3YwgGcTydBmEUjSfRKI5D44GM60p-8yPPTb5WyGd30ujY_wETs6w-?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant UF as Unified Filter Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests access to filter management
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>UF: Request to view/create/update/delete filter
+            alt If creating/updating filter
+                UF->>DB: Create/Update filter entry
+                DB-->>UF: Confirm creation/update
+                UF-->>U: Filter creation/update confirmation
+            else If viewing filter
+                UF->>DB: Retrieve filter details
+                DB-->>UF: Filter details
+                UF-->>U: Display filter details
+            else If deleting filter
+                UF->>DB: Delete filter entry
+                DB-->>UF: Confirm deletion
+                UF-->>U: Filter deletion confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

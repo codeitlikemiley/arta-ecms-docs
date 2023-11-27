@@ -1,0 +1,108 @@
+---
+title: Workdays
+icon: business-time
+---
+
+### Workday Configuration Service
+
+#### Summary
+
+The Workday Configuration Service manages the scheduling of workdays and holidays as outlined in the 'Workdays' table. It allows administrators to define and modify workdays, ensuring that the scheduling within the application correctly reflects real-world non-working days and holidays.
+
+#### Endpoints
+
+1. **GetWorkdaysList**
+    - Purpose: Retrieves a list of all workdays.
+    - Request: `GetWorkdaysListRequest`
+    - Response: `GetWorkdaysListResponse`
+
+2. **GetWorkday**
+    - Purpose: Retrieves details of a specific workday.
+    - Request: `GetWorkdayRequest`
+    - Response: `GetWorkdayResponse`
+
+3. **CreateWorkday**
+    - Purpose: Creates a new workday entry.
+    - Request: `CreateWorkdayRequest`
+    - Response: `CreateWorkdayResponse`
+
+4. **UpdateWorkday**
+    - Purpose: Updates an existing workday entry.
+    - Request: `UpdateWorkdayRequest`
+    - Response: `UpdateWorkdayResponse`
+
+5. **DeleteWorkday**
+    - Purpose: Deletes a workday entry.
+    - Request: `DeleteWorkdayRequest`
+    - Response: `DeleteWorkdayResponse`
+
+#### Protobuf
+
+<CodeGroup>
+```protobuf workday.proto
+syntax = "proto3";
+
+package workday_configuration;
+
+service WorkdayConfiguration {
+  rpc GetWorkdaysList(GetWorkdaysListRequest) returns (GetWorkdaysListResponse) {}
+  rpc GetWorkday(GetWorkdayRequest) returns (GetWorkdayResponse) {}
+  rpc CreateWorkday(CreateWorkdayRequest) returns (CreateWorkdayResponse) {}
+  rpc UpdateWorkday(UpdateWorkdayRequest) returns (UpdateWorkdayResponse) {}
+  rpc DeleteWorkday(DeleteWorkdayRequest) returns (DeleteWorkdayResponse) {}
+}
+
+// Message Definitions for Workday Configuration Operations
+
+// Get Workdays List
+message GetWorkdaysListRequest {}
+message GetWorkdaysListResponse {
+  repeated Workday workdays = 1;
+}
+
+// Get Workday
+message GetWorkdayRequest {
+  int64 workday_id = 1;
+}
+message GetWorkdayResponse {
+  Workday workday = 1;
+}
+
+// Create Workday
+message CreateWorkdayRequest {
+  string event_name = 1;
+  string dates = 2; // Comma-separated dates
+  bool is_workday = 3;
+}
+message CreateWorkdayResponse {
+  bool success = 1;
+}
+
+// Update Workday
+message UpdateWorkdayRequest {
+  int64 workday_id = 1;
+  string event_name = 2;
+  string dates = 3; // Comma-separated dates
+  bool is_workday = 4;
+}
+message UpdateWorkdayResponse {
+  bool success = 1;
+}
+
+// Delete Workday
+message DeleteWorkdayRequest {
+  int64 workday_id = 1;
+}
+message DeleteWorkdayResponse {
+  bool success = 1;
+}
+
+// Supporting message types
+message Workday {
+  int64 workday_id = 1;
+  string event_name = 2;
+  string dates = 3; // Comma-separated dates
+  bool is_workday = 4;
+}
+```
+</CodeGroup>

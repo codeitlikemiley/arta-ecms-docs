@@ -1,0 +1,109 @@
+---
+title: IRT
+icon: clock
+---
+
+### Issue Timeframe Resolution Service
+
+#### Summary
+
+The Issue Timeframe Resolution Service manages timeframes for resolving various issues within the system, based on the 'Issue Timeframe Resolution' table. It facilitates the setting, updating, and tracking of resolution timeframes for issues in different workspaces, ensuring efficient time management and adherence to deadlines.
+
+#### Endpoints
+
+1. **GetIssueTimeframesList**
+    - Purpose: Retrieves a list of all issue timeframes.
+    - Request: `GetIssueTimeframesListRequest`
+    - Response: `GetIssueTimeframesListResponse`
+
+2. **GetIssueTimeframe**
+    - Purpose: Retrieves details of a specific issue timeframe.
+    - Request: `GetIssueTimeframeRequest`
+    - Response: `GetIssueTimeframeResponse`
+
+3. **CreateIssueTimeframe**
+    - Purpose: Creates a new issue timeframe.
+    - Request: `CreateIssueTimeframeRequest`
+    - Response: `CreateIssueTimeframeResponse`
+
+4. **UpdateIssueTimeframe**
+    - Purpose: Updates an existing issue timeframe.
+    - Request: `UpdateIssueTimeframeRequest`
+    - Response: `UpdateIssueTimeframeResponse`
+
+5. **DeleteIssueTimeframe**
+    - Purpose: Deletes an issue timeframe.
+    - Request: `DeleteIssueTimeframeRequest`
+    - Response: `DeleteIssueTimeframeResponse`
+
+#### Protobuf
+<CodeGroup>
+
+```protobuf issue_timeframe_resolution.proto
+syntax = "proto3";
+
+package issue_timeframe_resolution;
+
+service IssueTimeframeResolution {
+  rpc GetIssueTimeframesList(GetIssueTimeframesListRequest) returns (GetIssueTimeframesListResponse) {}
+  rpc GetIssueTimeframe(GetIssueTimeframeRequest) returns (GetIssueTimeframeResponse) {}
+  rpc CreateIssueTimeframe(CreateIssueTimeframeRequest) returns (CreateIssueTimeframeResponse) {}
+  rpc UpdateIssueTimeframe(UpdateIssueTimeframeRequest) returns (UpdateIssueTimeframeResponse) {}
+  rpc DeleteIssueTimeframe(DeleteIssueTimeframeRequest) returns (DeleteIssueTimeframeResponse) {}
+}
+
+// Message Definitions for Issue Timeframe Resolution Operations
+
+// Get Issue Timeframes List
+message GetIssueTimeframesListRequest {}
+message GetIssueTimeframesListResponse {
+  repeated IssueTimeframe issue_timeframes = 1;
+}
+
+// Get Issue Timeframe
+message GetIssueTimeframeRequest {
+  int64 issue_id = 1;
+}
+message GetIssueTimeframeResponse {
+  IssueTimeframe issue_timeframe = 1;
+}
+
+// Create Issue Timeframe
+message CreateIssueTimeframeRequest {
+  int64 issue_id = 1;
+  string timeframe_unit = 2;
+  int32 timeframe_value = 3;
+  bool enabled = 4;
+}
+message CreateIssueTimeframeResponse {
+  bool success = 1;
+}
+
+// Update Issue Timeframe
+message UpdateIssueTimeframeRequest {
+  int64 issue_id = 1;
+  string timeframe_unit = 2;
+  int32 timeframe_value = 3;
+  bool enabled = 4;
+}
+message UpdateIssueTimeframeResponse {
+  bool success = 1;
+}
+
+// Delete Issue Timeframe
+message DeleteIssueTimeframeRequest {
+  int64 issue_id = 1;
+}
+message DeleteIssueTimeframeResponse {
+  bool success = 1;
+}
+
+// Supporting message types
+message IssueTimeframe {
+  int64 issue_id = 1;
+  string timeframe_unit = 2;
+  int32 timeframe_value = 3;
+  bool enabled = 4;
+}
+```
+</CodeGroup>

@@ -1,0 +1,50 @@
+---
+title: Data Export and Backup Process
+---
+
+This sequence diagram details the following steps:
+
+1. The user requests access to export data and create backups.
+1. The Authentication Service verifies the user's permissions by querying the database.
+1. If the user has the necessary permissions, they interact with the Data Export Service to request data export.
+1. The Data Export Service retrieves the required data from the database and delivers it to the user.
+1. The user then requests data backup through the Backup and Recovery Service.
+1. The Backup and Recovery Service initiates the backup process, and the database confirms completion.
+1. The Backup and Recovery Service notifies the user of the successful backup.
+1. If the user does not have the required permissions, they are denied access to data export and backup functionalities.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNk8tu2zAQRX-F4FpyZeuVaBEggYMiiwKGg3ZRaEOJo4SoRKp8GHEN_3uHetiK0UW1EKSZe4dnhuSJ1ooDLaiB3w5kDVvB3jTrStkzbUUteiYtcYQZ8t2A_hzm4ONbZln4_NErbcNX0AdRw42smmUVMze5SvvcE6t_uT5kkod7qNUB9PHfpdhA8ujsO0gMMiuUvCpL6cKHB-YKsvfdGNTXNRhDGqUJx_UJDJhfqmG9UjKv51VBfoAWzZE4bJH0oDthDFY2peRVOJXcXcNEg3GtRX9ryUszTIa8I9huaSX44AJoR_fjCPJVYxfAx-SwOFxhF4SjgMOEtwerBRxglPhuPskGRl9pp9VB8FF2KTECbKEVONfJCHyh8RyVvuGYR-QFlZ44XqSwgllYSkivle9tyeKrjXtKatX1LVi4VBpxLlnZCN0N-1hKaA1c5tmi4j8mugUp_EBB4osGtEMDExxP9MkbSopHpYOSFvjJoWF-32gpzyhlzqrXo6xpYbWDgLoe25ovAC0ahjgBxXP3U6luFuEvLU70gxbr6G4Vx2m0XifRJknSLA_o0Yez1SbJ7-IoidM8zZL8HNA_Q4Volef391GSZXGabfI8QQdwYZX-Nl7C4S7OIM9DZuI4_wVOLD2T?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNlE2P2jAQhv-K5QpxITRAIEsOK23LbrWHSoht91Dl4sRD19rETscOgq747zt2-FrUQy8hzDzv-J2xnTdeGgk84xb-tKBLWCjxG0Wd617vLdeMKa1cxsIrY333AjX0M9aXAl_7g8vos0Aligps_4RTqkFVC9x9NZVBr_s0nyzih4ej9Ez8gK07U3Ec9zti73_ose_1ct0IdKpUjdCOtUxY9tMCfgxL8PGFcCK63zYGXfQEuFElXGHFESuEvcoV6HNfRPnaNpHQMlpBaTaAu3-XEsHJXUtT0BQUThl9JnPdRre3os3Yyk_YEl-WYC1bG2SS1mcQbH4uwnq5Fp6XRcaeAdV6x1pqkTWAtbKWKttcyyI6lFyewwzBtpUjfeXY4zpMhr2QseWl1E-UFiA5qe86I9-QugDZJcPicDZ74bADJBzsrcChgg10iO_mAxY8-kpLNBslO-xUojOwgErRXA9CkBeM91HglY_jiDxQ4MHHIx1QJRxcIqxB43u79OKrdXvKSlM3FTg4VersnLJ6rbAO-5hrqCyc5lkR8R8TXYBWfqCg6cEHvCaBUJJuWbgYOQ8XJucZvUpYC79vnI44oaJ15mmnS545bGHA24baOl5Knq0F2RlwOne_jKmPEP3l2Rvf8mwU3wwnk2k8GiXxOEmms3TAdz48G46T9GYSJ5NpOp0l6X7A_4YK8TBN5_M4mc0m09k4TRNSgFTO4PfuwxC-D0cj9yFz8LF_B76gaOc?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant DE as Data Export Service
+        participant DB as Database
+        participant BR as Backup and Recovery Service
+        participant AU as Authentication Service
+
+        U->>AU: Request access for data export/backup
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>DE: Request data export
+            DE->>DB: Retrieve data for export
+            DB-->>DE: Provide data
+            DE-->>U: Deliver exported data
+            U->>BR: Request data backup
+            BR->>DB: Initiate data backup process
+            DB-->>BR: Backup complete
+            BR-->>U: Backup confirmation
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

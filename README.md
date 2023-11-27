@@ -1,3 +1,27 @@
+# Referecens
+[Linear DOCS](https://linear.app/docs/get-the-app)
+[ARTA DOCS](https://arta.goldcoders.dev/services/index)
+[Complainant Form](https://arta.gov.ph/fileacomplaint/complaint-form/)
+
+
+# Documentation
+- Use Definitions on Word Document on this Documentation
+- Copy Diagrams
+- Important Process
+    - PASS -> changed to -> Issue Resolution Timeframe
+    Note: IRT is team based, so each role will have their own IRT as well like a normal TEAM does
+    - Workday Configuration
+    - Issue Lifetime
+    - Reassignment Expiring Timer (Not related to IRT)
+    - Issue Lifecyle -> Sum of all IRT <= lifetime
+
+## Deliverables 3
+- Copy as much as possible on [Linear DOCS](https://linear.app/docs/get-the-app) but check if image matches our description
+Note: Blocking Issue is Create Issue and View Issue.
+
+# Components
+- Default + Variants
+
 # ARTA ECMS Docs
 
 > Currently Deployed at https://arta.goldcoders.dev

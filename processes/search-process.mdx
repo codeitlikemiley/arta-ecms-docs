@@ -1,26 +1,93 @@
 ---
-title: Search
+title: Searching Process
 ---
 <Note> We can improved Search using AI , convert the file to embeddings and save to a vector database for later use.</Note>
 
 ## Creating Data Embeddings
-<a href="https://mermaid.live/edit#pako:eNptU11v2jAU_SuWJcRLitqUBOKHSmx0Uh-qdUPdpCovF_sCFomd2Q6MRfz3OV8dNMuD42uf43Pu9XVFuRZIGR2NKqmkY6Qaux3mOGZkLMDsx-fzaJQqi79KVByXErYG8lQR_xVgnOSyAOXIq0UzXP1itHKoBAFLfuL6PR4iPwHfd8BFUfThEPe1QLV4qmHd7DFfoxBSbT3x5WlI-CZM_fOEbvYDudOGLMHBGiymquXUCdw8PPQOGXktMg2iwbWIfsujOnuMrGrPLRIvsR3AQ1ubjLwYzdHaBkOO0u3-67xF31xKfEdXGtXzvco_3ketNkPvCg54ebzTw6xrZou_UlvwvdLHDMUWm2OuJa4K9FmrjTQ5WZW8drYps75m4IvS-fX6g-rVpWZkKW2Rwamnk2c_wPb9PpR2SPQBTXMzAelza-onrd8_Eotg-A7WGZKDhGGONKA5mhyk8B1e1eemtOnulDI_FbiBMnMpTdXZQ6F0enVSnDJnSgxoWQhwfcf3i76n3rS-DCmr6G_KwmQSzZJkFk3DKIniKKAnyu7u4kmYzMLpPJqF89swmZ4D-qfh307m9eo0vp_fx3GcJGGv-CikT4OyDWTWS2ATPrfPtHmt578HRTyj" target="_blank">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNptk01v4jAQhv-K5XOK2pQE4kMldulKPVTbLequVOUy2ANYTeys7UBZxH9f58MUmuaQeJzn9Tsztg-Ua4GUUYt_a1Qc5xLWBspcEf9UYJzksgLlyItFM5z9YbRyqAQBS_7g8hQPyW_A33pwVlUhHHI_K1SzhwbrR_flEoWQau2FTw9DwS9hmo8X9KPfyJ02ZA4OlmAxV52mKeDq7i5kyMhLVWgQLdcR4Zen-vQYWTQ5dySesz3g0S5NRp6M5mhty5CddJsvM-_oq3OLZ3S1UUHvXT50n726Cn1WsMXz5Z0eVt0oO_7CbcbflN4VKNbYLnNpcdGg71qtpCnJouZNZqu6CD0D35Q-X-8_6F7Takbm0lYF7IOcPPoXrE_7obRDordo2p2JSKit7Z-0_v-OWATDN7AskGwlDGukES3RlCCFP8KHZt2cug2WmFPmhwJXUBcup7k6ehRqpxd7xSlzpsaI1pUAF048ZSsorJ_1h-pV6zJAPqTsQN8pi7NRMsmySTKOkyxJk4juKbu5SUdxNonH02QST6_jbHyM6L9Wfz2aNrPj9HZ6m6ZplsXB8l5IX8fJEdvwsbuI7X08_gefpDLn?type=png)](https://mermaid.live/edit#pako:eNptk01v4jAQhv-K5XOK2pQE4kMldulKPVTbLequVOUy2ANYTeys7UBZxH9f58MUmuaQeJzn9Tsztg-Ua4GUUYt_a1Qc5xLWBspcEf9UYJzksgLlyItFM5z9YbRyqAQBS_7g8hQPyW_A33pwVlUhHHI_K1SzhwbrR_flEoWQau2FTw9DwS9hmo8X9KPfyJ02ZA4OlmAxV52mKeDq7i5kyMhLVWgQLdcR4Zen-vQYWTQ5dySesz3g0S5NRp6M5mhty5CddJsvM-_oq3OLZ3S1UUHvXT50n726Cn1WsMXz5Z0eVt0oO_7CbcbflN4VKNbYLnNpcdGg71qtpCnJouZNZqu6CD0D35Q-X-8_6F7Takbm0lYF7IOcPPoXrE_7obRDordo2p2JSKit7Z-0_v-OWATDN7AskGwlDGukES3RlCCFP8KHZt2cug2WmFPmhwJXUBcup7k6ehRqpxd7xSlzpsaI1pUAF048ZSsorJ_1h-pV6zJAPqTsQN8pi7NRMsmySTKOkyxJk4juKbu5SUdxNonH02QST6_jbHyM6L9Wfz2aNrPj9HZ6m6ZplsXB8l5IX8fJEdvwsbuI7X08_gefpDLn" />
 
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNptU11v2jAU_SuWJcRLitqUBOKHSmx0Uh-qdUPdpCovF_sCFomd2Q6MRfz3OV8dNMuD42uf43Pu9XVFuRZIGR2NKqmkY6Qaux3mOGZkLMDsx-fzaJQqi79KVByXErYG8lQR_xVgnOSyAOXIq0UzXP1itHKoBAFLfuL6PR4iPwHfd8BFUfThEPe1QLV4qmHd7DFfoxBSbT3x5WlI-CZM_fOEbvYDudOGLMHBGiymquXUCdw8PPQOGXktMg2iwbWIfsujOnuMrGrPLRIvsR3AQ1ubjLwYzdHaBkOO0u3-67xF31xKfEdXGtXzvco_3ketNkPvCg54ebzTw6xrZou_UlvwvdLHDMUWm2OuJa4K9FmrjTQ5WZW8drYps75m4IvS-fX6g-rVpWZkKW2Rwamnk2c_wPb9PpR2SPQBTXMzAelza-onrd8_Eotg-A7WGZKDhGGONKA5mhyk8B1e1eemtOnulDI_FbiBMnMpTdXZQ6F0enVSnDJnSgxoWQhwfcf3i76n3rS-DCmr6G_KwmQSzZJkFk3DKIniKKAnyu7u4kmYzMLpPJqF89swmZ4D-qfh307m9eo0vp_fx3GcJGGv-CikT4OyDWTWS2ATPrfPtHmt578HRTyj?type=png)](https://mermaid.live/edit#pako:eNptU11v2jAU_SuWJcRLitqUBOKHSmx0Uh-qdUPdpCovF_sCFomd2Q6MRfz3OV8dNMuD42uf43Pu9XVFuRZIGR2NKqmkY6Qaux3mOGZkLMDsx-fzaJQqi79KVByXErYG8lQR_xVgnOSyAOXIq0UzXP1itHKoBAFLfuL6PR4iPwHfd8BFUfThEPe1QLV4qmHd7DFfoxBSbT3x5WlI-CZM_fOEbvYDudOGLMHBGiymquXUCdw8PPQOGXktMg2iwbWIfsujOnuMrGrPLRIvsR3AQ1ubjLwYzdHaBkOO0u3-67xF31xKfEdXGtXzvco_3ketNkPvCg54ebzTw6xrZou_UlvwvdLHDMUWm2OuJa4K9FmrjTQ5WZW8drYps75m4IvS-fX6g-rVpWZkKW2Rwamnk2c_wPb9PpR2SPQBTXMzAelza-onrd8_Eotg-A7WGZKDhGGONKA5mhyk8B1e1eemtOnulDI_FbiBMnMpTdXZQ6F0enVSnDJnSgxoWQhwfcf3i76n3rS-DCmr6G_KwmQSzZJkFk3DKIniKKAnyu7u4kmYzMLpPJqF89swmZ4D-qfh307m9eo0vp_fx3GcJGGv-CikT4OyDWTWS2ATPrfPtHmt578HRTyj" />
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNptk02P2jAQhv-K5XMWkRAg-LASLVtpD6tui7aVqlwGewBrEzu1HShF_Pc6H97CZnNI_PG8M-9M7DPlWiBl1OLvGhXHlYSdgTJXxD8VGCe5rEA58mLRDFe_GK0cKkHAkp-4eZsPyU_AX3twWVVhOuS-VqiWjw3Wjx7KDQoh1c4Lnx-Hgm_CNB8v6Ec_kDttyAocbMBirjpNU8Dd_X1wyMhLVWgQLdcRYctTvT1G1o3njsRrtgc82tlk5Nlojta2DDlKt__QeUffXaf4jq42Kuh9lv-697m6Cr0rOOB1eKeHVTfKjr_JtuSvSh8LFDtsw9ymuGnQZ6220pRkXfPG2bYuQs_AN6X36_MPute0mpGVtFUBpyAnT_4Fu7f_obRDog9o2j8TkVBb2z9p_f6RWATD97ApkBwkDGukES3RlCCFP8LnJm5O3R5LzCnzQ4FbqAuX01xdPAq10-uT4pQ5U2NE60qACyeesi0U1q_6Q_VL6zJAfkrZmf6hLJuP5lmSTZN4Mk3TWZJE9ERZPMtG2TiL54ssniziWZJeIvq3DTAezafTNB7P5nEySePJeBFRFNKX8NRduvbuBR8P7U5v4_IPsMAy6Q?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNptk02P2jAQhv-KZQlxySISAgk-rETLVtrDqtuibaUql8EewCKxU8eBUpT_XudrC01zSPzxvDPvTOwr5VogZXQ0ukolLSPXsT1ghmNGxgLMcVxVo1GiCvxZouK4lrA3kCWKuCcHYyWXOShL3go0w9VPRiuLShAoyHfcvs-H5Afgxw5c5Xk_HXKfc1Sr5xrrRk_ZFoWQau-Er89DwRdh6o8TdKNvyK02ZA0WtlBgolpNXcDD42PvkJG3PNUgGq4l-i1HdfYY2dSeWxJv2Q5waGuTkVejORZFw5CztIf_Om_ph9sUX9GWRvV6l-Wv7t9cbYXOFZzwNrzVw6prZcvfZVvxo9LnFMUemzD3Ke4a9FGrnTQZ2ZS8drYr075n4JrS-XX5B92rW83IWhZ5CpdeTl7cC_bv_0Npi0Sf0DR_xiN9bU3_ZOH2z6RAMPwA2xTJScKwRurRDE0GUrgTfq3jJrQ53QllbihwB2VqE5qoyqFQWr25KE6ZNSV6tMwF2P7EU7aDtHCr7lD90DrrITel7Ep_URZHkygO4nngz-ZhuAgCj14o8xfxJJ7GfrSM_dnSXwRh5dHfTYDpJJrPQ3-6iPxgFvqz6dKjKKQr4aW9k83V7H08NTudjeoPYE488A?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant User
+          participant Frontend as Web Frontend
+          participant Backend as App Backend
+          participant OpenAI as OpenAI Embeddings API
+          participant Qdrant as Qdrant Vector Database
+
+          User->>Frontend: Upload Data
+          Frontend->>Backend: Send Uploaded Data
+          Backend->>OpenAI: Process Data with Embeddings API
+          OpenAI-->>Backend: Return Processed Embeddings
+          Backend->>Qdrant: Save Embeddings to Vector Database
+          Qdrant-->>Backend: Acknowledge Save
+          Backend-->>Frontend: Confirm Successful Upload and Processing
+          Frontend->>User: Display Success Message
+
+          note over User, Qdrant: Data is now searchable via Vector Database
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 
 ## Basic Search
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1kstOwzAQRX_FmnVa1XnXi0pEKRvEAiqEhLJxkymNaOxgO6Kh6r_jNDECVfXC9niO71w_TlDKCoGBxs8ORYl5zd8VbwpBbGu5MnVZt1wY8qJRXa_eKykMiopwTV5x-xtfkxkvPybwrm1deM3l2YDk3PAt1zjmx35wMFutXAlG1nZU5AH7L6kmJZe03FSB2VK6LjfIVbl_Hk6pzchOgEXzzIodsewMjjQZcfLUoepHOs9mN0V1K4Xz6lT_Ob1J__E7HI-RvNbtgffOgKW7g9GFAA8aVA2vK_tYp2FzAWaPDRbA7LTCHbdgAYU4W5R3Rm56UQIzqkMPurbixr0tsB0_aLtq7_tNysZBNgR2giOwNJknqZ9GPg2iMIx934MeGI3TebpIabJMabCksR-ePfi-CCzmSRSFdBEn1A9CGiyWHmBVG6kex-91-WXOx_qSmWycfwCoC9K_?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1klFPgzAQx79Kc8myF7YMxgbrg4kL-mJ8UGNMDC83uGnjKNiWOCR8d8ugRrOsD5Tr_fjfv9y1kJU5AYfJpBVSGM7aqXmngqacTXNUH9Oum0xSqemzJplRIvBNYZFKZleFyohMVCgNe9akzk9vVSkNyZyhZi-0-43PyS1mHyN4XVUuPOeSbY8kaHCHmob88OwdzK6uXAnObuyu2B01X6UalVzScmMFbktpkT0Rquz9sb-lNgM7AhZNtlbsSFltaKDZgLOHmlQz0Ml2dlFUV6V0Xp3qP6cX6T9---txlghdHbBxBixdH4xOJXhQkCpQ5LaXbf9xCqc-psDta057tGAKqewsirUpnxqZATeqJg_qKkfjegt8jwdtT-3_fi3LwkE2BN7CEXgczaM4iFeBv1yF4ToIPGiA--t4Hi9iP9rE_nLjr4Ow8-D7JLCYR6tV6C_WkR8sQ3-52HhAuTCluh-m7zSEzsfNKTPa6H4Ac1rcxg?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant User
+          participant Frontend as Web Frontend
+          participant Backend as App Backend
+          participant DB as Database
 
-<a href="https://mermaid.live/edit#pako:eNp1klFrwjAQx79KOBBfVLTaavMgTOpexh42GYPRl7M9Z9CmXZIyu9LvvtQa2RD7kOYuv9z_n1xqSPKUgEOvVwspDGd13-wpoz5n_RTVod80vV4sNX2VJBOKBH4qzGLJ7FegMiIRBUrD3jSp2-yjyqUhmTLU7J221_iWXGFyuIAPReHCWy5atUiEBreoqVvvxtbBcLl0Epyt7V-xJ6q-c3Wp5BYtd1HgVkqLZEOokv1re0ptOvYCWDRa2WInSkpDHc06nL2UpKqOjlbDu0V1kUvn1VX95_Qu_cdvezzOIqGLI1bOgKXLo9GxhAFkpDIUqe1l3W6O4dzHGLidprRDC8YQy8aiWJp8U8kEuFElDaAsUjSut8B3eNQ2a-_7I88zB9kQeA0n4F448udhOPdnnh_6gT-ACvhkEoy8cO7NFv7cW4y9cNYM4Oe8fzxatNlZMF1MgyAIQ89JrlNhcnVVpHP43L3I88NsfgG4UtzE" target="_blank">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1kl1vwiAUhv8KOdfVuNovuDBZU3ez7GIzy5KlN0iPs5mFDmhmZ_zvo1bMFiMXwDk8nPfl4wBCVQgMDH51KAUWNf_QvCklca3l2taibrm05NWgvs4-aCUtyopwQ95wfYmvyZyLzzN437Y-vOaKfEAKbvmaGxzXx35wMFksvAQjSzdq8oj9t9LnSn7RcWcF5qRMLVbItdi-DKc0dmTPgEOL3BXbo-gsjjQZcfLcoe5HusgnN4uaVknv1Vf95_Qm_cfvcDxGitq0O957A47udtaUEgJoUDe8rtxjHYbNJdgtNlgCc9MKN9yBJZTy6FDeWbXqpQBmdYcBdG3FrX9bYBu-My7r7vtdqcZDLgR2gD2wkE7jlNI0jsKYxkkcQA_s7i6ZhjQNoyxOw2wW0ugYwM9p_2yaDdkomWfzJEkoDb3ksqqt0hdFPIVP45c7_bzjL_cK0r0?type=png)](https://mermaid.live/edit#pako:eNp1kl1vwiAUhv8KOdfVuNovuDBZU3ez7GIzy5KlN0iPs5mFDmhmZ_zvo1bMFiMXwDk8nPfl4wBCVQgMDH51KAUWNf_QvCklca3l2taibrm05NWgvs4-aCUtyopwQ95wfYmvyZyLzzN437Y-vOaKfEAKbvmaGxzXx35wMFksvAQjSzdq8oj9t9LnSn7RcWcF5qRMLVbItdi-DKc0dmTPgEOL3BXbo-gsjjQZcfLcoe5HusgnN4uaVknv1Vf95_Qm_cfvcDxGitq0O957A47udtaUEgJoUDe8rtxjHYbNJdgtNlgCc9MKN9yBJZTy6FDeWbXqpQBmdYcBdG3FrX9bYBu-My7r7vtdqcZDLgR2gD2wkE7jlNI0jsKYxkkcQA_s7i6ZhjQNoyxOw2wW0ugYwM9p_2yaDdkomWfzJEkoDb3ksqqt0hdFPIVP45c7_bzjL_cK0r0" />
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1klFrwjAQx79KOJC-qGi11eZBmNS9jD1sMgajL2d7zqCmXZIyu9LvvtSa4RD7kOYuv9z_n1xqSPOMgEOvVwspDGe1Z3Z0JI8zL0O195qm10ukpq-SZEqxwE-Fx0Qy-xWojEhFgdKwN03qNvuocmlIZgw1e6fNX3xLLjHdX8CHonDhLRcvWyRGgxvU1K13Y-tgsFg4Cc5W9q_YE1XfubpUcouWuyhwK6VFuiZU6e61PaU2HXsBLBovbbETpaWhjmYdzl5KUlVHx8vB3aK6yKXz6qr-c3qXvvLbHo-zWOjigJUzYOnyYHQioQ9HUkcUme1l3W5O4NzHBLidZrRFCyaQyMaiWJp8XckUuFEl9aEsMjSuty5pr_sjz69D4DWcgPvRMJhF0SyY-kEUhEEfKuDjcTj0o5k_nQczfz7yo2nTh5_z_tFw3man4WQ-CcMwinynuMqEyRXwLR60laBz-Nw9yPO7bH4B2ofceQ?type=png)](https://mermaid.live/edit#pako:eNp1klFrwjAQx79KOJC-qGi11eZBmNS9jD1sMgajL2d7zqCmXZIyu9LvvtSa4RD7kOYuv9z_n1xqSPOMgEOvVwspDGe1Z3Z0JI8zL0O195qm10ukpq-SZEqxwE-Fx0Qy-xWojEhFgdKwN03qNvuocmlIZgw1e6fNX3xLLjHdX8CHonDhLRcvWyRGgxvU1K13Y-tgsFg4Cc5W9q_YE1XfubpUcouWuyhwK6VFuiZU6e61PaU2HXsBLBovbbETpaWhjmYdzl5KUlVHx8vB3aK6yKXz6qr-c3qXvvLbHo-zWOjigJUzYOnyYHQioQ9HUkcUme1l3W5O4NzHBLidZrRFCyaQyMaiWJp8XckUuFEl9aEsMjSuty5pr_sjz69D4DWcgPvRMJhF0SyY-kEUhEEfKuDjcTj0o5k_nQczfz7yo2nTh5_z_tFw3man4WQ-CcMwinynuMqEyRXwLR60laBz-Nw9yPO7bH4B2ofceQ" />
+          User->>Frontend: Enter Keyword
+          Frontend->>Backend: BasicSearchRequest
+          Backend->>DB: Execute Basic Search Query
+          DB-->>Backend: BasicSearchResponse
+          Backend-->>Frontend: BasicSearchResponse
+          Frontend->>User: Display Search Results
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
 
 
 
 ## Advance Search
-<a href="https://mermaid.live/edit#pako:eNp9klFrwjAQx79KOBBfVLTaavMgKHVve9hkDEZfzuacRZt2STp0pd99qTXOIdiHNHf53f_-4VJBkgsCDp1OlcrUcFZ1zY4y6nLWFaj23brudGKp6askmVCU4qfCLJbMfgUqkyZpgdKwN03qPvukcmlICoaavdPmGt-TS0z2F3BRFC6856Jlg0RocIOa2vN2bRz053PXgrOV_Su2EN9ojQv2UpI6tahjLH5pxK_cmlAlu9fmvtq0-IWxdLS0skdKSkN_wm3FrX607D-S1kUunXen_c_5o4Ib782NOYtSXRzw5GxYujwYHUvoQUYqw1TY8VZNcQzn0cbA7VbQFi0YQyxri2Jp8vVJJsCNKqkHZSHQuHED3-JB26wdwUeeZw6yIfAKjsC9cOBPw3DqTzw_9AO_Byfgo1Ew8MKpN5n5U2829MJJ3YOfc_1wMGuyk2A8GwdBEIaea7kSqcnVtSOdw-f2kZ7fav0L8aHj-w" target="_blank">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp9kk1vwjAMhv9K5HNBrPSD5oBEVXbbYUPTpKkX05hRjaZdkk50iP--lBLGhEQPaew8fv1GzgGKWhBw0PTVkiwoK_FDYZVLZr8GlSmLskFp2KsmdZt9VLU0JAVDzd5ofYlvyRSLzzO4aBoX3nJZ2iMZGlyjpuF8WHsHo_ncteBsaf-KLcQ3WuOCPbekugF1jMXPjfiFWxGqYvvS31ebAT8zls5SK7unojX0JzxUXOtn6eietG5q6bw77X_O7xVcee9vzFlW6maHnbNh6XZndC7Bg4pUhaWw8zv0xTmYLVWUA7dbQRu0YA65PFoUW1OvOlkAN6olD9pGoHHjBr7BnbZZO4L3uq4cZEPgB9gD95NxGCdJHAZ-mIRR6EEH_OEhGvtJ7AezMPZnEz8Jjh78nOon41mfDaLpbBpFUZL4ruVSlKZWl450Cp-GV3h6jMdfcdTZ9A?type=png)](https://mermaid.live/edit#pako:eNp9kk1vwjAMhv9K5HNBrPSD5oBEVXbbYUPTpKkX05hRjaZdkk50iP--lBLGhEQPaew8fv1GzgGKWhBw0PTVkiwoK_FDYZVLZr8GlSmLskFp2KsmdZt9VLU0JAVDzd5ofYlvyRSLzzO4aBoX3nJZ2iMZGlyjpuF8WHsHo_ncteBsaf-KLcQ3WuOCPbekugF1jMXPjfiFWxGqYvvS31ebAT8zls5SK7unojX0JzxUXOtn6eietG5q6bw77X_O7xVcee9vzFlW6maHnbNh6XZndC7Bg4pUhaWw8zv0xTmYLVWUA7dbQRu0YA65PFoUW1OvOlkAN6olD9pGoHHjBr7BnbZZO4L3uq4cZEPgB9gD95NxGCdJHAZ-mIRR6EEH_OEhGvtJ7AezMPZnEz8Jjh78nOon41mfDaLpbBpFUZL4ruVSlKZWl450Cp-GV3h6jMdfcdTZ9A" />
 
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp9klFrwjAQx79KOBBfVLTaavMgKHVve9hkDEZfzuacRZt2STp0pd99qTXOIdiHNHf53f_-4VJBkgsCDp1OlcrUcFZ1zY4y6nLWFaj23brudGKp6askmVCU4qfCLJbMfgUqkyZpgdKwN03qPvukcmlICoaavdPmGt-TS0z2F3BRFC6856Jlg0RocIOa2vN2bRz053PXgrOV_Su2EN9ojQv2UpI6tahjLH5pxK_cmlAlu9fmvtq0-IWxdLS0skdKSkN_wm3FrX607D-S1kUunXen_c_5o4Ib782NOYtSXRzw5GxYujwYHUvoQUYqw1TY8VZNcQzn0cbA7VbQFi0YQyxri2Jp8vVJJsCNKqkHZSHQuHED3-JB26wdwUeeZw6yIfAKjsC9cOBPw3DqTzw_9AO_Byfgo1Ew8MKpN5n5U2829MJJ3YOfc_1wMGuyk2A8GwdBEIaea7kSqcnVtSOdw-f2kZ7fav0L8aHj-w?type=png)](https://mermaid.live/edit#pako:eNp9klFrwjAQx79KOBBfVLTaavMgKHVve9hkDEZfzuacRZt2STp0pd99qTXOIdiHNHf53f_-4VJBkgsCDp1OlcrUcFZ1zY4y6nLWFaj23brudGKp6askmVCU4qfCLJbMfgUqkyZpgdKwN03qPvukcmlICoaavdPmGt-TS0z2F3BRFC6856Jlg0RocIOa2vN2bRz053PXgrOV_Su2EN9ojQv2UpI6tahjLH5pxK_cmlAlu9fmvtq0-IWxdLS0skdKSkN_wm3FrX607D-S1kUunXen_c_5o4Ib782NOYtSXRzw5GxYujwYHUvoQUYqw1TY8VZNcQzn0cbA7VbQFi0YQyxri2Jp8vVJJsCNKqkHZSHQuHED3-JB26wdwUeeZw6yIfAKjsC9cOBPw3DqTzw_9AO_Byfgo1Ew8MKpN5n5U2829MJJ3YOfc_1wMGuyk2A8GwdBEIaea7kSqcnVtSOdw-f2kZ7fav0L8aHj-w" />
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp9klFvgjAQx78KuWc0FZhAH0wkuLc9bGZZsvBywjnJpLC2LDLjd18R6lxM7EPbu_7u339zPUJeFwQcFH21JHJKS_yQWGXCMaNBqcu8bFBo51WRvM0-ylpoEoWDynmjzSW-JRPMP0dw2TQ2vOXSpEdS1LhBRcP5MPcOJouFvYI7K7NKZ1l8ozFeOM8tyW5ALWPw8SJ-4daEMt-99O9VesBHxtBpYmQPlLea_oSHimv9NJnck1ZNLax3q_3P-b2CK-_9i7mTlqrZY2dtGLrda5UJcKEiWWFZmP4d--IM9I4qyoCbbUFbNGAGmTgZFFtdrzuRA9eyJRfapkBt2w18i3tlsqYF73VdWciEwI9wAD5j_tRj0SwOWRR6sT-bu9CZ9JxNwygImRc9-EEY-uHJhZ-zApvGnhdFjDFvHgdR5AcuUFHqWj4NX-7886yR1flk9HH6Bfkv2is?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp9kt9LwzAQx_-VcDD2Usf6Y2uXB2Gl-uaDigjSl1tzuuKa1iQVZ-n_brouUxksD0ku-dz3vuHSQVELAg6TSVfK0nDWTc2WKppyNhWo3qd9P5nkUtNHS7KgrMQ3hVUumR0NKlMWZYPSsCdN6vz0VtXSkBQMNXumzSk-J1Ms3o_gumlceM5l6YBkaHCDmsb7cR4cXF1fuxKc3dhVsbX4RGtcsPuW1H5EHWPxYyF-4h4JVbF9GN6rzYgfGUtnqZX9oqI19Cs8ZvzVz9KrS9K6qaXz7rT_Ob-U8Mf78GLOslI3O9w7G5Zud0bnEjyoSFVYCtvebkjO4dDaHLjdCnpFC-aQy96i2Jr6cS8L4Ea15EHbCDSu3cBfcaftqW3BS11XDrIh8A6-gCfxLE6CZBH44SKKlkHgwR64v0xmyTzx41Xihyt_GUS9B98HgfksXiwif76M_SCM_HC-8oBEaWp1N37Iw790Pm4ON0cb_Q-z4OP9?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant User
+          participant Frontend as Web Frontend
+          participant Backend as App Backend
+          participant DB as Database
 
+          User->>Frontend: Enter Advanced Query
+          Frontend->>Backend: AdvancedSearchRequest
+          Backend->>DB: Execute Advanced Search Query
+          DB-->>Backend: AdvancedSearchResponse
+          Backend-->>Frontend: AdvancedSearchResponse
+          Frontend->>User: Display Search Results
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>

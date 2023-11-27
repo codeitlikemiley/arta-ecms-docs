@@ -1,0 +1,101 @@
+---
+title: Violations
+icon: gavel
+---
+
+### Issue Violations Service
+
+#### Summary
+
+The Issue Violations Service is dedicated to managing and linking violations to specific issues within the system. It supports operations to create, retrieve, update, and associate violations with issues, aiding in the effective handling of compliance and regulatory matters.
+
+#### Endpoints
+
+
+1. **CreateViolation**
+    - **Purpose**: Add a new violation to the system, which can be linked to issues.
+    - **Request Parameters**:
+        - `violation_name` (string): Name of the violation.
+        - `description` (string): Description of the violation.
+    - **Response**:
+        - `violation_id` (string): The ID of the newly created violation.
+
+2. **GetViolation**
+    - **Purpose**: Retrieve details of a specific violation.
+    - **Request Parameters**:
+        - `violation_id` (string): The ID of the violation to retrieve.
+    - **Response**:
+        - `name` (string): The name of the violation.
+        - `description` (string): The description of the violation.
+
+3. **UpdateViolation**
+    - **Purpose**: Update the details of an existing violation.
+    - **Request Parameters**:
+        - `violation_id` (string): The ID of the violation to update.
+        - `new_name` (string): The updated name of the violation.
+        - `new_description` (string): The updated description.
+    - **Response**:
+        - `success` (Boolean): Indicates if the update was successful.
+
+4. **LinkViolationToIssue**
+    - **Purpose**: Associate a specific violation with an issue.
+    - **Request Parameters**:
+        - `issue_id` (string): The ID of the issue.
+        - `violation_id` (string): The ID of the violation to be linked.
+    - **Response**:
+        - `success` (Boolean): Indicates if the linking was successful.
+
+<CodeGroup>
+```protobuf violations.proto
+syntax = "proto3";
+
+package issue_violations;
+
+// The Issue Violations service handles the management of violations.
+service IssueViolations {
+  rpc CreateViolation(CreateViolationRequest) returns (CreateViolationResponse) {}
+  rpc GetViolation(GetViolationRequest) returns (GetViolationResponse) {}
+  rpc UpdateViolation(UpdateViolationRequest) returns (UpdateViolationResponse) {}
+  rpc LinkViolationToIssue(LinkViolationToIssueRequest) returns (LinkViolationToIssueResponse) {}
+}
+
+// Message Definitions for Issue Violations Operations
+
+// Create Violation
+message CreateViolationRequest {
+  string violation_name = 1;
+  string description = 2;
+}
+message CreateViolationResponse {
+  string violation_id = 1;
+}
+
+// Get Violation
+message GetViolationRequest {
+  string violation_id = 1;
+}
+message GetViolationResponse {
+  string name = 1;
+  string description = 2;
+}
+
+// Update Violation
+message UpdateViolationRequest {
+  string violation_id = 1;
+  string new_name = 2;
+  string new_description = 3;
+}
+message UpdateViolationResponse {
+  bool success = 1;
+}
+
+// Link Violation To Issue
+message LinkViolationToIssueRequest {
+  string issue_id = 1;
+  string violation_id = 2;
+}
+message LinkViolationToIssueResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

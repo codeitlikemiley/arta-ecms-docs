@@ -1,0 +1,102 @@
+---
+title: Template
+icon: copy
+---
+
+### Template Management Service
+
+#### Summary
+
+The Template Management Service facilitates the handling of various templates within the application, such as for issues, reports, and communications. This service allows for the creation, retrieval, updating, and deletion of templates, aiding in standardizing and streamlining content creation.
+
+#### Endpoints
+
+
+1. **CreateTemplate**
+    - **Purpose**: Create a new template for use within the system.
+    - **Request Parameters**:
+        - `title` (string): Title of the template.
+        - `content` (string): Content or body of the template.
+    - **Response**:
+        - `template_id` (string): The ID of the newly created template.
+
+
+2. **GetTemplate**
+    - **Purpose**: Retrieve details of a specific template.
+    - **Request Parameters**:
+        - `template_id` (string): The ID of the template to retrieve.
+    - **Response**:
+        - `title` (string): The title of the template.
+        - `content` (string): The content of the template.
+
+
+3. **UpdateTemplate**
+    - **Purpose**: Update an existing template's details.
+    - **Request Parameters**:
+        - `template_id` (string): The ID of the template to update.
+        - `new_title` (string): The updated title of the template.
+        - `new_content` (string): The updated content of the template.
+    - **Response**:
+        - `success` (Boolean): Indicates if the update was successful.
+
+
+4. **DeleteTemplate**
+    - **Purpose**: Delete a template from the system.
+    - **Request Parameters**:
+        - `template_id` (string): The ID of the template to be deleted.
+    - **Response**:
+        - `success` (Boolean): Indicates if the deletion was successful.
+
+<CodeGroup>
+```protobuf templates.proto
+syntax = "proto3";
+
+package template_management;
+
+// The Template Management service handles various templates in the app.
+service TemplateManagement {
+  rpc CreateTemplate(CreateTemplateRequest) returns (CreateTemplateResponse) {}
+  rpc GetTemplate(GetTemplateRequest) returns (GetTemplateResponse) {}
+  rpc UpdateTemplate(UpdateTemplateRequest) returns (UpdateTemplateResponse) {}
+  rpc DeleteTemplate(DeleteTemplateRequest) returns (DeleteTemplateResponse) {}
+}
+
+// Message Definitions for Template Operations
+
+// Create Template
+message CreateTemplateRequest {
+  string title = 1;
+  string content = 2;
+}
+message CreateTemplateResponse {
+  string template_id = 1;
+}
+
+// Get Template
+message GetTemplateRequest {
+  string template_id = 1;
+}
+message GetTemplateResponse {
+  string title = 1;
+  string content = 2;
+}
+
+// Update Template
+message UpdateTemplateRequest {
+  string template_id = 1;
+  string new_title = 2;
+  string new_content = 3;
+}
+message UpdateTemplateResponse {
+  bool success = 1;
+}
+
+// Delete Template
+message DeleteTemplateRequest {
+  string template_id = 1;
+}
+message DeleteTemplateResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

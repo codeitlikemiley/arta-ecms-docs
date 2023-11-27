@@ -1,5 +1,5 @@
 ---
-title: Issue Creation
+title: Issue Creation Process
 ---
 
 > Issues are either created by the team member or complainant outside the team Organization.
@@ -15,24 +15,131 @@ Below is the process on how we Create an Issue or Acknowledge an Email.
 
 <Note>A Issue URL is emailed back to user on success, which would allows the complainant to follow up on his/her complaints, and Do other stuff like updaload new documents</Note>
 
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp9lE1v2zAMhv-KoEsvdjEndeLoUCDrimHAVgxJexl80STGEWpLniQ3y4L899Ffc9y68yGOyIfkS1HyiQojgTKaage_KtACPimeWV6kmuBTcuuVUCXXnlQObAgFVznhjjzhitzXq7ekMAW-jwN81xre47NpM5fS6AmzmrCVE0bJPf_JHaRdkqGB8Pa2qcnIFrR0rS7iTS-05bMOHbXDyAYEqBe4bGZEYESjnJG18OqFeyBGk20JQu2UuAxrsAH_zq2DSb9i5G4P4pnsjG005lxpbNF1nLqouXlchxZyLCvJWvP86FSP5X7kbq2jQmVdyUKt-YtzFVwgZV2k31JGHuDQIuSg_J44z33lyNWjxeMDV0NcHxH26dugtogc5x-6aKGnzVfyGTTYKbVvB_MvaEBfD2Y4Aqwb-keO2_oqEnKcw4N5b7f-l3QtnrU55CCzbpL9ceni8bilmga0AIteiTfvVDtS6vdQQEoZ_sUhg_Mp3skzkrzyZnvUgjJvKwhoVeKW9reUsh1HsQFFQT-MKXoIl5Sd6G_KwtniejaLF8l8sZpH-BMnAT1Stoyv4-U8iWvjTZSsknNA_zQZoppffkDHKopuFkkcUJDKG_ut_VQIo3cqo72S-8bXCTn_BU0vaGU?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp9lN1v2jAQwP8VyxPKS0BpWhrwQyVG22nSVk1A9zDlxY0PsEjszHZKKeJ_n_PVJJDOLznf_e7L5_iII8kAE6zhbwYigntON4omoUB2DQbHUsgXF9wQ1FLkyzFbSMAhyGFU7Ry3z_qbKk5fYtDOhXsBpYonVB3mMpYqj_Rlen3vPT6eB2uzK3gzDe95ntNlT822Ek-DQSmkVBke8ZQKgzINaggJ5TGiGj3bHXrId5dkJBP7PTTwvFR8xm_61ZQxKXrUvEeX9igZNfSFagirIE0Dw7u7IidBSxBMl3UhI-tCS35ToZ12CFpABPwV2s10COtRVE7QLDL8lRpAUqBlChFf86jtVmAN_osqDb12TtB8C9EOraUqaowpF7ZFXXG8lXOxmg0VxDYtQzNB44PmNRabjrkZ-0eiNM-kIK_5u9YZtJA0T1IfKUFPsC8RtOdmi7ShJtPIWdnbu4HWBas9hnX40qlMwrrxmy5K6HnxA30DAaqv2svBfDg16PlgmitAqqF_pfZYzzwhtnN4kp-d1v-CzqKdkPsY2KaaZH1dKn973UKBXZyAslZm35LiJw9x8fOHmFiRwZpmsQlxKE4WpZmRy4OIMDEqAxdnqT3T-unBZE1ttS62Ff2RMqkhu8XkiN8wGfrj0WR85U98PwjGUyveuPiAiT8ORoE3uZl6wZUf3F4HtycXvxchvNHYxcC4kepn-eAV716d-qGwVJlP_wARd5ez?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant user-email as User Email
+          participant company-email as Company Email
+          participant gmail
+          participant addon
+          participant ai
+          participant api
+          participant database
 
-<a href="https://mermaid.live/edit#pako:eNp1VMFuozAQ_RXLl15IBE0hxYdKbFtFkbpVlLSXiovXnjRWwU5t02w2yr-vYyAhLUEgmJk3fm9mjHeYKQ6YYAOfFUgGD4K-a1rmMpfIXWuqrWBiTaVFrwb0Y0lFgajxBvLWT-C9Kt17e8Q29iX4pN-dca56VGTTHt-sx_lALf1DDbSlHOUP7u48JUELkNzUspBVrc4aPmmg3WIImgMD8QXdUroAh_eyCcqYFV_UAlISLdbAxFKwbpaHneAzqg30xqcE3a-AfaCl0p6roEK6-kyDm3Y45y_ZQEPhaDnKJC22RjQwWtizcO09I5odmDQcNE-NqaADmR1I2n4S9AybGoI2wq6QsdRWBl29aLd34OqU12YM2uXrpJqEn69_qqIGvc6f0AQk6D61P8ZyzDkhv43lOH3SzPsXdT39lgeFG8KzutSqy0tm7EOqTQH8vRliu1GabLfPcokDXIJ2Ue7-t90hkGO7ghJyTNwnhyWtCpvjXO4dlFZWLbaSYWJ1BQGu1typaX7P1unkvCnVNTHZ4b-YjIfJbXR9O4rTOImSmzgJ8BaTZDRMw3SUjG-iJHV3ug_wP58fDcMoHLsnCa_TOArjlvCRC6s0JkvqehNg8Obv-szwR8f-P72EXlg">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNp1lF1P8jAUx79K0xtvBtnEDdcLk_kSQuJjCOiN2U1tD9K4tdh28iDhu1v2xtBBRrZz-jv9_9vTbYeZ4oAJNvBZgGRwL-i7pnkqkfutqbaCiTWVFr0Y0A85FRmipgxQGf0F71Tu7tuWreNz-KQ_nXCuZE962pOb9STvqaVv1EBaT9LaH9zclJIELUByU9lCVjU-K3xSo93FEDQHBuILukvpAo4vbROUMCu-qAWkJFqsgYmlYN2qEjviM6oN9I5PCbpbAftAS6VLrYwK6dZnam7a0Zw_JwMNmZPlKJE02xpRYzSzJ8NV9kRodlDScPA8NaaADjI7iDT7SdATbCoEbYRdIWOpLQy6eNbu5MDFsa6pGDTTV0WVCD-d_7iKCnqZP6IJSNB9bv-0pa05kr_a0naf1P2-pW5Pf9VB5prwpM5t1fkpE_Yh1SYD_l43sTkodbU7Z6nEHs5Bu1Hu3rbdYSDFdgU5pJi4Rw5LWmQ2xancO5QWVi22kmFidQEeLtbcualfTkyW1Hn1sPPzqlTeQC7EZIf_YzIeRtfB5fUojMMoiK7CyMNbTKLRMPbjUTS-CqLYXfHew99lfTD0A3_s_pF_GYeBHzaKD1xYpVtBKMN_1Sej_HLsfwDBN13Z?type=png)](https://mermaid.live/edit#pako:eNp1lF1P8jAUx79K0xtvBtnEDdcLk_kSQuJjCOiN2U1tD9K4tdh28iDhu1v2xtBBRrZz-jv9_9vTbYeZ4oAJNvBZgGRwL-i7pnkqkfutqbaCiTWVFr0Y0A85FRmipgxQGf0F71Tu7tuWreNz-KQ_nXCuZE962pOb9STvqaVv1EBaT9LaH9zclJIELUByU9lCVjU-K3xSo93FEDQHBuILukvpAo4vbROUMCu-qAWkJFqsgYmlYN2qEjviM6oN9I5PCbpbAftAS6VLrYwK6dZnam7a0Zw_JwMNmZPlKJE02xpRYzSzJ8NV9kRodlDScPA8NaaADjI7iDT7SdATbCoEbYRdIWOpLQy6eNbu5MDFsa6pGDTTV0WVCD-d_7iKCnqZP6IJSNB9bv-0pa05kr_a0naf1P2-pW5Pf9VB5prwpM5t1fkpE_Yh1SYD_l43sTkodbU7Z6nEHs5Bu1Hu3rbdYSDFdgU5pJi4Rw5LWmQ2xancO5QWVi22kmFidQEeLtbcualfTkyW1Hn1sPPzqlTeQC7EZIf_YzIeRtfB5fUojMMoiK7CyMNbTKLRMPbjUTS-CqLYXfHew99lfTD0A3_s_pF_GYeBHzaKD1xYpVtBKMN_1Sej_HLsfwDBN13Z" />
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNp1lNtu4jAQhl_FsoRyAygpJTS-qJQehJB2KwTtzSo33ngoFolNbacsi3j3GudAaAMChRl_4_-3x84Bp5IBJrjXO3DBDUEHz6whB48gj1G18Y7HXi8RGj4KECk8cfquaJ4IZD9bqgxP-ZYKg940qOec8gxR7QLkop_go8ztc9-wVXwNn3anY8ak6EjPOnLzjuQTNfQv1ZBUkzT2B_f3TpKgJQimS1vIyNpniU8rtL0YghaQAv-E9lLagOWdbYLi1PBPagBJgZZbSPmKp-0qh53xOVUaOsdnBD2uId2glVROK6Nc2PXpipu1NBev8UBBZmUZigXN9ppXGM3MxXCZvRCan5QUnDzPtC6ghcxPIvV-EvQCuxJBO27WSBtqCo28V2VPDnjnurpiUE9fFpUi7HL-8ypK6G3xC01BgOpy-6MtTc2Z_NaWpvuk6vcDtXv6rQ4y24QXeW2rrk8Zpxshdxmw96qJ9UGpqu05SwTu4xyUHWX2Mh5OAwl2FzHBxP5lsKJFZhKciKNFaWHkci9STIwqoI-LLbNuqsuJyYpar31s_fyRMq8hG2JywP8wmQzDu-DmbjSOxmEQ3o7DPt5jEo6GkR-NwsltEEb2Gx37-L-rD4Z-4E_sL_RvonHgj2vFZ8aNVI0guPB3-UZxL5bjFw_NZ-A?type=png)](https://mermaid.live/edit#pako:eNp1lNtu4jAQhl_FsoRyAygpJTS-qJQehJB2KwTtzSo33ngoFolNbacsi3j3GudAaAMChRl_4_-3x84Bp5IBJrjXO3DBDUEHz6whB48gj1G18Y7HXi8RGj4KECk8cfquaJ4IZD9bqgxP-ZYKg940qOec8gxR7QLkop_go8ztc9-wVXwNn3anY8ak6EjPOnLzjuQTNfQv1ZBUkzT2B_f3TpKgJQimS1vIyNpniU8rtL0YghaQAv-E9lLagOWdbYLi1PBPagBJgZZbSPmKp-0qh53xOVUaOsdnBD2uId2glVROK6Nc2PXpipu1NBev8UBBZmUZigXN9ppXGM3MxXCZvRCan5QUnDzPtC6ghcxPIvV-EvQCuxJBO27WSBtqCo28V2VPDnjnurpiUE9fFpUi7HL-8ypK6G3xC01BgOpy-6MtTc2Z_NaWpvuk6vcDtXv6rQ4y24QXeW2rrk8Zpxshdxmw96qJ9UGpqu05SwTu4xyUHWX2Mh5OAwl2FzHBxP5lsKJFZhKciKNFaWHkci9STIwqoI-LLbNuqsuJyYpar31s_fyRMq8hG2JywP8wmQzDu-DmbjSOxmEQ3o7DPt5jEo6GkR-NwsltEEb2Gx37-L-rD4Z-4E_sL_RvonHgj2vFZ8aNVI0guPB3-UZxL5bjFw_NZ-A" />
+          user-email->>gmail: Sends Email to Company
+          gmail->>company-email: Receive Email
+          company-email->>addon: Activate on Specific Email
+          addon->>addon: Parse Email
+          addon->>ai: Check for Complainants
+          ai->>addon: ARTA-related Analysis
+          alt ARTA-related
+              addon->>api: Create Issue
+              api->>database: New Issue with status 'Triage'
+              database-->>api: Issue Created
+              api-->>addon: Issue URL Generated
+              addon-->>company-email: Issue URL
+              company-email->>user-email: Email Back Issue URL
+          else Not ARTA-related
+              company-email->>user-email: Acknowledge Email Received
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 ## Creating Issue from Web Forms
 
 <Note>If the User Forgot to Successfully Finished Completing the Form Due to No Internet Connection or abandonement, He/She can continue back where he left off using the Issue URL. Minimum requirement is an email or any contact number, where we can send the Issue URL.</Note>
-<a href="https://mermaid.live/edit#pako:eNqNVF1v4jAQ_CsrP1xfAEH4TB6QUCknJE6tSnsnnfJikgWsJjZnO-U4xH_vJiYlLZF6eQlez-yMh42PLFIxsoAZ_JOhjHAq-EbzNJRAz45rKyKx49LCs0F9Xf2Fq5nSNfDJw_y6OOWWr7jB651bldL7cJdykQA35RqKQigdIbfQHI_PmgFMogiNQZO7gIuN836ToDkjgAdN3SyslS771XUj1KuIqVsFU7Yaj-k8ASyt0uj24QnTndJci-TgsIQgXHlEAvPXEpsrz2VELhK0WGP13H-GNtpCIowFtYafQiXcCiUNfIPJhv4dgeaiVfX-iDbT8n-YPLGFfpFw7iZ29bpEZiJJDKisiC4FLmNYZqtUWHPhfE6o2Hf4mKK4AD_Hc6uRUxYS9zA3JkPYC7sFY7nNDNw83U_vby7kktYsdRzF9Yg_ilRP4GDzaeH9-XEB31Gi_si5GpdJ9CLVPsF4g-48xlCUzl_ZsC6A6gxTEkiSDp4LW1X5gvKnin6XduPyznJoTIybmcoMfa2fN4QFrm395H1hYSHkS-75EU2WVnl0qlCyBktREzCmm-OYb4TMbjHFkAX0M8Y1zxIbslCeCMozq5YHGbHA6gwbLNvRZJQXTVkkI7-Vqi5ZcGR_WeD5LX_ojwaddns4ag-7_QY7sGDktUbDQc_zh12v2_dG_VOD_Sv47ZbvD7xOu-_5nV5v0PV6peJdLOj7ZcGaU6ANhsXyh7v-ilvw9AYFvaBM">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVMFu4jAQ_ZWRD9sLIFJK2uSAhEpZIbFqBe2utMrFJANYTWzWdsqyiH_vJCaQlkjdKBHY8968N5OJ9yxWCbKQGfyTo4xxJPhK8yySQNeGaytiseHSwotBfbn7CxdjpRvgw6fJ5eaIW77gBi8j9yqj391DxkUK3FRrKDci6QiFhfZgcNQMYRjHaAyawgWcbRzjbYIWjBCeNGWzsFS6yteUjVBvIqFsNUyVajCgekKYW6XRxeEZs43SXIt057CEIFxVIoH5W4UtlCcyJhcpWmywesw_RhuvIRXGglrCT6FSboWSBr7BcEVvR6A5a9W9z9DmWv4Pk6e21C87XLhJ3H5TR8YiTQ2ovGxdBlwmMM8XmbDmzPncoTLu8Am14gz83J57jZx6IXELE2NyhK2wazCW29zA1fPj6PHqTK5o7UrHUVyO5KNIvQIHm4xK7y-zKXxHifoj52JchvGrVNsUkxW6eoyhVjp_VcKmBtRnmDqBJOnghbBVtS-ouOrok7QblxPLoTE1bmZqM_S1fpEQpri0zZP3hYWpkK-F5xmaPKvzqKpIshbLUBMwoZNjXwQiZteYYcRC-pvgkuepjVgkDwTluVXznYxZaHWOLZZvaDKqg4aFS071tRg5-a1UVoFoycI9-8vC245_513f9fpB3_f8m77fYjsW-r1O0A16_u2N5wd0B4cW-1fyvU7X697S43evg77X7VeKD4mg7_ckiOXyhzv-ylPw8A4JkKBS?type=png)](https://mermaid.live/edit#pako:eNqNVMFu4jAQ_ZWRD9sLIFJK2uSAhEpZIbFqBe2utMrFJANYTWzWdsqyiH_vJCaQlkjdKBHY8968N5OJ9yxWCbKQGfyTo4xxJPhK8yySQNeGaytiseHSwotBfbn7CxdjpRvgw6fJ5eaIW77gBi8j9yqj391DxkUK3FRrKDci6QiFhfZgcNQMYRjHaAyawgWcbRzjbYIWjBCeNGWzsFS6yteUjVBvIqFsNUyVajCgekKYW6XRxeEZs43SXIt057CEIFxVIoH5W4UtlCcyJhcpWmywesw_RhuvIRXGglrCT6FSboWSBr7BcEVvR6A5a9W9z9DmWv4Pk6e21C87XLhJ3H5TR8YiTQ2ovGxdBlwmMM8XmbDmzPncoTLu8Am14gz83J57jZx6IXELE2NyhK2wazCW29zA1fPj6PHqTK5o7UrHUVyO5KNIvQIHm4xK7y-zKXxHifoj52JchvGrVNsUkxW6eoyhVjp_VcKmBtRnmDqBJOnghbBVtS-ouOrok7QblxPLoTE1bmZqM_S1fpEQpri0zZP3hYWpkK-F5xmaPKvzqKpIshbLUBMwoZNjXwQiZteYYcRC-pvgkuepjVgkDwTluVXznYxZaHWOLZZvaDKqg4aFS071tRg5-a1UVoFoycI9-8vC245_513f9fpB3_f8m77fYjsW-r1O0A16_u2N5wd0B4cW-1fyvU7X697S43evg77X7VeKD4mg7_ckiOXyhzv-ylPw8A4JkKBS" />
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVGFv2jAQ_SsnS4wvFEEpoeQDEiplQmJqBe0mTflikgMsEpvZThlF_PddYgJpidRFicC-9-69u1x8YKGKkPmsVjsIKawPh7pdY4J1H-oR15v68VirBdLgnxRliCPBV5ongQS6tlxbEYotlxZeDerr3V-4GCtdAR8-T643R9zyBTd4HXlQCf3uHxMuYuCmWEO-EUhHyCzcDAYnTR-GYYjGoMlcwMXGKX5D0Izhw7OmbBaWShf5qrIR6k1ElK2EKVINBlSPD3OrNLo4vGCyVZprEe8dlhCEK0okMH8rsJnyRIbkIkaLFVZP-cdowzXEwlhQS_gpVMytUNLANxiu6O0INBetsvcZ2lTL_2Hy2Ob6eYczN5Hbr-rIWMSxAZXmrUuAywjm6SIR1lw4nzuUxx0-olZcgJ_b86CRUy8k7mBiTIqwE3YNxnKbGqi_PI2e6hdyQbspdBzF5Yg-ipQrcLDJKPf-OpvCd5SoP3KuxmUYbqTaxRit0NVjDLXS-SsSVjWgPMPUCSRJB8-ErSp9QdlVRp-l3bicWQ6NsXEzU5qhr_WzhDDFpa2evC8sTIXcZJ5naNKkzKOqAskaLEFNwIgOlkMWCFh-qATMp78RLnka24AF8khQnlo138uQ-Van2GDpliajOGiYv-RUX4ORk99KJQWIlsw_sL_M7zW9-_btfafb73pt767rNdie-V6n2W_1O17vru316e4fG-w957ebrXarR4_Xuu13261uofgYCfp-z4KYL3-40zE_JI__AFYjqlk?type=png)](https://mermaid.live/edit#pako:eNqNVGFv2jAQ_SsnS4wvFEEpoeQDEiplQmJqBe0mTflikgMsEpvZThlF_PddYgJpidRFicC-9-69u1x8YKGKkPmsVjsIKawPh7pdY4J1H-oR15v68VirBdLgnxRliCPBV5ongQS6tlxbEYotlxZeDerr3V-4GCtdAR8-T643R9zyBTd4HXlQCf3uHxMuYuCmWEO-EUhHyCzcDAYnTR-GYYjGoMlcwMXGKX5D0Izhw7OmbBaWShf5qrIR6k1ElK2EKVINBlSPD3OrNLo4vGCyVZprEe8dlhCEK0okMH8rsJnyRIbkIkaLFVZP-cdowzXEwlhQS_gpVMytUNLANxiu6O0INBetsvcZ2lTL_2Hy2Ob6eYczN5Hbr-rIWMSxAZXmrUuAywjm6SIR1lw4nzuUxx0-olZcgJ_b86CRUy8k7mBiTIqwE3YNxnKbGqi_PI2e6hdyQbspdBzF5Yg-ipQrcLDJKPf-OpvCd5SoP3KuxmUYbqTaxRit0NVjDLXS-SsSVjWgPMPUCSRJB8-ErSp9QdlVRp-l3bicWQ6NsXEzU5qhr_WzhDDFpa2evC8sTIXcZJ5naNKkzKOqAskaLEFNwIgOlkMWCFh-qATMp78RLnka24AF8khQnlo138uQ-Van2GDpliajOGiYv-RUX4ORk99KJQWIlsw_sL_M7zW9-_btfafb73pt767rNdie-V6n2W_1O17vru316e4fG-w957ebrXarR4_Xuu13261uofgYCfp-z4KYL3-40zE_JI__AFYjqlk" />
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVE1v4jAQ_SsjH7aXgGi2NDQHJFTKColVV9DuSqtcTDKA1cRmbacsi_jvHccNHw3SNpc44_fmvRlPvGOpypDFzOCfEmWKQ8GXmheJBHrWXFuRijWXFkqDuhnd4Ly1ULoAbuAXzmFE6yaKr0UzmHHL59xgcydVBb23LSy4yF3mex-ABxdIpGc4Q61-v3YQwyBN0Rj8aKQGtAjsODH80JTPAgXrjBfzEexVZJTvBHRI1u9TUTHMrNLoAfCExVpprkW-9WBCEK6uk8D8tcY67bF0heZo8ZLbd4ER2nQFuTAW1AJ-CpVzK5Q08AUGSzowgeYodmZ_irbU8lPU3FYOqj47P5mPX-zKSOS5AVVW_aNzlxnMynkhrDmSGl2qAJ7g2nFEfmzRvUZO_ZC4gbExJcJG2BUYy21p4Orpcfh4dSTXtFat4yk-R3YuclaDx42Hlfvn6QS-oUR9TmqOzSB9kWqTY7ZEX5Ex1E7vsM54sQdn80zdQFL1BKdtFTwf_i33nMEP6n5uDjQPx9z44TkZps9YcIIwwYW9PIT_czER8sX5nqIpi1MiVZZIFrACNQEzuld2biNhdoUFJiymZYYLXuY2YYncE5SXVs22MmWx1SUGrFzTsdbXEIsXnEoMGFn5rVRRg-iTxTv2l8WtsNvuda_DXhhGUfeOljcB27I47EbtqNO7uetE12F0-zW63QfsX5Wi0-4GDDNBv-53f_lVd2At_VDtvCvv3wAFBK6G?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVN9P4zAM_lesnHZ96VAZjEIfJiHGTkicOPHrpFNfstaDiDbZJSljTPvfz2nottJJR17qOt9nf3Zdr1imcmQJM_i3QpnhWPAnzctUAp1eb-UNd4QUNoEdhzuBfcYSgwSCnOuXINx3-8i14NMCTdCh16C5FiXXywtVKO0ifTs7GkeTyedgu9h7fLNbfBRFQRu73r5-mOtezxtzrq3IxJxLC5VB3fUucNqfKV0CN_AbpzAhu4vic9F15tzyKTfYvclUSc9lH0suChf5wjvg0jlS6RlOUH80ahQkcJ5laAx-FtIA-gR2nAR-aYpngZxNxL3xCPYqcoq3A9oEG42oqATurNLoAXCP5Vxp-oDF0oMJQbimTgLz1wbrcl9JV2iBFvep_UgwQZs9QyGMBTWDR6EKboWSBr7D-RMNoUCzTdaSf4u20vJL1MLWCuo-Oz35diQ6XZmIojCgqrp_9N1lDnfVtBTWbEmdLtUAT3Dt2CI_t-hCI6d-SFzAlTEVwkLYZzCW28pAcH8zvtmZ3obWb_J4io-Rt5O0avC4q3Gt_uH2Gn6gRN0mdcfmPHuRalFg_oS-ImOonV5hE3FvD1rzTN1AyuoJLrdV8LD5t9xpwTfZ_dxsaB6OhfHDszNMX5HgEsI1zuz-IfyfimshX5zuWzRVuUukylLJQlaiJmBOu7JeYimrl1vKEjJznPGqsClL5ZqgvLLqbikzllhdYciqOX3WZrWyZMapxJCRlD9KlQ2IXlmyYm8s6Q-GB6fDw8HpYBDHwzMyj0O2ZMlgGB_E0enxWRQfDuKTo_hkHbL3OkR0MAwZ5oJ-3Z9-odd7vUl9Wd98ZF7_A2PP4do?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+          participant user
+          participant web-form as Web Form
+          participant api
+          participant database
+          participant company-email as Company Email
+
+          user->>web-form: Accesses Web Form
+          web-form-->>user: Prompt for Email
+          user->>web-form: Provides Email
+          web-form->>api: Store Email Temporarily
+          api->>database: Save Email for Incomplete Form
+          web-form->>api: Fetch list of Violations & Agencies
+          api-->>web-form: Return list of Violations & Agencies
+          alt Form Completed
+              user->>web-form: Fills out form and Submits
+              web-form->>api: Submit form data
+              api->>database: Create new Issue with status 'TODO'
+              database-->>api: Issue Created
+              api-->>web-form: Issue ID and URL Generated
+              web-form-->>user: Acknowledge Submission with Issue ID
+              web-form->>company-email: Send Issue URL to User
+              company-email->>user: Email Issue URL
+          else Form Incomplete
+              web-form->>company-email: User Left Incomplete Form
+              company-email->>user: Email Link to Resume Form
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 ## Basic Client to Server Data Flow
 
-<a href="https://mermaid.live/edit#pako:eNqNVGtP2zAU_SuW-dpEbV5N_WESJR2aBhpriyYtQZMT37QRiV05zqCj_PfZeXR0Q4N8sK5vzvE99_jxhDPBABOcl-Ih21Kp0NUy4Qmv1b4EdFuDRHlRluQMgiygMPNHtZLiHsiZ67p9bD0UTG2Js3sceGugVc8LUjaesXexFp9XA8kNAgjfRYqooimtoe6pLGBB7r1BzUpa1xHk6IfcZT0xTfMjizphNvX-IY4yUQpJzvJ8gFqM1to1SfcE-chvnWvSjaS7rWkndmx0vlyfo4V1cb1CK5A_Qd4lHOmPFRIyVQiO1vMus7y5mMSf6rqBFllkcEcIMRITDpydLG52pu5oJzkULx4VSE7LDtIXOy1otnjIXla0KON2RJdCbLSl54xZX_hL6jdIPwpZxasmrQplpsjMB0gv7kRMewTitnkTvqkj0kamgkrWO3AhgbagG7qBl3X-duJ4AOJo3uOieXwJHCRVgLrVbpdXd0dqwtt2Ldu2PhwmtvEdKdFVhBZ_MFuR8L7t_wBRjzQtnsDWr61nxg6lz8XXBuT-j_rDMUp4NLc0xrV78eaIyELbcGh1v_pfMHHo5b72f06z-1JsDkeX8QhXIPVyTF_-J2NbgtUWKkgw0SGDnDalSnDCnzWUNkqs9jzDRMkGRrjZMd1apDVJWmGS07LW2R3l34WoBpCeYvKEHzEJpvbM92aB4870ffS9Ed5j4kxDOwwcZ-qG_iz0Pc97HuFfLX9sT72x5we-M_Enk_E0HCouWKGEPBaEdnrdvWDtQ_b8G5Saljo" target="_blank">Edit Diagram</a>
-<img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVGtP2zAU_SuW-dpEbV5N_WESJR2aBhpriyYtQZMT37QRiV05zqCj_PfZeXR0Q4N8sK5vzvE99_jxhDPBABOcl-Ih21Kp0NUy4Qmv1b4EdFuDRHlRluQMgiygMPNHtZLiHsiZ67p9bD0UTG2Js3sceGugVc8LUjaesXexFp9XA8kNAgjfRYqooimtoe6pLGBB7r1BzUpa1xHk6IfcZT0xTfMjizphNvX-IY4yUQpJzvJ8gFqM1to1SfcE-chvnWvSjaS7rWkndmx0vlyfo4V1cb1CK5A_Qd4lHOmPFRIyVQiO1vMus7y5mMSf6rqBFllkcEcIMRITDpydLG52pu5oJzkULx4VSE7LDtIXOy1otnjIXla0KON2RJdCbLSl54xZX_hL6jdIPwpZxasmrQplpsjMB0gv7kRMewTitnkTvqkj0kamgkrWO3AhgbagG7qBl3X-duJ4AOJo3uOieXwJHCRVgLrVbpdXd0dqwtt2Ldu2PhwmtvEdKdFVhBZ_MFuR8L7t_wBRjzQtnsDWr61nxg6lz8XXBuT-j_rDMUp4NLc0xrV78eaIyELbcGh1v_pfMHHo5b72f06z-1JsDkeX8QhXIPVyTF_-J2NbgtUWKkgw0SGDnDalSnDCnzWUNkqs9jzDRMkGRrjZMd1apDVJWmGS07LW2R3l34WoBpCeYvKEHzEJpvbM92aB4870ffS9Ed5j4kxDOwwcZ-qG_iz0Pc97HuFfLX9sT72x5we-M_Enk_E0HCouWKGEPBaEdnrdvWDtQ_b8G5Saljo?type=png)](https://mermaid.live/edit#pako:eNqNVGtP2zAU_SuW-dpEbV5N_WESJR2aBhpriyYtQZMT37QRiV05zqCj_PfZeXR0Q4N8sK5vzvE99_jxhDPBABOcl-Ih21Kp0NUy4Qmv1b4EdFuDRHlRluQMgiygMPNHtZLiHsiZ67p9bD0UTG2Js3sceGugVc8LUjaesXexFp9XA8kNAgjfRYqooimtoe6pLGBB7r1BzUpa1xHk6IfcZT0xTfMjizphNvX-IY4yUQpJzvJ8gFqM1to1SfcE-chvnWvSjaS7rWkndmx0vlyfo4V1cb1CK5A_Qd4lHOmPFRIyVQiO1vMus7y5mMSf6rqBFllkcEcIMRITDpydLG52pu5oJzkULx4VSE7LDtIXOy1otnjIXla0KON2RJdCbLSl54xZX_hL6jdIPwpZxasmrQplpsjMB0gv7kRMewTitnkTvqkj0kamgkrWO3AhgbagG7qBl3X-duJ4AOJo3uOieXwJHCRVgLrVbpdXd0dqwtt2Ldu2PhwmtvEdKdFVhBZ_MFuR8L7t_wBRjzQtnsDWr61nxg6lz8XXBuT-j_rDMUp4NLc0xrV78eaIyELbcGh1v_pfMHHo5b72f06z-1JsDkeX8QhXIPVyTF_-J2NbgtUWKkgw0SGDnDalSnDCnzWUNkqs9jzDRMkGRrjZMd1apDVJWmGS07LW2R3l34WoBpCeYvKEHzEJpvbM92aB4870ffS9Ed5j4kxDOwwcZ-qG_iz0Pc97HuFfLX9sT72x5we-M_Enk_E0HCouWKGEPBaEdnrdvWDtQ_b8G5Saljo" />
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNk21r2zAQx7-K0GvbJG5dp3oxSNMsDFrWJSmDWmHI1sUxtaUgyWuzON998lOoS2DzCyGdfnf3v_PpiBPJARO8zeVbsmPKoIclFVToMk4V2-8QvOrI99B0uZ6iuTt7XKEVqN-gNlQg-_FMQWIyKdD6rrWofTKOvmldQkNmCWwIIb-smQoQfBC81KB06zawoWj-bkAJlqPnGumSDRPWQntrWrAsjxb1ihZSpjmgKefud_HR9Q1idytVEa3KuMgM-gkx-mrPPdOpG6gxwAoUNdWv7fafQjjTu1gyxbsWzBSwBnpiKXzM87kVnBkWMw064nHf2zhagADFDKA22vPyYXN2bWp2Pc_9Uo09tHyaISPbfB1e1b-Cir7s_0DragfY-iJWry1mJ-NHCeqA7nv51bkQKnjsWubK69TXQ6Iy24eqkX7xXnJZ9YIvAXcsec1lWp37TAV2cAHKRuR2jo916yg2OyiAYmK3HLaszA3FVJwsykojVweRYGJUCQ4u91Yw3FtZihWYbFmurXXPxIuURQ_ZIyZH_I6J6wfeJBj7E98Pw-DWbq8dfMDED0IvHE2ub0fh2A9vrsKbk4P_NCFGXuBg4JmR6rF9bM2b61PPm5su8-kvTyctgQ?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNlNuO2jAQhl_FcoVyQ6IQlg3kohLLSZV21S2wrdQEVU48hIjERo7ThRLevc6JwwqpzUVij7-Z-Wdi-4gDTgE7eB3z92BDhETPc495rNU6egypJ2KRdFA9KR5NbiABzUEaJWKrtT-ufCciIn4MqXbjVgI7ESVEHEY85qKI8GnQHZvT6XWQa24Je3lhTdPULtypGqrPqdUqFKeZHwqy2yDYpq5loOF8OUQTffSyQAsQv0GsKg8aCQhkxBlaPlUWsQs67pc0zaAkowBWjuP8UmaPAaM3wbMURFq53diQO9lLEIzE6K1AVhell4RFaxtrmJAodmfFG804D2NAQ0r1r-za9R18fc1F4i4yP4kk-gE-mqp5w9TqbtRIIAlyy-qXavhPIZSkG58TQesWjASQEnolIVzn-dgKSiTxSQqpS_2mt747AwaCSEBVtLf58-rsWtasG4b-Oe8YaP46QpJX-Wo8L36Fx5qy_wMtqr3Blnex4l1hamd8y0Ac0LiRn58L8Rj1dcV0jVp9sUnUbg4hL6XfXeeU543ge8ATCbYxD_Nznz2G2zgBoSJSdfLKM-Lh8ux42FFDCmuSxdLDam8rlGSSLw4swI4UGbRxtlOCYaxkCZJgZ03iVFl3hP3kPGkgNcXOEe-xo1s9o9_rWH3Lsu3eQA0f2viAHatnG7bZfxiYdseyH7v246mN_5QhTKPXxkAjycVLdT2Ut0STelKu1JlPfwFGyV0f?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      flowchart LR
 
-<img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVF1v2jAU_SuWK8QLRJAvgh8mlYZV01qtA6pJS6rJiW8gamIjx1nLgP8-54uVrVqbB8vXPsf33GPn7nEsGGCCe719ylNF0L6vNpBDn6A-o_Kxfzz2eiEPeZKJp3hDpUI3iyou1C4DdF-AREmaZeQC3NilMHUGhZLiEciFZVntfPiUMrUh5va5462A5i3Pjdhoyt7Fmn9ediTLdcF7F8mnika0gKKlMpe5if0GNc5oUfiQoB9yG7fEKEpOLGp68cT-hziIRSYkuUiSDjpktNCuSbojyEFO7VwZrSXdbqpyAtNAl4vVJZoPr26XaAnyJ8iHkCP9sVRCrFLB0WrWrCzursbBp6IooUamMTwQQiqJIQfOzg6vbqZoaGdrKJg_K5CcZg2kTXaesLribvU6p2kW1CO6FmKtLb1kbPiFv6R-g-ijkHmwLKM8VVWIqriDtOLOxNRPIKiLr6Zv6vC1kZGgkrUOXEmgNeiOruFlnr-dOD2AwJ-1OH8WXAMHSRWg5rT7xc3DiRryutyhYQw_HMZG5TtSoskINf5QXUXI27L_A0QtsirxDLZ67bxqbFD6XXwtQe7-qD-cZiH3Z0ONsYxWfPVEZKptONS6X90XTBxaua_tz2j8mIn14eQyHuAcpD6O6e6wr2wLcd0ZQkz0lEFCy0yFOORHDaWlEssdjzFRsoQBLrdMl-ZrTZLmmCQ0K_TqlvLvQuQdSIeY7PEzJu7EmDr21DWtqf4fHXuAd5iYE8_wXNOcWJ4z9Rzbto8D_Kvmj4yJPbId1zHHzng8mnhdxjlLlZCnhFCHt02Lqzvd8TdeEqEL?type=png)](https://mermaid.live/edit#pako:eNqNVF1v2jAU_SuWK8QLRJAvgh8mlYZV01qtA6pJS6rJiW8gamIjx1nLgP8-54uVrVqbB8vXPsf33GPn7nEsGGCCe719ylNF0L6vNpBDn6A-o_Kxfzz2eiEPeZKJp3hDpUI3iyou1C4DdF-AREmaZeQC3NilMHUGhZLiEciFZVntfPiUMrUh5va5462A5i3Pjdhoyt7Fmn9ediTLdcF7F8mnika0gKKlMpe5if0GNc5oUfiQoB9yG7fEKEpOLGp68cT-hziIRSYkuUiSDjpktNCuSbojyEFO7VwZrSXdbqpyAtNAl4vVJZoPr26XaAnyJ8iHkCP9sVRCrFLB0WrWrCzursbBp6IooUamMTwQQiqJIQfOzg6vbqZoaGdrKJg_K5CcZg2kTXaesLribvU6p2kW1CO6FmKtLb1kbPiFv6R-g-ijkHmwLKM8VVWIqriDtOLOxNRPIKiLr6Zv6vC1kZGgkrUOXEmgNeiOruFlnr-dOD2AwJ-1OH8WXAMHSRWg5rT7xc3DiRryutyhYQw_HMZG5TtSoskINf5QXUXI27L_A0QtsirxDLZ67bxqbFD6XXwtQe7-qD-cZiH3Z0ONsYxWfPVEZKptONS6X90XTBxaua_tz2j8mIn14eQyHuAcpD6O6e6wr2wLcd0ZQkz0lEFCy0yFOORHDaWlEssdjzFRsoQBLrdMl-ZrTZLmmCQ0K_TqlvLvQuQdSIeY7PEzJu7EmDr21DWtqf4fHXuAd5iYE8_wXNOcWJ4z9Rzbto8D_Kvmj4yJPbId1zHHzng8mnhdxjlLlZCnhFCHt02Lqzvd8TdeEqEL" />
+      subgraph eks[2. ARTA E-CMS Server]
+          direction TB
+          rpc1[Issue Service]:::_rpc
+      end
+
+      subgraph users
+          subgraph user [External Users]
+              direction LR
+              gmail[Gmail Google Add-Ons]
+              web-form[Submit Web Forms]
+          end
+
+          subgraph team [ARTA Team]
+              direction LR
+              dashboard[Issue Creation Page]
+          end
+      end
+
+      subgraph databases[db]
+          db[Generate Issue URL]
+      end
+
+      gmail-..->|1. RPC to Create Issue|rpc1
+      web-form-..->|1. RPC to Create Issue|rpc1
+      team-..->|1. RPC To Create Issue|rpc1
+      rpc1-..->|2. Query Databases|databases
+      db-->|3. Issue on Triage|gmail
+      db-->|3. Issue on Todo|web-form
+      db-->|3. Issue on Backlog|dashboard
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
 
 
 

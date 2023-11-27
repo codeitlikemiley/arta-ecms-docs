@@ -1,0 +1,79 @@
+---
+title: Subscribers
+icon: user-plus
+---
+
+### Subscribers Service
+
+#### Summary
+
+The Subscribers Service is designed to manage user subscriptions within the system. It allows users to subscribe to updates on various entities like issues or topics, thereby staying informed about changes or new information.
+
+#### Endpoints
+
+1. **AddSubscription**
+    - **Purpose**: Subscribe a user to an entity for updates.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user subscribing.
+        - `entity_id` (string): The ID of the entity to subscribe to.
+    - **Response**:
+        - `success` (Boolean): Indicates if the subscription was successful.
+
+2. **GetSubscriptions**
+    - **Purpose**: Retrieve a list of all subscriptions for a user.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user whose subscriptions are being requested.
+    - **Response**:
+        - `entity_ids` (string array): List of IDs of the entities the user is subscribed to.
+
+3. **RemoveSubscription**
+    - **Purpose**: Remove a user's subscription to an entity.
+    - **Request Parameters**:
+        - `user_id` (string): The ID of the user.
+        - `entity_id` (string): The ID of the entity to unsubscribe from.
+    - **Response**:
+        - `success` (Boolean): Indicates if the unsubscription was successful.
+
+
+<CodeGroup>
+```protobuf subscribers.proto
+syntax = "proto3";
+
+package subscribers;
+
+// The Subscribers service manages subscriptions to entities within the system.
+service Subscribers {
+  rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse) {}
+  rpc GetSubscriptions(GetSubscriptionsRequest) returns (GetSubscriptionsResponse) {}
+  rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse) {}
+}
+
+// Message Definitions for Subscription Operations
+
+// Add Subscription
+message AddSubscriptionRequest {
+  string user_id = 1;
+  string entity_id = 2;
+}
+message AddSubscriptionResponse {
+  bool success = 1;
+}
+
+// Get Subscriptions
+message GetSubscriptionsRequest {
+  string user_id = 1;
+}
+message GetSubscriptionsResponse {
+  repeated string entity_ids = 1;
+}
+
+// Remove Subscription
+message RemoveSubscriptionRequest {
+  string user_id = 1;
+  string entity_id = 2;
+}
+message RemoveSubscriptionResponse {
+  bool success = 1;
+}
+```
+</CodeGroup>

@@ -1,0 +1,53 @@
+---
+title: Domain Management Process
+---
+
+This sequence diagram represents the following steps:
+
+1. The user requests access to domain management.
+1. The Authentication Service verifies the user's permissions by querying the database.
+1. If the user has the necessary permissions, they are granted access to perform domain management operations.
+1. The user makes a request to the Domain Management Service to view, create, update, or delete a domain.
+1. Depending on the user's request, the Domain Management Service interacts with the database to perform the respective operation and returns the outcome to the user.
+1. If the user lacks the necessary permissions, they are denied access to domain management.
+
+<Tabs>
+  <Tab title="image">
+    <img className="block dark:hidden" src="https://mermaid.ink/img/pako:eNqNVE1v2zAM_SuChiCXNHUTJ259KJDG67BDgKJdehh8YW2mFWpLmSR3zYL891GynS-k3XyRTD4-PlKU1jxTOfKYdzqs01mnklbGhBQ2Zu0fY137giV2Y9bNQb92e0eOR9ACngo03f0g8i61KEGvpqpQ2kV_uRomwe3tHsEO9APf7Q4YBEF3C9o0u3rddDqpNPirQplhIuBZQ5nKJWgrMrEEadmcgWFzg_rQnMycPVElCMlmIOGZtJP9AfWbyPAIfOPBYOEJzJFv4hNMKipekhGsUHLHksr52fX1ZB6zeyfSWMPyOme5ywlZhsakcuKwyU3MHlGLxYpVpJotUZfCGGIlRHJz1tDd7cxMo6kKm0ooLPu-8MWyFxJ1tx_qekcJKJyiJz4j-6apAsxrp08-2wplVrE3gb_PM41g8bxa5m7JsUCLTRF1YJPW44R8rpG0OQC5L5k19U1ryrmnbBtCndCrPbAv1QmaKrkQumwSKNlIOeCty2qO8wjIsprA2-ooLAw6za7AT5Xeo9UC37Yic7QgCnNKZvIRYqtOmGUBq5NUrSDf3k8VJfsH8O-m1YRKftytFnGqTZJmo5Xmx6qA7PU_BitBKdxceQLe4yUFgMjpaVm7gJT7pyLlMW1zXIAbX57KDUGhsuphJTMeW11hj9dn2FxtHi-A5PQ4Xb2fSpUtiH55vObvPL4ILvvD4Si4uAiDQRiOxlGPr5x53B-E0eUwCIejaDQOo02P__EMQT-Krq6CcDwejsaDKAopAnNhlZ7Vr6F_FFshX72n0bH5Cxwcp2M?type=png" />
+    <img className="hidden dark:block" src="https://mermaid.ink/img/pako:eNqNVFFv2jAQ_iuWJ8QLbQMEUvJQiZJ12gNS1Y4-THm5JkdrNbGZ7bAyxH_f2UmAVrRbHhLn_N13353Pt-WZypHHvNPZppIxIYWNmV8y1rXPWGI3Zt0c9Eu3d2x9AC3gsUDT3cNpa6VFCXozU4XSzu_LZJgENzet6wHxA1_tARUEQbdG7NyHXrtOJ5UGf1UoM0wEPGkoU7kCbUUmViAtWzAwbGFQvzUnc2dPVAlCsjlIeCKxZL9HvRYZvgNfezBYeATzbm_qA0wrylaSEaxQ8sCSysXZ1dV0EbM7J9JYw_I6ZnmICVmGxqRy6rDJdcweUIvlhlWkmq1Ql8IYYiVEcn3W0N0ezEyjqQqbSigs-770ybJnEnV77OqqRgHInbynPiL7pikDzOtNH3y-F8qsYmuBvy8yjWDxolrl7pNjgRabJGrHJqzHCflUI2nxBuSeZN7kN6spF56yLQhVQm-OwD5VJ2im5FLosgmgZCPlDW-dVnOc74Asqwm8rfbCwqDT7BL8VOkdWi1wvReZowVRmFMyk48Qe3XCrArYnKRqBfnyfqooOT6AfxetJlTy42q1iFNlktQbrTTfVgVkL__RWAlK4frKE_AeL8kBRE7zw8-AlPvZkPKYljkuwbUvp9tMUKisut_IjMdWV9jj9Rk2V5vHSyA5PU5X76dSZQuiXx5v-SuP-8Hl-XA4Cvr9MBiE4Wgc9fjGmcfngzC6HAbhcBSNxmG06_E_niE4j6LJJAjH4-FoPIiikDwwF1bpeT3y_ORrhXz1O42O3V-dO6Op?type=png" />
+  </Tab>
+  <Tab title="code">
+    <CodeGroup>
+      ```mermaid
+      sequenceDiagram
+        participant U as User
+        participant DM as Domain Management Service
+        participant DB as Database
+        participant AU as Authentication Service
+
+        U->>AU: Requests domain management access
+        AU->>DB: Verify user permissions
+        DB-->>AU: Permissions result
+        alt If User has Permissions
+            AU-->>U: Access Granted
+            U->>DM: Request to view/create/update/delete domain
+            alt If creating/updating domain
+                DM->>DB: Create/Update domain entry
+                DB-->>DM: Confirm creation/update
+                DM-->>U: Domain creation/update confirmation
+            else If viewing domain
+                DM->>DB: Retrieve domain details
+                DB-->>DM: Domain details
+                DM-->>U: Display domain details
+            else If deleting domain
+                DM->>DB: Delete domain entry
+                DB-->>DM: Confirm deletion
+                DM-->>U: Domain deletion confirmation
+            end
+        else If User lacks Permissions
+            AU-->>U: Access Denied
+        end
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
