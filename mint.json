@@ -18,6 +18,19 @@
       "to": "#1334a3"
     }
   },
+  "tabs": [
+    {
+      "name": "Functional Specification",
+      "url": "specification"
+    },
+    {
+      "name": "Business and Financial Requirements",
+      "url": "business"
+    }
+  ],
+  "primaryTab": {
+    "name": "System Design and Architecture"
+  },
   "topAnchor": {
     "name": "System Design and Architecture",
     "icon": "chart-tree-map"
@@ -45,6 +58,19 @@
     }
   ],
   "navigation": [
+    {
+      "group": "Business and Financial Requirements",
+      "pages": [
+        "business/index"
+      ]
+    },
+    {
+      "group": "Specification",
+      "pages": [
+        "specification/index",
+        "specification/use-case"
+      ]
+    },
     {
       "group": "System Design and Architecture",
       "pages": [
@@ -118,7 +144,7 @@
             "application/accessibility",
             "application/analytics",
             "application/troubleshooting"
-        ]
+          ]
         },
         {
           "group": "Infrastructure",

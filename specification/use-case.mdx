@@ -1,0 +1,201 @@
+---
+title: Usecases
+---
+
+
+#### 1. New User Onboarding and Workspace Setup
+- **Actor**: Administrator
+- **Description**: Admin onboards a new user, setting up a personalized workspace.
+- **Steps**:
+  - Admin sends an invitation to the new user.
+  - User registers and is guided through workspace setup.
+  - Options to import issues, integrate SharePoint, and customize the workspace are provided.
+  - The user completes setup and accesses the dashboard.
+
+#### 2. Staff Signup
+- **Actor**: Potential Staff Member
+- **Description**: Staff members register using an authorized email domain.
+- **Steps**:
+  - Staff enters email with a domain configured by the admin.
+  - The system validates the email and registers the user.
+  - The staff member joins the workspace.
+
+#### 3. Modifying User Profile
+- **Actor**: Registered User
+- **Description**: Users modify their profile details, including username uniqueness.
+- **Steps**:
+  - User accesses profile settings.
+  - Updates name, username, and uploads a profile picture.
+  - The system checks for username uniqueness and prompts for changes if needed.
+
+#### 4. User Preference Customization
+- **Actor**: Registered User
+- **Description**: Users customize the look and feel of their dashboard.
+- **Steps**:
+  - User accesses the User Preference page.
+  - Sets default view, theme, font size.
+  - Preferences are saved and applied to the dashboard.
+
+#### 5. User Notification Settings
+- **Actor**: Registered User
+- **Description**: Users manage their notification preferences.
+- **Steps**:
+  - User accesses notification settings.
+  - Enables/disables specific event notifications or all notifications.
+  - System updates notification preferences.
+
+#### 6. User Security and Access Management
+- **Actor**: Registered User
+- **Description**: Users manage their account security and access.
+- **Steps**:
+  - User accesses security settings.
+  - Views all logged devices.
+  - Revokes access or logs out from unfamiliar devices.
+
+#### 7. Team Settings Management
+- **Actor**: Team Lead/Admin
+- **Description**: Management of team members and team visibility.
+- **Steps**:
+  - Team lead accesses team settings.
+  - Adds/removes team members.
+  - Views other teams and joins/leaves teams as needed.
+
+#### 8. Team Triage Page Settings
+- **Actor**: Team Lead/Admin
+- **Description**: Configuring team-specific triage settings and notifications.
+- **Steps**:
+  - Access team triage settings.
+  - Enable/disable triage features.
+  - Set notification actions and member recipients.
+
+#### 9. Team Notification Preferences
+- **Actor**: Team Member
+- **Description**: Individual team members customize their notification settings.
+- **Steps**:
+  - Team member accesses team notification settings.
+  - Customizes how to receive team-related notifications.
+
+#### 10. Team Label Management
+- **Actor**: Team Member
+- **Description**: Managing and organizing labels within a team.
+- **Steps**:
+  - Team member creates, views, filters, and promotes labels.
+  - Labels are applied to issues for categorization.
+
+#### 11. Team Template Creation and Usage
+- **Actor**: Team Member
+- **Description**: Creation and application of issue resolution templates.
+- **Steps**:
+  - Create and customize templates with custom tokens.
+  - Use templates in issue creation for prefilled information.
+
+#### 12. Workspace Member Management
+- **Actor**: Admin
+- **Description**: Admin manages workspace members and roles.
+- **Steps**:
+  - View and manage workspace members.
+  - Assign roles, move members between teams, invite new users.
+
+#### 13. Unified Filters Usage
+- **Actor**: Any System User
+- **Description**: Using unified filters for efficient complaint searching and sorting.
+- **Steps**:
+  - User applies filters based on criteria like date, category, status.
+  - System displays filtered results.
+
+#### 14. Data Export and Backup
+- **Actor**: IT Personnel
+- **Description**: Regular export and backup of system data for security and compliance.
+- **Steps**:
+  - IT staff initiates data export and backup process.
+  - System performs backup and confirms completion.
+
+#### 15. Dashboard Issue Management
+- **Actor**: Staff Member
+- **Description**: Managing issues from the dashboard, including creation, viewing, and updating.
+- **Steps**:
+  - Create a new issue using a button or keyboard shortcut.
+  - View, accept, decline, or update issues.
+  - Manage issue details including complainant, complainee, violations, and links.
+
+
+#### 16. Workspace Issue Import/Export
+- **Actor**: Admin
+- **Description**: Admin oversees the importing and exporting of issues in CSV format for data management and interoperability.
+- **Steps**:
+  - Admin accesses the import/export section.
+  - Chooses to import issues from external sources or export existing issues.
+  - The system processes the data and confirms the completion of the operation.
+
+#### 17. Workspace Integration with SharePoint and Google Spreadsheet
+- **Actor**: Admin
+- **Description**: Integration of external tools like SharePoint and Google Spreadsheet for enhanced file management and backup.
+- **Steps**:
+  - Admin connects E-CMS to SharePoint and Google Spreadsheet.
+  - Sets up synchronization and backup settings.
+  - System automatically manages files and backups according to the set configuration.
+
+#### 18. Workspace Issue Timeframe Resolution (ITR) Configuration
+- **Actor**: Admin
+- **Description**: Setting up rules and timeframes for issue resolution to ensure timely processing.
+- **Steps**:
+  - Admin defines ITR rules based on team and issue status.
+  - Configures how the ITR applies to issues.
+  - System dynamically updates issues based on these rules.
+
+#### 19. Workspace Workday Configuration
+- **Actor**: Admin
+- **Description**: Defining operational days for the workspace, which are used in calculating issue timeframes.
+- **Steps**:
+  - Admin specifies which days are counted as working days.
+  - Configures non-working days or special events.
+  - These settings influence how the system calculates due dates and ITR.
+
+#### 20. Workspace Audit Log Review
+- **Actor**: Admin
+- **Description**: Reviewing and monitoring all activities performed by workspace members for compliance and management.
+- **Steps**:
+  - Admin accesses the audit log section.
+  - Reviews logged activities, changes, and user actions.
+  - Uses this information for compliance checks and system management.
+
+#### 21. Favorite Items Management
+- **Actor**: Any Registered User
+- **Description**: Users personalize their interface by marking frequently accessed items as favorites for quick access.
+- **Steps**:
+  - User selects their frequently used items, like complaints, reports, or tools.
+  - Marks them as favorites.
+  - System updates the user's dashboard to reflect these favorites for easier navigation.
+
+#### 22. Label Management
+- **Actor**: ARTA Staff
+- **Description**: Creation and management of labels for efficient complaint categorization.
+- **Steps**:
+  - Staff accesses the label management tool.
+  - Creates new labels or modifies existing ones.
+  - Applies these labels to complaints to aid in sorting and categorization.
+
+#### 23. Searching Processes
+- **Actor**: Any System User
+- **Description**: Utilizing the system's search functionality to locate specific items or information.
+- **Steps**:
+  - User inputs search criteria in the search bar.
+  - The system processes the query and displays relevant results.
+  - User navigates to the desired item or information based on the search results.
+
+#### 24. Role and Permission Assignment
+- **Actor**: System Administrator
+- **Description**: Assigning different roles and permissions to system users to control access to various functionalities.
+- **Steps**:
+  - Administrator identifies the need to update roles or permissions.
+  - Assigns or modifies roles and permissions for users.
+  - System updates access levels and capabilities based on these roles.
+
+#### 25. Template Management
+- **Actor**: System Administrator
+- **Description**: Creation and management of standardized templates for complaint resolution and other processes.
+- **Steps**:
+  - Administrator creates new templates or updates existing ones.
+  - Defines fields and structures for these templates.
+  - Makes templates available for staff use in their respective complaint handling or other relevant processes.
+

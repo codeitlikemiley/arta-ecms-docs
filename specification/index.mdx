@@ -1,0 +1,131 @@
+---
+title: Functional Specification
+---
+
+# Electronic Complaints Management System (E-CMS) Functional Specification Document
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+This document specifies the functional requirements for the Electronic Complaints Management System (E-CMS), developed to automate and streamline the process of handling, sorting, storing, referring, drafting resolutions, and monitoring the status of complaints filed with ARTA.
+
+### 1.2 Scope
+
+The E-CMS is a web-based application designed to cater to the needs of the public, ARTA, and CART Agencies. It encompasses functionalities from the initial complaint filing to the final resolution, with an emphasis on efficiency, transparency, and adherence to ARTA's rules and procedures.
+
+### 1.3 Definitions, Acronyms, and Abbreviations
+
+- ARTA: Authority Responsible for Tracking Applications
+- CART: Complaints and Resolutions Team
+- E-CMS: Electronic Complaints Management System
+
+### 1.4 References
+
+- [ARTA’s current rules and procedures](/processes/issue-timeframe-resolution)
+- [Database schema documentation for E-CMS](/infrastructure/db-schema)
+- [System architecture](/infrastructure/index#architecture-diagram) and [services documentation](/services/index)
+
+## 2. Overall Description
+
+### 2.1 Product Perspective
+
+E-CMS is an integrated solution that operates in conjunction with existing ARTA systems, providing a comprehensive platform for complaint management, tracking, and resolution.
+
+### 2.2 User Classes and Characteristics
+
+- The Public: Individuals who file complaints via the web application.
+- ARTA Staff: Users who monitor, manage, and resolve complaints. (PAD, IELO,OODG,DDG , Legal, Litigation)
+- CART Agencies: External agencies receiving and acting on referred complaints.
+
+## 3. System Features
+
+### 3.1 Complaint Filing and Management
+
+      -  Web-based interface for public complaint submission.
+
+      -  Automatic sorting and categorization of complaints based on predefined criteria.
+
+      - Secure storage and retrieval of complaint data.
+
+      -  Mechanisms for drafting and managing resolutions.
+
+      - Tracking and updating the status of each complaint.
+
+### 3.2 User Dashboard and Accessibility
+
+-  Real-time dashboard for ARTA to monitor complaint statuses.
+
+-  Dashboard access for CART Agencies to manage referred complaints.
+
+-  Inclusive and accessible design for all user types.
+
+-  Automated Workflow and Notifications
+
+-  Workflow automation to ensure timely processing of complaints.
+
+-  Automated notifications to stakeholders at each complaint resolution stage.
+
+### 3.4 Data Management and Reporting
+
+-  Comprehensive data management adhering to security and privacy standards.
+
+-  Reporting tools for analyzing complaint handling efficiency and agency performance.
+
+## 4. External Interface Requirements
+
+### 4.1 User Interfaces
+
+-  Intuitive web interface for complaint submission by the public.
+
+-  Dashboard interfaces for ARTA and CART Agencies.
+
+### 4.2 Software Interfaces
+
+-  Integration with ARTA’s existing systems and databases.
+
+- Compliance with data exchange standards and protocols.
+
+### 4.3 Communications Interfaces
+
+- Email and notification system for communicating with stakeholders.
+
+## 5. Non-Functional Requirements
+
+### 5.1 Security Requirements
+
+- Robust data encryption and user authentication mechanisms.
+
+- Compliance with data protection and privacy laws.
+
+### 5.2 Performance Requirements
+
+- High responsiveness and minimal downtime.
+
+- Scalability to handle varying volumes of complaints.
+
+### 5.3 Reliability and Availability
+
+- System reliability with minimal failure rates.
+
+- High availability for uninterrupted access.
+
+## 6. Other Requirements
+
+### 6.1 User Support and Helpdesk
+
+-  Helpdesk support for users requiring assistance.
+
+-  Online resources and FAQs for system usage.
+
+### 6.2 Feedback and Improvement
+
+-  Feedback mechanisms for continuous system improvement.
+
+## 7. Appendices
+
+### Appendix A: Glossary
+Definitions of terms and acronyms used in this document.
+
+### Appendix B: [Database Schema](/infrastructure/db-schema)
+Detailed structure and description of the E-CMS database schema.
