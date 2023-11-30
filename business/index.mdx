@@ -2,84 +2,153 @@
 title: Business and Financial Requirements
 ---
 
-# Business and Financial Requirements for Electronic Complaints Management System (E-CMS)
+# E-CMS Project Financial Plan
 
 ## 1. Business Requirements
 
 ### 1.1 Objectives
-
-- **Streamlined Complaint Handling:** Implementation of a Rust-based backend to ensure robust performance and reliability in managing and resolving complaints lodged with ARTA.
-- **Enhanced Public Engagement:** Development of a user-friendly and accessible frontend interface, utilizing technologies such as React or Vue.js, to facilitate public complaint submissions.
-- **Real-Time Monitoring and Reporting:** Integration of real-time tracking and reporting capabilities for ARTA and CART Agencies, harnessing cloud technology for immediate data processing and display.
+- Implement a Rust-based backend for robust performance in managing complaints.
+- Develop a user-friendly frontend interface for public complaint submissions.
+- Integrate real-time tracking and reporting capabilities for ARTA and CART Agencies.
 
 ### 1.2 Key Stakeholders
-
-- **The Public:** Providing a straightforward and efficient platform for individuals to file complaints.
-- **ARTA Staff:** Offering a reliable and responsive system for administrators to manage and resolve complaints.
-- **CART Agencies:** Enabling seamless cross-organizational collaboration and information sharing.
+- The Public: For efficient complaint filing.
+- ARTA Staff: For managing and resolving complaints.
+- CART Agencies: For cross-organizational collaboration and information sharing.
 
 ### 1.3 Compliance and Standards
-
-- **Data Protection and Security:** Leveraging Rust's inherent security features to ensure robust data protection and compliance with legal standards.
-- **Accessibility:** Ensuring that the frontend interface meets universal design principles, guaranteeing ease of access for all users.
+- Utilize Rust's security features for data protection.
+- Ensure frontend interface accessibility according to universal design principles.
 
 ### 1.4 Risk Management
-
-- **Data Security and Privacy:** Employing Rust’s capabilities to safeguard against data breaches and unauthorized access.
-- **System Availability:** Ensuring high availability and minimal downtime through reliable cloud hosting solutions and Rust’s stable environment.
+- Employ Rust’s capabilities for data security and privacy.
+- Achieve high system availability with reliable cloud hosting solutions.
 
 ## 2. Financial Requirements
 
 ### 2.1 Initial Investment
-
-- **Development Costs:** Budgeting for both the Rust backend development, which ensures system robustness, and the frontend development, which focuses on user experience.
-- **Infrastructure Costs:** Optimizing expenditure on cloud infrastructure, taking advantage of Rust’s efficient resource usage.
-- **Licensing and Tools:** Expenses for any essential third-party integrations or development tools.
+- Development Costs: Budget for Rust backend and frontend development.
+- Infrastructure Costs: Optimize cloud infrastructure expenditure.
+- Licensing and Tools: Budget for necessary third-party integrations.
 
 ### 2.2 Operational Expenses
-
-- **Ongoing Maintenance:** Anticipating lower ongoing maintenance costs, factoring in Rust’s efficient performance and reduced bug rate.
-- **Training Programs:** Budgeting for comprehensive training in both Rust and frontend technologies, ensuring effective system use and management.
+- Ongoing Maintenance: Lower costs due to Rust’s efficiency.
+- Training Programs: Budget for Rust and frontend technology training.
 
 ### 2.3 Hosting and Data Management Costs
-
-- **Cloud Hosting:** Selecting cloud services that complement Rust’s performance traits, focusing on scalability and efficiency.
-- **Database Management:** Costs associated with robust and scalable database solutions, compatible with the system architecture.
+- Cloud Hosting: Select scalable and efficient cloud services.
+- Database Management: Budget for robust database solutions.
 
 ### 2.4 Maintenance Cost
-
-- **Reduced Long-Term Costs:** Emphasizing the cost benefits of Rust in minimizing runtime errors and ensuring system stability.
+- Reduced Long-Term Costs: Rust minimizes runtime errors and ensures stability.
 
 ### 2.5 Budget Allocation
-
-- **Development Phase:**
-  - Allocation of significant funds towards the initial development phase, with emphasis on establishing a strong foundation using Rust for backend and modern frameworks for the frontend.
-- **Implementation Phase:**
-  - Budgeting for efficient deployment, including cloud setup, integration testing, and initial user training.
-- **Maintenance Phase:**
-  - Anticipating a reduced budget allocation for maintenance due to Rust's influence in lowering long-term system upkeep needs.
+- Development Phase: Significant funds for initial development.
+- Implementation Phase: Budget for deployment, testing, and training.
+- Maintenance Phase: Reduced budget due to Rust's long-term cost efficiency.
 
 ### 2.6 Financial Projections
-
-- **Operational Cost Projection:** Estimating lower operational costs over time, considering Rust's impact on cloud resource optimization.
-- **Revenue and Cost Savings:** Projecting potential cost savings for ARTA through increased operational efficiency and public service quality.
+- Lower operational costs due to Rust’s cloud resource optimization.
+- Anticipate cost savings through increased operational efficiency.
 
 ### 2.7 Contingency Planning
-
-- **Risk Mitigation Funds:** Setting aside a contingency budget for unforeseen technical or operational challenges, particularly in areas where Rust’s complexity might impact development timelines or integration.
+- Risk Mitigation Funds: Budget for unforeseen challenges, especially with Rust’s complexity.
 
 ### 2.8 Timeline Alignment
-
-- **Milestone-Based Budgeting:** Aligning financial planning with key project milestones, ensuring that funds are available for critical development and deployment stages.
-- **Adjustment for Learning Curve:** Factoring in additional time and resources for the initial phase, accounting for the team's acclimatization to Rust and integration complexities.
+- Milestone-Based Budgeting: Align funds with project milestones.
+- Adjustment for Learning Curve: Account for time and resources for Rust acclimatization.
 
 ### 2.9 Technology Stack Integration
-
-- **Backend (Rust):** Allocating funds for specialized Rust development, ensuring back-end stability and security.
-- **Frontend (React/Vue.js):** Budgeting for the creation of an intuitive and responsive user interface.
-- **Cloud Infrastructure:** Investment in cloud services that offer scalability and robustness, enhancing the performance capabilities provided by Rust.
+- Backend (Rust): Funds for specialized development.
+- Frontend (React/Vue.js): Budget for a responsive user interface.
+- Cloud Infrastructure: Invest in scalable and robust cloud services.
 
 ### 2.10 System Design Considerations
+- Scalable Architecture: Financial planning for a flexible system.
+- Integration Complexity: Allocate resources for seamless system operation.
 
-- **Scalable Architecture:** Financial planning for a system architecture that supports scalability and flexibility, accommodating future enhancements.
-- **Integration Complexity:** Allocating resources for the integration of various system components, ensuring seamless operation and data flow between the frontend and backend.
+### 2.11 Detailed Financial Analysis
+
+#### 2.11.1 Development Costs
+| Role             | Compensation (USD) | Compensation (PHP) |
+|------------------|--------------------|--------------------|
+| Rust Backend (Sr)| 65,000             | 3,606,200          |
+| Rust Backend (Jr)| 10,000             | 554,800            |
+| Frontend (Sr)    | 36,000             | 1,997,280          |
+| Frontend (Jr)    | 10,000             | 554,800            |
+| **Total**        | **121,000**        | **6,713,080**      |
+
+#### 2.11.2 Initial Operating Costs
+| Item                          | Monthly Cost (USD) | Monthly Cost (PHP) |
+|-------------------------------|--------------------|--------------------|
+| GRPC Server (Rust, 1M Req/Sec)| 140.52             | 7,796.97           |
+| Database (1 GB RAM, Planet Scale)| 39               | 2,163.72           |
+| Cloud Hosting (5 TB, Cloudflare R2)| 98.25          | 5,452.46           |
+| Email Notifications (100K, Amazon SES)| 10          | 554.80             |
+| Queue Service (10M requests, Amazon)| 3.6           | 199.73             |
+| **Total Monthly Operational** | **291.37**         | **16,167.68**      |
+
+#### 2.11.3 Projected Operating Costs at Higher Operational Level
+| Item                          | Monthly Cost (USD) | Monthly Cost (PHP) |
+|-------------------------------|--------------------|--------------------|
+| GRPC Server (Rust, 10M Req/Sec)| 1,517.66           | 84,230.36          |
+| Database (32 GB RAM, Planet Scale)| 699             | 38,795.12          |
+| Cloud Hosting (25 TB, Cloudflare R2)| 398.25        | 22,108.79          |
+| Email Notifications (1.4M, Amazon SES)| 140         | 7,767.20          |
+| Queue Service (100M requests, Amazon)| 39.60        | 2,197.10           |
+| **Total Monthly Operational** | **2,794.51**       | **154,998.57**     |
+
+#### 2.11.4 Annual Savings Analysis
+| Operational Level | Monthly Savings (USD) | Monthly Savings (PHP) | Annual Savings (USD) | Annual Savings (PHP) |
+|-------------------|-----------------------|-----------------------|----------------------|----------------------|
+| Initial Costs     | 3,381.70              | 187,556.13            | 40,580.40            | 2,250,673.56         |
+| Projected Costs   | 22,080.85             | 1,224,983.08          | 264,970.20           | 14,699,796.96        |
+
+### 2.12 Cost Efficiency Analysis
+
+#### 2.12.1 Rust vs. Python Server Cost Comparison
+| Required Traffic | Rust Instances | Python Instances | Rust Cost (USD) | Python Cost (USD) | Savings with Rust (USD) |
+|------------------|----------------|------------------|-----------------|-------------------|-------------------------|
+| 1 Million Req/Sec| 5              | 48               | 140.52          | 1,349.03          | 1,208.51                |
+| 10 Million Req/Sec| 53            | 476              | 1,517.66        | 13,377.86         | 11,860.20               |
+
+#### 2.12.2 Database Operational Cost Comparison
+| Tiers    | Planet Scale Cost (USD) | AWS RDS Cost (USD) | Savings with Planet Scale (USD) |
+|----------|-------------------------|--------------------|---------------------------------|
+| 1 GB RAM | 39                      | 136.76             | 97.76                           |
+| 32 GB RAM| 699                     | 1,177.74           | 478.74                          |
+
+#### 2.12.3 Cloud Operation Cost Comparison
+| Tiers | Cloudflare R2 Cost (USD) | AWS S3 Cost (USD) | Savings with Cloudflare R2 (USD) |
+|-------|--------------------------|-------------------|----------------------------------|
+| 5 TB  | 98.25                    | 2,163.73          | 2,065.48                         |
+| 25 TB | 398.25                   | 9,531.65          | 9,133.65                         |
+
+#### 2.12.4 Email and Queue Service Cost Comparison
+| Service        | Usage Level     | Amazon SES Cost (USD) | SendGrid Cost (USD) | Savings (USD) |
+|----------------|-----------------|-----------------------|---------------------|---------------|
+| Email          | 100K mails      | 10                    | 19.95               | 9.95          |
+|                | 1 Million mails | 100                   | 449                 | 349           |
+|                | 1.4 Million mails| 140                  | 749                 | 609           |
+| Queue Service  | 10 Million requests| 3.6                 | -                   | -             |
+|                | 100 Million requests| 39.60             | -                   | -             |
+
+#### 2.12.5 Developer Salary Comparison
+
+##### Back-End Developer Salary Comparison (Rust vs. Python)
+
+| Seniority Level | Rust Developer Salary (USD) | Python Developer Salary (USD) |
+|-----------------|-----------------------------|-------------------------------|
+| Junior          | 10,000                      | 10,000                        |
+| Middle          | 65,000                      | 24,000                        |
+| Senior          | 95,000                      | 36,000                        |
+
+##### Front-End Developer Salaries
+
+| Seniority Level | Average Monthly Salary (PHP) | Average Monthly Salary (USD) |
+|-----------------|------------------------------|------------------------------|
+| Junior          | 40,000                        | 721                          |
+| Middle          | 80,000                        | 1,442                        |
+| Senior          | 150,000                       | 2,703                        |
+
+---
